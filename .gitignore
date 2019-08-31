@@ -6,9 +6,9 @@ install.properties.original
 install/suitecrm-dwh-db-passed
 install/suitecrm-db-passed
 install/ddl-passed
-suitecrm-data-integration/configuration/.kettle/
-suitecrm-data-integration/configuration/config
-suitecrm-data-integration/configuration/simple-jndi/
-suitecrm-data-integration/logs/
+suitecrm-data-integration-server/configuration/.kettle/
+suitecrm-data-integration-server/configuration/config
+suitecrm-data-integration-server/configuration/simple-jndi/
+suitecrm-data-integration-server/logs/
 install.properties.live
 install.properties.stashed
