@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS `S_INVOICES_LINE_ITEM_GROUPS`;
+CREATE TABLE `S_INVOICES_LINE_ITEM_GROUPS` (
+  `id` VARCHAR(36) DEFAULT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `date_entered` DATETIME DEFAULT NULL,
+  `date_modified` DATETIME DEFAULT NULL,
+  `modified_user_id` VARCHAR(36) DEFAULT NULL,
+  `created_by` VARCHAR(36) DEFAULT NULL,
+  `description` TEXT,
+  `deleted` CHAR(1) DEFAULT NULL,
+  `assigned_user_id` VARCHAR(36) DEFAULT NULL,
+  `total_amt` DECIMAL(26,6) DEFAULT NULL,
+  `total_amt_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `discount_amount` DECIMAL(26,6) DEFAULT NULL,
+  `discount_amount_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `subtotal_amount` DECIMAL(26,6) DEFAULT NULL,
+  `subtotal_amount_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `tax_amount` DECIMAL(26,6) DEFAULT NULL,
+  `tax_amount_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `subtotal_tax_amount` DECIMAL(26,6) DEFAULT NULL,
+  `subtotal_tax_amount_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `total_amount` DECIMAL(26,6) DEFAULT NULL,
+  `total_amount_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `parent_type` VARCHAR(100) DEFAULT NULL,
+  `parent_id` VARCHAR(36) DEFAULT NULL,
+  `number` INT(11) DEFAULT NULL,
+  `currency_id` VARCHAR(36) DEFAULT NULL
+);

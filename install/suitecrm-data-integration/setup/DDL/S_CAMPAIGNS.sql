@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS `S_CAMPAIGNS`;
+CREATE TABLE `S_CAMPAIGNS` (
+  `id` VARCHAR(36) DEFAULT NULL,
+  `name` VARCHAR(50) DEFAULT NULL,
+  `date_entered` DATETIME DEFAULT NULL,
+  `date_modified` DATETIME DEFAULT NULL,
+  `modified_user_id` VARCHAR(36) DEFAULT NULL,
+  `created_by` VARCHAR(36) DEFAULT NULL,
+  `deleted` CHAR(1) DEFAULT NULL,
+  `assigned_user_id` VARCHAR(36) DEFAULT NULL,
+  `tracker_key` INT(11) DEFAULT NULL,
+  `tracker_count` INT(11) DEFAULT NULL,
+  `refer_url` VARCHAR(255) DEFAULT NULL,
+  `tracker_TEXT` VARCHAR(255) DEFAULT NULL,
+  `start_date` DATETIME DEFAULT NULL,
+  `end_date` DATETIME DEFAULT NULL,
+  `status` VARCHAR(100) DEFAULT NULL,
+  `impressions` INT(11) DEFAULT NULL,
+  `currency_id` VARCHAR(36) DEFAULT NULL,
+  `budget` DOUBLE DEFAULT NULL,
+  `expected_cost` DOUBLE DEFAULT NULL,
+  `actual_cost` DOUBLE DEFAULT NULL,
+  `expected_revenue` DOUBLE DEFAULT NULL,
+  `campaign_type` VARCHAR(100) DEFAULT NULL,
+  `objective` TEXT,
+  `content` TEXT,
+  `frequency` VARCHAR(100) DEFAULT NULL
+);

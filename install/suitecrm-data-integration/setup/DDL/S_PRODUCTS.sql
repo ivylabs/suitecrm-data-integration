@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS `S_PRODUCTS`;
+CREATE TABLE `S_PRODUCTS` (
+  `id` VARCHAR(36) DEFAULT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `date_entered` DATETIME DEFAULT NULL,
+  `date_modified` DATETIME DEFAULT NULL,
+  `modified_user_id` VARCHAR(36) DEFAULT NULL,
+  `created_by` VARCHAR(36) DEFAULT NULL,
+  `description` TEXT,
+  `deleted` CHAR(1) DEFAULT NULL,
+  `assigned_user_id` VARCHAR(36) DEFAULT NULL,
+  `maincode` VARCHAR(100) DEFAULT NULL,
+  `part_number` VARCHAR(25) DEFAULT NULL,
+  `category` VARCHAR(100) DEFAULT NULL,
+  `type` VARCHAR(100) DEFAULT NULL,
+  `cost` DECIMAL(26,6) DEFAULT NULL,
+  `cost_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `currency_id` VARCHAR(36) DEFAULT NULL,
+  `price` DECIMAL(26,6) DEFAULT NULL,
+  `price_usdollar` DECIMAL(26,6) DEFAULT NULL,
+  `url` VARCHAR(255) DEFAULT NULL,
+  `contact_id` VARCHAR(36) DEFAULT NULL,
+  `product_image` VARCHAR(255) DEFAULT NULL,
+  `aos_product_category_id` VARCHAR(36) DEFAULT NULL
+);
