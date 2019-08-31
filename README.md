@@ -42,7 +42,7 @@ SuiteCRM Data Integration handles the population of the Data Warehouse. Its job 
 # Populate the Data Warehouse
 Now that the solution is configured we can populate the Data Warehouse with data from SuiteCRM. Simply run:
 
-./run-suitecrm-data-integration.sh
+* ./run-suitecrm-data-integration.sh
 
 This script will get all the data from from SuiteCRM on the first run and with any future runs, it will get the latest changed data. This means the first run could take some time but subsequent runs will be faster depending on the volume of new data.
 Check The Data Warehouse
