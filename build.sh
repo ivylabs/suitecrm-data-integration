@@ -44,9 +44,9 @@ cp -Rf install/suitecrm-data-integration/{.[!.],}* suitecrm-data-integration-ser
 cp -Rf install/solution/ suitecrm-data-integration-server/
 
 
-#zip -r suitecrm-data-integration-server.zip suitecrm-data-integration-server/
+zip -r suitecrm-data-integration-server.zip suitecrm-data-integration-server/
 
-#rm -Rf suitecrm-data-integration-server/
+rm -Rf suitecrm-data-integration-server/
 
 
 echo ""
