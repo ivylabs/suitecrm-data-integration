@@ -44,9 +44,19 @@ cp -Rf install/suitecrm-data-integration/{.[!.],}* suitecrm-data-integration-ser
 cp -Rf install/solution/ suitecrm-data-integration-server/
 
 
-zip -r suitecrm-data-integration-server.zip suitecrm-data-integration-server/
 
-rm -Rf suitecrm-data-integration-server/
+
+echo ""
+read -r -p " Would you like to package the installation? This will create a zip file and remove the ready to use application server. [y/N] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+        zip -r suitecrm-data-integration-server.zip suitecrm-data-integration-server/
+	
+	rm -Rf suitecrm-data-integration-server/
+
+
+fi
+
 
 
 echo ""

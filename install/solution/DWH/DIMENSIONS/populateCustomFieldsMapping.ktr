@@ -2,21 +2,21 @@
 <transformation>
   <info>
     <name>populateCustomFieldsMapping</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -41,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -125,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -207,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -349,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -401,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -414,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -482,16 +482,16 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server />
+    <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username />
+    <username/>
     <password>Encrypted </password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -590,22 +590,22 @@
   <step>
     <name>Custom Table Fields</name>
     <type>DataGrid</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>CUSTOM_FIELD_TABLE</name>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -613,10 +613,10 @@
       <field>
         <name>ORIGINAL_TABLE</name>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -624,10 +624,10 @@
       <field>
         <name>TARGET_TABLE</name>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -635,10 +635,10 @@
       <field>
         <name>TARGET_TABLE_ID</name>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -657,8 +657,20 @@
         <item>D_LEADS</item>
         <item>LEAD_ID</item>
       </line>
+      <line>
+        <item>accounts_cstm</item>
+        <item>accounts</item>
+        <item>D_ACCOUNTS</item>
+        <item>ACCOUNT_ID</item>
+      </line>
+      <line>
+        <item>opportunities_cstm</item>
+        <item>opportunities</item>
+        <item>D_OPPORTUNITIES</item>
+        <item>OPPORTUNITY_ID</item>
+      </line>
     </data>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -674,16 +686,16 @@
   <step>
     <name>Filter Blacklist Fields</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Modify Fields</send_true_to>
-    <send_false_to />
+    <send_false_to/>
     <compare>
       <condition>
         <negated>N</negated>
@@ -692,7 +704,7 @@
             <negated>N</negated>
             <leftvalue>CUSTOM_FIELD_NAME</leftvalue>
             <function>&lt;></function>
-            <rightvalue />
+            <rightvalue/>
             <value>
               <name>constant</name>
               <type>String</type>
@@ -700,13 +712,13 @@
               <length>-1</length>
               <precision>-1</precision>
               <isnull>N</isnull>
-              <mask />
+              <mask/>
             </value>
           </condition>
         </conditions>
       </condition>
     </compare>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -720,15 +732,58 @@
     </GUI>
   </step>
   <step>
-    <name>Generate Target Field</name>
-    <type>ScriptValueMod</type>
-    <description />
+    <name>Filter Property</name>
+    <type>FilterRows</type>
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Join</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>PROPERTY</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>SUITECRM_DATABASE</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Generate Target Field</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -752,7 +807,7 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -768,30 +823,30 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
   <step>
     <name>Get Custom Table Fields</name>
     <type>jdbcMetaData</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connectionSource>Connection</connectionSource>
     <connectionName>SuiteCRM</connectionName>
-    <connectionField />
-    <jdbcDriverField />
-    <jdbcUrlField />
-    <jdbcUserField />
-    <jdbcPasswordField />
+    <connectionField/>
+    <jdbcDriverField/>
+    <jdbcUrlField/>
+    <jdbcUserField/>
+    <jdbcPasswordField/>
     <alwaysPassInputRow>Y</alwaysPassInputRow>
     <methodName>getColumns</methodName>
     <removeArgumentFields>N</removeArgumentFields>
     <argumentSourceFields>Y</argumentSourceFields>
     <arguments>
       <argument>DB</argument>
-      <argument />
+      <argument/>
       <argument>CUSTOM_FIELD_TABLE</argument>
-      <argument />
+      <argument/>
     </arguments>
     <outputFields>
       <outputField>
@@ -827,7 +882,7 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
         <rename>IS_AUTOINCREMENT</rename>
       </outputField>
     </outputFields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -841,15 +896,97 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
     </GUI>
   </step>
   <step>
-    <name>Has Length?</name>
-    <type>ValueMapper</type>
-    <description />
+    <name>Get SuiteCRM Database Name</name>
+    <type>PropertyInput</type>
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <file_type>property</file_type>
+    <encoding>UTF-8</encoding>
+    <include>N</include>
+    <include_field/>
+    <filename_Field/>
+    <rownum>N</rownum>
+    <isaddresult>Y</isaddresult>
+    <filefield>N</filefield>
+    <rownum_field/>
+    <resetrownumber>N</resetrownumber>
+    <resolvevaluevariable>N</resolvevaluevariable>
+    <ini_section>N</ini_section>
+    <ini_section_field/>
+    <section/>
+    <file>
+      <name>${ETL_ROOT_DIR}/../configuration/.kettle/kettle.properties</name>
+      <exclude_filemask/>
+      <filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>PROPERTY</name>
+        <column>key</column>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>DB</name>
+        <column>value</column>
+        <type>String</type>
+        <format/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Has Length?</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <field_to_use>TYPE_NAME</field_to_use>
     <target_field>HAS_LENGTH</target_field>
@@ -868,7 +1005,7 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
         <target_value>1</target_value>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -884,43 +1021,43 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
   <step>
     <name>Insert / Update CUSTOM_FIELDS</name>
     <type>InsertUpdate</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema />
+      <schema/>
       <table>CUSTOM_FIELDS</table>
       <key>
         <name>DB</name>
         <field>DB</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>ORIGINAL_TABLE</name>
         <field>ORIGINAL_TABLE</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>SUITECRM_SOURCE_TABLE_NAME</name>
         <field>SUITECRM_SOURCE_TABLE_NAME</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <key>
         <name>SUITECRM_SOURCE_COLUMN_NAME</name>
         <field>SUITECRM_SOURCE_COLUMN_NAME</field>
         <condition>=</condition>
-        <name2 />
+        <name2/>
       </key>
       <value>
         <name>DB</name>
@@ -998,7 +1135,7 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
         <update>Y</update>
       </value>
     </lookup>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1012,15 +1149,51 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
     </GUI>
   </step>
   <step>
-    <name>Modify Fields</name>
-    <type>SelectValues</type>
-    <description />
+    <name>Join</name>
+    <type>JoinRows</type>
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Modify Fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -1066,7 +1239,7 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1082,13 +1255,13 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
   <step>
     <name>Select values</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -1099,7 +1272,7 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1109,167 +1282,6 @@ var TARGET_FIELD_NAME = upper(substr(SUITECRM_SOURCE_COLUMN_NAME,0,TARGET_FIELD_
     <GUI>
       <xloc>512</xloc>
       <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get SuiteCRM Database Name</name>
-    <type>PropertyInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <file_type>property</file_type>
-    <encoding>UTF-8</encoding>
-    <include>N</include>
-    <include_field />
-    <filename_Field />
-    <rownum>N</rownum>
-    <isaddresult>Y</isaddresult>
-    <filefield>N</filefield>
-    <rownum_field />
-    <resetrownumber>N</resetrownumber>
-    <resolvevaluevariable>N</resolvevaluevariable>
-    <ini_section>N</ini_section>
-    <ini_section_field />
-    <section />
-    <file>
-      <name>${ETL_ROOT_DIR}/../configuration/.kettle/kettle.properties</name>
-      <exclude_filemask />
-      <filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>PROPERTY</name>
-        <column>key</column>
-        <type>String</type>
-        <format />
-        <length>-1</length>
-        <precision>-1</precision>
-        <currency />
-        <decimal />
-        <group />
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>DB</name>
-        <column>value</column>
-        <type>String</type>
-        <format />
-        <length>-1</length>
-        <precision>-1</precision>
-        <currency />
-        <decimal />
-        <group />
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter Property</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Join</send_true_to>
-    <send_false_to />
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>PROPERTY</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>SUITECRM_DATABASE</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join</name>
-    <type>JoinRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main />
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue />
-        <function>=</function>
-        <rightvalue />
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

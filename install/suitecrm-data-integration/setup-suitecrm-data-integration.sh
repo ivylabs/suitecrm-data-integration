@@ -108,16 +108,22 @@ then
 
 					rm -Rf ddl-passed
 
-					# Populate Control table with additional properties
+					echo ""
+					echo " Populate Control table with additional properties"
 
 					./populate-control.sh
+
+					#echo ""
+					#echo " Populate Custom Field Mapping table"
+
+					#./populate-custom-fields-mapping.sh
 				fi
                 	fi
 		fi
 
 		if [ "$SMTP_ENABLED" -eq "1" ]; then
 			echo " We will configure your email properties and send you a test email"
-                        echo " If you do not get this email then please check the log in ......"
+                        echo " If you do not get this email then please check the log in logs/"
 			./send-test-email.sh
 
                 fi
