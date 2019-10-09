@@ -40,6 +40,11 @@ mv install/installation-files/data-integration/ suitecrm-data-integration-server
 #cp -Rf install/suitecrm-data-integration-server/{.[!.],}* suitecrm-data-integration-server/configuration
 cp -Rf install/mysql-connector-java-5.1.47.jar suitecrm-data-integration-server/client/lib/
 
+# Package the DDL into a single file
+
+awk 'FNR==1{print ""}{print}' install/suitecrm-data-integration/setup/DDL/*.sql > install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS
+mv install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS.sql
+
 cp -Rf install/suitecrm-data-integration/{.[!.],}* suitecrm-data-integration-server/
 cp -Rf install/solution/ suitecrm-data-integration-server/
 

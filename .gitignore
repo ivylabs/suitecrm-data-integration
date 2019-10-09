@@ -7,6 +7,7 @@ install/suitecrm-dwh-db-passed
 install/suitecrm-db-passed
 install.properties
 install/ddl-passed
+install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS.sql
 suitecrm-data-integration-server/
 suitecrm-data-integration-server.zip
 suitecrm-data-integration-server/configuration/.kettle/
