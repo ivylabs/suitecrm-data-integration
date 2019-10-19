@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>populateFacts</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <directory>/public/SuiteCRM Analytics/System/ETL/DWH</directory>
+  <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2017/07/22 13:00:56.520</created_date>
   <modified_user>admin</modified_user>
@@ -312,7 +313,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1312</xloc>
+      <xloc>1568</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -399,7 +400,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>672</xloc>
+      <xloc>896</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -410,7 +411,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>896</xloc>
+      <xloc>1120</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -502,6 +503,42 @@ Populating Facts
       <xloc>1120</xloc>
       <yloc>128</yloc>
     </entry>
+    <entry>
+      <name>populateLeadTrackingFact</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/FACTS/populateLeadTrackingFact.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1344</xloc>
+      <yloc>128</yloc>
+    </entry>
   </entries>
   <hops>
     <hop>
@@ -587,11 +624,38 @@ Populating Facts
     </hop>
     <hop>
       <from>populateInvoiceManagementFact</from>
+      <to>populateLeadTrackingFact</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>populateLeadTrackingFact</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>populateInvoiceManagementFact</from>
+      <to>Write To Log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>populateLeadTrackingFact</from>
+      <to>Write To Log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>

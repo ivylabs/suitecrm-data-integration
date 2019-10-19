@@ -555,6 +555,10 @@ Pre Execution
           <name>CUSTOM_FIELDS</name>
           <schemaname/>
         </field>
+        <field>
+          <name>F_LEAD_TRACKING</name>
+          <schemaname/>
+        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
