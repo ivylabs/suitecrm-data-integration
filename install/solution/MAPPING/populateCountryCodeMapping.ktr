@@ -498,7 +498,7 @@
     </hop>
     <hop>
       <from>Preview</from>
-      <to>MAP COUNTRY CODES</to>
+      <to>COUNTRY CODES MAPPING</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -622,7 +622,7 @@
     </GUI>
   </step>
   <step>
-    <name>MAP COUNTRY CODES</name>
+    <name>COUNTRY CODES MAPPING</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -637,7 +637,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>MAP_COUNTRY_CODES</table>
+      <table>COUNTRY_CODES_MAPPING</table>
       <key>
         <name>COUNTRY</name>
         <field>COUNTRY</field>
