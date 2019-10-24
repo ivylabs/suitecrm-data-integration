@@ -10,4 +10,4 @@ CREATE TABLE `S_LEADS_AUDIT` (
   `after_value_string` varchar(255) DEFAULT NULL,
   `before_value_text` varchar(255) DEFAULT NULL,
   `after_value_text` varchar(255) DEFAULT NULL
-)
+);
