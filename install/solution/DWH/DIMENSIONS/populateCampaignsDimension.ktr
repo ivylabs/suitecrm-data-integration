@@ -519,11 +519,11 @@
     </hop>
     <hop>
       <from>Replace NULLS</from>
-      <to>Select values</to>
+      <to>Change Data Types</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
+      <from>Change Data Types</from>
       <to>D_CAMPAIGNS</to>
       <enabled>Y</enabled>
     </hop>
@@ -557,97 +557,97 @@
       <field>
         <name>CAMPAIGN_NAME</name>
         <lookup>CAMPAIGN_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_CREATED_BY</name>
         <lookup>CAMPAIGN_CREATED_BY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_DELETED</name>
         <lookup>CAMPAIGN_DELETED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TRACKER_KEY</name>
         <lookup>CAMPAIGN_TRACKER_KEY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TRACKER_COUNT</name>
         <lookup>CAMPAIGN_TRACKER_COUNT</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_REFER_URL</name>
         <lookup>CAMPAIGN_REFER_URL</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TRACKER_TEXT</name>
         <lookup>CAMPAIGN_TRACKER_TEXT</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_START_DATE</name>
         <lookup>CAMPAIGN_START_DATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_END_DATE</name>
         <lookup>CAMPAIGN_END_DATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_STATUS</name>
         <lookup>CAMPAIGN_STATUS</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_IMPRESSIONS</name>
         <lookup>CAMPAIGN_IMPRESSIONS</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_BUDGET</name>
         <lookup>CAMPAIGN_BUDGET</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_EXPECTED_COST</name>
         <lookup>CAMPAIGN_EXPECTED_COST</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_ACTUAL_COST</name>
         <lookup>CAMPAIGN_ACTUAL_COST</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_EXPECTED_REVENUE</name>
         <lookup>CAMPAIGN_EXPECTED_REVENUE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TYPE</name>
         <lookup>CAMPAIGN_TYPE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_OBJECTIVE</name>
         <lookup>CAMPAIGN_OBJECTIVE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_CONTENT</name>
         <lookup>CAMPAIGN_CONTENT</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_FREQUENCY</name>
         <lookup>CAMPAIGN_FREQUENCY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <return>
         <name>CAMPAIGN_TK</name>
@@ -1061,7 +1061,7 @@ FROM S_CAMPAIGNS</sql>
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>Change Data Types</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>

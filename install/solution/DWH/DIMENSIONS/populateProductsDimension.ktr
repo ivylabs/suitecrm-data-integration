@@ -546,77 +546,77 @@
       <field>
         <name>PRODUCT_NAME</name>
         <lookup>PRODUCT_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_DESCRIPTION</name>
         <lookup>PRODUCT_DESCRIPTION</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_DELETED</name>
         <lookup>PRODUCT_DELETED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_MAINCODE</name>
         <lookup>PRODUCT_MAINCODE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_PART_NUMBER</name>
         <lookup>PRODUCT_PART_NUMBER</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_TYPE</name>
         <lookup>PRODUCT_TYPE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_UNIT_COST</name>
         <lookup>PRODUCT_UNIT_COST</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_CURRENCY_ID</name>
         <lookup>PRODUCT_CURRENCY_ID</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_UNIT_PRICE</name>
         <lookup>PRODUCT_UNIT_PRICE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_URL</name>
         <lookup>PRODUCT_URL</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_IMAGE</name>
         <lookup>PRODUCT_IMAGE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_CATEGORY_ID</name>
         <lookup>PRODUCT_CATEGORY_ID</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_CATEGORY_NAME</name>
         <lookup>PRODUCT_CATEGORY_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_CATEGORY_DESCRIPTION</name>
         <lookup>PRODUCT_CATEGORY_DESCRIPTION</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_CATEGORY_DELETED</name>
         <lookup>PRODUCT_CATEGORY_DELETED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <return>
         <name>PRODUCT_TK</name>

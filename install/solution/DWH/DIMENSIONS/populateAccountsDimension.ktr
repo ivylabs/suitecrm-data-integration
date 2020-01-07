@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>populateAccountsDimension</name>
@@ -6,7 +7,7 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/public/SuiteCRM Analytics/System/ETL/DWH/DIMENSIONS</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
@@ -430,11 +431,66 @@
     <created_date>2018/01/04 17:27:34.378</created_date>
     <modified_user>admin</modified_user>
     <modified_date>2018/07/31 19:15:50.209</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>SuiteCRMAnalytics</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>SuiteCRMAnalytics</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>Replace NULLS</from>
@@ -481,87 +537,87 @@
       <field>
         <name>ACCOUNT_NAME</name>
         <lookup>ACCOUNT_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_DATE_CREATED</name>
         <lookup>ACCOUNT_DATE_CREATED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_MODIFIED</name>
         <lookup>ACCOUNT_MODIFIED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_CREATED_BY</name>
         <lookup>ACCOUNT_CREATED_BY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_DESCRIPTION</name>
         <lookup>ACCOUNT_DESCRIPTION</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_TYPE</name>
         <lookup>ACCOUNT_TYPE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_INDUSTRY</name>
         <lookup>ACCOUNT_INDUSTRY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_CITY</name>
         <lookup>ACCOUNT_BILLING_ADDRESS_CITY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_COUNTRY</name>
         <lookup>ACCOUNT_BILLING_ADDRESS_COUNTRY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_POSTCODE</name>
         <lookup>ACCOUNT_BILLING_ADDRESS_POSTCODE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_STATE</name>
         <lookup>ACCOUNT_BILLING_ADDRESS_STATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_STREET</name>
         <lookup>ACCOUNT_BILLING_ADDRESS_STREET</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_CITY</name>
         <lookup>ACCOUNT_SHIPPING_ADDRESS_CITY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</name>
         <lookup>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</name>
         <lookup>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_STATE</name>
         <lookup>ACCOUNT_SHIPPING_ADDRESS_STATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_STREET</name>
         <lookup>ACCOUNT_SHIPPING_ADDRESS_STREET</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <return>
         <name>ACCOUNT_TK</name>
@@ -693,71 +749,6 @@
     </GUI>
   </step>
   <step>
-    <name>S_ACCOUNTS</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  id
-, name
-, date_entered
-, date_modified
-, modified_user_id
-, created_by
-, description
-, deleted
-, assigned_user_id
-, account_type
-, industry
-, annual_revenue
-, phone_fax
-, billing_address_street
-, billing_address_city
-, billing_address_state
-, billing_address_postalcode
-, billing_address_country
-, rating
-, phone_office
-, phone_alternate
-, website
-, ownership
-, employees
-, ticker_symbol
-, shipping_address_street
-, shipping_address_city
-, shipping_address_state
-, shipping_address_postalcode
-, shipping_address_country
-, parent_id
-, sic_code
-, campaign_id
-FROM S_ACCOUNTS</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Replace NULLS</name>
     <type>IfNull</type>
     <description/>
@@ -870,6 +861,71 @@ FROM S_ACCOUNTS</sql>
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>S_ACCOUNTS</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  id
+, name
+, date_entered
+, date_modified
+, modified_user_id
+, created_by
+, description
+, deleted
+, assigned_user_id
+, account_type
+, industry
+, annual_revenue
+, phone_fax
+, billing_address_street
+, billing_address_city
+, billing_address_state
+, billing_address_postalcode
+, billing_address_country
+, rating
+, phone_office
+, phone_alternate
+, website
+, ownership
+, employees
+, ticker_symbol
+, shipping_address_street
+, shipping_address_city
+, shipping_address_state
+, shipping_address_postalcode
+, shipping_address_country
+, parent_id
+, sic_code
+, campaign_id
+FROM S_ACCOUNTS</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

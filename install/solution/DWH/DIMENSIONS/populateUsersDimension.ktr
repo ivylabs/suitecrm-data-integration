@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>populateUsersDimension</name>
@@ -6,7 +7,7 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/public/SuiteCRM Analytics/System/ETL/DWH/DIMENSIONS</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
@@ -430,11 +431,66 @@
     <created_date>2018/01/04 17:27:31.294</created_date>
     <modified_user>admin</modified_user>
     <modified_date>2018/07/17 13:36:40.054</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>SuiteCRMAnalytics</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>SuiteCRMAnalytics</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>S_USERS</from>
@@ -486,82 +542,82 @@
       <field>
         <name>USER_NAME</name>
         <lookup>USER_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_FIRST_NAME</name>
         <lookup>USER_FIRST_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_LAST_NAME</name>
         <lookup>USER_LAST_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_DESCRIPTION</name>
         <lookup>USER_DESCRIPTION</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_TITLE</name>
         <lookup>USER_TITLE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_DEPARTMENT</name>
         <lookup>USER_DEPARTMENT</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_PHONE_HOME</name>
         <lookup>USER_PHONE_HOME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_PHONE_MOBILE</name>
         <lookup>USER_PHONE_MOBILE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_PHONE_WORK</name>
         <lookup>USER_PHONE_WORK</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_PHONE_OTHER</name>
         <lookup>USER_PHONE_OTHER</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_STATUS</name>
         <lookup>USER_STATUS</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_ADDRESS_STREET</name>
         <lookup>USER_ADDRESS_STREET</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_ADDRESS_CITY</name>
         <lookup>USER_ADDRESS_CITY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_ADDRESS_STATE</name>
         <lookup>USER_ADDRESS_STATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_ADDRESS_COUNTRY</name>
         <lookup>USER_ADDRESS_COUNTRY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>USER_ADDRESS_POSTCODE</name>
         <lookup>USER_ADDRESS_POSTCODE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <return>
         <name>USER_TK</name>
@@ -607,71 +663,54 @@
     <fields>
       <field>
         <name>id</name>
-        <rename/>
       </field>
       <field>
         <name>user_name</name>
-        <rename/>
       </field>
       <field>
         <name>first_name</name>
-        <rename/>
       </field>
       <field>
         <name>last_name</name>
-        <rename/>
       </field>
       <field>
         <name>description</name>
-        <rename/>
       </field>
       <field>
         <name>title</name>
-        <rename/>
       </field>
       <field>
         <name>department</name>
-        <rename/>
       </field>
       <field>
         <name>phone_home</name>
-        <rename/>
       </field>
       <field>
         <name>phone_mobile</name>
-        <rename/>
       </field>
       <field>
         <name>phone_work</name>
-        <rename/>
       </field>
       <field>
         <name>phone_other</name>
-        <rename/>
       </field>
       <field>
         <name>status</name>
-        <rename/>
       </field>
       <field>
         <name>address_street</name>
-        <rename/>
       </field>
       <field>
         <name>address_city</name>
-        <rename/>
       </field>
       <field>
         <name>address_state</name>
-        <rename/>
       </field>
       <field>
         <name>address_country</name>
-        <rename/>
       </field>
       <field>
         <name>address_postalcode</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -684,6 +723,135 @@
     </remotesteps>
     <GUI>
       <xloc>288</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>USER_NAME</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_FIRST_NAME</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_LAST_NAME</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_TITLE</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_DEPARTMENT</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_PHONE_HOME</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_PHONE_MOBILE</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_PHONE_WORK</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_PHONE_OTHER</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_STATUS</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_ADDRESS_STREET</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_ADDRESS_CITY</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_ADDRESS_STATE</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_ADDRESS_COUNTRY</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USER_ADDRESS_POSTCODE</name>
+        <value>Not Set</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -851,135 +1019,6 @@ FROM S_USERS
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>USER_NAME</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_FIRST_NAME</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_LAST_NAME</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_DESCRIPTION</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_TITLE</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_DEPARTMENT</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_PHONE_HOME</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_PHONE_MOBILE</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_PHONE_WORK</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_PHONE_OTHER</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_STATUS</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_ADDRESS_STREET</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_ADDRESS_CITY</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_ADDRESS_STATE</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_ADDRESS_COUNTRY</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>USER_ADDRESS_POSTCODE</name>
-        <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
