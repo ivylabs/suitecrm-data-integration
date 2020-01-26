@@ -555,7 +555,7 @@
     <hop>
       <from>Date TKs</from>
       <to>F_LEAD_TRACKING</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>F_LEAD_TRACKING - Open</from>
