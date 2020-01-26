@@ -1447,7 +1447,7 @@ WHERE FOT.EVENT_STATUS = 1
     <sql>SELECT
   id
 , date_entered
-, 'New' AS 'STATUS'
+, 'Prospecting' AS 'STATUS'
 FROM S_OPPORTUNITIES</sql>
     <limit>0</limit>
     <lookup/>
