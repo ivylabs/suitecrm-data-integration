@@ -538,16 +538,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>S_LEADS</from>
-      <to>Prepare Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Prepare Fields</from>
-      <to>Union</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Clone Rows</from>
       <to>Event Count</to>
       <enabled>Y</enabled>
@@ -558,17 +548,12 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>F_LEAD_TRACKING - Open</from>
-      <to>Union</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Prepare Audit Fields</from>
-      <to>Union</to>
+      <to>Master Union</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Union</from>
+      <from>Master Union</from>
       <to>Lookup Lead TKs</to>
       <enabled>Y</enabled>
     </hop>
@@ -595,6 +580,36 @@
     <hop>
       <from>Event Count</from>
       <to>FIlter Cloned Rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>F_LEAD_TRACKING - Open</from>
+      <to>Initial Union</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup Existing New</from>
+      <to>Filter Existing New</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>S_LEADS</from>
+      <to>Lookup Existing New</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter Existing New</from>
+      <to>Prepare Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prepare Fields</from>
+      <to>Initial Union</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Initial Union</from>
+      <to>Master Union</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1132,7 +1147,7 @@ WHERE FLT.EVENT_STATUS = 1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>608</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1623,7 +1638,7 @@ WHERE field_name = 'status'
     </GUI>
   </step>
   <step>
-    <name>Union</name>
+    <name>Master Union</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1667,6 +1682,123 @@ WHERE field_name = 'status'
     <GUI>
       <xloc>2048</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Initial Union</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Existing New</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>F_LEAD_TRACKING</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>id</name>
+        <field>LEAD_ID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>date_entered</name>
+        <field>STATUS_DATE</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>STATUS</name>
+        <field>STATUS</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>LEAD_ID</name>
+        <rename>LKP_LEAD_ID</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter Existing New</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Prepare Fields</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>LKP_LEAD_ID</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
