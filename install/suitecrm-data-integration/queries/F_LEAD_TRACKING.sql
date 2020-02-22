@@ -1,3 +1,9 @@
+-- Select all lead tracking order by lead and ordered status
+
+SELECT *
+FROM F_LEAD_TRACKING FLT
+ORDER BY 1, STATUS_DATE ASC, EVENT_COUNT ASC; 
+
 -- Current count of New leads broken up by month
 SELECT
 	DD.`YYYY-MM`
@@ -9,7 +15,7 @@ WHERE EVENT_STATUS = 1
 AND FLT.STATUS = 'New'
 GROUP BY DD.`YYYY-MM`
 ORDER BY 1 DESC
-LIMIT 10
+LIMIT 10;
 
 -- Distinct count of New leads broken up by month
 SELECT DD.`YYYY-MM`

@@ -435,6 +435,133 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Create a New record for every existing Lead</note>
+      <xloc>128</xloc>
+      <yloc>384</yloc>
+      <width>255</width>
+      <heigth>27</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Lookup any existing New reords from Tracking</note>
+      <xloc>128</xloc>
+      <yloc>448</yloc>
+      <width>267</width>
+      <heigth>27</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Filter out New Lead records if a tracking one exists</note>
+      <xloc>128</xloc>
+      <yloc>512</yloc>
+      <width>290</width>
+      <heigth>27</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Get the latest Tracking Status</note>
+      <xloc>608</xloc>
+      <yloc>288</yloc>
+      <width>173</width>
+      <heigth>27</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Get ALL Status Audit records </note>
+      <xloc>128</xloc>
+      <yloc>64</yloc>
+      <width>172</width>
+      <heigth>27</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Get any records that started with a status other than New
+that do NOT exist anywhere in the leads audit table</note>
+      <xloc>448</xloc>
+      <yloc>384</yloc>
+      <width>329</width>
+      <heigth>44</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
@@ -523,16 +650,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Lookup Lead TKs</from>
-      <to>Sort by Lead ID &amp; Date</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>S_LEADS_AUDIT</from>
-      <to>Prepare Audit Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Final Sort</from>
       <to>Date TKs</to>
       <enabled>Y</enabled>
@@ -550,11 +667,6 @@
     <hop>
       <from>Prepare Audit Fields</from>
       <to>Master Union</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Master Union</from>
-      <to>Lookup Lead TKs</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -610,6 +722,31 @@
     <hop>
       <from>Initial Union</from>
       <to>Master Union</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Master Union</from>
+      <to>Lookup Lead TKs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>S_LEADS_AUDIT</from>
+      <to>Prepare Audit Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>S_LEADS Not NEW</from>
+      <to>Initial Union</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup Lead TKs</from>
+      <to>Order New Before Other</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Order New Before Other</from>
+      <to>Sort by Lead ID &amp; Date</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1044,6 +1181,12 @@ if(CLONED_ROW==true){
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>EVENT_COUNT</name>
+        <field>EVENT_COUNT</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
       <value>
         <name>LEAD_ID</name>
         <rename>LEAD_ID</rename>
@@ -1378,6 +1521,7 @@ WHERE FLT.EVENT_STATUS = 1
       </field>
       <field>
         <name>STATUS</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1468,7 +1612,7 @@ WHERE FLT.EVENT_STATUS = 1
   id
 , date_entered
 , 'New' AS 'STATUS'
-FROM S_LEADS</sql>
+FROM S_LEADS;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1511,7 +1655,8 @@ FROM S_LEADS</sql>
 , before_value_text
 , after_value_text
 FROM S_LEADS_AUDIT
-WHERE field_name = 'status'
+WHERE field_name = 'status';
+
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -1617,6 +1762,14 @@ WHERE field_name = 'status'
       </field>
       <field>
         <name>STATUS_DATE</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>STATUS_ORDER</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1799,6 +1952,78 @@ WHERE field_name = 'status'
     <GUI>
       <xloc>288</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>S_LEADS Not NEW</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT 
+	id AS LEAD_ID
+	,date_entered AS STATUS_DATE
+	,status AS STATUS
+FROM S_LEADS
+WHERE id NOT IN (
+	SELECT parent_id FROM S_LEADS_AUDIT
+)
+AND status &lt;&gt; 'New';</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Order New Before Other</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>STATUS</field_to_use>
+    <target_field>STATUS_ORDER</target_field>
+    <non_match_default>2</non_match_default>
+    <fields>
+      <field>
+        <source_value>New</source_value>
+        <target_value>1</target_value>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
