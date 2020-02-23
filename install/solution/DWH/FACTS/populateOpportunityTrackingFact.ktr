@@ -435,6 +435,29 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Disabled for now. Working on Lead Event Orders
+Refer to that for a possible solution although its
+not as straight forward as a sequence step</note>
+      <xloc>1024</xloc>
+      <yloc>288</yloc>
+      <width>279</width>
+      <heigth>61</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
@@ -620,10 +643,15 @@
     <hop>
       <from>Get Event Opportunity &amp; Lag Dates</from>
       <to>Event Order</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Event Order</from>
+      <to>Calculate Cloned Rows</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Get Event Opportunity &amp; Lag Dates</from>
       <to>Calculate Cloned Rows</to>
       <enabled>Y</enabled>
     </hop>
@@ -1115,11 +1143,6 @@ if(CLONED_ROW==true){
         <rename>EVENT_AGE</rename>
         <update>Y</update>
       </value>
-      <value>
-        <name>EVENT_ORDER</name>
-        <rename>EVENT_ORDER</rename>
-        <update>Y</update>
-      </value>
     </lookup>
     <cluster_schema/>
     <remotesteps>
@@ -1458,10 +1481,6 @@ WHERE FOT.EVENT_STATUS = 1
         <name>EVENT_AGE</name>
         <rename/>
       </field>
-      <field>
-        <name>EVENT_ORDER</name>
-        <rename/>
-      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <cluster_schema/>
@@ -1602,10 +1621,6 @@ WHERE field_name = 'sales_stage'
       </field>
       <field>
         <name>EVENT_AGE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EVENT_ORDER</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>

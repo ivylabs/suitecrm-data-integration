@@ -543,10 +543,34 @@
     <notepad>
       <note>Get any records that started with a status other than New
 that do NOT exist anywhere in the leads audit table</note>
-      <xloc>448</xloc>
-      <yloc>384</yloc>
+      <xloc>544</xloc>
+      <yloc>416</yloc>
       <width>329</width>
       <heigth>44</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>DISABLED!
+Calculate Event Order Based on previous data.
+Note, This requires much more work due to previous
+audit values coming though</note>
+      <xloc>1088</xloc>
+      <yloc>384</yloc>
+      <width>302</width>
+      <heigth>78</heigth>
       <fontname>Noto Sans</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -620,11 +644,6 @@ that do NOT exist anywhere in the leads audit table</note>
   </connection>
   <order>
     <hop>
-      <from>Get Event Lead &amp; Lag Dates</from>
-      <to>Calculate Cloned Rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Calculate Cloned Rows</from>
       <to>Clone Rows</to>
       <enabled>Y</enabled>
@@ -642,11 +661,6 @@ that do NOT exist anywhere in the leads audit table</note>
     <hop>
       <from>Select Original Rows</from>
       <to>Union Rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Final Sort</from>
-      <to>Date TKs</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -730,11 +744,6 @@ that do NOT exist anywhere in the leads audit table</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>S_LEADS Not NEW</from>
-      <to>Initial Union</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Lookup Lead TKs</from>
       <to>Order New Before Other</to>
       <enabled>Y</enabled>
@@ -746,12 +755,52 @@ that do NOT exist anywhere in the leads audit table</note>
     </hop>
     <hop>
       <from>Sort by Lead ID &amp; Date</from>
-      <to>Event Order</to>
+      <to>Get Event Lead &amp; Lag Dates</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Event Order</from>
-      <to>Get Event Lead &amp; Lag Dates</to>
+      <from>Event Order Sequence</from>
+      <to>Calculate Final Event Order</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Calculate Final Event Order</from>
+      <to>Remap Event Order</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Remap Event Order</from>
+      <to>Calculate Cloned Rows</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>S_LEADS Not NEW</from>
+      <to>Prepare Not New Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prepare Not New Fields</from>
+      <to>Initial Union</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get Event Lead &amp; Lag Dates</from>
+      <to>Get Previous Event Order</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Get Previous Event Order</from>
+      <to>Event Order Sequence</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Get Event Lead &amp; Lag Dates</from>
+      <to>Calculate Cloned Rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Final Sort</from>
+      <to>Date TKs</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1247,11 +1296,6 @@ if(CLONED_ROW==true){
         <rename>EVENT_AGE</rename>
         <update>Y</update>
       </value>
-      <value>
-        <name>EVENT_ORDER</name>
-        <rename>EVENT_ORDER</rename>
-        <update>Y</update>
-      </value>
     </lookup>
     <cluster_schema/>
     <remotesteps>
@@ -1286,11 +1330,11 @@ FROM F_LEAD_TRACKING FLT
 INNER JOIN S_LEADS SL
 	ON FLT.LEAD_ID = SL.ID
 WHERE FLT.EVENT_STATUS = 1
-</sql>
+AND (FLT.LEAD_ID = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema/>
     <remotesteps>
@@ -1600,10 +1644,6 @@ WHERE FLT.EVENT_STATUS = 1
         <name>EVENT_AGE</name>
         <rename/>
       </field>
-      <field>
-        <name>EVENT_ORDER</name>
-        <rename/>
-      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <cluster_schema/>
@@ -1635,7 +1675,8 @@ WHERE FLT.EVENT_STATUS = 1
   id
 , date_entered
 , 'New' AS 'STATUS'
-FROM S_LEADS;</sql>
+FROM S_LEADS
+WHERE (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1678,13 +1719,14 @@ FROM S_LEADS;</sql>
 , before_value_text
 , after_value_text
 FROM S_LEADS_AUDIT
-WHERE field_name = 'status';
+WHERE field_name = 'status'
+AND (parent_id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')
 
 </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema/>
     <remotesteps>
@@ -1749,10 +1791,6 @@ WHERE field_name = 'status';
       </field>
       <field>
         <name>EVENT_AGE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EVENT_ORDER</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -2012,7 +2050,8 @@ FROM S_LEADS
 WHERE id NOT IN (
 	SELECT parent_id FROM S_LEADS_AUDIT
 )
-AND status &lt;&gt; 'New';</sql>
+AND status &lt;&gt; 'New'
+AND (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -2027,7 +2066,7 @@ AND status &lt;&gt; 'New';</sql>
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>320</yloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2065,7 +2104,78 @@ AND status &lt;&gt; 'New';</sql>
     </GUI>
   </step>
   <step>
-    <name>Event Order</name>
+    <name>Remap Event Order</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>STATUS</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FINAL_EVENT_ORDER</name>
+        <rename>EVENT_ORDER</rename>
+      </field>
+      <field>
+        <name>LEAD_TK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>NEW_STATUS_ORDER</name>
+        <rename/>
+      </field>
+      <field>
+        <name>LEAD_DATE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>LAG_DATE</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Event Order Sequence</name>
     <type>FieldsChangeSequence</type>
     <description/>
     <distribute>Y</distribute>
@@ -2075,12 +2185,161 @@ AND status &lt;&gt; 'New';</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <start>1</start>
+    <start>0</start>
     <increment>1</increment>
-    <resultfieldName>EVENT_ORDER</resultfieldName>
+    <resultfieldName>EVENT_ORDER_SEQUENCE</resultfieldName>
     <fields>
       <field>
         <name>LEAD_ID</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Final Event Order</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <field_name>FINAL_EVENT_ORDER</field_name>
+      <calc_type>ADD</calc_type>
+      <field_a>SOURCE_EVENT_ORDER</field_a>
+      <field_b>EVENT_ORDER_SEQUENCE</field_b>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prepare Not New Fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>STATUS</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get Previous Event Order</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var SOURCE_EVENT_ORDER;
+
+if( EVENT_ORDER === null){
+	SOURCE_EVENT_ORDER = str2num(getVariable( "PREVIOUS", ""));
+} else {
+	SOURCE_EVENT_ORDER = EVENT_ORDER;
+}
+
+setVariable( "PREVIOUS", SOURCE_EVENT_ORDER, "s");</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>str2num_Sample</jsScript_name>
+        <jsScript_script>// Converts the given String to a numeric Value.
+//
+// Usage:
+// str2num(var);
+// 1: String - The Variable with the String to convert.
+//
+// str2num(var, var);
+// 1: String - The Variable with the String to convert.
+// 2: String - The Format:
+// 
+// 2006-11-15
+//
+var str1 = "1.234,56";
+var str2 = "12";
+Alert((str2num(str1,"#,##0.00")));
+Alert((str2num(str2)));</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>SOURCE_EVENT_ORDER</name>
+        <rename>SOURCE_EVENT_ORDER</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>
     </fields>
     <cluster_schema/>
