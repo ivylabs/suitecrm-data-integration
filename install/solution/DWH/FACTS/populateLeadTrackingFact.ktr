@@ -625,11 +625,6 @@ that do NOT exist anywhere in the leads audit table</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort by Lead ID &amp; Date</from>
-      <to>Get Event Lead &amp; Lag Dates</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Calculate Cloned Rows</from>
       <to>Clone Rows</to>
       <enabled>Y</enabled>
@@ -747,6 +742,16 @@ that do NOT exist anywhere in the leads audit table</note>
     <hop>
       <from>Order New Before Other</from>
       <to>Sort by Lead ID &amp; Date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort by Lead ID &amp; Date</from>
+      <to>Event Order</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Event Order</from>
+      <to>Get Event Lead &amp; Lag Dates</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1242,6 +1247,11 @@ if(CLONED_ROW==true){
         <rename>EVENT_AGE</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>EVENT_ORDER</name>
+        <rename>EVENT_ORDER</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <cluster_schema/>
     <remotesteps>
@@ -1552,9 +1562,11 @@ WHERE FLT.EVENT_STATUS = 1
     <fields>
       <field>
         <name>LEAD_ID</name>
+        <rename/>
       </field>
       <field>
         <name>STATUS</name>
+        <rename/>
       </field>
       <field>
         <name>LEAD_DATE</name>
@@ -1562,24 +1574,35 @@ WHERE FLT.EVENT_STATUS = 1
       </field>
       <field>
         <name>EVENT_COUNT</name>
+        <rename/>
       </field>
       <field>
         <name>EVENT_STATUS</name>
+        <rename/>
       </field>
       <field>
         <name>LEAD_TK</name>
+        <rename/>
       </field>
       <field>
         <name>OPPORTUNITY_TK</name>
+        <rename/>
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
+        <rename/>
       </field>
       <field>
         <name>CAMPAIGN_TK</name>
+        <rename/>
       </field>
       <field>
         <name>EVENT_AGE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>EVENT_ORDER</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1690,33 +1713,47 @@ WHERE field_name = 'status';
     <fields>
       <field>
         <name>LEAD_ID</name>
+        <rename/>
       </field>
       <field>
         <name>STATUS</name>
+        <rename/>
       </field>
       <field>
         <name>STATUS_DATE</name>
+        <rename/>
       </field>
       <field>
         <name>EVENT_COUNT</name>
+        <rename/>
       </field>
       <field>
         <name>EVENT_STATUS</name>
+        <rename/>
       </field>
       <field>
         <name>LEAD_TK</name>
+        <rename/>
       </field>
       <field>
         <name>OPPORTUNITY_TK</name>
+        <rename/>
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
+        <rename/>
       </field>
       <field>
         <name>CAMPAIGN_TK</name>
+        <rename/>
       </field>
       <field>
         <name>EVENT_AGE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>EVENT_ORDER</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1769,7 +1806,7 @@ WHERE field_name = 'status';
         <presorted>N</presorted>
       </field>
       <field>
-        <name>STATUS_ORDER</name>
+        <name>NEW_STATUS_ORDER</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -2006,7 +2043,7 @@ AND status &lt;&gt; 'New';</sql>
       <schema_name/>
     </partitioning>
     <field_to_use>STATUS</field_to_use>
-    <target_field>STATUS_ORDER</target_field>
+    <target_field>NEW_STATUS_ORDER</target_field>
     <non_match_default>2</non_match_default>
     <fields>
       <field>
@@ -2023,6 +2060,38 @@ AND status &lt;&gt; 'New';</sql>
     </remotesteps>
     <GUI>
       <xloc>768</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Event Order</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>1</start>
+    <increment>1</increment>
+    <resultfieldName>EVENT_ORDER</resultfieldName>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
