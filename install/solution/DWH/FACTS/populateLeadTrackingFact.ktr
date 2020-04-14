@@ -9,6 +9,11 @@
     <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
+      <parameter>
+        <name>LEAD_ID</name>
+        <default_value>1</default_value>
+        <description>When this is set to 1 the debug where clause is ignored in the Table Input steps. Set this to a valid LEAD_ID to debug a particular lead</description>
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
@@ -928,6 +933,45 @@ if( LEAD_DATE == null ){
     </GUI>
   </step>
   <step>
+    <name>Calculate Final Event Order</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <field_name>FINAL_EVENT_ORDER</field_name>
+      <calc_type>ADD</calc_type>
+      <field_a>SOURCE_EVENT_ORDER</field_a>
+      <field_b>EVENT_ORDER_SEQUENCE</field_b>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Clone Rows</name>
     <type>CloneRow</type>
     <description/>
@@ -1158,6 +1202,38 @@ if(CLONED_ROW==true){
     </GUI>
   </step>
   <step>
+    <name>Event Order Sequence</name>
+    <type>FieldsChangeSequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <start>0</start>
+    <increment>1</increment>
+    <resultfieldName>EVENT_ORDER_SEQUENCE</resultfieldName>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>FIlter Cloned Rows</name>
     <type>FilterRows</type>
     <description/>
@@ -1350,6 +1426,40 @@ AND (FLT.LEAD_ID = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
     </GUI>
   </step>
   <step>
+    <name>Filter Existing New</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Prepare Fields</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>LKP_LEAD_ID</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Final Sort</name>
     <type>SortRows</type>
     <description/>
@@ -1450,8 +1560,8 @@ AND (FLT.LEAD_ID = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
     </GUI>
   </step>
   <step>
-    <name>Lookup Lead TKs</name>
-    <type>DBLookup</type>
+    <name>Get Previous Event Order</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1460,340 +1570,52 @@ AND (FLT.LEAD_ID = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>F_LEAD_MANAGEMENT</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>LEAD_ID</name>
-        <field>LEAD_ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>LEAD_TK</name>
-        <rename>LEAD_TK</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>OPPORTUNITY_TK</name>
-        <rename>OPPORTUNITY_TK</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>CAMPAIGN_TK</name>
-        <rename>CAMPAIGN_TK</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-      <value>
-        <name>ASSIGNED_USER_TK</name>
-        <rename>ASSIGNED_USER_TK</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Prepare Audit Fields</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>parent_id</name>
-        <rename>LEAD_ID</rename>
-      </field>
-      <field>
-        <name>date_created</name>
-        <rename>STATUS_DATE</rename>
-      </field>
-      <field>
-        <name>after_value_string</name>
-        <rename>STATUS</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Prepare Fields</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id</name>
-        <rename>LEAD_ID</rename>
-      </field>
-      <field>
-        <name>date_entered</name>
-        <rename>STATUS_DATE</rename>
-      </field>
-      <field>
-        <name>STATUS</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remap Cloned Rows</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STATUS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>LEAD_DATE</name>
-        <rename>STATUS_DATE</rename>
-      </field>
-      <field>
-        <name>EVENT_COUNT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EVENT_STATUS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>LEAD_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>OPPORTUNITY_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EVENT_AGE</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1888</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>S_LEADS</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  id
-, date_entered
-, 'New' AS 'STATUS'
-FROM S_LEADS
-WHERE (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>S_LEADS_AUDIT</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  id
-, parent_id
-, date_created
-, created_by
-, field_name
-, data_type
-, before_value_string
-, after_value_string
-, before_value_text
-, after_value_text
-FROM S_LEADS_AUDIT
-WHERE field_name = 'status'
-AND (parent_id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var SOURCE_EVENT_ORDER;
 
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select Original Rows</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
+if( EVENT_ORDER === null){
+	SOURCE_EVENT_ORDER = str2num(getVariable( "PREVIOUS", ""));
+} else {
+	SOURCE_EVENT_ORDER = EVENT_ORDER;
+}
+
+setVariable( "PREVIOUS", SOURCE_EVENT_ORDER, "s");</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>str2num_Sample</jsScript_name>
+        <jsScript_script>// Converts the given String to a numeric Value.
+//
+// Usage:
+// str2num(var);
+// 1: String - The Variable with the String to convert.
+//
+// str2num(var, var);
+// 1: String - The Variable with the String to convert.
+// 2: String - The Format:
+// 
+// 2006-11-15
+//
+var str1 = "1.234,56";
+var str2 = "12";
+Alert((str2num(str1,"#,##0.00")));
+Alert((str2num(str2)));</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <name>LEAD_ID</name>
-        <rename/>
+        <name>SOURCE_EVENT_ORDER</name>
+        <rename>SOURCE_EVENT_ORDER</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>
-      <field>
-        <name>STATUS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STATUS_DATE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EVENT_COUNT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EVENT_STATUS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>LEAD_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>OPPORTUNITY_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EVENT_AGE</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -1803,113 +1625,8 @@ AND (parent_id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1888</xloc>
+      <xloc>928</xloc>
       <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort by Lead ID &amp; Date</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>STATUS_DATE</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>NEW_STATUS_ORDER</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Master Union</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Union Rows</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2048</xloc>
-      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1997,8 +1714,8 @@ AND (parent_id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')
     </GUI>
   </step>
   <step>
-    <name>Filter Existing New</name>
-    <type>FilterRows</type>
+    <name>Lookup Lead TKs</name>
+    <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2007,16 +1724,143 @@ AND (parent_id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Prepare Fields</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>LKP_LEAD_ID</leftvalue>
-        <function>IS NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>F_LEAD_MANAGEMENT</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>LEAD_ID</name>
+        <field>LEAD_ID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>LEAD_TK</name>
+        <rename>LEAD_TK</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>OPPORTUNITY_TK</name>
+        <rename>OPPORTUNITY_TK</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>CAMPAIGN_TK</name>
+        <rename>CAMPAIGN_TK</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>ASSIGNED_USER_TK</name>
+        <rename>ASSIGNED_USER_TK</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Master Union</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Order New Before Other</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>STATUS</field_to_use>
+    <target_field>NEW_STATUS_ORDER</target_field>
+    <non_match_default>2</non_match_default>
+    <fields>
+      <field>
+        <source_value>New</source_value>
+        <target_value>1</target_value>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prepare Audit Fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>parent_id</name>
+        <rename>LEAD_ID</rename>
+      </field>
+      <field>
+        <name>date_created</name>
+        <rename>STATUS_DATE</rename>
+      </field>
+      <field>
+        <name>after_value_string</name>
+        <rename>STATUS</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2026,7 +1870,236 @@ AND (parent_id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')
     </remotesteps>
     <GUI>
       <xloc>288</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prepare Fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id</name>
+        <rename>LEAD_ID</rename>
+      </field>
+      <field>
+        <name>date_entered</name>
+        <rename>STATUS_DATE</rename>
+      </field>
+      <field>
+        <name>STATUS</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prepare Not New Fields</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+      </field>
+      <field>
+        <name>STATUS</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remap Cloned Rows</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+      </field>
+      <field>
+        <name>STATUS</name>
+      </field>
+      <field>
+        <name>LEAD_DATE</name>
+        <rename>STATUS_DATE</rename>
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
+      </field>
+      <field>
+        <name>EVENT_STATUS</name>
+      </field>
+      <field>
+        <name>LEAD_TK</name>
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+      </field>
+      <field>
+        <name>EVENT_AGE</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1888</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remap Event Order</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+      </field>
+      <field>
+        <name>STATUS</name>
+      </field>
+      <field>
+        <name>FINAL_EVENT_ORDER</name>
+        <rename>EVENT_ORDER</rename>
+      </field>
+      <field>
+        <name>LEAD_TK</name>
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+      </field>
+      <field>
+        <name>NEW_STATUS_ORDER</name>
+      </field>
+      <field>
+        <name>LEAD_DATE</name>
+      </field>
+      <field>
+        <name>LAG_DATE</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>S_LEADS</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  id
+, date_entered
+, 'New' AS 'STATUS'
+FROM S_LEADS
+WHERE (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2071,8 +2144,8 @@ AND (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
     </GUI>
   </step>
   <step>
-    <name>Order New Before Other</name>
-    <type>ValueMapper</type>
+    <name>S_LEADS_AUDIT</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2081,13 +2154,140 @@ AND (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <field_to_use>STATUS</field_to_use>
-    <target_field>NEW_STATUS_ORDER</target_field>
-    <non_match_default>2</non_match_default>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  id
+, parent_id
+, date_created
+, created_by
+, field_name
+, data_type
+, before_value_string
+, after_value_string
+, before_value_text
+, after_value_text
+FROM S_LEADS_AUDIT
+WHERE field_name = 'status'
+AND (parent_id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Original Rows</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <fields>
       <field>
-        <source_value>New</source_value>
-        <target_value>1</target_value>
+        <name>LEAD_ID</name>
+      </field>
+      <field>
+        <name>STATUS</name>
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
+      </field>
+      <field>
+        <name>EVENT_STATUS</name>
+      </field>
+      <field>
+        <name>LEAD_TK</name>
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+      </field>
+      <field>
+        <name>EVENT_AGE</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1888</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort by Lead ID &amp; Date</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>NEW_STATUS_ORDER</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
     </fields>
     <cluster_schema/>
@@ -2099,13 +2299,13 @@ AND (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
     </remotesteps>
     <GUI>
       <xloc>768</xloc>
-      <yloc>224</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Remap Event Order</name>
-    <type>SelectValues</type>
+    <name>Union Rows</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2114,53 +2314,6 @@ AND (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STATUS_DATE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STATUS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>FINAL_EVENT_ORDER</name>
-        <rename>EVENT_ORDER</rename>
-      </field>
-      <field>
-        <name>LEAD_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>OPPORTUNITY_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>NEW_STATUS_ORDER</name>
-        <rename/>
-      </field>
-      <field>
-        <name>LEAD_DATE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>LAG_DATE</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2169,189 +2322,8 @@ AND (id = '${LEAD_ID}' OR 1 = '${LEAD_ID}')</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Event Order Sequence</name>
-    <type>FieldsChangeSequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <start>0</start>
-    <increment>1</increment>
-    <resultfieldName>EVENT_ORDER_SEQUENCE</resultfieldName>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculate Final Event Order</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <calculation>
-      <field_name>FINAL_EVENT_ORDER</field_name>
-      <calc_type>ADD</calc_type>
-      <field_a>SOURCE_EVENT_ORDER</field_a>
-      <field_b>EVENT_ORDER_SEQUENCE</field_b>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Prepare Not New Fields</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STATUS_DATE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>STATUS</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get Previous Event Order</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var SOURCE_EVENT_ORDER;
-
-if( EVENT_ORDER === null){
-	SOURCE_EVENT_ORDER = str2num(getVariable( "PREVIOUS", ""));
-} else {
-	SOURCE_EVENT_ORDER = EVENT_ORDER;
-}
-
-setVariable( "PREVIOUS", SOURCE_EVENT_ORDER, "s");</jsScript_script>
-      </jsScript>
-      <jsScript>
-        <jsScript_type>-1</jsScript_type>
-        <jsScript_name>str2num_Sample</jsScript_name>
-        <jsScript_script>// Converts the given String to a numeric Value.
-//
-// Usage:
-// str2num(var);
-// 1: String - The Variable with the String to convert.
-//
-// str2num(var, var);
-// 1: String - The Variable with the String to convert.
-// 2: String - The Format:
-// 
-// 2006-11-15
-//
-var str1 = "1.234,56";
-var str2 = "12";
-Alert((str2num(str1,"#,##0.00")));
-Alert((str2num(str2)));</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>SOURCE_EVENT_ORDER</name>
-        <rename>SOURCE_EVENT_ORDER</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>224</yloc>
+      <xloc>2048</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
