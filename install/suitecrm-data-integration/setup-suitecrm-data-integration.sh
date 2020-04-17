@@ -75,6 +75,13 @@ then
 			echo ""
 			echo " We could not establish a connection to the SuiteCRM database!"
 			echo " Please check the JDBC connection properties and run setup again."
+			echo ""
+			echo "-----------------------------------------------------------------------------------------------------"
+			echo ""
+			echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
+			echo ""
+			echo "-----------------------------------------------------------------------------------------------------"
+
 		else
 			echo ""
 			echo " Connection to the SuiteCRM database was successful!"
@@ -85,6 +92,13 @@ then
 				echo ""
 	                        echo " We could not establish a connection to the SuiteCRM Analytics database!"
         	                echo " Please check the JDBC connection properties and run setup again."
+				echo ""
+        	                echo "-----------------------------------------------------------------------------------------------------"
+	                        echo ""
+                        	echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
+                	        echo ""
+                        	echo "-----------------------------------------------------------------------------------------------------"
+
 			else
 				echo ""
 				echo " Connection to the SuiteCRM Analytics database was successful!"
@@ -102,6 +116,13 @@ then
 					echo ""
                         		echo " We could not create all the tables in the SuiteCRM DWH!"
                         		echo " Please make sure the SuiteCRM Analytics user has create table privileges and run setup again."
+					echo ""
+                        		echo "-----------------------------------------------------------------------------------------------------"
+                        		echo ""
+                		        echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
+        	        	        echo ""
+	                	        echo "-----------------------------------------------------------------------------------------------------"
+
                 		else
 					echo ""
                         		echo " The SuiteCRM DWH tables were created successfully!"
@@ -117,24 +138,26 @@ then
 					#echo " Populate Custom Field Mapping table"
 
 					#./populate-custom-fields-mapping.sh
+
+					echo ""
+		                        echo "---------------------------------------------"
+        		                echo ""
+                		        echo " The Setup has Completed Successfully!"
+                		        echo ""
+                		        echo "---------------------------------------------"
+
+
 				fi
                 	fi
 		fi
 
 		if [ "$SMTP_ENABLED" -eq "1" ]; then
+			echo ""
 			echo " We will configure your email properties and send you a test email"
                         echo " If you do not get this email then please check the log in logs/"
 			./send-test-email.sh
 
                 fi
-
-		echo ""
-                echo "-------------------------------------------------------------"
-                echo ""
-                echo " Installation is complete!"
-                echo ""
-                echo "-------------------------------------------------------------"
-
 
 		
 
