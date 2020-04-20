@@ -80,7 +80,17 @@ then
 			echo ""
 			echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
 			echo ""
-			echo "-----------------------------------------------------------------------------------------------------"
+
+			START_LINE=$(grep -n "ETL LOG START" ../logs/check-database-connections.log | cut -f1 -d:)
+			END_LINE=$(grep -n "ETL LOG END" ../logs/check-database-connections.log | cut -f1 -d:)
+
+			echo " BEGIN ERROR MESSAGE"
+			echo " ----------------------------------------------------------------------------------------------------"
+			echo ""
+
+			awk 'NR > '${START_LINE}' && NR < '${END_LINE} ../logs/check-database-connections.log
+			echo ""
+			echo " ----------------------------------------------------------------------------------------------------"
 
 		else
 			echo ""
@@ -97,8 +107,17 @@ then
 	                        echo ""
                         	echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
                 	        echo ""
-                        	echo "-----------------------------------------------------------------------------------------------------"
 
+                        	START_LINE=$(grep -n "ETL LOG START" ../logs/check-database-connections.log | cut -f1 -d:)
+                        	END_LINE=$(grep -n "ETL LOG END" ../logs/check-database-connections.log | cut -f1 -d:)
+
+                        	echo " BEGIN ERROR MESSAGE"
+                        	echo " ----------------------------------------------------------------------------------------------------"
+                        	echo ""
+
+                        	awk 'NR > '${START_LINE}' && NR < '${END_LINE} ../logs/check-database-connections.log
+                        	echo ""
+                        	echo " ----------------------------------------------------------------------------------------------------"
 			else
 				echo ""
 				echo " Connection to the SuiteCRM Analytics database was successful!"
@@ -121,7 +140,18 @@ then
                         		echo ""
                 		        echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
         	        	        echo ""
-	                	        echo "-----------------------------------------------------------------------------------------------------"
+					echo ""
+
+                                	START_LINE=$(grep -n "ETL LOG START" ../logs/create-tables.log | cut -f1 -d:)
+                                	END_LINE=$(grep -n "ETL LOG END" ../logs/create-tables.log | cut -f1 -d:)
+
+                                	echo " BEGIN ERROR MESSAGE"
+                                	echo " ----------------------------------------------------------------------------------------------------"
+                                	echo ""
+
+                                	awk 'NR > '${START_LINE}' && NR < '${END_LINE} ../logs/create-tables.log
+                                	echo ""
+                                	echo " ----------------------------------------------------------------------------------------------------"
 
                 		else
 					echo ""
