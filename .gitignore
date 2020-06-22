@@ -16,3 +16,4 @@ suitecrm-data-integration-server/configuration/simple-jndi/
 suitecrm-data-integration-server/logs/
 install.properties.live
 install.properties.stashed
+suitecrm-data-integration.code-workspace
