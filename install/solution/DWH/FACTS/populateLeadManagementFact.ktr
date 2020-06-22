@@ -435,6 +435,27 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>LEAD_DURATION ETL is not needed. Should be removed in later release</note>
+      <xloc>608</xloc>
+      <yloc>384</yloc>
+      <width>408</width>
+      <heigth>27</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
@@ -936,11 +957,6 @@ Alert((str2num(str2)));</jsScript_script>
       <value>
         <name>LEAD_CONVERTED_TK</name>
         <rename>LEAD_CONVERTED_TK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>LEAD_DURATION</name>
-        <rename>LEAD_DURATION</rename>
         <update>Y</update>
       </value>
     </lookup>
