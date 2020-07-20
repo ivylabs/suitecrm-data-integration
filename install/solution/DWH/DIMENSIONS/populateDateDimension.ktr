@@ -2,9 +2,9 @@
 <transformation>
   <info>
     <name>populateDateDimension</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>N</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>N</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,10 +415,10 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
-    <step_performance_capturing_size_limit/>
+    <step_performance_capturing_size_limit />
     <dependencies>
     </dependencies>
     <partitionschemas>
@@ -438,16 +438,16 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server/>
+    <server />
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username/>
+    <username />
     <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -503,16 +503,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>New Date Fields</from>
-      <to>year &lt;= 2020?</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>year &lt;= 2020?</from>
-      <to>More Date Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>DATE</from>
       <to>New Date Fields</to>
       <enabled>Y</enabled>
@@ -532,34 +522,39 @@
       <to>Drop / Rename</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>New Date Fields</from>
+      <to>More Date Fields</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>DATE</name>
     <type>Calculator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <calculation>
       <field_name>FULL_DATETIME</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>START_DATE</field_a>
       <field_b>SEQUENCE</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -575,16 +570,16 @@
   <step>
     <name>D_DATE</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
-    <schema/>
+    <schema />
     <table>D_DATE</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -592,14 +587,14 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>FULL_DATETIME</column_name>
@@ -697,148 +692,36 @@
         <column_name>YYYYMM</column_name>
         <stream_name>YYYYMM</stream_name>
       </field>
+      <field>
+        <column_name>YYYY-QQ</column_name>
+        <stream_name>YYYY-QQ</stream_name>
+      </field>
+      <field>
+        <column_name>YYYY-QQQ</column_name>
+        <stream_name>YYYY-QQQ</stream_name>
+      </field>
+      <field>
+        <column_name>YYYY-QQQQ</column_name>
+        <stream_name>YYYY-QQQQ</stream_name>
+      </field>
+      <field>
+        <column_name>YYY-QQQ-MM</column_name>
+        <stream_name>YYY-QQQ-MM</stream_name>
+      </field>
+      <field>
+        <column_name>YYYY-QQQ-MM-DD</column_name>
+        <stream_name>YYYY-QQQ-MM-DD</stream_name>
+      </field>
+      <field>
+        <column_name>YYYY-QQQQ-MMM</column_name>
+        <stream_name>YYYY-QQQQ-MMM</stream_name>
+      </field>
+      <field>
+        <column_name>YYYY-QQQQ-MMMM</column_name>
+        <stream_name>YYYY-QQQQ-MMMM</stream_name>
+      </field>
     </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1408</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Drop / Rename</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>FULL_DATETIME</name>
-        <rename/>
-      </field>
-      <field>
-        <name>YEAR4</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MONTH2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DAY_OF_MONTH2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DAY_OF_WEEK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>YYYY-MM</name>
-        <rename/>
-      </field>
-      <field>
-        <name>YYYY-MM-DD</name>
-        <rename/>
-      </field>
-      <field>
-        <name>WEEK_OF_YEAR</name>
-        <rename/>
-      </field>
-      <field>
-        <name>YEAR_FOR_WEEK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>QUARTER2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DAY_OF_WEEK_SHORT_DESC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DAY_OF_WEEK_LONG_DESC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MONTH_SHORT_DESC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MONTH_LONG_DESC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DAYS_IN_MONTH</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DAYS_IN_YEAR</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DAYS_IN_QUARTER</name>
-        <rename/>
-      </field>
-      <field>
-        <name>IS_LEAP_YEAR</name>
-        <rename/>
-      </field>
-      <field>
-        <name>IS_WEEKEND</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DATE_TK</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DD-MM-YYYY</name>
-        <rename/>
-      </field>
-      <field>
-        <name>QUARTER_SHORT_DESC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>QUARTER_LONG_DESC</name>
-        <rename/>
-      </field>
-      <field>
-        <name>YYYYMM</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>YYYYMM</name>
-        <rename>YYYYMM</rename>
-        <type>Integer</type>
-        <length>6</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -852,15 +735,183 @@
     </GUI>
   </step>
   <step>
-    <name>More Date Fields</name>
-    <type>ScriptValueMod</type>
-    <description/>
+    <name>Drop / Rename</name>
+    <type>SelectValues</type>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>FULL_DATETIME</name>
+        <rename />
+      </field>
+      <field>
+        <name>YEAR4</name>
+        <rename />
+      </field>
+      <field>
+        <name>MONTH2</name>
+        <rename />
+      </field>
+      <field>
+        <name>DAY_OF_MONTH2</name>
+        <rename />
+      </field>
+      <field>
+        <name>DAY_OF_WEEK</name>
+        <rename />
+      </field>
+      <field>
+        <name>YYYY-MM</name>
+        <rename />
+      </field>
+      <field>
+        <name>YYYY-MM-DD</name>
+        <rename />
+      </field>
+      <field>
+        <name>WEEK_OF_YEAR</name>
+        <rename />
+      </field>
+      <field>
+        <name>YEAR_FOR_WEEK</name>
+        <rename />
+      </field>
+      <field>
+        <name>QUARTER2</name>
+        <rename />
+      </field>
+      <field>
+        <name>DAY_OF_WEEK_SHORT_DESC</name>
+        <rename />
+      </field>
+      <field>
+        <name>DAY_OF_WEEK_LONG_DESC</name>
+        <rename />
+      </field>
+      <field>
+        <name>MONTH_SHORT_DESC</name>
+        <rename />
+      </field>
+      <field>
+        <name>MONTH_LONG_DESC</name>
+        <rename />
+      </field>
+      <field>
+        <name>DAYS_IN_MONTH</name>
+        <rename />
+      </field>
+      <field>
+        <name>DAYS_IN_YEAR</name>
+        <rename />
+      </field>
+      <field>
+        <name>DAYS_IN_QUARTER</name>
+        <rename />
+      </field>
+      <field>
+        <name>IS_LEAP_YEAR</name>
+        <rename />
+      </field>
+      <field>
+        <name>IS_WEEKEND</name>
+        <rename />
+      </field>
+      <field>
+        <name>DATE_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>DD-MM-YYYY</name>
+        <rename />
+      </field>
+      <field>
+        <name>QUARTER_SHORT_DESC</name>
+        <rename />
+      </field>
+      <field>
+        <name>QUARTER_LONG_DESC</name>
+        <rename />
+      </field>
+      <field>
+        <name>YYYYMM</name>
+        <rename />
+      </field>
+      <field>
+        <name>YYYYQQ</name>
+        <rename>YYYY-QQ</rename>
+      </field>
+      <field>
+        <name>YYYYQQQ</name>
+        <rename>YYYY-QQQ</rename>
+      </field>
+      <field>
+        <name>YYYYQQQQ</name>
+        <rename>YYYY-QQQQ</rename>
+      </field>
+      <field>
+        <name>YYYYQQQMM</name>
+        <rename>YYY-QQQ-MM</rename>
+      </field>
+      <field>
+        <name>YYYYQQQMMDD</name>
+        <rename>YYYY-QQQ-MM-DD</rename>
+      </field>
+      <field>
+        <name>YYYYQQQQMMM</name>
+        <rename>YYYY-QQQQ-MMM</rename>
+      </field>
+      <field>
+        <name>YYYYQQQQMMMM</name>
+        <rename>YYYY-QQQQ-MMMM</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>YYYYMM</name>
+        <rename>YYYYMM</rename>
+        <type>Integer</type>
+        <length>6</length>
+        <precision>-2</precision>
+        <conversion_mask />
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>More Date Fields</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -924,7 +975,33 @@ var IS_WEEKEND = (DAY_OF_WEEK == Calendar.SUNDAY || DAY_OF_WEEK == Calendar.SATU
 var QUARTER_SHORT_DESC = "Q"+QUARTER2;
 var QUARTER_LONG_DESC = "QTR "+QUARTER2;
 
-var YYYYMM = str2num(YYYYMMSTR)
+var YYYYMM = str2num(YYYYMMSTR);
+
+var YYYYQQ = YEAR4 + "-0" + QUARTER2;
+var YYYYQQQ = YEAR4 + " Q" + QUARTER2;
+var YYYYQQQQ = YEAR4 + " QTR " + QUARTER2;
+
+var YYYYQQQMM;
+
+if (MONTH2 &lt;10) { 
+	YYYYQQQMM = YEAR4 + " Q" + QUARTER2 + " 0" + MONTH2;
+} else { 
+	YYYYQQQMM = YEAR4 + " Q" + QUARTER2 + " " + MONTH2;
+}
+
+var YYYYQQQMMDD;
+
+if (DAY_OF_MONTH2 &lt;10) {
+	YYYYQQQMMDD = YYYYQQQMM + " 0" + DAY_OF_MONTH2;
+} else {
+	YYYYQQQMMDD = YYYYQQQMM + " " + DAY_OF_MONTH2;
+}
+
+var YYYYQQQQMMM = YYYYQQQQ + " " + MONTH_SHORT_DESC;
+
+var YYYYQQQQMMMM = YYYYQQQQ + " " + MONTH_LONG_DESC;
+
+
 </jsScript_script>
       </jsScript>
     </jsScripts>
@@ -1041,8 +1118,64 @@ var YYYYMM = str2num(YYYYMMSTR)
         <precision>-1</precision>
         <replace>N</replace>
       </field>
+      <field>
+        <name>YYYYQQ</name>
+        <rename>YYYYQQ</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYQQQ</name>
+        <rename>YYYYQQQ</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYQQQQ</name>
+        <rename>YYYYQQQQ</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYQQQMM</name>
+        <rename>YYYYQQQMM</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYQQQMMDD</name>
+        <rename>YYYYQQQMMDD</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYQQQQMMM</name>
+        <rename>YYYYQQQQMMM</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYQQQQMMMM</name>
+        <rename>YYYYQQQQMMMM</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1050,7 +1183,7 @@ var YYYYMM = str2num(YYYYMMSTR)
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1058,165 +1191,165 @@ var YYYYMM = str2num(YYYYMMSTR)
   <step>
     <name>New Date Fields</name>
     <type>Calculator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <calculation>
       <field_name>YEAR4</field_name>
       <calc_type>YEAR_OF_DATE</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>MONTH2</field_name>
       <calc_type>MONTH_OF_DATE</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>DAY_OF_MONTH2</field_name>
       <calc_type>DAY_OF_MONTH</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>DAY_OF_WEEK</field_name>
       <calc_type>DAY_OF_WEEK</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>YYYY-MM</field_name>
       <calc_type>COPY_FIELD</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>yyyy-MM</conversion_mask>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>YYYY-MM-DD</field_name>
       <calc_type>COPY_FIELD</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>yyyy-MM-dd</conversion_mask>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>WEEK_OF_YEAR</field_name>
       <calc_type>WEEK_OF_YEAR</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>DATE_TK</field_name>
       <calc_type>COPY_FIELD</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>yyyyMMdd</conversion_mask>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>DD-MM-YYYY</field_name>
       <calc_type>COPY_FIELD</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>dd-MM-yyyy</conversion_mask>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>YYYYMMSTR</field_name>
       <calc_type>COPY_FIELD</calc_type>
       <field_a>FULL_DATETIME</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>yyyyMM</conversion_mask>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1232,25 +1365,25 @@ var YYYYMM = str2num(YYYYMMSTR)
   <step>
     <name>SEQUENCE</name>
     <type>Sequence</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <valuename>SEQUENCE</valuename>
     <use_database>N</use_database>
-    <connection/>
-    <schema/>
+    <connection />
+    <schema />
     <seqname>SEQ_</seqname>
     <use_counter>Y</use_counter>
-    <counter_name/>
+    <counter_name />
     <start_at>0</start_at>
     <increment_by>1</increment_by>
     <max_value>999999999</max_value>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1266,34 +1399,34 @@ var YYYYMM = str2num(YYYYMMSTR)
   <step>
     <name>START_DATE</name>
     <type>RowGenerator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>START_DATE</name>
         <type>Date</type>
         <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
+        <currency />
+        <decimal />
+        <group />
         <nullif>2000-01-01</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <limit>10000</limit>
+    <limit>30000</limit>
     <never_ending>N</never_ending>
-    <interval_in_ms/>
-    <row_time_field/>
-    <last_time_field/>
-    <cluster_schema/>
+    <interval_in_ms />
+    <row_time_field />
+    <last_time_field />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1309,23 +1442,23 @@ var YYYYMM = str2num(YYYYMMSTR)
   <step>
     <name>Trim Strings</name>
     <type>StringOperations</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <in_stream_name>YYYY-MM</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1333,12 +1466,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>YYYY-MM-DD</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1346,12 +1479,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>DATE_TK</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1359,12 +1492,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>YEAR_FOR_WEEK</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1372,12 +1505,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>DAY_OF_WEEK_SHORT_DESC</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1385,12 +1518,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>DAY_OF_WEEK_LONG_DESC</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1398,12 +1531,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>MONTH_SHORT_DESC</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1411,12 +1544,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>MONTH_LONG_DESC</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1424,12 +1557,12 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>QUARTER_SHORT_DESC</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
@@ -1437,19 +1570,110 @@ var YYYYMM = str2num(YYYYMMSTR)
       </field>
       <field>
         <in_stream_name>QUARTER_LONG_DESC</in_stream_name>
-        <out_stream_name/>
+        <out_stream_name />
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
         <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>YYYYQQ</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>YYYYQQQ</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>YYYYQQQQ</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>YYYYQQQMM</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>YYYYQQQMMDD</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>YYYYQQQQMMM</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>YYYYQQQQMMMM</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
         <init_cap>no</init_cap>
         <mask_xml>none</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1457,50 +1681,7 @@ var YYYYMM = str2num(YYYYMMSTR)
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>year &lt;= 2020?</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>More Date Fields</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>YEAR4</leftvalue>
-        <function>&lt;=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>2030</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>#;-#</mask>
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

@@ -492,23 +492,13 @@
   </connection>
   <order>
     <hop>
-      <from>Drop</from>
-      <to>Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Rename</from>
+      <from>Drop / Rename</from>
       <to>Replace Boolean</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Replace NULLS</from>
       <to>D_CASES</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>S_CASES</from>
-      <to>Drop</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -524,6 +514,11 @@
     <hop>
       <from>Map Case Status</from>
       <to>Replace Underscores</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>S_CASES</from>
+      <to>Drop / Rename</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -623,94 +618,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Drop</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id</name>
-      </field>
-      <field>
-        <name>name</name>
-      </field>
-      <field>
-        <name>date_entered</name>
-      </field>
-      <field>
-        <name>date_modified</name>
-      </field>
-      <field>
-        <name>modified_user_id</name>
-      </field>
-      <field>
-        <name>created_by</name>
-      </field>
-      <field>
-        <name>description</name>
-      </field>
-      <field>
-        <name>deleted</name>
-      </field>
-      <field>
-        <name>assigned_user_id</name>
-      </field>
-      <field>
-        <name>case_number</name>
-      </field>
-      <field>
-        <name>type</name>
-      </field>
-      <field>
-        <name>status</name>
-      </field>
-      <field>
-        <name>priority</name>
-      </field>
-      <field>
-        <name>resolution</name>
-      </field>
-      <field>
-        <name>work_log</name>
-      </field>
-      <field>
-        <name>account_id</name>
-      </field>
-      <field>
-        <name>state</name>
-      </field>
-      <field>
-        <name>contact_created_by_id</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Rename</name>
+    <name>Drop / Rename</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -771,7 +685,60 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>288</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Map Case Status</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>CASE_STATUS</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>Open_Pending Input</source_value>
+        <target_value>Pending Input</target_value>
+      </field>
+      <field>
+        <source_value>Closed_Closed</source_value>
+        <target_value>Closed</target_value>
+      </field>
+      <field>
+        <source_value>Open_New</source_value>
+        <target_value>New</target_value>
+      </field>
+      <field>
+        <source_value>Closed_Rejected</source_value>
+        <target_value>Rejected</target_value>
+      </field>
+      <field>
+        <source_value>Closed_Duplicate</source_value>
+        <target_value>Duplicate</target_value>
+      </field>
+      <field>
+        <source_value>Open_Assigned</source_value>
+        <target_value>Assigned</target_value>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -808,7 +775,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -883,7 +850,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -921,7 +888,7 @@
     </remotesteps>
     <GUI>
       <xloc>768</xloc>
-      <yloc>256</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -973,59 +940,6 @@ FROM S_CASES
     <GUI>
       <xloc>128</xloc>
       <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Map Case Status</name>
-    <type>ValueMapper</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <field_to_use>CASE_STATUS</field_to_use>
-    <target_field/>
-    <non_match_default/>
-    <fields>
-      <field>
-        <source_value>Open_Pending Input</source_value>
-        <target_value>Pending Input</target_value>
-      </field>
-      <field>
-        <source_value>Closed_Closed</source_value>
-        <target_value>Closed</target_value>
-      </field>
-      <field>
-        <source_value>Open_New</source_value>
-        <target_value>New</target_value>
-      </field>
-      <field>
-        <source_value>Closed_Rejected</source_value>
-        <target_value>Rejected</target_value>
-      </field>
-      <field>
-        <source_value>Closed_Duplicate</source_value>
-        <target_value>Duplicate</target_value>
-      </field>
-      <field>
-        <source_value>Open_Assigned</source_value>
-        <target_value>Assigned</target_value>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

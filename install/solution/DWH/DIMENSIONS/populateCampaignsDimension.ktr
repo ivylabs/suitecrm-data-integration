@@ -493,22 +493,12 @@
   </connection>
   <order>
     <hop>
-      <from>S_CAMPAIGNS</from>
-      <to>Drop</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Replace NULLS</from>
       <to>D_CAMPAIGNS</to>
       <enabled>N</enabled>
     </hop>
     <hop>
-      <from>Drop</from>
-      <to>Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Rename</from>
+      <from>Drop / Rename</from>
       <to>Replace Boolean</to>
       <enabled>Y</enabled>
     </hop>
@@ -519,15 +509,64 @@
     </hop>
     <hop>
       <from>Replace NULLS</from>
-      <to>Select values</to>
+      <to>Change Data Types</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
+      <from>Change Data Types</from>
       <to>D_CAMPAIGNS</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>S_CAMPAIGNS</from>
+      <to>Drop / Rename</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Change Data Types</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>CAMPAIGN_DELETED</name>
+        <rename>CAMPAIGN_DELETED</rename>
+        <type>Integer</type>
+        <length>1</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>D_CAMPAIGNS</name>
     <type>DimensionLookup</type>
@@ -557,97 +596,97 @@
       <field>
         <name>CAMPAIGN_NAME</name>
         <lookup>CAMPAIGN_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_CREATED_BY</name>
         <lookup>CAMPAIGN_CREATED_BY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_DELETED</name>
         <lookup>CAMPAIGN_DELETED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TRACKER_KEY</name>
         <lookup>CAMPAIGN_TRACKER_KEY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TRACKER_COUNT</name>
         <lookup>CAMPAIGN_TRACKER_COUNT</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_REFER_URL</name>
         <lookup>CAMPAIGN_REFER_URL</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TRACKER_TEXT</name>
         <lookup>CAMPAIGN_TRACKER_TEXT</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_START_DATE</name>
         <lookup>CAMPAIGN_START_DATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_END_DATE</name>
         <lookup>CAMPAIGN_END_DATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_STATUS</name>
         <lookup>CAMPAIGN_STATUS</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_IMPRESSIONS</name>
         <lookup>CAMPAIGN_IMPRESSIONS</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_BUDGET</name>
         <lookup>CAMPAIGN_BUDGET</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_EXPECTED_COST</name>
         <lookup>CAMPAIGN_EXPECTED_COST</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_ACTUAL_COST</name>
         <lookup>CAMPAIGN_ACTUAL_COST</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_EXPECTED_REVENUE</name>
         <lookup>CAMPAIGN_EXPECTED_REVENUE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_TYPE</name>
         <lookup>CAMPAIGN_TYPE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_OBJECTIVE</name>
         <lookup>CAMPAIGN_OBJECTIVE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_CONTENT</name>
         <lookup>CAMPAIGN_CONTENT</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>CAMPAIGN_FREQUENCY</name>
         <lookup>CAMPAIGN_FREQUENCY</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <return>
         <name>CAMPAIGN_TK</name>
@@ -674,100 +713,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Drop</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id</name>
-      </field>
-      <field>
-        <name>name</name>
-      </field>
-      <field>
-        <name>created_by</name>
-      </field>
-      <field>
-        <name>deleted</name>
-      </field>
-      <field>
-        <name>tracker_key</name>
-      </field>
-      <field>
-        <name>tracker_count</name>
-      </field>
-      <field>
-        <name>refer_url</name>
-      </field>
-      <field>
-        <name>tracker_text</name>
-      </field>
-      <field>
-        <name>start_date</name>
-      </field>
-      <field>
-        <name>end_date</name>
-      </field>
-      <field>
-        <name>status</name>
-      </field>
-      <field>
-        <name>impressions</name>
-      </field>
-      <field>
-        <name>budget</name>
-      </field>
-      <field>
-        <name>expected_cost</name>
-      </field>
-      <field>
-        <name>actual_cost</name>
-      </field>
-      <field>
-        <name>expected_revenue</name>
-      </field>
-      <field>
-        <name>campaign_type</name>
-      </field>
-      <field>
-        <name>objective</name>
-      </field>
-      <field>
-        <name>content</name>
-      </field>
-      <field>
-        <name>frequency</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Rename</name>
+    <name>Drop / Rename</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -868,7 +820,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>288</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -905,7 +857,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -998,7 +950,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1057,50 +1009,6 @@ FROM S_CAMPAIGNS</sql>
     <GUI>
       <xloc>128</xloc>
       <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>CAMPAIGN_DELETED</name>
-        <rename>CAMPAIGN_DELETED</rename>
-        <type>Integer</type>
-        <length>1</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

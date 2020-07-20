@@ -423,7 +423,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>928</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -440,7 +440,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>288</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -451,8 +451,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>288</yloc>
+      <xloc>768</xloc>
+      <yloc>448</yloc>
     </entry>
     <entry>
       <name>SuiteCRM DB Passed</name>
@@ -464,7 +464,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>448</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -481,7 +481,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -494,20 +494,50 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>LOG START</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG START</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>288</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>LOG END</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG END</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>LOG END ABORT</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG END</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>768</xloc>
+      <yloc>288</yloc>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>Check Source DB</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Check Source DB</from>
       <to>SuiteCRM DB Passed</to>
@@ -536,7 +566,34 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>START</from>
+      <to>LOG START</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>LOG START</from>
+      <to>Check Source DB</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>SuiteCRM DWH DB Passed</from>
+      <to>LOG END</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>LOG END</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -545,8 +602,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check Source DB</from>
-      <to>Abort job</to>
+      <from>Check DWH DB</from>
+      <to>LOG END ABORT</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -554,8 +611,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Check DWH DB</from>
+      <from>LOG END ABORT</from>
       <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Source DB</from>
+      <to>LOG END ABORT</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

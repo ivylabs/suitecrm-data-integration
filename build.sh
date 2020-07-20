@@ -6,6 +6,24 @@ echo ""
 
 WORKING_DIR=$(pwd);
 
+file="./version"
+
+if [ -f "$file" ]
+then
+
+    while IFS='=' read -r key value
+    do
+            key=$(echo $key | tr '.' '_')
+            eval ${key}=\${value}
+    done < "$file"
+
+
+
+else
+        echo "$file not found."
+fi
+
+
 echo ""
 echo " Installing..."
 echo ""
@@ -40,13 +58,34 @@ mv install/installation-files/data-integration/ suitecrm-data-integration-server
 #cp -Rf install/suitecrm-data-integration-server/{.[!.],}* suitecrm-data-integration-server/configuration
 cp -Rf install/mysql-connector-java-5.1.47.jar suitecrm-data-integration-server/client/lib/
 
+# Package the DDL into a single file
+
+if [ -f install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS.sql ]; then
+
+	rm -Rf install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS.sql
+fi
+
+
+awk 'FNR==1{print ""}{print}' install/suitecrm-data-integration/setup/DDL/*.sql > install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS
+mv install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS.sql
+
 cp -Rf install/suitecrm-data-integration/{.[!.],}* suitecrm-data-integration-server/
 cp -Rf install/solution/ suitecrm-data-integration-server/
 
 
-zip -r suitecrm-data-integration-server.zip suitecrm-data-integration-server/
 
-rm -Rf suitecrm-data-integration-server/
+
+echo ""
+read -r -p " Would you like to package the installation? This will create a zip file and remove the ready to use application server. [y/N] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+        zip -r suitecrm-data-integration-server-${VERSION}.zip suitecrm-data-integration-server/
+	
+	rm -Rf suitecrm-data-integration-server/
+
+
+fi
+
 
 
 echo ""

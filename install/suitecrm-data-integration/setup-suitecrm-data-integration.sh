@@ -75,6 +75,23 @@ then
 			echo ""
 			echo " We could not establish a connection to the SuiteCRM database!"
 			echo " Please check the JDBC connection properties and run setup again."
+			echo ""
+			echo "-----------------------------------------------------------------------------------------------------"
+			echo ""
+			echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
+			echo ""
+
+			START_LINE=$(grep -n "ETL LOG START" ../logs/check-database-connections.log | cut -f1 -d:)
+			END_LINE=$(grep -n "ETL LOG END" ../logs/check-database-connections.log | cut -f1 -d:)
+
+			echo " BEGIN ERROR MESSAGE"
+			echo " ----------------------------------------------------------------------------------------------------"
+			echo ""
+
+			awk 'NR > '${START_LINE}' && NR < '${END_LINE} ../logs/check-database-connections.log
+			echo ""
+			echo " ----------------------------------------------------------------------------------------------------"
+
 		else
 			echo ""
 			echo " Connection to the SuiteCRM database was successful!"
@@ -85,6 +102,22 @@ then
 				echo ""
 	                        echo " We could not establish a connection to the SuiteCRM Analytics database!"
         	                echo " Please check the JDBC connection properties and run setup again."
+				echo ""
+        	                echo "-----------------------------------------------------------------------------------------------------"
+	                        echo ""
+                        	echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
+                	        echo ""
+
+                        	START_LINE=$(grep -n "ETL LOG START" ../logs/check-database-connections.log | cut -f1 -d:)
+                        	END_LINE=$(grep -n "ETL LOG END" ../logs/check-database-connections.log | cut -f1 -d:)
+
+                        	echo " BEGIN ERROR MESSAGE"
+                        	echo " ----------------------------------------------------------------------------------------------------"
+                        	echo ""
+
+                        	awk 'NR > '${START_LINE}' && NR < '${END_LINE} ../logs/check-database-connections.log
+                        	echo ""
+                        	echo " ----------------------------------------------------------------------------------------------------"
 			else
 				echo ""
 				echo " Connection to the SuiteCRM Analytics database was successful!"
@@ -102,33 +135,59 @@ then
 					echo ""
                         		echo " We could not create all the tables in the SuiteCRM DWH!"
                         		echo " Please make sure the SuiteCRM Analytics user has create table privileges and run setup again."
+					echo ""
+                        		echo "-----------------------------------------------------------------------------------------------------"
+                        		echo ""
+                		        echo " The Setup has FAILED! - Please check for any errors in the log files inside the logs directory!"
+        	        	        echo ""
+					echo ""
+
+                                	START_LINE=$(grep -n "ETL LOG START" ../logs/create-tables.log | cut -f1 -d:)
+                                	END_LINE=$(grep -n "ETL LOG END" ../logs/create-tables.log | cut -f1 -d:)
+
+                                	echo " BEGIN ERROR MESSAGE"
+                                	echo " ----------------------------------------------------------------------------------------------------"
+                                	echo ""
+
+                                	awk 'NR > '${START_LINE}' && NR < '${END_LINE} ../logs/create-tables.log
+                                	echo ""
+                                	echo " ----------------------------------------------------------------------------------------------------"
+
                 		else
 					echo ""
                         		echo " The SuiteCRM DWH tables were created successfully!"
 
 					rm -Rf ddl-passed
 
-					# Populate Control table with additional properties
+					echo ""
+					echo " Populate Control table with additional properties"
 
 					./populate-control.sh
+
+					#echo ""
+					#echo " Populate Custom Field Mapping table"
+
+					#./populate-custom-fields-mapping.sh
+
+					echo ""
+		                        echo "---------------------------------------------"
+        		                echo ""
+                		        echo " The Setup has Completed Successfully!"
+                		        echo ""
+                		        echo "---------------------------------------------"
+
+
 				fi
                 	fi
 		fi
 
 		if [ "$SMTP_ENABLED" -eq "1" ]; then
+			echo ""
 			echo " We will configure your email properties and send you a test email"
-                        echo " If you do not get this email then please check the log in ......"
+                        echo " If you do not get this email then please check the log in logs/"
 			./send-test-email.sh
 
                 fi
-
-		echo ""
-                echo "-------------------------------------------------------------"
-                echo ""
-                echo " Installation is complete!"
-                echo ""
-                echo "-------------------------------------------------------------"
-
 
 		
 

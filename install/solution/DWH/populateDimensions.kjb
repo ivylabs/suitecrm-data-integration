@@ -1,24 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>populateDimensions</name>
-  <description/>
-  <extended_description/>
-  <job_version/>
-  <directory>/public/SuiteCRM Analytics/System/ETL/DWH</directory>
+  <description />
+  <extended_description />
+  <job_version />
+  <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2017/07/22 13:01:31.151</created_date>
   <modified_user>admin</modified_user>
   <modified_date>2018/07/27 15:10:58.769</modified_date>
   <parameters>
     </parameters>
+  <connection>
+    <name>SuiteCRMAnalytics</name>
+    <server />
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>SuiteCRMAnalytics</database>
+    <port>1521</port>
+    <username />
+    <password>Encrypted </password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <slaveservers>
     </slaveservers>
   <job-log-table>
-    <connection/>
-    <schema/>
-    <table/>
-    <size_limit_lines/>
-    <interval/>
-    <timeout_days/>
+    <connection />
+    <schema />
+    <table />
+    <size_limit_lines />
+    <interval />
+    <timeout_days />
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -126,10 +182,10 @@
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection/>
-    <schema/>
-    <table/>
-    <timeout_days/>
+    <connection />
+    <schema />
+    <table />
+    <timeout_days />
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -217,10 +273,10 @@
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection/>
-    <schema/>
-    <table/>
-    <timeout_days/>
+    <connection />
+    <schema />
+    <table />
+    <timeout_days />
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -283,11 +339,11 @@
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file/>
+  <shared_objects_file />
   <entries>
     <entry>
       <name>START</name>
-      <description/>
+      <description />
       <type>SPECIAL</type>
       <start>Y</start>
       <dummy>N</dummy>
@@ -307,7 +363,7 @@
     </entry>
     <entry>
       <name>Success</name>
-      <description/>
+      <description />
       <type>SUCCESS</type>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -317,16 +373,16 @@
     </entry>
     <entry>
       <name>D_DATE Populated?</name>
-      <description/>
+      <description />
       <type>EVAL_TABLE_CONTENT</type>
       <connection>SuiteCRMAnalytics</connection>
-      <schemaname/>
+      <schemaname />
       <tablename>D_DATE</tablename>
-      <success_condition>rows_count_greater</success_condition>
-      <limit>0</limit>
+      <success_condition>rows_count_equal</success_condition>
+      <limit>30000</limit>
       <is_custom_sql>N</is_custom_sql>
       <is_usevars>N</is_usevars>
-      <custom_sql/>
+      <custom_sql />
       <add_rows_result>N</add_rows_result>
       <clear_result_rows>Y</clear_result_rows>
       <parallel>N</parallel>
@@ -337,11 +393,11 @@
     </entry>
     <entry>
       <name>populateDateDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateDateDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -350,13 +406,13 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -374,9 +430,9 @@
     </entry>
     <entry>
       <name>Abort job</name>
-      <description/>
+      <description />
       <type>ABORT</type>
-      <message/>
+      <message />
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -385,11 +441,11 @@
     </entry>
     <entry>
       <name>populateLeadsDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateLeadsDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -398,13 +454,13 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -422,11 +478,11 @@
     </entry>
     <entry>
       <name>populateCampaignsDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateCampaignsDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -435,13 +491,13 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -459,11 +515,11 @@
     </entry>
     <entry>
       <name>populateOpportunitiesDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateOpportunitiesDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -472,13 +528,13 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -496,11 +552,11 @@
     </entry>
     <entry>
       <name>populateAccountsDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateAccountsDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -509,13 +565,13 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -533,13 +589,13 @@
     </entry>
     <entry>
       <name>Abort Dimensions</name>
-      <description/>
+      <description />
       <type>WRITE_TO_LOG</type>
       <logmessage>-------------------------------------------------
 Abort Dimensions
 -------------------------------------------------</logmessage>
       <loglevel>Basic</loglevel>
-      <logsubject/>
+      <logsubject />
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -548,11 +604,11 @@ Abort Dimensions
     </entry>
     <entry>
       <name>populateUsersDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateUsersDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -561,13 +617,13 @@ Abort Dimensions
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -585,11 +641,11 @@ Abort Dimensions
     </entry>
     <entry>
       <name>populateCasesDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateCasesDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -598,13 +654,13 @@ Abort Dimensions
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -622,13 +678,13 @@ Abort Dimensions
     </entry>
     <entry>
       <name>Populating Dimensions</name>
-      <description/>
+      <description />
       <type>WRITE_TO_LOG</type>
       <logmessage>--------------------------------------------------
 Populating Dimensions
 --------------------------------------------------</logmessage>
       <loglevel>Basic</loglevel>
-      <logsubject/>
+      <logsubject />
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -637,11 +693,11 @@ Populating Dimensions
     </entry>
     <entry>
       <name>populateInvoicesDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateInvoicesDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -650,13 +706,13 @@ Populating Dimensions
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -674,11 +730,11 @@ Populating Dimensions
     </entry>
     <entry>
       <name>populateProductsDimension</name>
-      <description/>
+      <description />
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
+      <trans_object_id />
+      <filename />
       <transname>populateProductsDimension</transname>
       <directory>${Internal.Entry.Current.Directory}/DIMENSIONS</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -687,13 +743,13 @@ Populating Dimensions
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>

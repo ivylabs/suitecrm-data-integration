@@ -5,10 +5,15 @@ install.properties.local
 install.properties.original
 install/suitecrm-dwh-db-passed
 install/suitecrm-db-passed
+install.properties
 install/ddl-passed
+install/suitecrm-data-integration/setup/DDL/SUITECRM_ANALYTICS.sql
+suitecrm-data-integration-server/
+suitecrm-data-integration-server.zip
 suitecrm-data-integration-server/configuration/.kettle/
 suitecrm-data-integration-server/configuration/config
 suitecrm-data-integration-server/configuration/simple-jndi/
 suitecrm-data-integration-server/logs/
 install.properties.live
 install.properties.stashed
+suitecrm-data-integration.code-workspace

@@ -1,21 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>populateInvoicesDimension</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
-    <directory>/public/SuiteCRM Analytics/System/ETL/DWH/DIMENSIONS</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -40,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -124,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -206,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -272,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -348,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -400,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -413,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -429,7 +430,7 @@
     <created_date>2018/07/18 19:23:20.486</created_date>
     <modified_user>admin</modified_user>
     <modified_date>2018/09/05 16:33:04.583</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -457,20 +458,56 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server>localhost</server>
+    <server />
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
-    <port>3306</port>
-    <username>root</username>
+    <port>1521</port>
+    <username />
     <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
       </attribute>
     </attributes>
   </connection>
@@ -487,11 +524,11 @@
     </hop>
     <hop>
       <from>S_PRODUCT_QUOTES</from>
-      <to>Rename</to>
+      <to>Drop / Rename</to>
       <enabled>N</enabled>
     </hop>
     <hop>
-      <from>Rename</from>
+      <from>Drop / Rename</from>
       <to>Filter Invoice Items</to>
       <enabled>Y</enabled>
     </hop>
@@ -507,123 +544,27 @@
     </hop>
     <hop>
       <from>S_INVOICES</from>
-      <to>Rename 2</to>
+      <to>Drop / Rename 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Rename 2</from>
+      <from>Drop / Rename 2</from>
       <to>D_INVOICES</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>S_PRODUCT_QUOTES</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  id
-, name
-, description
-, deleted
-, part_number
-, item_description
-, number
-, product_qty
-, product_cost_price
-, product_list_price
-, product_discount
-, product_discount_amount
-, discount
-, product_unit_price
-, vat_amt
-, product_total_price
-, vat
-, parent_type
-, parent_id
-, product_id
-, group_id
-FROM S_PRODUCT_QUOTES</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter Invoice Items</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Lookup Invoice</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>PARENT_TYPE</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>AOS_Invoices</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>D_INVOICES</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_INVOICES</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -634,88 +575,88 @@ FROM S_PRODUCT_QUOTES</sql>
         <lookup>INVOICE_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
       <field>
         <name>INVOICE_NAME</name>
         <lookup>INVOICE_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_DATE_ENTERED</name>
         <lookup>INVOICE_DATE_ENTERED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_DATE_MODIFIED</name>
         <lookup>INVOICE_DATE_MODIFIED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_DESCRIPTION</name>
         <lookup>INVOICE_DESCRIPTION</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_DELETED</name>
         <lookup>INVOICE_DELETED</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_NUMBER</name>
         <lookup>INVOICE_NUMBER</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_CURRENCY_ID</name>
         <lookup>INVOICE_CURRENCY_ID</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_QUOTE_NUMBER</name>
         <lookup>INVOICE_QUOTE_NUMBER</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_QUOTE_DATE</name>
         <lookup>INVOICE_QUOTE_DATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_DATE</name>
         <lookup>INVOICE_DATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_DUE_DATE</name>
         <lookup>INVOICE_DUE_DATE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>INVOICE_STATUS</name>
         <lookup>INVOICE_STATUS</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <return>
         <name>INVOICE_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>VERSION</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -729,190 +670,233 @@ FROM S_PRODUCT_QUOTES</sql>
     </GUI>
   </step>
   <step>
-    <name>Lookup Invoice</name>
-    <type>DBLookup</type>
-    <description/>
+    <name>Filter Invoice Items</name>
+    <type>FilterRows</type>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Lookup Invoice</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>PARENT_TYPE</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>AOS_Invoices</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Invoice</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema/>
+      <schema />
       <table>S_INVOICES</table>
-      <orderby/>
+      <orderby />
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>PARENT_ID</name>
         <field>id</field>
         <condition>=</condition>
-        <name2/>
+        <name2 />
       </key>
       <value>
         <name>id</name>
         <rename>INVOICE_ID</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>name</name>
         <rename>INVOICE_NAME</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>description</name>
         <rename>INVOICE_DESCRIPTION</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>deleted</name>
         <rename>deleted</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>billing_address_street</name>
         <rename>billing_address_street</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>billing_address_city</name>
         <rename>billing_address_city</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>billing_address_state</name>
         <rename>billing_address_state</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>billing_address_postalcode</name>
         <rename>billing_address_postalcode</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>billing_address_country</name>
         <rename>billing_address_country</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>shipping_address_street</name>
         <rename>shipping_address_street</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>shipping_address_city</name>
         <rename>shipping_address_city</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>shipping_address_state</name>
         <rename>shipping_address_state</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>shipping_address_postalcode</name>
         <rename>shipping_address_postalcode</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>shipping_address_country</name>
         <rename>shipping_address_country</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>number</name>
         <rename>INVOICE_NUMBER</rename>
-        <default/>
+        <default />
         <type>Integer</type>
       </value>
       <value>
         <name>total_amt</name>
         <rename>TOTAL_AMT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
       <value>
         <name>subtotal_amount</name>
         <rename>SUBTOTAL_AMOUNT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
       <value>
         <name>discount_amount</name>
         <rename>DISCOUNT_AMOUNT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
       <value>
         <name>tax_amount</name>
         <rename>TAX_AMOUNT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
       <value>
         <name>shipping_amount</name>
         <rename>SHIPPING_AMOUNT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
       <value>
         <name>shipping_tax</name>
         <rename>SHIPPING_TAX</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>shipping_tax_amt</name>
         <rename>SHIPPING_TAX_AMT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
       <value>
         <name>total_amount</name>
         <rename>TOTAL_AMOUNT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
       <value>
         <name>quote_number</name>
         <rename>QUOTE_NUMBER</rename>
-        <default/>
+        <default />
         <type>Integer</type>
       </value>
       <value>
         <name>status</name>
         <rename>INVOICE_STATUS</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>subtotal_tax_amount</name>
         <rename>SUBTOTAL_TAX_AMOUNT</rename>
-        <default/>
+        <default />
         <type>BigNumber</type>
       </value>
     </lookup>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -926,15 +910,15 @@ FROM S_PRODUCT_QUOTES</sql>
     </GUI>
   </step>
   <step>
-    <name>Rename</name>
+    <name>Drop / Rename</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -947,11 +931,11 @@ FROM S_PRODUCT_QUOTES</sql>
       </field>
       <field>
         <name>description</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>deleted</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>part_number</name>
@@ -963,7 +947,7 @@ FROM S_PRODUCT_QUOTES</sql>
       </field>
       <field>
         <name>number</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>product_qty</name>
@@ -971,39 +955,39 @@ FROM S_PRODUCT_QUOTES</sql>
       </field>
       <field>
         <name>product_cost_price</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>product_list_price</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>product_discount</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>product_discount_amount</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>discount</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>product_unit_price</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>vat_amt</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>product_total_price</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>vat</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>parent_type</name>
@@ -1015,15 +999,15 @@ FROM S_PRODUCT_QUOTES</sql>
       </field>
       <field>
         <name>product_id</name>
-        <rename/>
+        <rename />
       </field>
       <field>
         <name>group_id</name>
-        <rename/>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1037,201 +1021,15 @@ FROM S_PRODUCT_QUOTES</sql>
     </GUI>
   </step>
   <step>
-    <name>TMP Drop</name>
+    <name>Drop / Rename 2</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>INVOICE_LINE_ID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_LINE_PRODUCT_NAME</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_LINE_PART_NUMBER</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_LINE_DESCRIPTION</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_LINE_QUANTITY</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_ID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_NAME</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_DESCRIPTION</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_NUMBER</name>
-        <rename/>
-      </field>
-      <field>
-        <name>TOTAL_AMT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SUBTOTAL_AMOUNT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>DISCOUNT_AMOUNT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>TAX_AMOUNT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SHIPPING_AMOUNT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SHIPPING_TAX</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SHIPPING_TAX_AMT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>TOTAL_AMOUNT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>QUOTE_NUMBER</name>
-        <rename/>
-      </field>
-      <field>
-        <name>INVOICE_STATUS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SUBTOTAL_TAX_AMOUNT</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>S_INVOICES</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  id
-, name
-, date_entered
-, date_modified
-, modified_user_id
-, created_by
-, description
-, deleted
-, assigned_user_id
-, billing_account_id
-, billing_contact_id
-, billing_address_street
-, billing_address_city
-, billing_address_state
-, billing_address_postalcode
-, billing_address_country
-, shipping_address_street
-, shipping_address_city
-, shipping_address_state
-, shipping_address_postalcode
-, shipping_address_country
-, number
-, total_amt
-, total_amt_usdollar
-, subtotal_amount
-, subtotal_amount_usdollar
-, discount_amount
-, discount_amount_usdollar
-, tax_amount
-, tax_amount_usdollar
-, shipping_amount
-, shipping_amount_usdollar
-, shipping_tax
-, shipping_tax_amt
-, shipping_tax_amt_usdollar
-, total_amount
-, total_amount_usdollar
-, currency_id
-, quote_number
-, quote_date
-, invoice_date
-, due_date
-, status
-, template_ddown_c
-, subtotal_tax_amount
-, subtotal_tax_amount_usdollar
-FROM S_INVOICES
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Rename 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1288,7 +1086,7 @@ FROM S_INVOICES
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1298,6 +1096,225 @@ FROM S_INVOICES
     <GUI>
       <xloc>288</xloc>
       <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>S_INVOICES</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  id
+, name
+, date_entered
+, date_modified
+, modified_user_id
+, created_by
+, description
+, deleted
+, assigned_user_id
+, billing_account_id
+, billing_contact_id
+, billing_address_street
+, billing_address_city
+, billing_address_state
+, billing_address_postalcode
+, billing_address_country
+, shipping_address_street
+, shipping_address_city
+, shipping_address_state
+, shipping_address_postalcode
+, shipping_address_country
+, number
+, total_amt
+, total_amt_usdollar
+, subtotal_amount
+, subtotal_amount_usdollar
+, discount_amount
+, discount_amount_usdollar
+, tax_amount
+, tax_amount_usdollar
+, shipping_amount
+, shipping_amount_usdollar
+, shipping_tax
+, shipping_tax_amt
+, shipping_tax_amt_usdollar
+, total_amount
+, total_amount_usdollar
+, currency_id
+, quote_number
+, quote_date
+, invoice_date
+, due_date
+, status
+, template_ddown_c
+, subtotal_tax_amount
+, subtotal_tax_amount_usdollar
+FROM S_INVOICES
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>S_PRODUCT_QUOTES</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  id
+, name
+, description
+, deleted
+, part_number
+, item_description
+, number
+, product_qty
+, product_cost_price
+, product_list_price
+, product_discount
+, product_discount_amount
+, discount
+, product_unit_price
+, vat_amt
+, product_total_price
+, vat
+, parent_type
+, parent_id
+, product_id
+, group_id
+FROM S_PRODUCT_QUOTES</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>TMP Drop</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>INVOICE_LINE_ID</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_PRODUCT_NAME</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_PART_NUMBER</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_DESCRIPTION</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_QUANTITY</name>
+      </field>
+      <field>
+        <name>INVOICE_ID</name>
+      </field>
+      <field>
+        <name>INVOICE_NAME</name>
+      </field>
+      <field>
+        <name>INVOICE_DESCRIPTION</name>
+      </field>
+      <field>
+        <name>INVOICE_NUMBER</name>
+      </field>
+      <field>
+        <name>TOTAL_AMT</name>
+      </field>
+      <field>
+        <name>SUBTOTAL_AMOUNT</name>
+      </field>
+      <field>
+        <name>DISCOUNT_AMOUNT</name>
+      </field>
+      <field>
+        <name>TAX_AMOUNT</name>
+      </field>
+      <field>
+        <name>SHIPPING_AMOUNT</name>
+      </field>
+      <field>
+        <name>SHIPPING_TAX</name>
+      </field>
+      <field>
+        <name>SHIPPING_TAX_AMT</name>
+      </field>
+      <field>
+        <name>TOTAL_AMOUNT</name>
+      </field>
+      <field>
+        <name>QUOTE_NUMBER</name>
+      </field>
+      <field>
+        <name>INVOICE_STATUS</name>
+      </field>
+      <field>
+        <name>SUBTOTAL_TAX_AMOUNT</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>dummyDimension</name>
+    <name>setCustomStagingVariable</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,24 +428,54 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2019/02/26 15:01:35.944</created_date>
+    <created_date>2019/02/26 15:23:28.036</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/02/26 15:01:35.944</modified_date>
-    <key_for_session_key/>
+    <modified_date>2019/02/26 15:23:28.036</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <order>
     <hop>
-      <from>Generate Dummy Dimension Records</from>
+      <from>Get rows from result</from>
       <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log</from>
+      <to>Set Variables</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Generate Dummy Dimension Records</name>
-    <type>RowGenerator</type>
+    <name>Get rows from result</name>
+    <type>RowsFromResult</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>      </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set Variables</name>
+    <type>SetVariable</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -456,23 +486,13 @@
     </partitioning>
     <fields>
       <field>
-        <name>DUMMY_DIMENSION</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>DUMMY_DIMENSION</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <field_name>CUSTOM_STAGING_FILENAME</field_name>
+        <variable_name>CUSTOM_STAGING_FILENAME</variable_name>
+        <variable_type>PARENT_JOB</variable_type>
+        <default_value/>
       </field>
     </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
+    <use_formatting>Y</use_formatting>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -481,7 +501,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>512</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

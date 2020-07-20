@@ -1,13 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>primeDimensions</name>
+  <name>loopCustomStaging</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <directory>/public/SuiteCRM Analytics/System/ETL/PRE-EXECUTION</directory>
+  <job_status>0</job_status>
+  <directory>/</directory>
   <created_user>-</created_user>
-  <created_date>2017/11/01 20:36:12.133</created_date>
-  <modified_user>admin</modified_user>
-  <modified_date>2018/11/11 13:26:14.153</modified_date>
+  <created_date>2019/02/26 15:23:26.198</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2019/02/26 15:23:26.198</modified_date>
   <parameters>
     </parameters>
   <slaveservers>
@@ -312,47 +314,103 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
+      <xloc>704</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
-      <name>Priming Dimensions</name>
+      <name>Set Custom Staging Variable</name>
       <description/>
-      <type>WRITE_TO_LOG</type>
-      <logmessage>----------------------------------------------------------------
-
-Priming Dimensions
-
-----------------------------------------------------------------</logmessage>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${Internal.Entry.Current.Directory}/setCustomStagingVariable.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
       <loglevel>Basic</loglevel>
-      <logsubject/>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>288</xloc>
+      <xloc>320</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
-      <name>Set Dimension Defaults</name>
+      <name>Execute Staging</name>
       <description/>
-      <type>SQL</type>
-      <sql>INSERT INTO D_LEADS (LEAD_TK,VERSION,DATE_FROM,DATE_TO,LEAD_ID,LEAD_DESCRIPTION,LEAD_SALUTATION,LEAD_TITLE,LEAD_SOURCE,LEAD_SOURCE_DESCRIPTION,LEAD_STATUS,LEAD_STATUS_DESCRIPTION,LEAD_ACCOUNT_NAME,LEAD_ACCOUNT_DESCRIPTION,LEAD_OPPORTUNITY_NAME,LEAD_OPPORTUNITY_AMOUNT,LEAD_WEBSITE,LEAD_FULL_NAME,LEAD_PRIMARY_ADDRESS_CITY,LEAD_PRIMARY_ADDRESS_COUNTRY,LEAD_PRIMARY_ADDRESS_STATE,LEAD_PRIMARY_ADDRESS_POSTCODE,LEAD_PRIMARY_ADDRESS_STREET) VALUES (0,1,{ts '1900-01-01 00:00:00.'},{ts '2200-01-01 00:00:00.'},'N/A','Not Set','Not Set','Not Set','Not Set','Not Set','New','Not Set','Not Set','Not Set','Not Set','Not Set','N/A',' Not Set','Not Set','Not Set','Not Set','Not Set','Not Set');
-</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>SuiteCRMAnalytics</connection>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${CUSTOM_STAGING_FILENAME}</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>Y</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>448</xloc>
+      <xloc>512</xloc>
       <yloc>128</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>Set Dimension Defaults</from>
+      <from>START</from>
+      <to>Set Custom Staging Variable</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Set Custom Staging Variable</from>
+      <to>Execute Staging</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Execute Staging</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -360,25 +418,23 @@ Priming Dimensions
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
-    <hop>
-      <from>Priming Dimensions</from>
-      <to>Set Dimension Defaults</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>Priming Dimensions</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
   </hops>
   <notepads>
   </notepads>
+  <attributes>
+    <group>
+      <name>METASTORE.pentaho</name>
+      <attribute>
+        <key>Default Run Configuration</key>
+        <value>{"namespace":"pentaho","id":"Default Run Configuration","name":"Default Run Configuration","description":"Defines a default run configuration","metaStoreName":null}</value>
+      </attribute>
+    </group>
+    <group>
+      <name>{"_":"Embedded MetaStore Elements","namespace":"pentaho","type":"Default Run Configuration"}</name>
+      <attribute>
+        <key>Pentaho local</key>
+        <value>{"children":[{"children":[],"id":"server","value":null},{"children":[],"id":"clustered","value":"N"},{"children":[],"id":"name","value":"Pentaho local"},{"children":[],"id":"description","value":null},{"children":[],"id":"pentaho","value":"N"},{"children":[],"id":"readOnly","value":"Y"},{"children":[],"id":"sendResources","value":"N"},{"children":[],"id":"logRemoteExecutionLocally","value":"N"},{"children":[],"id":"remote","value":"N"},{"children":[],"id":"local","value":"Y"},{"children":[],"id":"showTransformations","value":"N"}],"id":"Pentaho local","value":null,"name":"Pentaho local","owner":null,"ownerPermissionsList":[]}</value>
+      </attribute>
+    </group>
+  </attributes>
 </job>
