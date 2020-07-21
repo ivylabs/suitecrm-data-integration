@@ -395,7 +395,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1088</xloc>
+      <xloc>1280</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -431,7 +431,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1280</xloc>
+      <xloc>1472</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -467,7 +467,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1472</xloc>
+      <xloc>1664</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -503,7 +503,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1472</xloc>
+      <xloc>1664</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -520,7 +520,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>512</xloc>
+      <xloc>704</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -537,7 +537,7 @@ Populating Demo Data Failed!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1280</xloc>
+      <xloc>1472</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -558,7 +558,7 @@ Checking Database Connections!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>320</xloc>
+      <xloc>512</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -575,7 +575,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1088</xloc>
+      <xloc>1280</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -645,7 +645,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>896</xloc>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -681,7 +681,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1472</xloc>
+      <xloc>1664</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -692,8 +692,8 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1088</xloc>
-      <yloc>416</yloc>
+      <xloc>1152</xloc>
+      <yloc>480</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -702,7 +702,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>896</xloc>
+      <xloc>704</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -738,7 +738,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>896</xloc>
+      <xloc>1088</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -758,7 +758,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
+      <xloc>896</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -769,7 +769,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>512</xloc>
+      <xloc>704</xloc>
       <yloc>416</yloc>
     </entry>
     <entry>
@@ -805,7 +805,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1280</xloc>
+      <xloc>1472</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -841,7 +841,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1472</xloc>
+      <xloc>1664</xloc>
       <yloc>448</yloc>
     </entry>
     <entry>
@@ -858,20 +858,63 @@ No Database Connections!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>512</xloc>
+      <xloc>704</xloc>
       <yloc>288</yloc>
+    </entry>
+    <entry>
+      <name>LOG START</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG START</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>LOG END</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG END</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>896</xloc>
+      <yloc>608</yloc>
+    </entry>
+    <entry>
+      <name>LOG END ABORT</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG END</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1312</xloc>
+      <yloc>384</yloc>
+    </entry>
+    <entry>
+      <name>SuiteCRM ETL Sucess </name>
+      <description />
+      <type>CREATE_FILE</type>
+      <filename>${ETL_ROOT_DIR}/../setup/suitecrm-db-demo-passed</filename>
+      <fail_if_file_exists>Y</fail_if_file_exists>
+      <add_filename_result>N</add_filename_result>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1088</xloc>
+      <yloc>608</yloc>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>Starting - Checking DB connections</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Starting - Checking DB connections</from>
       <to>Check suitecrm_DWH</to>
@@ -972,35 +1015,8 @@ No Database Connections!
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Populating demo data success</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Populating demo data failed</from>
-      <to>Abort job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>populateDateDimension</from>
       <to>Truncate DWH</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Check suitecrm_DWH</from>
-      <to>D_DATE Populated</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1100,6 +1116,78 @@ No Database Connections!
     <hop>
       <from>No DB Connections</from>
       <to>Abort no DWH</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>LOG START</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>LOG START</from>
+      <to>Starting - Checking DB connections</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>LOG END</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Populating demo data failed</from>
+      <to>LOG END ABORT</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>LOG END ABORT</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Populating demo data success</from>
+      <to>SuiteCRM ETL Sucess </to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SuiteCRM ETL Sucess </from>
+      <to>LOG END</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check suitecrm_DWH</from>
+      <to>D_DATE Populated</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
