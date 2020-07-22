@@ -493,11 +493,6 @@
   </connection>
   <order>
     <hop>
-      <from>casesFact</from>
-      <to>DATE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Drop / Rename</from>
       <to>F_CASE_MANAGEMENT</to>
       <enabled>Y</enabled>
@@ -513,8 +508,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>DATE</from>
-      <to>Filter Date Ints</to>
+      <from>Filter Date Ints</from>
+      <to>Remap Date Ints</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>casesFact</from>
+      <to>TODAYS_DATE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>TODAYS_DATE</from>
+      <to>DATE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -523,8 +528,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter Date Ints</from>
-      <to>Remap Date Ints</to>
+      <from>DATE</from>
+      <to>Filter Date Ints</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -544,6 +549,21 @@
       <method>none</method>
       <schema_name />
     </partitioning>
+    <calculation>
+      <field_name>DATE_CLOSED</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>DATE</field_a>
+      <field_b>CASE_CLOSED_TK_RAND</field_b>
+      <field_c />
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
     <calculation>
       <field_name>DATE_CREATED</field_name>
       <calc_type>ADD_DAYS</calc_type>
@@ -574,21 +594,6 @@
       <grouping_symbol />
       <currency_symbol />
     </calculation>
-    <calculation>
-      <field_name>DATE_CLOSED</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>CASE_CLOSED_TK_RAND</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -597,14 +602,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>DATE</name>
-    <type>Constant</type>
+    <type>ScriptValueMod</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -613,18 +618,27 @@
       <method>none</method>
       <schema_name />
     </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var DATE = new Date();
+
+DATE.setDate(DATE.getDate()-700);</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
         <name>DATE</name>
+        <rename>DATE</rename>
         <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency />
-        <decimal />
-        <group />
-        <nullif>2020-01-01</nullif>
         <length>-1</length>
         <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <replace>N</replace>
       </field>
     </fields>
     <cluster_schema />
@@ -635,7 +649,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -765,7 +779,7 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -816,7 +830,7 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -888,7 +902,7 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -922,7 +936,7 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -963,6 +977,9 @@ Alert((str2num(str2)));</jsScript_script>
         <name>ASSIGNED_USER_RAND</name>
       </field>
       <field>
+        <name>TODAYS_DATE</name>
+      </field>
+      <field>
         <name>DATE</name>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -975,8 +992,38 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>608</xloc>
       <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>TODAYS_DATE</name>
+    <type>SystemInfo</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>TODAYS_DATE</name>
+        <type>system date (fixed)</type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1019,8 +1066,8 @@ Alert((str2num(str2)));</jsScript_script>
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_CASE_MANAGEMENT/</name>
-      <filemask>.*.csv</filemask>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_CASE_MANAGEMENT/casesFact.csv</name>
+      <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>

@@ -1044,22 +1044,7 @@
       <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_LEADS/generateLEADS3.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_LEADS/generateLEADS4.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_LEADS/generateLEADS5.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_LEADS/generateLEADS6.csv</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_LEADS/generateD_LEADS_NoAccounts.csv</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
