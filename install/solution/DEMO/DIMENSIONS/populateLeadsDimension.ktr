@@ -523,11 +523,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drop / Rename</from>
-      <to>D_LEADS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Set Country Code</from>
       <to>LEAD_ID Sequence</to>
       <enabled>Y</enabled>
@@ -545,6 +540,11 @@
     <hop>
       <from>Clean Generated Fields</from>
       <to>Lookup COUNTRY &amp; STATE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop / Rename</from>
+      <to>D_LEADS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -952,6 +952,23 @@
         <name>LEAD_ID</name>
       </field>
       <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>LEAD_ID</name>
+        <rename>LEAD_ID</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask />
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
     </fields>
     <cluster_schema />
     <remotesteps>
