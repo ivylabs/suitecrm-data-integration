@@ -492,16 +492,6 @@
   </connection>
   <order>
     <hop>
-      <from>generateInvoices</from>
-      <to>Product Invoice Name lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Product Invoice Name lookup</from>
-      <to>Remove null Invoice</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>TODAYS_DATE</from>
       <to>DATE</to>
       <enabled>Y</enabled>
@@ -509,11 +499,6 @@
     <hop>
       <from>DATE</from>
       <to>Calculate Dates</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Remove null Invoice</from>
-      <to>Concat Invoice Name</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -574,6 +559,16 @@
     <hop>
       <from>Calculator</from>
       <to>D_INVOICES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>generateInvoices</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Concat Invoice Name</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -817,92 +812,6 @@
     </GUI>
   </step>
   <step>
-    <name>Product Invoice Name lookup</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_PRODUCTS</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>INVOICE_NAME_PRODUCT_ID</name>
-        <field>PRODUCT_CATEGORY_ID</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>PRODUCT_CATEGORY_NAME</name>
-        <rename>INVOICE_NAME</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remove null Invoice</name>
-    <type>IfNull</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <replaceAllByValue />
-    <replaceAllMask />
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>INVOICE_NAME</name>
-        <value>Various Products</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Calculate Dates</name>
     <type>Calculator</type>
     <description />
@@ -981,7 +890,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1029,7 +938,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1059,7 +968,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1169,7 +1078,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1236,7 +1145,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1279,7 +1188,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1298,7 +1207,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     <fields>
       <field>
         <name>INVOICE_DELETED</name>
-        <type>Boolean</type>
+        <type>String</type>
         <format />
         <currency />
         <decimal />
@@ -1317,7 +1226,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
+      <xloc>1408</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1336,7 +1245,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     <fields>
       <field>
         <name>INVOICE_DELETED</name>
-        <type>Boolean</type>
+        <type>String</type>
         <format />
         <currency />
         <decimal />
@@ -1355,7 +1264,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
+      <xloc>1248</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1398,7 +1307,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
+      <xloc>1408</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1467,7 +1376,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1728</xloc>
+      <xloc>1568</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1505,7 +1414,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
+      <xloc>1408</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1611,7 +1520,45 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1888</xloc>
+      <xloc>1728</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>INVOICE_NAME</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>INVOICE </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
