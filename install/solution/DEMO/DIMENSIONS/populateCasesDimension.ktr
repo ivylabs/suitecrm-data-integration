@@ -810,7 +810,7 @@
     <passing_through_fields>N</passing_through_fields>
     <accept_field />
     <accept_stepname />
-    <separator>|</separator>
+    <separator>,</separator>
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar />
@@ -834,8 +834,8 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_CASES/</name>
-      <filemask>.*.csv</filemask>
+      <name>/home/fraser/gitprojects/suitecrm-data-integration/suitecrm-data-integration-server/solution/DEMO/DATA/D_CASES/casesDimension.csv</name>
+      <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>

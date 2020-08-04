@@ -430,7 +430,7 @@
     <created_date>2020/08/02 21:50:11.168</created_date>
     <modified_user>-</modified_user>
     <modified_date>2020/08/02 21:50:11.168</modified_date>
-    <key_for_session_key />
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -573,8 +573,8 @@
     </hop>
   </order>
   <step>
-    <name>generateInvoices</name>
-    <type>TextFileInput</type>
+    <name>Add MODIFIED_DATE</name>
+    <type>Constant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -583,221 +583,20 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field />
-    <accept_stepname />
-    <separator>,</separator>
-    <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
-    <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field />
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>mixed</format>
-    <encoding />
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_INVOICES/generateInvoices.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
     <fields>
       <field>
-        <name>INVOICE_ID</name>
-        <type>String</type>
+        <name>INVOICE_DATE_MODIFIED</name>
+        <type>Date</type>
         <format />
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_NAME_PRODUCT_ID</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_NUMBER</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_STATUS</name>
-        <type>String</type>
-        <format />
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_DATE_ENTERED_RAND</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_DATE_RAND</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_DATE_MODIFIED_RAND</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_NAME_NUMBER_RAND</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>L_PAD</name>
-        <type>String</type>
-        <format />
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>R_PAD</name>
-        <type>String</type>
-        <format />
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -806,7 +605,45 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
+      <xloc>1408</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>INVOICE_NAME</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>INVOICE </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -896,6 +733,131 @@
     </GUI>
   </step>
   <step>
+    <name>Calculator</name>
+    <type>Calculator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <calculation>
+      <field_name>INVOICE_DATE_MODIFIED</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>INVOICE_DATE</field_a>
+      <field_b>INVOICE_DATE_MODIFIED_RAND</field_b>
+      <field_c />
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1568</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Invoice Name</name>
+    <type>ConcatFields</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <separator>-</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding />
+    <endedLine />
+    <fileNameInField>N</fileNameInField>
+    <fileNameField />
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>INVOICE_NAME</name>
+        <type>None</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>INVOICE_NAME_NUMBER_RAND</name>
+        <type>None</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>INVOICE_NAME</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>Y</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>DATE</name>
     <type>ScriptValueMod</type>
     <description />
@@ -944,8 +906,8 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>TODAYS_DATE</name>
-    <type>SystemInfo</type>
+    <name>D_INVOICES</name>
+    <type>DimensionLookup</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -954,122 +916,88 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       <method>none</method>
       <schema_name />
     </partitioning>
+    <schema />
+    <table>D_INVOICES</table>
+    <connection>SuiteCRMAnalytics</connection>
+    <commit>100</commit>
+    <update>Y</update>
     <fields>
-      <field>
-        <name>TODAYS_DATE</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Concat Invoice Name</name>
-    <type>ConcatFields</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <separator />
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding />
-    <endedLine />
-    <fileNameInField>N</fileNameInField>
-    <fileNameField />
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>file</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format />
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
+      <key>
+        <name>INVOICE_ID</name>
+        <lookup>INVOICE_ID</lookup>
+      </key>
+      <date>
+        <name />
+        <from>DATE_FROM</from>
+        <to>DATE_TO</to>
+      </date>
       <field>
         <name>INVOICE_NAME</name>
-        <type>None</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <lookup>INVOICE_NAME</lookup>
+        <update>Insert</update>
       </field>
       <field>
-        <name>L_PAD</name>
-        <type>None</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <name>INVOICE_NUMBER</name>
+        <lookup>INVOICE_NUMBER</lookup>
+        <update>Insert</update>
       </field>
       <field>
-        <name>INVOICE_NAME_NUMBER_RAND</name>
-        <type>None</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <name>INVOICE_STATUS</name>
+        <lookup>INVOICE_STATUS</lookup>
+        <update>Insert</update>
       </field>
       <field>
-        <name>R_PAD</name>
-        <type>None</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <name>INVOICE_DATE_ENTERED</name>
+        <lookup>INVOICE_DATE_ENTERED</lookup>
+        <update>Insert</update>
       </field>
+      <field>
+        <name>INVOICE_DATE_MODIFIED</name>
+        <lookup>INVOICE_DATE_MODIFIED</lookup>
+        <update>Insert</update>
+      </field>
+      <field>
+        <name>INVOICE_DELETED</name>
+        <lookup>INVOICE_DELETED</lookup>
+        <update>Insert</update>
+      </field>
+      <field>
+        <name>INVOICE_QUOTE_NUMBER</name>
+        <lookup>INVOICE_QUOTE_NUMBER</lookup>
+        <update>Insert</update>
+      </field>
+      <field>
+        <name>INVOICE_QUOTE_DATE</name>
+        <lookup>INVOICE_QUOTE_DATE</lookup>
+        <update>Insert</update>
+      </field>
+      <field>
+        <name>INVOICE_DATE</name>
+        <lookup>INVOICE_DATE</lookup>
+        <update>Insert</update>
+      </field>
+      <field>
+        <name>INVOICE_DUE_DATE</name>
+        <lookup>INVOICE_DUE_DATE</lookup>
+        <update>Insert</update>
+      </field>
+      <return>
+        <name>INVOICE_TK</name>
+        <rename />
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
+        <version>VERSION</version>
+      </return>
     </fields>
-    <ConcatFields>
-      <targetFieldName>INVOICE_NAME</targetFieldName>
-      <targetFieldLength>0</targetFieldLength>
-      <removeSelectedFields>Y</removeSelectedFields>
-    </ConcatFields>
+    <sequence />
+    <min_year>1900</min_year>
+    <max_year>2199</max_year>
+    <cache_size>5000</cache_size>
+    <preload_cache>N</preload_cache>
+    <use_start_date_alternative>N</use_start_date_alternative>
+    <start_date_alternative>none</start_date_alternative>
+    <start_date_field_name />
+    <useBatch>N</useBatch>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1078,7 +1006,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>1728</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1097,23 +1025,18 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     <fields>
       <field>
         <name>INVOICE_ID</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_NAME</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_NUMBER</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_STATUS</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_DATE_ENTERED</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_NUMBER</name>
@@ -1125,15 +1048,12 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </field>
       <field>
         <name>INVOICE_DATE</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_DUE_DATE</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_DATE_MODIFIED_RAND</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1146,49 +1066,6 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1088</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>is Status = Cancelled</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Invoice Deleted</send_true_to>
-    <send_false_to>Invoice Not Deleted</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>INVOICE_STATUS</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>Cancelled</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1343,47 +1220,8 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Calculator</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>INVOICE_DATE_MODIFIED</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>INVOICE_DATE</field_a>
-      <field_b>INVOICE_DATE_MODIFIED_RAND</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1568</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add MODIFIED_DATE</name>
-    <type>Constant</type>
+    <name>TODAYS_DATE</name>
+    <type>SystemInfo</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1394,16 +1232,8 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     </partitioning>
     <fields>
       <field>
-        <name>INVOICE_DATE_MODIFIED</name>
-        <type>Date</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <name>TODAYS_DATE</name>
+        <type>system date (fixed)</type>
       </field>
     </fields>
     <cluster_schema />
@@ -1414,14 +1244,14 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
-      <yloc>384</yloc>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>D_INVOICES</name>
-    <type>DimensionLookup</type>
+    <name>generateInvoices</name>
+    <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1430,88 +1260,191 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <schema />
-    <table>D_INVOICES</table>
-    <connection>SuiteCRMAnalytics</connection>
-    <commit>100</commit>
-    <update>Y</update>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field />
+    <accept_stepname />
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar />
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field />
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field />
+    <format>mixed</format>
+    <encoding />
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_INVOICES/generateInvoices.csv</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
     <fields>
-      <key>
-        <name>INVOICE_ID</name>
-        <lookup>INVOICE_ID</lookup>
-      </key>
-      <date>
-        <name />
-        <from>DATE_FROM</from>
-        <to>DATE_TO</to>
-      </date>
       <field>
-        <name>INVOICE_NAME</name>
-        <lookup>INVOICE_NAME</lookup>
-        <update>Insert</update>
+        <name>INVOICE_ID</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_NAME_PRODUCT_ID</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>INVOICE_NUMBER</name>
-        <lookup>INVOICE_NUMBER</lookup>
-        <update>Insert</update>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
         <name>INVOICE_STATUS</name>
-        <lookup>INVOICE_STATUS</lookup>
-        <update>Insert</update>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>INVOICE_DATE_ENTERED</name>
-        <lookup>INVOICE_DATE_ENTERED</lookup>
-        <update>Insert</update>
+        <name>INVOICE_DATE_ENTERED_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>INVOICE_DATE_MODIFIED</name>
-        <lookup>INVOICE_DATE_MODIFIED</lookup>
-        <update>Insert</update>
+        <name>INVOICE_DATE_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>INVOICE_DELETED</name>
-        <lookup>INVOICE_DELETED</lookup>
-        <update>Insert</update>
+        <name>INVOICE_DATE_MODIFIED_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
       <field>
-        <name>INVOICE_QUOTE_NUMBER</name>
-        <lookup>INVOICE_QUOTE_NUMBER</lookup>
-        <update>Insert</update>
+        <name>INVOICE_NAME_NUMBER_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
       </field>
-      <field>
-        <name>INVOICE_QUOTE_DATE</name>
-        <lookup>INVOICE_QUOTE_DATE</lookup>
-        <update>Insert</update>
-      </field>
-      <field>
-        <name>INVOICE_DATE</name>
-        <lookup>INVOICE_DATE</lookup>
-        <update>Insert</update>
-      </field>
-      <field>
-        <name>INVOICE_DUE_DATE</name>
-        <lookup>INVOICE_DUE_DATE</lookup>
-        <update>Insert</update>
-      </field>
-      <return>
-        <name>INVOICE_TK</name>
-        <rename />
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
-        <version>VERSION</version>
-      </return>
     </fields>
-    <sequence />
-    <min_year>1900</min_year>
-    <max_year>2199</max_year>
-    <cache_size>5000</cache_size>
-    <preload_cache>N</preload_cache>
-    <use_start_date_alternative>N</use_start_date_alternative>
-    <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name />
-    <useBatch>N</useBatch>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field />
+    <file_error_message_field />
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field />
+    <error_fields_field />
+    <error_text_field />
+    <bad_line_files_destination_directory />
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory />
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory />
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_GB</date_format_locale>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1520,14 +1453,14 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1728</xloc>
+      <xloc>128</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add constants</name>
-    <type>Constant</type>
+    <name>is Status = Cancelled</name>
+    <type>FilterRows</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1536,20 +1469,25 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <fields>
-      <field>
-        <name>INVOICE_NAME</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>INVOICE </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
+    <send_true_to>Invoice Deleted</send_true_to>
+    <send_false_to>Invoice Not Deleted</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>INVOICE_STATUS</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Cancelled</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1558,7 +1496,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

@@ -6,6 +6,7 @@
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -502,37 +503,17 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Add OPPORTUNITY_TK</from>
+      <to>LEAD_CONVERTED null </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LEAD_CONVERTED null </from>
+      <to>F_LEAD_MANAGMENT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>DATE</from>
-      <to>Filter Date Converted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Date Converted</from>
-      <to>Remap Date Converted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Date Modified</from>
-      <to>Remap Date Modified</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Date Converted</from>
-      <to>Filter Date Modified</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Remap Date Converted</from>
-      <to>Filter Date Modified</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Date Modified</from>
-      <to>Calculate Dates</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Remap Date Modified</from>
       <to>Calculate Dates</to>
       <enabled>Y</enabled>
     </hop>
@@ -553,42 +534,7 @@
     </hop>
     <hop>
       <from>Lookup D_LEAD_STATUS</from>
-      <to>Filter Converted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Converted</from>
-      <to>Combine Datasets</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Create Null Converted</from>
-      <to>Reorder Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Reorder Fields</from>
-      <to>Combine Datasets</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter Converted</from>
-      <to>Create Null Converted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Combine Datasets</from>
       <to>Add OPPORTUNITY_TK</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add OPPORTUNITY_TK</from>
-      <to>LEAD_CONVERTED null </to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>LEAD_CONVERTED null </from>
-      <to>F_LEAD_MANAGMENT</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -616,127 +562,8 @@
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1888</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculate Dates</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>DATE_CONVERTED</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>LEAD_CONVERTED_TK_RAND</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>DATE_CREATED</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>LEAD_CREATED_TK_RAND</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>DATE_MODIFIED</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>LEAD_MODIFIED_TK_RAND</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Combine Datasets</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1728</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Create Null Converted</name>
-    <type>Constant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
       <field>
-        <name>LEAD_CONVERTED_TK_NEW</name>
+        <name>LEAD_CONVERTED_TK</name>
         <type>Integer</type>
         <format />
         <currency />
@@ -756,8 +583,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
-      <yloc>288</yloc>
+      <xloc>1248</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -805,121 +632,6 @@ DATE.setDate(DATE.getDate()-700);</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DATE TKs</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
-var LEAD_MODIFIED_TK = str2num(date2str(DATE_MODIFIED,"yyyyMMdd"));
-var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>LEAD_CREATED_TK</name>
-        <rename>LEAD_CREATED_TK</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>LEAD_MODIFIED_TK</name>
-        <rename>LEAD_MODIFIED_TK</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>LEAD_CONVERTED_TK</name>
-        <rename>LEAD_CONVERTED_TK</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Drop / Rename</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-      </field>
-      <field>
-        <name>LEAD_TK_RAND</name>
-        <rename>LEAD_TK</rename>
-      </field>
-      <field>
-        <name>LEAD_CREATED_TK</name>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK_RAND</name>
-        <rename>CAMPAIGN_TK</rename>
-      </field>
-      <field>
-        <name>LEAD_MODIFIED_TK</name>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK_RAND</name>
-        <rename>ASSIGNED_USER_TK</rename>
-      </field>
-      <field>
-        <name>LEAD_CONVERTED_TK</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -974,10 +686,6 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
         <stream_name>CAMPAIGN_TK</stream_name>
       </field>
       <field>
-        <column_name>LEAD_MODIFIED_TK</column_name>
-        <stream_name>LEAD_MODIFIED_TK</stream_name>
-      </field>
-      <field>
         <column_name>ASSIGNED_USER_TK</column_name>
         <stream_name>ASSIGNED_USER_TK</stream_name>
       </field>
@@ -994,57 +702,14 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2208</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter Converted</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Combine Datasets</send_true_to>
-    <send_false_to>Create Null Converted</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>LEAD_STATUS</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>Converted</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
       <xloc>1568</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter Date Converted</name>
-    <type>FilterRows</type>
+    <name>LEAD_CONVERTED null </name>
+    <type>IfNull</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1053,108 +718,21 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
       <method>none</method>
       <schema_name />
     </partitioning>
-    <send_true_to>Remap Date Converted</send_true_to>
-    <send_false_to>Filter Date Modified</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>LEAD_CREATED_TK_RAND</leftvalue>
-            <function>&gt;</function>
-            <rightvalue>LEAD_CONVERTED_TK_RAND</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter Date Modified</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Remap Date Modified</send_true_to>
-    <send_false_to>Calculate Dates</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <operator>OR</operator>
-            <leftvalue>LEAD_MODIFIED_TK_RAND</leftvalue>
-            <function>&lt;</function>
-            <rightvalue>LEAD_CREATED_TK_RAND</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup D_LEAD_STATUS</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_LEADS</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>LEAD_TK</name>
-        <field>LEAD_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>LEAD_STATUS</name>
-        <rename>LEAD_STATUS</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>LEAD_CONVERTED_TK</name>
+        <value>29991231</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1165,170 +743,6 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
     <GUI>
       <xloc>1408</xloc>
       <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remap Date Converted</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-      </field>
-      <field>
-        <name>LEAD_TK_RAND</name>
-      </field>
-      <field>
-        <name>LEAD_CONVERTED_TK_RAND</name>
-        <rename>LEAD_CREATED_TK_RAND</rename>
-      </field>
-      <field>
-        <name>LEAD_MODIFIED_TK_RAND</name>
-      </field>
-      <field>
-        <name>LEAD_CREATED_TK_RAND</name>
-        <rename>LEAD_CONVERTED_TK_RAND</rename>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK_RAND</name>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK_RAND</name>
-      </field>
-      <field>
-        <name>TODAYS_DATE</name>
-      </field>
-      <field>
-        <name>DATE</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remap Date Modified</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-      </field>
-      <field>
-        <name>LEAD_TK_RAND</name>
-      </field>
-      <field>
-        <name>LEAD_MODIFIED_TK_RAND</name>
-        <rename>LEAD_CREATED_TK_RAND</rename>
-      </field>
-      <field>
-        <name>LEAD_CREATED_TK_RAND</name>
-        <rename>LEAD_MODIFIED_TK_RAND</rename>
-      </field>
-      <field>
-        <name>LEAD_CONVERTED_TK_RAND</name>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK_RAND</name>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK_RAND</name>
-      </field>
-      <field>
-        <name>TODAYS_DATE</name>
-      </field>
-      <field>
-        <name>DATE</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Reorder Fields</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-      </field>
-      <field>
-        <name>LEAD_TK</name>
-      </field>
-      <field>
-        <name>LEAD_CREATED_TK</name>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK</name>
-      </field>
-      <field>
-        <name>LEAD_MODIFIED_TK</name>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK</name>
-      </field>
-      <field>
-        <name>LEAD_CONVERTED_TK_NEW</name>
-        <rename>LEAD_CONVERTED_TK</rename>
-      </field>
-      <field>
-        <name>LEAD_STATUS</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1728</xloc>
-      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1377,7 +791,7 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
     <passing_through_fields>N</passing_through_fields>
     <accept_field />
     <accept_stepname />
-    <separator>|</separator>
+    <separator>,</separator>
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
     <escapechar />
@@ -1444,36 +858,6 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
       </field>
       <field>
         <name>LEAD_CREATED_TK_RAND</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>LEAD_MODIFIED_TK_RAND</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>LEAD_CONVERTED_TK_RAND</name>
         <type>Integer</type>
         <format>#</format>
         <currency>£</currency>
@@ -1557,8 +941,8 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
-    <name>LEAD_CONVERTED null </name>
-    <type>IfNull</type>
+    <name>Calculate Dates</name>
+    <type>Calculator</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1567,19 +951,65 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
       <method>none</method>
       <schema_name />
     </partitioning>
-    <replaceAllByValue />
-    <replaceAllMask />
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
+    <calculation>
+      <field_name>DATE_CREATED</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>DATE</field_a>
+      <field_b>LEAD_CREATED_TK_RAND</field_b>
+      <field_c />
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DATE TKs</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <name>LEAD_CONVERTED_TK</name>
-        <value>29991231</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
+        <name>LEAD_CREATED_TK</name>
+        <rename>LEAD_CREATED_TK</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>
     </fields>
     <cluster_schema />
@@ -1590,7 +1020,101 @@ var LEAD_CONVERTED_TK = str2num(date2str(DATE_CONVERTED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2048</xloc>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Drop / Rename</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+        <rename />
+      </field>
+      <field>
+        <name>LEAD_TK_RAND</name>
+        <rename>LEAD_TK</rename>
+      </field>
+      <field>
+        <name>LEAD_CREATED_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>CAMPAIGN_TK_RAND</name>
+        <rename>CAMPAIGN_TK</rename>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK_RAND</name>
+        <rename>ASSIGNED_USER_TK</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup D_LEAD_STATUS</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>D_LEADS</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>LEAD_TK</name>
+        <field>LEAD_TK</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>LEAD_STATUS</name>
+        <rename>LEAD_STATUS</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

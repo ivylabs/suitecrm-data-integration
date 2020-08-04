@@ -1,351 +1,351 @@
-ID,OPPORTUNITY_TYPE,OPPORTUNITY_LEAD_SOURCE,OPPORTUNITY_SALES_STAGE,ACCOUNT_TK,RAN_NUM,L_PAD,R_PAD
-32910A89-E89F-0222-FC00-3B28DA8A5414,New Business,Other,Proposal/Price Quote,12,769,-[,]
-B22C5A1C-C027-DEE6-1BCD-078834DC6611,Existing Business,Trade Show,Prospecting,7,315,-[,]
-8806E803-0A19-5BA3-BC27-2ADFF697D478,Existing Business,Direct Mail,Perception Analysis,38,958,-[,]
-479CBBAE-233C-B25C-2668-20D86DEDA3D7,Existing Business,Existing Customer,Needs Analysis,49,964,-[,]
-F8909F62-AB3E-A5D1-FEEA-32F8DAC85966,Existing Business,Other,Perception Analysis,70,950,-[,]
-8D03C15E-8264-2AF5-77AD-6EAB0E352448,Existing Business,Existing Customer,Identifying Decision Makers,27,261,-[,]
-3BA57BED-23B4-1CCF-63BD-5B929621F219,New Business,Employee,Proposal/Price Quote,55,919,-[,]
-A93CAEB6-A1F5-0943-89FD-78A06B700427,Existing Business,Conference,Proposal/Price Quote,59,181,-[,]
-D116D0BB-FA87-CFCD-CDA4-D8B95415693E,Existing Business,Partner,Closed Won,38,745,-[,]
-4D2D7747-49DF-D561-43E0-A15A8817D1B5,Existing Business,Cold Call,Prospecting,41,913,-[,]
-F63C0F68-D971-C056-2A6F-2FDD23EDDCD0,Existing Business,Conference,Needs Analysis,23,816,-[,]
-380582F3-35F3-135B-0FBB-96FDC40E8180,New Business,Word of mouth,Prospecting,75,571,-[,]
-26F89429-AEE1-8972-EC7D-4E8A36081294,Existing Business,Cold Call,Perception Analysis,29,444,-[,]
-4FD84DB2-9E04-8C48-EEB3-B30D492DE28F,New Business,Other,Closed Lost,20,317,-[,]
-14C0E745-9380-6C88-2CDB-4FA08A46AE7D,New Business,Trade Show,Closed Won,60,751,-[,]
-37F8B69C-ED6F-DE79-5709-C0F6CF16DA76,New Business,Public Relations,Needs Analysis,7,111,-[,]
-1F560649-6277-404E-ABA3-4FC70E029B0E,Existing Business,Word of mouth,Identifying Decision Makers,38,538,-[,]
-088F766E-ACB3-C33A-04EB-21D06EB61285,Existing Business,Self Generated,Needs Analysis,58,301,-[,]
-D9388992-74A7-BDFE-1ADA-D03927BF1DF3,Existing Business,Campaign,Prospecting,56,909,-[,]
-3CE5B2CB-7760-E035-3B60-B7F7F6BCB8D4,New Business,Web Site,Negotiation/Review,34,196,-[,]
-A8066B0C-9653-20C8-B0DB-862BDA4B59B1,New Business,Public Relations,Negotiation/Review,4,640,-[,]
-397F8DD6-209F-3F18-674D-B6C33938D445,Existing Business,Existing Customer,Prospecting,20,350,-[,]
-CCF87D39-A036-CEBD-1BD6-B6C5A69986CA,New Business,Conference,Qualification,10,656,-[,]
-C897A9DF-E7E9-EECB-6635-1785D6FCEF91,New Business,Existing Customer,Prospecting,85,665,-[,]
-56F7B9E4-DD1A-C6EF-3D07-553DBDA95196,Existing Business,Self Generated,Value Proposition,43,276,-[,]
-A425ECAE-CFE1-799D-12FB-C8D7BE39D150,Existing Business,Direct Mail,Negotiation/Review,68,148,-[,]
-4C14FF7C-E9B2-9AA2-F03B-874E8A364262,New Business,Other,Value Proposition,96,672,-[,]
-FF8A33F1-FC04-05E2-125E-2BAE5F6734D6,Existing Business,Web Site,Closed Lost,29,956,-[,]
-A61B58E7-BEE1-3A4E-A922-E0B8106F9E86,New Business,Web Site,Needs Analysis,26,998,-[,]
-A635188E-43E5-7FF9-7E2E-43ECAEB51AFA,New Business,Conference,Identifying Decision Makers,30,921,-[,]
-8D9459BB-6E72-2E40-CBB8-F18BA9D8EFEA,New Business,Cold Call,Proposal/Price Quote,93,697,-[,]
-64DC9D73-80D0-F23D-1A54-FC4D93F8949D,New Business,Cold Call,Closed Won,83,404,-[,]
-B530E6E0-10C2-3B77-8F51-B17A635DF34D,New Business,Conference,Identifying Decision Makers,84,681,-[,]
-697041EC-F994-6990-6128-E7EFF722EFCD,Existing Business,Existing Customer,Proposal/Price Quote,100,811,-[,]
-71F027C8-28A3-A67B-A057-4911A1A5187D,Existing Business,Public Relations,Perception Analysis,44,376,-[,]
-755EC2C1-72C1-73F4-E846-CAA344897E47,New Business,Other,Proposal/Price Quote,17,326,-[,]
-A95DEFA5-F132-347C-11D5-DE0B5572B9C5,New Business,Existing Customer,Closed Won,49,243,-[,]
-C942E051-4ADD-D266-FB66-096150CBE20F,Existing Business,Existing Customer,Identifying Decision Makers,10,984,-[,]
-5125BFCC-C6EA-5F1F-1841-902BE84AFEB5,Existing Business,Campaign,Needs Analysis,82,784,-[,]
-F3E79E71-542F-B605-F9E4-86D4A5CB50E6,Existing Business,Trade Show,Prospecting,31,342,-[,]
-5DC9C814-9DBC-2A1A-99F0-DCCDD7345D9B,New Business,Partner,Proposal/Price Quote,50,219,-[,]
-38699CDA-B837-EC26-E04C-42B5AE386CD7,Existing Business,Public Relations,Value Proposition,31,285,-[,]
-FAAC82BF-A405-F1D6-FCC7-33E71A4F4969,New Business,Word of mouth,Closed Lost,54,599,-[,]
-54148213-0810-3392-68AA-F5151B958097,Existing Business,Conference,Prospecting,47,693,-[,]
-F737EB76-27DA-0D6D-7CB6-2A21E4931F73,New Business,Word of mouth,Proposal/Price Quote,38,167,-[,]
-B73B2D45-EFCD-CDD7-A47F-244EB437C640,Existing Business,Employee,Prospecting,27,700,-[,]
-B3A93343-C74D-BD78-618E-8DF2451CE2DB,Existing Business,Direct Mail,Proposal/Price Quote,88,944,-[,]
-9FF76AE6-DA1B-38EB-5D48-4D79D803A2F9,New Business,Existing Customer,Value Proposition,34,185,-[,]
-831EAA0B-2497-D513-182F-DF501096B778,Existing Business,Conference,Closed Lost,94,856,-[,]
-5423D03D-5A33-AD13-1328-694FAA0362A7,New Business,Conference,Negotiation/Review,6,428,-[,]
-75A168AF-D2B4-7BCE-8E28-89AACC57728C,New Business,Public Relations,Needs Analysis,88,534,-[,]
-74A64560-3AA6-EC37-BD05-717BD6677A6C,Existing Business,Employee,Needs Analysis,90,424,-[,]
-7A2FCE4C-B35A-C712-CB4D-DD2A38203BDA,Existing Business,Self Generated,Value Proposition,19,289,-[,]
-E601F71B-C96F-0D6E-F8A1-CAE83AF22DED,Existing Business,Trade Show,Closed Lost,26,311,-[,]
-220B348E-A571-0D99-0D3B-EE67560B1A6F,Existing Business,Campaign,Value Proposition,88,405,-[,]
-BEFBB6A0-4DDC-C3A7-1597-E946C533365A,New Business,Trade Show,Closed Won,9,953,-[,]
-25973A37-8CDD-6B32-BA22-39428B78F5D2,New Business,Direct Mail,Negotiation/Review,13,611,-[,]
-F282452A-46B0-6BFC-A4F0-7584CD0FDD7F,Existing Business,Employee,Closed Lost,85,487,-[,]
-F9F98BCB-19B1-A0BD-DFF5-50394379DFBF,New Business,Direct Mail,Closed Lost,99,876,-[,]
-A638990D-000E-57EA-0283-BE3409106394,New Business,Other,Qualification,8,261,-[,]
-D845B2D2-7347-156C-0AB8-DC3C4C6AFF08,New Business,Employee,Needs Analysis,34,766,-[,]
-228E4B3F-7EA9-537B-955B-D16AD64255D5,New Business,Email,Value Proposition,12,841,-[,]
-DC67E1F5-B9F6-542B-5B78-E076205BE9FE,New Business,Word of mouth,Identifying Decision Makers,7,616,-[,]
-4F63FB38-D9D6-4E07-57F6-9EBE9338C0BC,New Business,Self Generated,Closed Won,74,702,-[,]
-0A2C9851-3AA3-809D-5DCC-BA51369A49E2,Existing Business,Self Generated,Needs Analysis,44,748,-[,]
-8616893B-FCCC-608F-AABD-2486C55D57BD,Existing Business,Self Generated,Prospecting,92,776,-[,]
-B5494E40-3323-F725-940C-CB93BA22403B,New Business,Cold Call,Proposal/Price Quote,76,178,-[,]
-5CD320BA-2CEA-C526-AF0D-0075FCD317CC,Existing Business,Email,Proposal/Price Quote,84,278,-[,]
-C830A631-5651-D8B9-326F-56C86132B5CD,New Business,Web Site,Needs Analysis,84,661,-[,]
-525AFBBC-3E43-2B40-0959-415925614945,Existing Business,Cold Call,Closed Lost,13,176,-[,]
-E302BC40-83FE-2093-7333-C5E7843B8295,Existing Business,Self Generated,Needs Analysis,2,558,-[,]
-6C9A6191-C8DF-7903-B005-F633043596C7,Existing Business,Cold Call,Negotiation/Review,36,617,-[,]
-C34FBA04-541C-5214-3885-460D8FCF467B,New Business,Employee,Needs Analysis,19,280,-[,]
-537B5AC1-8A6C-ED5B-3B1B-44AC5423D312,Existing Business,Public Relations,Needs Analysis,73,947,-[,]
-2C86A951-7A0A-13CA-8416-EC98C68FDBE3,New Business,Direct Mail,Negotiation/Review,38,185,-[,]
-2599D043-5100-F6DA-0774-8021D28651A1,Existing Business,Partner,Closed Lost,55,554,-[,]
-A1C8F37C-709C-4254-A421-01BD36C20CA0,New Business,Direct Mail,Negotiation/Review,10,813,-[,]
-F851F90F-957E-C22E-7E9B-319A437D81B4,Existing Business,Email,Qualification,15,128,-[,]
-0485E43A-527A-7E94-5754-E4EA879D8E06,New Business,Employee,Prospecting,55,312,-[,]
-BC716A02-4B3E-47DB-0D77-F94F21E2D900,Existing Business,Direct Mail,Closed Won,13,955,-[,]
-09FFD494-F425-E72C-45F7-CD8A7D6F23DF,Existing Business,Direct Mail,Proposal/Price Quote,86,776,-[,]
-8254F7DA-8482-CF5A-942E-9C3B9000A2C4,Existing Business,Cold Call,Proposal/Price Quote,24,165,-[,]
-203BD4FE-C05B-D518-4FC6-DB3E4EF0AE63,New Business,Conference,Negotiation/Review,87,233,-[,]
-E33FCA8E-C904-DEBF-C821-D0181CD6D2E2,Existing Business,Self Generated,Qualification,71,659,-[,]
-BDB8BA8E-7A6D-6A2C-9E77-1D72D4DB5680,New Business,Other,Proposal/Price Quote,2,762,-[,]
-7763B30A-8B2F-A537-2456-818CC7084859,Existing Business,Cold Call,Perception Analysis,17,943,-[,]
-8A7850E1-475C-7453-0F42-AF9AF72D6450,Existing Business,Cold Call,Proposal/Price Quote,72,548,-[,]
-B15E782E-EFF8-C3C2-2C7B-9F74151ECE13,New Business,Campaign,Closed Lost,82,799,-[,]
-86B1B66C-B44E-0394-D3D4-91EDC76519E9,New Business,Email,Value Proposition,88,287,-[,]
-887E9D0A-D900-7B7F-7D7D-F11C48AFF41A,New Business,Cold Call,Value Proposition,40,562,-[,]
-19CAD380-5E69-CFED-ED5F-8C6F4546A165,Existing Business,Trade Show,Negotiation/Review,68,442,-[,]
-B2479FA5-AAE2-1F94-2A14-4F443EA19FFA,Existing Business,Partner,Perception Analysis,61,909,-[,]
-32B9C643-3734-7625-92C1-17757B464020,New Business,Conference,Negotiation/Review,95,120,-[,]
-88E8362C-2DDC-AE77-D8C6-376DC94D3E8E,Existing Business,Existing Customer,Value Proposition,57,507,-[,]
-8E1F375E-ACD8-0A44-AD3D-BED8CCFA7813,New Business,Partner,Value Proposition,53,774,-[,]
-F251707F-81F6-5DC6-210A-347009243EC5,New Business,Cold Call,Negotiation/Review,18,578,-[,]
-0D1779B2-897F-C4F7-7179-ED092449D845,New Business,Partner,Identifying Decision Makers,47,672,-[,]
-A8A5B066-DA1D-9BD5-42E6-A8EF0B678562,Existing Business,Partner,Closed Lost,24,222,-[,]
-1D7B7A9E-4339-6FF1-5508-A05D08065B71,New Business,Existing Customer,Proposal/Price Quote,43,381,-[,]
-60B78E1A-32D4-2182-605D-1554341AC87F,New Business,Public Relations,Identifying Decision Makers,22,726,-[,]
-6B67BFB7-0F27-A102-1AC4-B48441B1E82E,Existing Business,Other,Closed Lost,88,286,-[,]
-022FDBAA-B722-61A2-6E1A-48A46C35906F,New Business,Employee,Identifying Decision Makers,47,279,-[,]
-D3E47F3F-1826-B47D-9873-8A6E335954F0,Existing Business,Trade Show,Proposal/Price Quote,57,293,-[,]
-F3379DA1-616C-87B7-3700-44C3C4E21725,Existing Business,Partner,Prospecting,24,866,-[,]
-44684116-CD67-A8B6-56A3-1949FD205902,New Business,Web Site,Closed Won,66,781,-[,]
-C8ABFD35-91D3-A289-2921-6FACC93E0CDC,Existing Business,Conference,Value Proposition,2,185,-[,]
-6DE94DF3-DC8B-01A4-3377-0E3975592836,New Business,Conference,Qualification,24,401,-[,]
-D701FA92-0865-6E2B-C99F-7F0DF0D14398,Existing Business,Cold Call,Value Proposition,10,222,-[,]
-1F23D1A9-FE8C-4B7B-30E7-BD6551C5CDCF,Existing Business,Self Generated,Negotiation/Review,4,341,-[,]
-F9E1114D-D63D-782F-C4B8-FE487FF2698D,Existing Business,Employee,Qualification,46,118,-[,]
-14015F73-AEAB-7A9A-D3BD-C16BC312F2A1,New Business,Web Site,Closed Lost,35,385,-[,]
-8AB8D5D5-0381-821C-5AD8-466521337B55,New Business,Partner,Closed Lost,58,557,-[,]
-3034E4EF-50F9-EA22-FF06-33759E1A9396,New Business,Campaign,Negotiation/Review,42,332,-[,]
-9468147F-DDC9-DBBF-164E-D9EB06E03104,Existing Business,Word of mouth,Closed Won,40,159,-[,]
-973332D3-E387-FA2F-F017-F89AAFD543EB,Existing Business,Cold Call,Identifying Decision Makers,90,942,-[,]
-D1172406-F5A9-1A63-2379-18DF7F95765C,Existing Business,Other,Negotiation/Review,31,801,-[,]
-3BCB80A5-BA3D-A6D3-B417-84552186467A,New Business,Existing Customer,Prospecting,46,488,-[,]
-A48157A6-E75E-442D-53E0-AA85CAE21FFB,New Business,Existing Customer,Needs Analysis,6,437,-[,]
-A8BD6148-5401-27D1-3584-C0F6F8343950,New Business,Existing Customer,Negotiation/Review,6,705,-[,]
-8A722869-F1EE-5636-C27C-243CA43066D1,New Business,Cold Call,Qualification,57,770,-[,]
-7370F966-9DCE-26D6-FCFF-C0AFCE6FA2BA,Existing Business,Existing Customer,Negotiation/Review,69,480,-[,]
-39749F41-2052-418A-EE08-860CF0108423,Existing Business,Cold Call,Needs Analysis,28,339,-[,]
-8D35AA74-2D2A-39A7-3871-1D26EE84DF9F,New Business,Campaign,Proposal/Price Quote,37,599,-[,]
-782DED84-4AB5-AD92-ABC7-005CDBC81C74,New Business,Direct Mail,Qualification,39,253,-[,]
-9CEA51C0-51C3-EE8C-B21C-A08FB30377E3,New Business,Direct Mail,Qualification,68,467,-[,]
-607C1943-49DE-926D-D12E-0AED88AA3015,New Business,Conference,Needs Analysis,26,372,-[,]
-70CB61D8-F271-B097-3400-D954423CC134,Existing Business,Campaign,Perception Analysis,66,440,-[,]
-5ACA19E2-9A2A-03E0-549F-96DDAE712FD7,Existing Business,Direct Mail,Value Proposition,82,733,-[,]
-70F9AF02-6A7E-277F-B34A-16AF0CE75E96,Existing Business,Web Site,Closed Won,51,311,-[,]
-FFB6BCF8-0C77-71BA-21D2-B82636DFF72B,Existing Business,Email,Negotiation/Review,92,772,-[,]
-E29C8A17-2DC4-E9C2-A78E-835E39D6A44D,New Business,Partner,Perception Analysis,17,836,-[,]
-57E80A36-FC22-18CE-5600-60B2E0A71BA6,New Business,Self Generated,Proposal/Price Quote,66,692,-[,]
-C1D77D4F-1BF3-A3AC-430D-5E9F07A9267A,Existing Business,Conference,Prospecting,42,349,-[,]
-F3081939-097D-7149-76D8-E788544A1E9A,Existing Business,Public Relations,Negotiation/Review,48,710,-[,]
-D4CBFA14-E698-25D8-C33F-71B17176353C,Existing Business,Word of mouth,Qualification,47,148,-[,]
-C0040B41-7CAE-82F4-7F9E-1C7F35B437A3,Existing Business,Word of mouth,Closed Won,41,356,-[,]
-2F56AEFD-9E6D-FC8A-8A36-2E26DC0BC7A2,Existing Business,Employee,Prospecting,23,750,-[,]
-8FD7CFDC-AB9A-1953-EA0A-37B763C25977,Existing Business,Other,Proposal/Price Quote,54,781,-[,]
-13661F9B-F27C-32FB-D00C-D4138D9B14DA,New Business,Public Relations,Perception Analysis,52,658,-[,]
-96734733-046F-58D3-6786-30AED569D609,New Business,Campaign,Negotiation/Review,92,378,-[,]
-1A3F23AE-3187-7F16-4F4A-847AFEF1E045,Existing Business,Direct Mail,Qualification,20,517,-[,]
-2385B7CA-45C2-6B2E-FA57-712D373AA085,New Business,Campaign,Negotiation/Review,90,891,-[,]
-0D731DA4-2712-AE82-C97D-22CD8FB22CD0,New Business,Employee,Proposal/Price Quote,28,916,-[,]
-6E3815BD-01EC-9F0E-989C-2E456F1C79B8,New Business,Public Relations,Qualification,1,552,-[,]
-9225B3A4-EFE8-A24B-852B-CC47CDD12CD4,Existing Business,Web Site,Prospecting,84,647,-[,]
-2C68A435-DD80-29C8-506A-40AD79A6BA3C,Existing Business,Email,Value Proposition,79,699,-[,]
-C453D979-132A-979E-E259-7D4711F302D4,Existing Business,Partner,Proposal/Price Quote,71,902,-[,]
-3054A9E5-07CB-786F-C153-67E05E92D283,Existing Business,Web Site,Prospecting,81,885,-[,]
-40E245F7-BD5D-5081-042E-569E7343F3B1,New Business,Conference,Closed Lost,85,919,-[,]
-7A432B4C-2E0F-F0C6-8A12-E85E00AE01EF,New Business,Direct Mail,Qualification,83,432,-[,]
-96574BED-C555-C7CA-4F65-19AFC7A5959D,Existing Business,Partner,Prospecting,20,772,-[,]
-C0F4031C-7AB7-E40A-9ECB-37400986E050,New Business,Other,Value Proposition,8,731,-[,]
-31E3B0E3-654A-B80B-7576-982E6FC212A4,Existing Business,Campaign,Negotiation/Review,8,866,-[,]
-9F72294D-DA40-205F-7945-3CAA3193514D,Existing Business,Conference,Prospecting,32,876,-[,]
-0B4C95F7-82AC-C4CC-BC9C-16DBAF3D3FDC,New Business,Word of mouth,Closed Won,2,143,-[,]
-F338EF0E-7720-8589-0BD9-BF2C16907A99,Existing Business,Campaign,Needs Analysis,33,873,-[,]
-0C985065-8FB0-CB88-DBCE-285CCC14557D,Existing Business,Cold Call,Closed Lost,93,888,-[,]
-756230FA-0A1A-4C7D-2093-B023FC040D7B,New Business,Direct Mail,Proposal/Price Quote,73,147,-[,]
-B16508A9-778C-1F2C-0AED-411C387C7B46,New Business,Other,Qualification,71,765,-[,]
-FE7702AF-9198-732B-87EC-4929B6F96713,Existing Business,Other,Prospecting,61,452,-[,]
-B5788D16-03CC-87E1-662E-D74CCAD2E3E3,Existing Business,Partner,Closed Won,87,759,-[,]
-C156B8F4-D54B-C172-369E-A46595D1B055,New Business,Email,Proposal/Price Quote,85,496,-[,]
-023ED523-7EA7-D48F-1191-D9E21701359B,Existing Business,Cold Call,Qualification,43,697,-[,]
-2A8DAACE-572A-E618-FF07-A774B9E3C29B,Existing Business,Other,Value Proposition,9,518,-[,]
-2442416E-D9EE-F994-0B37-B28C17F4BEE9,Existing Business,Trade Show,Negotiation/Review,63,553,-[,]
-A000B1E7-3671-7721-12D1-8405EE01A526,Existing Business,Self Generated,Needs Analysis,1,127,-[,]
-5A35309F-4E8B-E441-54F8-AC3E29A3AB37,New Business,Other,Closed Won,43,892,-[,]
-93BE1995-6AD7-DB54-AD8D-3501BCEDC5B7,New Business,Web Site,Negotiation/Review,31,463,-[,]
-2EE1DAEF-EB44-3567-991C-71B27255AC2A,Existing Business,Email,Closed Lost,85,755,-[,]
-CEBFAB66-65B1-581E-DAF8-01FBCE046BC2,New Business,Employee,Negotiation/Review,86,622,-[,]
-D229988A-1177-2C07-E274-E297981838A6,New Business,Existing Customer,Proposal/Price Quote,36,558,-[,]
-52AA2336-0D53-2FCB-6888-6D462F9C5E6B,Existing Business,Email,Qualification,69,513,-[,]
-0A1BC100-F155-B268-DEDF-2BD45ED1D125,New Business,Trade Show,Perception Analysis,73,848,-[,]
-7D821FC5-92E0-5291-6562-12A1912AD7E8,Existing Business,Word of mouth,Proposal/Price Quote,48,811,-[,]
-418BA108-25E4-BD96-81AB-CFA04BE5E0BB,Existing Business,Employee,Qualification,82,124,-[,]
-F37CD45C-40B8-DF2E-87E6-73AAFA30ED3C,Existing Business,Trade Show,Negotiation/Review,56,463,-[,]
-FB5E5461-59FA-7E60-B099-6595054FC8DB,Existing Business,Conference,Negotiation/Review,28,131,-[,]
-15FBF82B-70B5-2652-3EB1-F6D4CD8E5B20,Existing Business,Word of mouth,Negotiation/Review,97,900,-[,]
-E597A316-51C1-4197-9118-AB8413C14D7B,Existing Business,Employee,Closed Won,49,916,-[,]
-5E298EA6-614C-C33F-8844-D9F0DE9DC756,New Business,Partner,Proposal/Price Quote,49,819,-[,]
-3CE32210-D321-85C0-EECE-F05279562562,Existing Business,Word of mouth,Perception Analysis,4,227,-[,]
-5EDD5133-4D7F-9067-9EF5-215F388BFF82,New Business,Other,Value Proposition,46,405,-[,]
-E6112628-46E2-BE8F-221B-F66511F39BD0,New Business,Other,Needs Analysis,83,783,-[,]
-BAA0A8B3-664D-DCBB-A55B-984EC67E844D,New Business,Campaign,Negotiation/Review,94,184,-[,]
-3B2869AD-A21A-A0EC-A77A-D6BCF26C8C8A,New Business,Web Site,Value Proposition,43,844,-[,]
-FEEF3943-C65E-C656-AB4D-74759C4E08DC,New Business,Public Relations,Qualification,23,381,-[,]
-24925AC4-67A1-BF6D-0B1F-46B1A4DAA81D,Existing Business,Cold Call,Perception Analysis,38,561,-[,]
-AF2499C7-812A-EA1E-06AD-85D6348B876B,Existing Business,Direct Mail,Identifying Decision Makers,36,692,-[,]
-B182B849-B05E-9CEC-ED03-A1E59AD777D1,New Business,Campaign,Closed Won,78,455,-[,]
-2893308C-F1E8-034E-CFAF-E5D008AF82A0,New Business,Self Generated,Closed Lost,51,794,-[,]
-51F2C1CA-C63E-168C-2BB9-772A7E9E4D33,New Business,Other,Qualification,60,853,-[,]
-5A7D9A31-A38F-F7A4-4650-62349683777F,New Business,Partner,Closed Won,85,320,-[,]
-8EBB5FC5-84A4-BE46-52DC-AD1E87D672DB,Existing Business,Web Site,Prospecting,9,278,-[,]
-4FE2B11A-5257-01D6-D5D6-9AEF191AFD4E,Existing Business,Conference,Qualification,95,534,-[,]
-C0763951-B85B-5E3D-6374-39ACC327DEC3,Existing Business,Conference,Proposal/Price Quote,34,248,-[,]
-B3D7771F-7FF7-6CB8-4E5D-D0C2034075DE,Existing Business,Self Generated,Negotiation/Review,48,675,-[,]
-5B82AFF5-3603-D815-15C0-F8B6DFB55BBB,Existing Business,Employee,Needs Analysis,73,814,-[,]
-5450BCFD-C245-2B81-0054-D4C85EDB9059,New Business,Cold Call,Proposal/Price Quote,83,266,-[,]
-6B3086E0-E0D7-DC8C-1F4B-E3BE303F0E54,Existing Business,Web Site,Closed Lost,65,619,-[,]
-E63467A3-6DA3-DC68-769E-6D93A827F91C,Existing Business,Partner,Perception Analysis,69,350,-[,]
-994B9FC5-6CAA-49D7-9F0C-658A2A4FCA0A,Existing Business,Employee,Identifying Decision Makers,38,787,-[,]
-452BDA7F-6219-6887-6670-AC4F580BA505,Existing Business,Conference,Needs Analysis,85,247,-[,]
-0816B0E5-25A2-C6B2-9019-C644413C6C4B,Existing Business,Public Relations,Value Proposition,14,335,-[,]
-B8099EFD-7787-1981-D2E8-25F19018BC77,New Business,Employee,Negotiation/Review,25,916,-[,]
-C6A3999D-1263-5B7D-2544-B4A4AAAA4B46,New Business,Existing Customer,Closed Lost,94,703,-[,]
-7E7AD287-8ACE-C1BB-00D8-28A79F8FB609,New Business,Email,Perception Analysis,98,486,-[,]
-F3E9CD57-C282-F1C5-4E22-12EBEFF4F7B7,Existing Business,Email,Prospecting,52,896,-[,]
-4AF9160E-74AC-6DE5-50CE-B962FC33741B,Existing Business,Partner,Prospecting,98,651,-[,]
-B608C8D2-727A-1F7E-44F8-65426FE28D67,New Business,Existing Customer,Prospecting,74,236,-[,]
-29DDFFE5-A84C-2EB1-5037-1E9C8056FEC5,New Business,Existing Customer,Qualification,6,471,-[,]
-8832388B-F470-B9BC-64AC-E369AA58F004,New Business,Other,Identifying Decision Makers,47,296,-[,]
-E599204C-355D-347F-2D33-5DED43E995E9,Existing Business,Web Site,Negotiation/Review,27,526,-[,]
-63C4FD98-E255-5D8A-F737-D03AA0BE77FD,Existing Business,Self Generated,Identifying Decision Makers,49,412,-[,]
-9B3BA500-55F3-9EB4-5BAE-6667165E3EC1,New Business,Web Site,Negotiation/Review,20,316,-[,]
-941B1F8C-9C13-4DCC-0424-98533A7D3A77,New Business,Web Site,Prospecting,6,129,-[,]
-0B40D928-0F04-3B74-653A-472B88D83911,Existing Business,Word of mouth,Qualification,96,607,-[,]
-DE6F1914-941F-5CE8-92B0-68373ABBB170,Existing Business,Employee,Closed Lost,79,529,-[,]
-55C6BAB1-8206-34CC-BFAF-98702F3DEE0A,Existing Business,Partner,Needs Analysis,61,868,-[,]
-8B93A08E-436E-535F-26BE-D3CD454FCD10,Existing Business,Direct Mail,Needs Analysis,6,124,-[,]
-78ED0B79-5D2C-0E7F-1627-F750BE521FF7,New Business,Conference,Proposal/Price Quote,57,530,-[,]
-70FF5EC0-DBB7-3CDB-EFD9-3C506B72A80A,Existing Business,Web Site,Closed Won,5,493,-[,]
-E737E8A0-A3FC-3952-D6C9-6CCAD5E79EB9,New Business,Web Site,Negotiation/Review,1,634,-[,]
-3AA94651-0ACC-AEE5-6405-F12EEFB36F37,New Business,Web Site,Prospecting,29,638,-[,]
-C123CE11-67CE-0098-3AC9-D3E8982C2B31,New Business,Existing Customer,Proposal/Price Quote,48,801,-[,]
-8B9DFC2B-A4D6-4093-0F9C-AFC16232CE9D,New Business,Public Relations,Identifying Decision Makers,5,555,-[,]
-CC5BF50A-D735-5FD7-78B8-BA6074031156,Existing Business,Conference,Closed Lost,30,459,-[,]
-F29A00C3-B60B-0869-FA25-D3A3AEBD3C2F,Existing Business,Email,Needs Analysis,95,113,-[,]
-4D46717D-C71F-A279-1997-54100D656098,New Business,Campaign,Value Proposition,44,991,-[,]
-1D163DF7-AF5B-4472-2341-E526FBBA80C4,Existing Business,Partner,Proposal/Price Quote,51,423,-[,]
-28C28CF2-07A8-2AAD-BD62-5A4C1F367900,Existing Business,Conference,Identifying Decision Makers,13,281,-[,]
-D2C34E31-BA5D-78BE-E69E-189C1EF4FA00,New Business,Word of mouth,Prospecting,22,339,-[,]
-9CE1E45A-BC2D-F7FC-00EE-050DE56B2C63,Existing Business,Email,Negotiation/Review,42,547,-[,]
-FD8AA2A2-4FC7-34DE-4338-6B28C02620A4,New Business,Direct Mail,Prospecting,8,734,-[,]
-8BE86C41-FE06-3064-2A9C-9606FA3AA520,New Business,Web Site,Identifying Decision Makers,4,273,-[,]
-DCD35E7F-EE3D-4D91-C91F-4BFBB16FC9FF,Existing Business,Existing Customer,Closed Lost,41,400,-[,]
-C3DCD947-D96A-93F8-C769-D60F71ADBB98,Existing Business,Cold Call,Needs Analysis,27,810,-[,]
-F4ECA408-516A-4FDA-82D1-D838C549553A,Existing Business,Email,Identifying Decision Makers,56,395,-[,]
-F2130610-BBF7-7B0A-495A-AD016F0CB12A,Existing Business,Web Site,Closed Won,63,172,-[,]
-9116C537-83B2-FE95-E4CD-0FA04EDE3446,New Business,Existing Customer,Closed Lost,34,249,-[,]
-F8E10494-8B68-03FB-AC1C-B61D324E4204,New Business,Web Site,Value Proposition,91,232,-[,]
-BF3755A7-BEDA-F876-8627-913105125A1E,Existing Business,Cold Call,Perception Analysis,75,356,-[,]
-8501896F-E80F-710C-BB80-EB4B091C639D,Existing Business,Email,Negotiation/Review,15,630,-[,]
-36F23B73-7015-1EA2-5DB0-96C6C52E5887,Existing Business,Existing Customer,Qualification,1,416,-[,]
-EAD03279-EA05-C768-2D22-0ECCCFF54AF1,New Business,Cold Call,Qualification,6,287,-[,]
-88DB0998-1AFB-BB31-8D6A-38B0BA70CB92,Existing Business,Partner,Closed Lost,51,647,-[,]
-701D93E5-9E10-7712-0813-FF1D92C3E933,Existing Business,Other,Value Proposition,22,111,-[,]
-ED816949-C94A-4257-29BD-222D5ED30E31,Existing Business,Cold Call,Perception Analysis,25,810,-[,]
-2BCBC063-F95F-1B63-3C64-617BA17E9323,Existing Business,Employee,Closed Lost,41,127,-[,]
-91321075-E4BD-6A94-B915-72119B891251,Existing Business,Partner,Identifying Decision Makers,62,429,-[,]
-98936C18-A808-8B35-0482-1DE5EE2C8DD4,Existing Business,Word of mouth,Closed Lost,57,568,-[,]
-F77C7AD3-BCE2-E6F4-8A0B-51102B458A99,New Business,Cold Call,Proposal/Price Quote,6,343,-[,]
-072A663B-A611-4B75-3B7D-CF3034E7134C,Existing Business,Trade Show,Negotiation/Review,31,198,-[,]
-ED6E3036-EAB0-C59F-0707-C1E207272D53,Existing Business,Web Site,Closed Won,46,326,-[,]
-C778DDDE-2D8F-8BA0-4EE9-187D0C14E839,New Business,Conference,Qualification,36,466,-[,]
-7C4DE8DC-09DA-49A0-22FE-AE96D4F8A4DA,New Business,Self Generated,Proposal/Price Quote,39,840,-[,]
-35D240B5-7C68-32A1-9479-A9C5E8E9C73B,New Business,Word of mouth,Needs Analysis,37,404,-[,]
-956D7EEE-7F85-418A-27EB-9013395D226B,New Business,Word of mouth,Perception Analysis,48,529,-[,]
-2CE5DDBE-D786-0C8E-8B56-EBE78AA69121,Existing Business,Cold Call,Needs Analysis,44,413,-[,]
-549F041A-2A92-D0BF-4B51-CE4525D01C3C,New Business,Web Site,Needs Analysis,18,681,-[,]
-49EA55C7-55DB-3B4C-EB71-7F8E3B233641,Existing Business,Conference,Needs Analysis,93,757,-[,]
-F8CAEB80-01A6-0CB9-E9B6-88C5ED7A4E2F,New Business,Public Relations,Needs Analysis,24,814,-[,]
-002E1143-12F4-B58A-066D-86EA7A74D7D1,Existing Business,Self Generated,Proposal/Price Quote,10,413,-[,]
-274B7444-C230-1B80-28FB-CCD3C0168D4C,Existing Business,Existing Customer,Qualification,46,286,-[,]
-2D147F78-40B9-51EA-E14C-A8C4C3AC8C4E,Existing Business,Partner,Prospecting,9,985,-[,]
-74CBF64B-EC42-8D3F-0482-229C06788FAC,New Business,Other,Value Proposition,56,415,-[,]
-22599759-0267-F389-C63D-58A1D3CD91B1,Existing Business,Partner,Prospecting,53,199,-[,]
-CF92C691-51E2-71EE-B269-B36B1E3ECAEB,New Business,Campaign,Perception Analysis,98,969,-[,]
-B1EFCFB2-023B-ABF3-412D-EC160EAE3EC2,New Business,Other,Prospecting,91,486,-[,]
-5BA36D9E-1AA1-B14F-D1C4-C2CC6546DE0D,New Business,Trade Show,Prospecting,84,854,-[,]
-CEEE66D7-C0AD-4C0E-7F67-268BAE899BAA,New Business,Trade Show,Identifying Decision Makers,40,947,-[,]
-4B7ED888-8691-48C6-D301-8F9D15F36ABE,New Business,Public Relations,Negotiation/Review,51,589,-[,]
-EB8DD929-ADBC-4DF3-62DD-4A6700E5A75D,Existing Business,Campaign,Negotiation/Review,95,313,-[,]
-95DD6D16-8688-FB3F-C51F-8D28AA776436,New Business,Trade Show,Closed Lost,93,980,-[,]
-2D23190B-19E2-636C-C83E-695ACFC3518A,Existing Business,Direct Mail,Value Proposition,70,275,-[,]
-E0F90DE5-F226-742B-8CA6-BF96DECEEBD9,Existing Business,Email,Negotiation/Review,26,273,-[,]
-E0F83CC9-025C-5D2B-9CCB-27CC594470D9,New Business,Web Site,Perception Analysis,16,596,-[,]
-8A867971-2F88-EE0C-A512-43DAF1517D69,Existing Business,Employee,Value Proposition,51,920,-[,]
-CE4B9348-39EA-732E-828B-B4AACF16FF8A,Existing Business,Existing Customer,Prospecting,78,576,-[,]
-12F9D60E-E94C-0941-B087-FACD73951E72,Existing Business,Word of mouth,Closed Lost,46,346,-[,]
-4B4C98F6-DDAB-F144-3017-EC81BB9722D2,New Business,Word of mouth,Prospecting,17,882,-[,]
-39B4F3B9-B978-7360-2895-59412BA52684,Existing Business,Employee,Qualification,13,687,-[,]
-64C62C55-B1CE-2BA2-CEFA-082070669DE1,Existing Business,Word of mouth,Proposal/Price Quote,9,812,-[,]
-79FEBE5E-1BE7-1BA1-F464-18D2C04B8202,New Business,Cold Call,Identifying Decision Makers,60,831,-[,]
-A9D45C96-E324-E60C-8D52-9D236123E612,New Business,Conference,Prospecting,38,383,-[,]
-CB898812-50A0-C9C5-9F1F-471ADD2F12F8,Existing Business,Trade Show,Closed Lost,77,597,-[,]
-E44D1DE2-CE2D-58E3-F1E7-5FCF5374D175,New Business,Public Relations,Closed Lost,96,661,-[,]
-C2D0874A-ED21-F8F6-F13C-C568861F79F2,Existing Business,Web Site,Identifying Decision Makers,32,903,-[,]
-EAC19CE3-49A5-DF16-4207-5112B907CEE0,Existing Business,Word of mouth,Prospecting,45,248,-[,]
-199D5C24-85C6-07B6-9992-292CC5E41108,Existing Business,Word of mouth,Identifying Decision Makers,37,852,-[,]
-1908C3E6-86A0-E00A-8665-398B3FDD048B,Existing Business,Other,Closed Lost,35,166,-[,]
-2CFE9950-FCC7-9920-CC3E-70A6B7CD0842,Existing Business,Existing Customer,Proposal/Price Quote,99,654,-[,]
-DB953318-E558-63DB-D636-AAB057BF687D,New Business,Trade Show,Perception Analysis,5,707,-[,]
-C5CDF821-CC23-DFAF-7C61-4B66443CBDCE,Existing Business,Self Generated,Value Proposition,38,184,-[,]
-96FE2F17-5F28-2C3C-006F-B1005F34C202,Existing Business,Email,Perception Analysis,14,521,-[,]
-788AE15A-44EB-03D2-6BA3-58E23A352DAC,New Business,Cold Call,Perception Analysis,88,689,-[,]
-CA8BD5F8-81B8-7BDF-67E3-83F322CD9688,New Business,Trade Show,Closed Lost,89,906,-[,]
-5EAA0B6F-013F-6CCD-F5B0-8918118F262E,New Business,Existing Customer,Identifying Decision Makers,94,981,-[,]
-9A875DFF-1246-9A90-232B-1281C96F2AB2,New Business,Email,Value Proposition,88,627,-[,]
-8A71E59B-1274-EA38-13A8-6AF260379BDD,Existing Business,Public Relations,Value Proposition,34,682,-[,]
-0D55FC1E-904D-07F5-6411-41028E69F86E,Existing Business,Partner,Value Proposition,92,399,-[,]
-8D58FD02-7BCB-5A61-0578-D7B5A3F1D022,Existing Business,Trade Show,Value Proposition,22,734,-[,]
-BE7F3256-9A82-CEA8-80F2-A5A0E7884DAE,New Business,Direct Mail,Needs Analysis,33,832,-[,]
-AF3B7C42-DED5-6E27-3C50-38A55961B59C,Existing Business,Cold Call,Proposal/Price Quote,28,379,-[,]
-82E38B6F-FE96-2C10-4D9B-3B4A23B6F053,New Business,Public Relations,Value Proposition,22,285,-[,]
-D75C48ED-6004-A9C7-8998-4429E7073415,New Business,Partner,Proposal/Price Quote,52,181,-[,]
-56852AA0-C39B-3286-129E-571F78A2B42A,New Business,Self Generated,Identifying Decision Makers,86,982,-[,]
-BAD0F5A1-8028-636F-9D4E-1E2F22E6A03C,Existing Business,Cold Call,Prospecting,36,640,-[,]
-3ABF4DFA-996A-EA3B-07F4-9238B2745D5D,Existing Business,Direct Mail,Proposal/Price Quote,96,356,-[,]
-7DA9988F-263F-3ED7-B6FA-815DFE372375,Existing Business,Web Site,Identifying Decision Makers,73,250,-[,]
-623468DB-5E4B-0004-87C6-62CD38E4ACF5,New Business,Email,Perception Analysis,38,874,-[,]
-266B99D6-3BD0-D2B7-2EEF-189F56798CFA,Existing Business,Conference,Proposal/Price Quote,44,405,-[,]
-421CC83D-1D8F-C66E-45E1-CE685D578D68,Existing Business,Campaign,Closed Won,24,522,-[,]
-BF99519D-A325-09EB-8606-D9F4BE3E5484,New Business,Other,Qualification,34,633,-[,]
-349311F1-3F5B-85F4-DFEA-A498D149AFD8,Existing Business,Partner,Closed Lost,89,547,-[,]
-4D062FE8-5032-890B-0F90-B16FF501F5A4,New Business,Public Relations,Identifying Decision Makers,61,515,-[,]
-87AFFE62-6E49-9AF1-1A21-E7DCC24E8719,Existing Business,Employee,Closed Won,23,840,-[,]
-D5BE6271-05B4-7E90-3C01-19DE34CBDB52,New Business,Trade Show,Closed Won,64,486,-[,]
-B0C192ED-6B60-71F6-6233-9DFDABB6B456,Existing Business,Existing Customer,Closed Lost,56,681,-[,]
-5AD42D1C-9508-A03F-6948-B4E126099E82,New Business,Existing Customer,Perception Analysis,89,426,-[,]
-62C3DC15-A7E8-858A-733D-83222C648B24,Existing Business,Other,Closed Lost,26,556,-[,]
-8C85932D-ECFF-8BEA-E58E-37C430EE9E5A,Existing Business,Campaign,Identifying Decision Makers,19,809,-[,]
-704B5822-C21E-3437-41E2-ED55120F4F99,New Business,Employee,Needs Analysis,89,120,-[,]
-179F77D4-88E6-1DAD-806E-DA8CF2C5097E,Existing Business,Partner,Value Proposition,32,331,-[,]
-7B900FD7-D268-7F1E-41C5-CD364C5A5BEE,Existing Business,Email,Perception Analysis,27,347,-[,]
-14FC89FB-75E6-8562-B697-4C3043F28907,New Business,Existing Customer,Negotiation/Review,86,814,-[,]
-4CBF712F-7F06-645E-9C53-DCD81F53CDA1,New Business,Direct Mail,Identifying Decision Makers,25,624,-[,]
-C47D8317-4307-008B-CEF3-CA0EC3349D13,Existing Business,Web Site,Identifying Decision Makers,10,274,-[,]
-0F2808A6-D6FD-96B9-10FE-8C36FDF82802,Existing Business,Partner,Closed Lost,25,124,-[,]
-AB6EDB9B-9AEA-AA88-80A7-8E8F78401B63,New Business,Public Relations,Perception Analysis,98,739,-[,]
-0A4CE83E-7AF7-9DEF-229C-610DEB26F518,New Business,Campaign,Closed Won,48,563,-[,]
-4A438F5F-7875-1DCE-C9A2-066FAC207B5B,New Business,Employee,Value Proposition,86,650,-[,]
-6E679FED-F22D-F79C-0905-35BA4FCF538E,Existing Business,Word of mouth,Closed Lost,45,597,-[,]
-5BFB7E30-1AEE-D6EA-00C8-27963450A9E7,New Business,Other,Qualification,28,510,-[,]
-F612E700-B342-2AAB-0007-85E57F7325F6,Existing Business,Employee,Value Proposition,4,236,-[,]
-8C29A777-5C47-1DEC-6DFB-41966E34936E,New Business,Self Generated,Closed Won,51,817,-[,]
-0E1B4B40-2896-A2F5-D9B4-C5B959B68FF6,Existing Business,Employee,Proposal/Price Quote,61,972,-[,]
-F0F04AD3-CF27-5DA1-340B-593B65ED4615,Existing Business,Cold Call,Identifying Decision Makers,13,773,-[,]
-ADDF02F5-9877-6393-C1D4-077C30787E53,Existing Business,Conference,Negotiation/Review,90,689,-[,]
-3CB9271F-2816-6C6C-C1CC-9766899428A2,New Business,Self Generated,Identifying Decision Makers,45,299,-[,]
-18B2CD4B-B1AB-A1D1-FD40-23EC9C1F84F8,Existing Business,Other,Needs Analysis,90,715,-[,]
-CAD691D8-E608-7DC1-DC01-297F5BE2261A,Existing Business,Employee,Value Proposition,90,918,-[,]
-E89025C3-822E-6B8E-89BC-541B8BAEA80D,New Business,Direct Mail,Qualification,66,644,-[,]
-65E56B56-1393-F7B6-2DC4-CA6B4979F997,Existing Business,Web Site,Closed Lost,10,629,-[,]
-625EB5CB-2049-43A3-95AB-EBC9E60F3A62,Existing Business,Trade Show,Prospecting,49,318,-[,]
-140E82CB-5161-23DD-6529-5D49A35A3B0D,Existing Business,Campaign,Closed Lost,31,907,-[,]
-A6D772B8-7EEB-28FD-546E-04CA5309892A,Existing Business,Other,Qualification,90,787,-[,]
-9296B831-A66C-890C-C3B6-B08A1A5C58D0,Existing Business,Campaign,Value Proposition,8,274,-[,]
-0E1B4D6E-D5C8-69B7-FE9D-6D7016CA7606,Existing Business,Cold Call,Proposal/Price Quote,36,500,-[,]
-33EF2B4E-EEF8-F46E-45E2-698CD037E3AA,Existing Business,Other,Perception Analysis,13,624,-[,]
-216C618B-C43E-0476-6D7F-7207519B0CAA,New Business,Employee,Value Proposition,22,984,-[,]
+ID,OPPORTUNITY_TYPE,OPPORTUNITY_LEAD_SOURCE,OPPORTUNITY_SALES_STAGE,ACCOUNT_TK,RAN_NUM
+81BDB319-ACD1-B6A6-B007-B764447F04E5,Existing Business,Partner,Identifying Decision Makers,74,837
+5426C896-F978-314A-62F6-292552F2EC73,Existing Business,Direct Mail,Qualification,37,335
+F5DC05B3-3C0F-B1F1-279F-27C0BA1240B9,Existing Business,Campaign,Qualification,30,296
+004C986D-959E-7655-2960-B5AED8CA40A0,New Business,Direct Mail,Closed Won,80,960
+D5C023D7-671D-B0BE-218D-3C6B49ADDAE9,Existing Business,Partner,Qualification,28,986
+0A7FF603-0FE6-2683-5109-72E22C8CBD26,Existing Business,Web Site,Value Proposition,40,670
+BFE5BD56-6955-03DC-EB6E-3006D77402FC,Existing Business,Conference,Qualification,54,649
+770462A4-BC38-C844-100F-0E4DFCA61E08,New Business,Campaign,Negotiation/Review,23,239
+EEE84087-73A4-B1DC-4B29-2CAE59718AC3,New Business,Web Site,Negotiation/Review,100,158
+93F7C8F8-835A-84CC-AC3D-F087CA09734E,New Business,Public Relations,Proposal/Price Quote,10,995
+AC59ECB3-73B4-DADD-234D-8A17E54C193C,Existing Business,Direct Mail,Identifying Decision Makers,2,517
+98EEC690-E8BC-F6AF-07A0-AFA7647CDBFF,Existing Business,Existing Customer,Qualification,3,244
+8A69AB7E-1757-9E62-E986-0FDA54190756,New Business,Trade Show,Prospecting,46,864
+21F69D2D-257F-F280-9940-2EB3C892FD3A,Existing Business,Self Generated,Perception Analysis,76,398
+6A4AEDDA-19EC-B50A-1DAC-E3EB81A0545D,Existing Business,Public Relations,Closed Lost,39,741
+604F08EA-F505-7C5D-112D-C061A01598D1,Existing Business,Word of mouth,Prospecting,65,651
+A731D406-3029-D99C-E5BE-6436475669CA,New Business,Conference,Prospecting,1,258
+29818709-51E4-94C9-E1BB-9744C8B3DE4E,Existing Business,Partner,Value Proposition,76,881
+339D86F7-541F-0E5E-4F3C-2E19EC1D6171,New Business,Public Relations,Closed Lost,37,653
+F5670FCF-BFAD-712A-4510-33CC0A101A8C,Existing Business,Direct Mail,Qualification,38,806
+C42EED19-86EB-EF50-6FF3-F634622D6A74,Existing Business,Direct Mail,Needs Analysis,50,840
+6B67A3D1-0932-D0F2-0729-850F0BC709EC,New Business,Conference,Value Proposition,43,645
+23A2CF38-B65D-DCFA-C64B-96DA100D06B0,New Business,Other,Identifying Decision Makers,6,747
+E21BD6A9-B671-3C6C-A588-600E0B0A12F6,New Business,Word of mouth,Qualification,86,642
+492CFE51-F44C-CAF5-6A69-B0082C72D848,Existing Business,Email,Qualification,90,170
+BA703609-C5B1-1614-E6F2-1EC2A8F65ED7,Existing Business,Trade Show,Closed Lost,92,136
+50765570-68D1-9EAF-FF55-C885234352D1,New Business,Campaign,Prospecting,1,171
+0B2A9CE9-B41D-771B-3BB8-2011E48EFA2C,New Business,Web Site,Closed Won,77,515
+17233F3C-800F-061B-EAE7-6EEDA9982082,Existing Business,Word of mouth,Prospecting,40,571
+E1AD6FC3-0138-A782-3AF4-E0CC01C106D3,Existing Business,Conference,Identifying Decision Makers,70,923
+480954FA-FA09-7FB5-FDDE-43DFEC8957FA,New Business,Campaign,Negotiation/Review,70,741
+25127821-E974-F077-8310-6F41E84293FE,New Business,Employee,Identifying Decision Makers,18,112
+49072450-0705-D8C8-D47E-E8E1FE9BFAAF,New Business,Email,Negotiation/Review,91,368
+900BF764-2DD6-B88F-E8C5-5D3DB26F2065,New Business,Trade Show,Closed Won,8,793
+F7085103-C600-1F27-9DF8-33425E9B308C,Existing Business,Word of mouth,Value Proposition,1,942
+BF83F700-E89D-6F08-9801-950EE9E2361C,New Business,Conference,Qualification,17,916
+9B7E6477-98AC-85B0-E35D-D5CBF33AD69D,Existing Business,Campaign,Perception Analysis,90,484
+F63F0249-7BD9-49BF-E23B-B169B308B05E,New Business,Trade Show,Proposal/Price Quote,13,818
+5B89F8D3-2B15-D4A5-9028-F55DF1AE47B8,New Business,Public Relations,Perception Analysis,35,172
+A0C05E61-8A71-83DD-B1F6-72978F952275,Existing Business,Self Generated,Prospecting,78,684
+45C7D354-8A6E-8B46-3524-D95E992AA021,Existing Business,Campaign,Identifying Decision Makers,23,982
+7C3844E2-BAA4-95E8-38E5-4CEF38555DCA,New Business,Cold Call,Proposal/Price Quote,44,355
+74E040A3-EFB3-DA0E-0302-127E12138F17,Existing Business,Campaign,Value Proposition,70,854
+2908A140-B4F7-C4C2-322C-A606667BDBEB,New Business,Partner,Negotiation/Review,28,592
+2DBC64E5-AC1C-5E1C-3345-49D1C162D0A6,Existing Business,Cold Call,Negotiation/Review,63,315
+200E29BB-CB93-F74E-C6DF-EB2F3A5CE548,New Business,Direct Mail,Perception Analysis,12,620
+5360EC8E-A9B5-36BD-AF75-57F0CD4CFDD8,Existing Business,Email,Perception Analysis,27,751
+4AE4BF6F-794D-7A3F-7723-E92763083BDC,New Business,Direct Mail,Proposal/Price Quote,83,502
+0C0AD150-3320-FE4E-202F-53BE7E836749,Existing Business,Word of mouth,Perception Analysis,80,324
+98C69CAB-E2DB-C039-2670-1E3D505FDC96,Existing Business,Self Generated,Prospecting,23,876
+2771EBC0-164E-335A-CE6B-C28030C2C45A,New Business,Word of mouth,Prospecting,75,838
+7860448E-6662-F50A-D4D4-9114BCDC10CB,New Business,Partner,Qualification,73,389
+5A17A293-3406-64B6-3FC2-4E52EDEEBE63,Existing Business,Partner,Qualification,1,597
+F30FC34E-8F30-E15B-29B9-9A81E056F293,New Business,Direct Mail,Negotiation/Review,48,119
+6405FA38-0D71-5666-83E7-F660188A557B,Existing Business,Trade Show,Proposal/Price Quote,11,350
+7CB08741-6C7E-6169-7F8A-30B387BCAFAD,Existing Business,Other,Value Proposition,94,853
+5B536058-7DC8-4CEA-C48B-CB94F9F56A85,Existing Business,Cold Call,Perception Analysis,53,804
+DE032CC6-8FBB-8122-6D6E-9489D4BC6B3A,Existing Business,Self Generated,Perception Analysis,84,940
+01A3C356-FB3C-40DA-2B60-7C3F404EE479,New Business,Self Generated,Negotiation/Review,22,641
+394CBBC8-5F38-3508-7E11-053ABC2FBF15,New Business,Existing Customer,Closed Lost,1,420
+A4A03F5A-22DC-B9DF-176D-CFFFA1E6F13C,Existing Business,Self Generated,Identifying Decision Makers,86,149
+A0DA808E-E1C4-50DD-01FF-6C1308F3DF3F,Existing Business,Self Generated,Needs Analysis,28,292
+1BA6C1FF-45CC-9F39-63A6-D839765853CC,New Business,Direct Mail,Proposal/Price Quote,63,940
+F331AE1F-AC20-D0BA-E7D9-CBC7449CCD5F,Existing Business,Email,Closed Lost,81,693
+B203DF5F-7A62-8639-94CC-70CF0601CD9C,Existing Business,Cold Call,Needs Analysis,66,902
+0CD172D3-F955-EE30-18EE-FF088FAB65DB,Existing Business,Cold Call,Qualification,74,618
+91D33963-4CB0-4DF1-C9EC-549811E30FDA,Existing Business,Web Site,Value Proposition,6,724
+7B62F361-5404-35DC-A3FF-D3746E25FFC8,Existing Business,Partner,Closed Won,87,251
+2DE15CC5-016A-446E-EB96-E252BFA757E6,Existing Business,Word of mouth,Perception Analysis,89,317
+263AFA5A-2EEC-0DF6-83AF-2C07A02F8157,Existing Business,Employee,Negotiation/Review,74,497
+4027395C-843D-7C5D-7A8D-22139E8AC2DE,Existing Business,Web Site,Negotiation/Review,3,164
+F9B7E2E9-51A3-B99E-280F-8D9605892E0E,New Business,Public Relations,Identifying Decision Makers,9,358
+F4F9B864-615B-C6C0-16AA-37A00A5935A7,Existing Business,Public Relations,Prospecting,60,853
+07BE3599-A943-5BF0-8896-D4EBFCA40790,New Business,Campaign,Closed Won,73,306
+4AAD2258-6296-190F-1DBE-CE22DFA47995,New Business,Employee,Qualification,64,359
+3DCA2932-82C8-E0C3-A24A-9F57EE4AFC0A,New Business,Employee,Closed Lost,7,478
+9EE94498-15C1-2296-4D37-25D360337264,New Business,Conference,Identifying Decision Makers,55,556
+709A6488-3C2F-0EBD-D0AB-A8D5F0338270,New Business,Employee,Proposal/Price Quote,2,599
+D4C3BEDB-85EC-618A-1EAC-7C1400AF1D4F,New Business,Partner,Needs Analysis,43,701
+B81023D9-BCF7-A78F-563D-0B1FD963F94E,Existing Business,Web Site,Prospecting,91,329
+CED4DE71-4C8A-58EB-4FF5-FE712956015D,Existing Business,Direct Mail,Negotiation/Review,100,481
+2548248A-986D-3FAC-E289-92F08D626CA6,New Business,Direct Mail,Negotiation/Review,22,589
+2378A81D-962B-702E-EC11-BC81ED3D24D6,Existing Business,Partner,Closed Lost,18,887
+85246C3C-F391-D6C4-EDF1-4FBCDAD9EDE1,Existing Business,Cold Call,Needs Analysis,34,111
+A24CC7AF-1F9E-A731-6250-3F816E1665AE,Existing Business,Employee,Negotiation/Review,63,802
+9C147D83-C543-3DE8-880A-CF61FDE3F7C1,New Business,Self Generated,Prospecting,22,481
+B7772C22-1E32-C796-D850-438BF248319A,New Business,Email,Qualification,29,783
+D9DC844E-67EB-C488-4F51-9AE072CA9E32,New Business,Existing Customer,Closed Won,57,210
+1BACABA5-9191-407F-48F5-96F0CA6A9B4F,New Business,Partner,Prospecting,80,565
+E2C5936B-6F77-751E-9B1C-7DF211D65F43,New Business,Public Relations,Closed Won,4,646
+054B6F7C-B823-BB5B-3E4F-D397E213188F,Existing Business,Campaign,Value Proposition,75,929
+FC736D18-9006-FD14-811A-BAF9B28D1422,Existing Business,Public Relations,Prospecting,64,822
+E1CD5085-B234-A612-C782-63BB4D575C7E,New Business,Cold Call,Closed Lost,47,157
+2AEB0616-900D-E5AA-2BB6-B144E58E5897,Existing Business,Direct Mail,Closed Won,30,160
+A93DE5EF-3166-3064-ABAB-C946CE30AE5B,Existing Business,Direct Mail,Proposal/Price Quote,92,608
+BE79C480-8040-8FBD-7501-B5CDBA5F07CD,New Business,Conference,Qualification,72,627
+409268F6-B7F5-46C8-16B0-514B26E2ECD6,New Business,Other,Perception Analysis,30,499
+9059308E-5764-BFEE-F5C4-5A3F6606DE9A,New Business,Public Relations,Negotiation/Review,7,449
+5D0C1DB6-01EE-1097-168F-D43CBB4AB9C1,Existing Business,Public Relations,Proposal/Price Quote,12,590
+F26D04B5-AF41-8622-CF92-41D275546CB8,New Business,Word of mouth,Proposal/Price Quote,55,667
+259DA1DD-1B13-B688-A85D-4BE2BA373DE3,Existing Business,Other,Negotiation/Review,86,709
+AC4383DE-2DCF-D45B-F173-678FCFFAE01A,Existing Business,Direct Mail,Proposal/Price Quote,54,790
+B456C506-072F-9571-544B-A45563D876C1,Existing Business,Campaign,Closed Won,66,655
+BFB77482-F6C8-940B-91A8-190A07DFA4FC,New Business,Self Generated,Perception Analysis,81,119
+E01C830E-4BE5-A8DB-2C36-094F54FB765C,New Business,Self Generated,Perception Analysis,9,833
+6BB0D531-F94F-CEA1-6B96-425F01D021BC,New Business,Public Relations,Negotiation/Review,73,290
+CCB0CBE1-CECA-A14B-BDAC-6D891498C143,Existing Business,Word of mouth,Qualification,53,738
+CE4B38E6-B424-710C-ECAA-BC2DEBC80834,New Business,Cold Call,Identifying Decision Makers,71,570
+0F170ACA-4669-0095-26EF-FFF482CA7856,Existing Business,Self Generated,Perception Analysis,79,479
+1758362D-B719-DC37-7D48-C589B28B46F1,New Business,Public Relations,Identifying Decision Makers,45,114
+390A7A4C-E741-5D04-318F-39FF4C2C776C,New Business,Partner,Proposal/Price Quote,49,142
+F8F52934-AC00-8CF9-BE8A-637A3A62B881,Existing Business,Cold Call,Proposal/Price Quote,45,808
+C025971D-694D-814C-BC1A-53809EEFC254,Existing Business,Web Site,Closed Lost,73,413
+C33213BE-8D50-5267-7956-CD227B4B1A3C,Existing Business,Web Site,Qualification,5,480
+1880885F-F606-328C-50B5-2DD9524ED374,New Business,Direct Mail,Prospecting,49,116
+41FC7C4C-2225-FEB6-1C9F-D5533712620B,Existing Business,Conference,Needs Analysis,38,448
+89382544-7C53-432A-84C8-1E6A3224FB9D,Existing Business,Public Relations,Prospecting,86,727
+5D9294F6-A479-5096-3833-ECC906769E7A,Existing Business,Web Site,Needs Analysis,12,759
+2F15CAC4-A70B-EA12-4B2A-0AA569962601,Existing Business,Trade Show,Value Proposition,44,935
+A76BC2A1-89EC-37EF-46F2-0F285BA09665,Existing Business,Partner,Prospecting,10,636
+3905A134-C6A3-2E61-A5FF-875F9094B49D,New Business,Partner,Closed Lost,71,729
+9D98CC87-3EC6-34DD-981E-B9616283326A,Existing Business,Word of mouth,Negotiation/Review,2,766
+01DD1B55-FA76-E010-D58A-6972AB6C35CF,Existing Business,Employee,Perception Analysis,36,287
+EA9E2B04-2A38-802C-5A16-12320C99BA55,New Business,Direct Mail,Closed Lost,29,897
+6C910521-BBCA-3CE6-EEF6-F9D55068C900,Existing Business,Partner,Needs Analysis,100,759
+32A42696-DEF9-637A-3F7D-A099F4EA1ECE,New Business,Existing Customer,Needs Analysis,87,930
+49ED9A06-FDB8-3BFF-28BD-988439D607B7,New Business,Cold Call,Value Proposition,66,949
+7812E7C2-E022-6505-03AD-CAC5243380B6,Existing Business,Web Site,Closed Won,82,357
+8DF54227-6A1A-2509-C28E-523798677C96,New Business,Web Site,Prospecting,54,492
+3A59CA3B-8BA8-E3D3-BA0E-5FF2DF2B551F,New Business,Existing Customer,Prospecting,46,194
+2CE53E26-584B-AA22-1CB5-0A59F7934577,New Business,Existing Customer,Negotiation/Review,45,495
+67D20A2D-C735-0E73-2350-0132A3EDB55B,Existing Business,Partner,Value Proposition,15,820
+D9439A65-4F7E-4BAF-2E6E-A1AB67B97A23,New Business,Word of mouth,Prospecting,78,513
+936D26D8-EA22-FDCC-218A-42DF4500A85D,Existing Business,Self Generated,Proposal/Price Quote,52,879
+CC59854F-D446-E93E-8DFF-8C34A1759B38,Existing Business,Conference,Closed Won,33,491
+9AB02DB2-A8D1-E2FA-4C5C-E50DC2F4EDDA,New Business,Word of mouth,Value Proposition,52,453
+51C8CA6E-5D23-A638-D296-56539EE7B6C5,Existing Business,Campaign,Closed Lost,6,975
+06D9D862-3373-42A5-D856-A7B20AB16088,New Business,Self Generated,Identifying Decision Makers,15,936
+03ABD04E-25B2-A764-0B95-54CE10FCC36E,Existing Business,Trade Show,Prospecting,68,640
+5960413C-53F2-0470-9476-529CEE3A3270,Existing Business,Partner,Identifying Decision Makers,3,396
+D331731D-7C38-F130-BE13-E3FA7C620783,Existing Business,Public Relations,Prospecting,20,173
+7E11525D-5F1F-E8E4-A66B-E21FC11EC2E6,New Business,Partner,Needs Analysis,57,947
+9BA69480-605C-C0CB-BB06-61634AAAB446,New Business,Campaign,Value Proposition,78,243
+E8889695-4E9D-A030-A8BC-FB5363EC9C68,New Business,Web Site,Qualification,54,383
+89B8F704-A8DD-D80D-7C46-FA2C65F8FFB0,New Business,Email,Qualification,80,726
+83AADB02-EBD4-C5ED-AF0E-9799C79A7213,New Business,Other,Closed Won,22,677
+775D9655-9478-7127-D4C5-DBF15F225E75,New Business,Email,Perception Analysis,13,377
+BC6AAF53-4810-7E04-57E1-B7B8370F20A1,New Business,Campaign,Proposal/Price Quote,89,665
+32DECAED-E475-5365-4D60-ED6C3DF0650D,Existing Business,Existing Customer,Closed Won,98,164
+230E427C-6169-6B16-CB14-1A8DB8FAF3CE,New Business,Existing Customer,Qualification,39,824
+9765F129-D279-7443-F09B-30197D6E5F96,New Business,Self Generated,Value Proposition,53,650
+E8A5A9B8-3A36-3C92-090F-993C38AA31D5,Existing Business,Campaign,Value Proposition,47,223
+27554B59-BABC-C309-1268-55B022E007AC,New Business,Conference,Needs Analysis,21,972
+AA434018-38A2-D5ED-7403-4986FBBC5D5E,New Business,Direct Mail,Qualification,61,838
+95CA5627-5326-61F5-22C5-9E8340368DC1,New Business,Existing Customer,Needs Analysis,58,667
+95BBEF1C-46C0-D03E-B8D7-F1C9E727B247,New Business,Word of mouth,Value Proposition,12,593
+73D61D31-5746-551A-5CC4-6768ECA1AD71,Existing Business,Employee,Needs Analysis,94,811
+546F4EC3-D0F3-C515-4167-675FD7B51579,New Business,Word of mouth,Closed Lost,24,910
+60A24515-6588-3614-7512-CC26507F546E,New Business,Email,Negotiation/Review,43,206
+83C8B656-2F40-1EAD-2EB2-EDADA18AB59F,Existing Business,Public Relations,Proposal/Price Quote,24,177
+55C453D0-3818-6164-3B61-3DC7F225A080,New Business,Self Generated,Closed Lost,32,302
+A80A3C97-8398-13A2-DC4E-570855535D65,Existing Business,Other,Closed Won,40,424
+250B2754-A42D-60F8-B994-5D609DF65A3A,New Business,Self Generated,Negotiation/Review,97,752
+5904726C-6215-EFAB-A2F0-89404D918467,Existing Business,Partner,Negotiation/Review,42,209
+1DA3743E-51F5-5724-343B-BE99D8CBDA55,Existing Business,Public Relations,Qualification,49,582
+3072796E-B83E-271E-4AB1-43AFCB4A01D2,Existing Business,Email,Closed Lost,71,424
+00B6A7B1-1F39-F01B-F902-942DF416FEB8,Existing Business,Web Site,Closed Won,82,509
+E64F2149-6C60-FEA2-04A1-C8C54646F888,New Business,Trade Show,Identifying Decision Makers,76,733
+4752E70F-5B66-7679-122E-63411C88B6FF,New Business,Other,Prospecting,62,423
+25DF5ED1-D708-5F7E-1C10-5152B41F5521,New Business,Public Relations,Identifying Decision Makers,55,982
+556006E8-05D0-C114-332B-E8914D8D6518,Existing Business,Direct Mail,Needs Analysis,98,569
+250A478C-D860-5FD8-EC09-347FEE27A7D2,Existing Business,Conference,Prospecting,56,264
+7A726958-25B8-018A-DD75-7588907E624F,New Business,Email,Qualification,17,690
+B0259F03-BF03-000E-A563-B03B51EB96CB,Existing Business,Employee,Proposal/Price Quote,68,369
+7C91A9E3-4BDE-6761-FD80-E4BFDD5D1FE3,New Business,Other,Closed Won,40,699
+DEC187A2-E649-9B8C-10AD-81492283EF5E,New Business,Direct Mail,Closed Lost,56,330
+C850B3B0-F16A-82EE-89FD-A0DA53EDDF50,Existing Business,Cold Call,Value Proposition,79,496
+EAE8CA41-4511-192A-AC63-6700756EAAF8,Existing Business,Other,Value Proposition,5,577
+CD6D3707-1168-1AF6-0CA2-6447D14E73AE,Existing Business,Self Generated,Closed Won,8,803
+BFEE2C6A-5BED-88F7-94BF-89970CAAEB01,New Business,Conference,Value Proposition,38,993
+60BE79F1-9017-A084-1380-410FDECB5BD4,New Business,Self Generated,Prospecting,55,491
+04F5463C-6211-C4C0-2576-49BDBBC9EA94,New Business,Trade Show,Perception Analysis,3,111
+10FA450A-4083-FE2D-7934-3FE2480230A1,Existing Business,Partner,Prospecting,96,468
+9F8CA1CD-0A53-58DF-0A10-DE905E287861,Existing Business,Web Site,Qualification,34,482
+CD2823E8-69AF-40F3-9665-B7C9DA8661F6,Existing Business,Trade Show,Closed Won,48,240
+F071C148-B9EB-0D71-81E6-B3351E3F9EC1,Existing Business,Other,Closed Won,57,243
+B7E7191F-4FF6-A1DE-7DAF-0CCF847AF939,Existing Business,Trade Show,Perception Analysis,21,336
+D9DBD1A7-D005-FCBD-86AB-C4631CDBEF45,New Business,Other,Value Proposition,80,584
+4548514B-8442-A49E-11DD-EFFF786B9CC5,New Business,Existing Customer,Negotiation/Review,60,409
+AC0C37B9-5825-170C-DC69-410C857C1BB5,Existing Business,Word of mouth,Closed Won,63,715
+B5587014-17F9-2634-ECAF-64BA93B2DFC2,New Business,Trade Show,Value Proposition,87,284
+E866807D-611D-697E-E22A-A6A7427CDECC,Existing Business,Word of mouth,Proposal/Price Quote,5,680
+233A4D6D-698F-8DC6-54C6-156B71E1A975,Existing Business,Existing Customer,Qualification,2,449
+B519287B-681D-D506-030C-FC7ABAD968CE,New Business,Public Relations,Closed Won,63,710
+45AC96E1-2A60-C7C5-E534-9C6067B926C3,Existing Business,Direct Mail,Needs Analysis,93,120
+026A7197-9641-A5DD-F20B-2E2E83538BF6,Existing Business,Existing Customer,Closed Lost,27,585
+E3FAF331-0BD7-BA88-1223-9EF1FD8D5F61,New Business,Web Site,Prospecting,3,302
+14429055-6829-2BFC-707B-335231B98437,Existing Business,Word of mouth,Proposal/Price Quote,96,947
+A39345E4-A893-24AE-6450-60E845FB48A9,Existing Business,Partner,Prospecting,75,708
+C45BC6DB-56F0-F6DA-1949-04B55B71EB51,Existing Business,Email,Closed Won,49,215
+D325544F-D737-38C8-134D-A7F0C9662779,Existing Business,Email,Perception Analysis,84,967
+B32B6EFF-4422-EC03-A88D-38608FA7BB4E,Existing Business,Partner,Identifying Decision Makers,39,586
+A5D89534-C108-05B1-DDCD-1EABC37D8621,Existing Business,Word of mouth,Qualification,44,511
+673F89A2-ECAA-24EF-537C-161AA5DCA804,New Business,Self Generated,Perception Analysis,1,854
+678A86B7-415F-62B0-F59E-1439D66BF8C1,New Business,Conference,Value Proposition,70,234
+E7E4E227-DA2A-2327-88E7-A0DF67A25B2C,New Business,Existing Customer,Perception Analysis,52,412
+FF4EE2A4-E5F6-5BC4-BE8E-3EDC5B16BD9C,New Business,Partner,Perception Analysis,41,908
+0CD6203E-A104-2DAC-DB6A-1E310F1EA313,Existing Business,Self Generated,Value Proposition,65,382
+9E39F1E4-3791-0E3C-5790-53EF7FAED78B,New Business,Direct Mail,Prospecting,26,878
+98E9E9DA-CA24-B241-C27F-DB0321032FF7,New Business,Cold Call,Closed Won,10,593
+993BA72C-30EB-7F8C-3EBD-A3EA988BC286,Existing Business,Trade Show,Perception Analysis,21,605
+F801ABE6-1822-055A-26D9-9047E7BA9B5C,Existing Business,Existing Customer,Closed Lost,60,767
+D8CA602E-E378-F748-55BA-ED47A4BE019D,New Business,Partner,Identifying Decision Makers,65,879
+483EAB81-A24A-0AEC-842B-A2154361B991,Existing Business,Other,Proposal/Price Quote,50,660
+012A3635-1058-9B90-3716-4E03AD19A3D4,New Business,Conference,Negotiation/Review,51,279
+1EB99C3F-C331-1664-8F13-D334921E181E,Existing Business,Cold Call,Identifying Decision Makers,2,647
+6295396F-BDB1-0422-4908-9C6D81904C4D,New Business,Self Generated,Closed Lost,47,181
+87F89D10-702C-EB8E-97B7-C589D42FC4D0,New Business,Web Site,Perception Analysis,86,551
+95D1FB53-3F70-F342-7D85-F5247A3B73C5,New Business,Word of mouth,Value Proposition,51,997
+EBB87912-70AB-FDD1-39E2-FEF87B854BA9,New Business,Direct Mail,Negotiation/Review,65,885
+55A49C1C-FC1C-4846-B3A9-651970D147F3,New Business,Direct Mail,Closed Won,22,997
+1D579C6E-C242-3708-955C-C0B64C48792C,Existing Business,Self Generated,Identifying Decision Makers,69,970
+5EB14677-F580-7817-E8B0-7E6901C6FB7F,Existing Business,Web Site,Qualification,1,911
+169F8B70-5C03-D211-3193-A509F4A56815,Existing Business,Partner,Qualification,36,908
+FF258D33-0584-B2B9-8CEB-5BA34C909C83,New Business,Other,Qualification,74,318
+73AF3B07-C6CB-83FD-71C8-A82981DE6930,Existing Business,Cold Call,Value Proposition,65,789
+4416CBEB-4DB7-FD4C-4D29-DDB33AB34831,New Business,Web Site,Negotiation/Review,68,297
+27B8FD32-66A6-EF82-F516-B349CA92EE3D,Existing Business,Direct Mail,Negotiation/Review,77,208
+1AA1A8D6-7F07-DD2D-C159-51725F9AFF9E,New Business,Existing Customer,Prospecting,95,167
+4CCB941D-901F-7F55-F3EF-9EAC10A5CB7F,New Business,Campaign,Identifying Decision Makers,47,125
+3971F0AE-9293-9D8D-73E4-37855D0BE05C,Existing Business,Web Site,Proposal/Price Quote,59,256
+ECF69F63-E3D4-4D4A-B76E-39AD779C3A55,Existing Business,Self Generated,Prospecting,96,877
+2C7E10FA-798D-827A-E192-748ECAC5665D,Existing Business,Employee,Perception Analysis,6,586
+EFF8FC7E-FB8F-49F8-01C7-A1A511709D71,New Business,Word of mouth,Negotiation/Review,73,920
+1795C597-80FD-8C70-55FF-20620F21B864,New Business,Public Relations,Closed Won,13,803
+DF99E97C-5B34-24B4-C926-AE0D7C7D1F0D,Existing Business,Other,Closed Lost,92,757
+24FA6A06-9C78-4C5A-093D-A9A52AA3A9DF,Existing Business,Existing Customer,Negotiation/Review,50,698
+69EBE62B-8739-FCDE-407A-214B09E04F1D,Existing Business,Word of mouth,Identifying Decision Makers,43,499
+734BD2CD-F697-1B39-4AD5-B52E6E31B5F4,Existing Business,Other,Needs Analysis,62,575
+4FB85F6E-66B6-CDA4-364E-1BBD44D8EF76,New Business,Web Site,Closed Won,92,481
+78C7F98E-ABC6-8DC4-B365-1E9C59051D75,Existing Business,Self Generated,Closed Won,67,622
+61A7C931-84D4-D5EF-F52B-110E824EABD7,New Business,Conference,Closed Won,18,603
+54C4B43A-639B-9B71-D771-18C132688C88,New Business,Email,Value Proposition,15,178
+B934D0F3-3E5A-9D2B-F717-48311AA558CD,New Business,Partner,Proposal/Price Quote,6,872
+67C9A135-9F82-7F9B-07DE-5734570884E9,New Business,Direct Mail,Value Proposition,80,696
+CE56F01F-A039-ADC4-933A-EE4ADB06FA8C,Existing Business,Existing Customer,Negotiation/Review,94,112
+C68A15BA-EFE7-059A-9C43-4640B0DFBE4C,New Business,Public Relations,Identifying Decision Makers,16,331
+C4E5C67D-D374-B0DE-17BC-81B1022FE5DD,New Business,Self Generated,Identifying Decision Makers,54,191
+6CD6194C-13C2-7313-14EC-9ACAC91C16A1,Existing Business,Email,Value Proposition,89,931
+F512F1D3-5888-5A3C-1456-F0B26FE197F2,Existing Business,Employee,Closed Won,17,398
+EA7C3C65-CBC6-1511-9235-A481572BAB3A,New Business,Other,Negotiation/Review,95,699
+6C6B25C3-A5C0-505D-5D30-B5293C456440,New Business,Cold Call,Perception Analysis,57,870
+1FD36904-A0C7-BDAD-4F8E-01B7D80AA835,New Business,Public Relations,Identifying Decision Makers,33,342
+C63204F5-D364-7637-8FA9-62DB47D855A5,New Business,Existing Customer,Proposal/Price Quote,76,257
+15C62E2F-4814-F333-1B40-AB41AB4EC0A3,New Business,Self Generated,Prospecting,5,407
+4A4DF752-D749-55C8-5863-FC72E48FB96D,New Business,Web Site,Proposal/Price Quote,32,828
+CF31430E-4FB8-5199-E41B-B063904A2C8B,New Business,Existing Customer,Proposal/Price Quote,58,561
+E269CA86-8A0B-8A66-8887-31D640AAB5E0,New Business,Other,Needs Analysis,98,592
+DA4D1430-0EDA-AF54-3D24-FE05A88392A0,Existing Business,Web Site,Qualification,53,591
+F20095BE-940B-4737-462E-00804A4B849D,Existing Business,Cold Call,Needs Analysis,96,193
+45830F07-492C-0AF3-7FBF-FA2AB5D195B7,New Business,Direct Mail,Closed Won,32,369
+BC5CC9BC-11F5-BFFF-72C6-ADEC2186950F,Existing Business,Web Site,Closed Lost,86,133
+7B848BEC-BDA8-91C9-ECD0-C120A848856F,Existing Business,Partner,Negotiation/Review,25,226
+C2843D96-A0C0-EFC2-55B6-021BA16A565E,New Business,Campaign,Closed Won,34,894
+8251E7CB-DB9E-13A0-8EFB-6FF77940FBCE,New Business,Conference,Closed Lost,80,408
+8F201823-60D0-FD1D-08CF-10A7231CEB92,Existing Business,Word of mouth,Closed Lost,8,111
+F8245D13-1520-A06F-A3A8-B7BBD8C13856,Existing Business,Existing Customer,Identifying Decision Makers,51,398
+2756338C-A16B-D211-D452-61B3C9C28189,New Business,Existing Customer,Identifying Decision Makers,14,726
+4B8AE1FD-46BF-6A5F-AE91-41C7F8E09F7F,New Business,Conference,Negotiation/Review,34,487
+CB48DCCF-D58C-F698-1CA9-20E1C31AF39E,New Business,Email,Qualification,26,390
+FCFF8034-6B65-4C2B-4198-0140A3876F21,Existing Business,Email,Perception Analysis,72,681
+9D590299-829E-9BB8-8571-20795F31641C,New Business,Self Generated,Needs Analysis,34,334
+7A7FE0F6-CD90-01DD-B2FE-A8765F6BFDED,New Business,Trade Show,Negotiation/Review,30,572
+997B5A56-D92D-B587-BEF1-5B244DD9802B,New Business,Partner,Closed Won,87,796
+FFB7C6F0-254B-7A66-1EFA-DC43C291F640,New Business,Campaign,Closed Lost,90,896
+BB13B003-EEBF-F5E8-3B06-7C163FF37983,Existing Business,Cold Call,Prospecting,67,499
+780B768C-206D-16BF-7AA7-1CC9254EA2B3,New Business,Public Relations,Identifying Decision Makers,20,890
+7552E60D-81B8-15E4-3CCD-AC1F8F91DB32,Existing Business,Conference,Qualification,77,420
+A64ABD69-15CB-C6CF-B6C7-B9597F6D43DE,New Business,Cold Call,Value Proposition,51,711
+90B9A1BD-177B-619B-3715-BC5AC0DD8256,Existing Business,Direct Mail,Closed Won,88,428
+C4B33BB7-D275-ADA5-FCCA-15D18DF1DB63,Existing Business,Web Site,Qualification,100,234
+9749AD7C-0E76-4E85-D400-83EA736D40FC,New Business,Campaign,Value Proposition,83,530
+49C3C5C5-DECD-A807-FD9D-1CC342B6E387,Existing Business,Trade Show,Qualification,9,807
+F048448B-D298-542D-7375-8A0E90C208A3,Existing Business,Trade Show,Qualification,54,421
+8C4B10FD-8899-8C9B-E5A6-7D098A908E8A,Existing Business,Employee,Proposal/Price Quote,34,619
+9E3E6385-2F9D-1EC1-4243-62C43B24422A,New Business,Word of mouth,Prospecting,67,155
+955DEE16-5AC1-4EAB-8B32-D7BDED583A4D,New Business,Conference,Needs Analysis,63,789
+419D9FDD-F3E9-6D7C-40A9-4DF144B9DE2D,New Business,Email,Prospecting,6,590
+FAB68CBA-7AD8-E39D-FF5F-92FB561CB286,Existing Business,Cold Call,Perception Analysis,58,818
+BD53A4EA-5B35-1BF5-0240-06AE0BD8FF9E,New Business,Other,Qualification,51,553
+ECBD6825-7737-A09C-65E2-AA35F3274686,New Business,Cold Call,Negotiation/Review,39,347
+BDCDECD7-C2E6-6533-54E6-B47E26EB7F72,New Business,Partner,Qualification,82,537
+BD9B696E-B225-235C-F424-A6805D5E0C2D,Existing Business,Other,Value Proposition,34,315
+24BA4088-22F7-C7B0-AB89-DEE8D62D7F60,Existing Business,Email,Qualification,1,224
+79DD7400-A4A6-8E43-AD2C-B84BD9901E92,New Business,Public Relations,Closed Lost,84,573
+AC1B1E69-6E8B-5577-AB64-B647F842D576,New Business,Conference,Closed Lost,59,429
+36842EBC-EA00-F05A-B044-A4D4FA026122,Existing Business,Cold Call,Closed Lost,73,494
+0BD5DF82-9367-4B8A-BEB7-7249EADC827C,New Business,Trade Show,Proposal/Price Quote,20,552
+28C3D6A0-790F-6904-7B0B-F62E259B8C80,New Business,Existing Customer,Negotiation/Review,62,148
+6131A9A0-CBBE-8210-F5E6-3C5D7207B210,New Business,Web Site,Qualification,88,187
+215D27B2-5E97-C2B6-7E28-AF67E576C8F2,New Business,Word of mouth,Closed Won,32,204
+55EB8998-7099-4D87-11C4-97CD41FEA06A,Existing Business,Web Site,Negotiation/Review,81,371
+A239DD4F-049E-A0F6-3D5D-69ACF369FF7F,New Business,Self Generated,Qualification,28,716
+19658C82-CFA7-45B4-D3B6-145CAFFDB340,New Business,Direct Mail,Closed Lost,25,330
+60F05607-F504-DDC4-71B4-535BBCAE51C1,Existing Business,Public Relations,Closed Won,8,746
+B4B7ED8A-CB7F-6799-419E-B687804A1E82,Existing Business,Campaign,Prospecting,77,888
+57608C71-058B-64D2-3267-F0276FEAC055,Existing Business,Web Site,Prospecting,68,611
+A934202D-97A1-8A7C-44AE-130A6390025C,New Business,Self Generated,Qualification,36,526
+135C2F60-9663-B992-D6BB-D572153F7134,Existing Business,Trade Show,Closed Won,27,901
+68598B9B-42B1-DF43-686A-F25FE9C9A559,New Business,Email,Value Proposition,46,699
+A2AE0695-EC61-CD01-08B3-A80A46189E7F,New Business,Trade Show,Value Proposition,73,695
+1C7BB6D8-DEE6-BC1D-D03A-AE88455BE3B1,Existing Business,Other,Identifying Decision Makers,64,339
+BE6E1249-B7C9-B59B-6716-4B43A9E6DBA0,New Business,Campaign,Proposal/Price Quote,38,435
+C2C9C1EF-FE1F-A994-7185-6658B954F93B,Existing Business,Direct Mail,Negotiation/Review,68,505
+29789D76-944C-27AB-053D-30888BD53DF3,New Business,Cold Call,Negotiation/Review,77,415
+603D042B-5637-40D8-25B8-A97230630FD2,Existing Business,Cold Call,Qualification,46,935
+EE621A7C-5A99-1820-BB90-6016E7E78CA9,Existing Business,Email,Closed Lost,95,239
+8E349CFE-DC7C-3DA9-812A-6F2E0E2CF87D,New Business,Employee,Identifying Decision Makers,7,962
+0C944EB8-D8E7-F3B4-BC08-C81A0A56DE54,Existing Business,Campaign,Closed Lost,79,879
+C8D36F4E-DDAB-CC3E-B0CE-F323CB6EEDAA,Existing Business,Web Site,Negotiation/Review,29,382
+A127F537-B2EB-7E8F-1156-00F97449C28C,Existing Business,Self Generated,Value Proposition,63,444
+20A69EC9-C869-7B56-3A02-0E42EF48071B,New Business,Word of mouth,Closed Won,98,419
+B0C5D7CC-98F8-21A7-85EB-2273697597E3,New Business,Partner,Proposal/Price Quote,82,548
+8AB2EEDE-16D1-705C-7F1A-AB0D2C5ADB5C,Existing Business,Trade Show,Identifying Decision Makers,19,570
+E7977324-D198-854E-64A5-9A023DE8F551,Existing Business,Direct Mail,Closed Lost,37,260
+E0289CCD-A520-6F76-CEBA-4935E8358259,New Business,Existing Customer,Identifying Decision Makers,59,594
+B5917201-8981-B371-F9AB-2BD3B4AB2318,Existing Business,Direct Mail,Perception Analysis,80,676
+B42C24EC-A94C-DEBF-D7AA-BE21F0D8DF79,New Business,Email,Proposal/Price Quote,15,210
+1CDC41FB-8871-D318-59F7-A525983109FA,Existing Business,Existing Customer,Closed Lost,7,123
+B7DD4496-FF2A-1674-7731-AC1878207A0D,New Business,Public Relations,Negotiation/Review,67,319
+2DFE87DD-7D96-BD3E-B89E-385BE383D912,Existing Business,Employee,Needs Analysis,31,111
+60C6E19B-4085-5555-E90B-AB4D61CC1389,Existing Business,Existing Customer,Value Proposition,27,863
+CDE6752C-DCBF-E372-187F-EC524568D08B,Existing Business,Other,Value Proposition,48,754
+83699D5B-F658-AC1B-042C-69EB74F3631A,New Business,Email,Value Proposition,99,572
+2B3374FA-C966-7355-9795-0B32DB48DC4D,Existing Business,Conference,Closed Lost,15,239
+B2E49326-0E86-5CD3-C1EC-04A012F33CA3,Existing Business,Cold Call,Negotiation/Review,89,242
+A3A0FE5E-D3A6-D534-1F72-3A52DECF9E0C,New Business,Cold Call,Closed Lost,61,444
+218417C3-C088-5258-B375-5D45043F3412,New Business,Conference,Identifying Decision Makers,96,829
+BC6EF018-6B67-D794-348B-6E99E4A865A5,Existing Business,Campaign,Proposal/Price Quote,2,258
+92EA52DB-7CCB-0A23-9BD5-96800B6F93B0,Existing Business,Trade Show,Qualification,82,650
+FAC63012-6D1F-F62D-F4E1-121C46551C19,Existing Business,Employee,Qualification,62,132
+0650F702-DCCF-97FB-3AB2-E5C3DE37E0BF,New Business,Campaign,Perception Analysis,16,185
+6110485F-49A7-13E3-B0A9-3B83687D6037,New Business,Partner,Identifying Decision Makers,44,258
+48512D55-A437-8ECE-329C-2FB05399B4E8,Existing Business,Other,Qualification,74,750
+6BA3EF8F-63C5-DDAE-1652-001D9A2B7815,New Business,Other,Proposal/Price Quote,77,384
+8979090F-4250-B0DF-8F4B-C595A255729B,New Business,Campaign,Proposal/Price Quote,33,649
+CA7E9DD8-5109-DD85-1B02-172B16F7F5E6,New Business,Web Site,Prospecting,89,440
+9E8457C1-5688-9D8A-6E18-FD307C9E7A0C,New Business,Direct Mail,Perception Analysis,17,469
+EEDB6AFE-D340-3407-2C5F-C4C01A4F7C8E,New Business,Employee,Value Proposition,56,663
+6C9CDBD8-D265-3B11-8E04-2F1FBCEE7670,New Business,Word of mouth,Proposal/Price Quote,2,208
