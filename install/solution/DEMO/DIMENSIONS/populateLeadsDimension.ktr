@@ -457,6 +457,31 @@ Of Lead_Source </note>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
+    <notepad>
+      <note>Using GenDATA (no_accounts)
+LEAD_ACCOUNT_NAME	
+LEAD_OPPORTUNITY_NAME
+Fields
+</note>
+      <xloc>0</xloc>
+      <yloc>0</yloc>
+      <width>178</width>
+      <heigth>95</heigth>
+      <fontname>Noto Sans</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
@@ -555,16 +580,6 @@ Of Lead_Source </note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>GenerateLEADS</from>
-      <to>Clean Generated Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Clean Generated Fields</from>
-      <to>Lookup COUNTRY &amp; STATE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Drop / Rename</from>
       <to>Categorize</to>
       <enabled>Y</enabled>
@@ -572,6 +587,11 @@ Of Lead_Source </note>
     <hop>
       <from>Categorize</from>
       <to>D_LEADS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>GenerateLEADS</from>
+      <to>Lookup COUNTRY &amp; STATE</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -692,14 +712,14 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
+      <xloc>480</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Clean Generated Fields</name>
-    <type>ReplaceString</type>
+    <name>Categorize</name>
+    <type>ValueMapper</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -708,28 +728,65 @@ Of Lead_Source </note>
       <method>none</method>
       <schema_name />
     </partitioning>
+    <field_to_use>LEAD_SOURCE</field_to_use>
+    <target_field />
+    <non_match_default />
     <fields>
       <field>
-        <in_stream_name>LEAD_ACCOUNT_NAME</in_stream_name>
-        <out_stream_name />
-        <use_regex>no</use_regex>
-        <replace_string>,</replace_string>
-        <replace_by_string />
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string />
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
+        <source_value>Campaign</source_value>
+        <target_value>Campaign</target_value>
       </field>
       <field>
-        <in_stream_name>LEAD_OPPORTUNITY_NAME</in_stream_name>
-        <out_stream_name />
-        <use_regex>no</use_regex>
-        <replace_string>,</replace_string>
-        <replace_by_string />
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string />
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
+        <source_value>Cold Call</source_value>
+        <target_value>Email</target_value>
+      </field>
+      <field>
+        <source_value>Conference</source_value>
+        <target_value>Email</target_value>
+      </field>
+      <field>
+        <source_value>Direct Mail</source_value>
+        <target_value>Campaign</target_value>
+      </field>
+      <field>
+        <source_value>Email</source_value>
+        <target_value>Email</target_value>
+      </field>
+      <field>
+        <source_value>Employee</source_value>
+        <target_value>Website</target_value>
+      </field>
+      <field>
+        <source_value>Existing Customer</source_value>
+        <target_value>Website</target_value>
+      </field>
+      <field>
+        <source_value>Other</source_value>
+        <target_value>Website</target_value>
+      </field>
+      <field>
+        <source_value>Partner</source_value>
+        <target_value>Website</target_value>
+      </field>
+      <field>
+        <source_value>Public Relations</source_value>
+        <target_value>Campaign</target_value>
+      </field>
+      <field>
+        <source_value>Self Generated</source_value>
+        <target_value>Website</target_value>
+      </field>
+      <field>
+        <source_value>Trade Show</source_value>
+        <target_value>Campaign</target_value>
+      </field>
+      <field>
+        <source_value>Web Site</source_value>
+        <target_value>Campaign</target_value>
+      </field>
+      <field>
+        <source_value>Word of mouth</source_value>
+        <target_value>Campaign</target_value>
       </field>
     </fields>
     <cluster_schema />
@@ -740,7 +797,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>1280</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -896,7 +953,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1600</xloc>
+      <xloc>1440</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1005,7 +1062,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1120</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1039,7 +1096,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
+      <xloc>320</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1302,7 +1359,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
+      <xloc>960</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1349,7 +1406,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
+      <xloc>320</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1430,7 +1487,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>160</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1463,7 +1520,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>640</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1512,7 +1569,7 @@ Of Lead_Source </note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
+      <xloc>800</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1574,92 +1631,7 @@ Of Lead_Source </note>
     </remotesteps>
     <GUI>
       <xloc>160</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Categorize</name>
-    <type>ValueMapper</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <field_to_use>LEAD_SOURCE</field_to_use>
-    <target_field />
-    <non_match_default />
-    <fields>
-      <field>
-        <source_value>Campaign</source_value>
-        <target_value>Campaign</target_value>
-      </field>
-      <field>
-        <source_value>Cold Call</source_value>
-        <target_value>Email</target_value>
-      </field>
-      <field>
-        <source_value>Conference</source_value>
-        <target_value>Email</target_value>
-      </field>
-      <field>
-        <source_value>Direct Mail</source_value>
-        <target_value>Campaign</target_value>
-      </field>
-      <field>
-        <source_value>Email</source_value>
-        <target_value>Email</target_value>
-      </field>
-      <field>
-        <source_value>Employee</source_value>
-        <target_value>Website</target_value>
-      </field>
-      <field>
-        <source_value>Existing Customer</source_value>
-        <target_value>Website</target_value>
-      </field>
-      <field>
-        <source_value>Other</source_value>
-        <target_value>Website</target_value>
-      </field>
-      <field>
-        <source_value>Partner</source_value>
-        <target_value>Website</target_value>
-      </field>
-      <field>
-        <source_value>Public Relations</source_value>
-        <target_value>Campaign</target_value>
-      </field>
-      <field>
-        <source_value>Self Generated</source_value>
-        <target_value>Website</target_value>
-      </field>
-      <field>
-        <source_value>Trade Show</source_value>
-        <target_value>Campaign</target_value>
-      </field>
-      <field>
-        <source_value>Web Site</source_value>
-        <target_value>Campaign</target_value>
-      </field>
-      <field>
-        <source_value>Word of mouth</source_value>
-        <target_value>Campaign</target_value>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1440</xloc>
-      <yloc>128</yloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
