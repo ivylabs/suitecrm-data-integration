@@ -430,7 +430,7 @@
     <created_date>2020/08/03 01:33:08.964</created_date>
     <modified_user>-</modified_user>
     <modified_date>2020/08/03 01:33:08.964</modified_date>
-    <key_for_session_key />
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -568,342 +568,6 @@
     </hop>
   </order>
   <step>
-    <name>populateInvoiceManagement</name>
-    <type>TextFileInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field />
-    <accept_stepname />
-    <separator>,</separator>
-    <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
-    <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field />
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>mixed</format>
-    <encoding />
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_INVOICE_MANAGEMENT/populateInvoiceManagement.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
-    <fields>
-      <field>
-        <name>INVOICE_LINE_ID</name>
-        <type>String</type>
-        <format />
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_LINE_QUANTITY</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>BILLING_ACCOUNT_TK</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_LINE_DISCOUNT_VALUE</name>
-        <type>Integer</type>
-        <format>0.#####</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_LINE_DISCOUNT_TYPE</name>
-        <type>String</type>
-        <format />
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>PRODUCT_TK</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_LINE_LIST_PRICE_AMOUNT</name>
-        <type>Number</type>
-        <format>0.#####</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_TK</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>INVOICE_LINE_VAT_VALUE</name>
-        <type>Number</type>
-        <format>0.#####</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculate amounts</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>50_PERCENT</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>.50</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>INVOICE_LINE_COST_PRICE_AMOUNT</field_name>
-      <calc_type>MULTIPLY</calc_type>
-      <field_a>INVOICE_LINE_LIST_PRICE_AMOUNT</field_a>
-      <field_b>50_PERCENT</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DISCOUNT_TYPE = Amt?</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Calculate Amt Discount</send_true_to>
-    <send_false_to>Is Discount >0</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>INVOICE_LINE_DISCOUNT_TYPE</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>Amt</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Calculate Amt Discount</name>
     <type>Calculator</type>
     <description />
@@ -973,67 +637,6 @@
     </GUI>
   </step>
   <step>
-    <name>Convert Amt Value to Decimal</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>INVOICE_LINE_DISCOUNT_VALUE</name>
-        <rename>INVOICE_LINE_DISCOUNT_VALUE</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>0.00</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-      <meta>
-        <name>INVOICE_LINE_QUANTITY</name>
-        <rename>INVOICE_LINE_QUANTITY</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>0.00</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Calculate Pct Discount</name>
     <type>Calculator</type>
     <description />
@@ -1060,9 +663,24 @@
       <currency_symbol />
     </calculation>
     <calculation>
-      <field_name>INVOICE_LINE_DISCOUNT_AMOUNT</field_name>
+      <field_name>INVOICE_LINE_DISCOUNT_AMOUNT_TEMP</field_name>
       <calc_type>DIVIDE</calc_type>
       <field_a>INVOICE_LINE_LIST_PRICE_AMOUNT</field_a>
+      <field_b>DIVIDED_100</field_b>
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>3</value_length>
+      <value_precision>2</value_precision>
+      <remove>Y</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>INVOICE_LINE_DISCOUNT_AMOUNT</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>INVOICE_LINE_DISCOUNT_AMOUNT_TEMP</field_a>
       <field_b>INVOICE_LINE_DISCOUNT_VALUE</field_b>
       <field_c />
       <value_type>Number</value_type>
@@ -1099,6 +717,75 @@
     <GUI>
       <xloc>768</xloc>
       <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Pct Discount 2</name>
+    <type>Calculator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <calculation>
+      <field_name>DIVIDED_100</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>100.00</field_a>
+      <field_b />
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask>#</conversion_mask>
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>INVOICE_LINE_DISCOUNT_AMOUNT</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>0</field_a>
+      <field_b />
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>INVOICE_LINE_UNIT_PRICE_AMOUNT</field_name>
+      <calc_type>COPY_FIELD</calc_type>
+      <field_a>INVOICE_LINE_LIST_PRICE_AMOUNT</field_a>
+      <field_b />
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1172,8 +859,8 @@
     </GUI>
   </step>
   <step>
-    <name>INVOICE_DATE_TK</name>
-    <type>DBLookup</type>
+    <name>Calculate amounts</name>
+    <type>Calculator</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1182,35 +869,36 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_INVOICES</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>INVOICE_TK</name>
-        <field>INVOICE_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>INVOICE_DATE</name>
-        <rename>INVOICE_DATE</rename>
-        <default />
-        <type>None</type>
-      </value>
-      <value>
-        <name>INVOICE_DUE_DATE</name>
-        <rename>INVOICE_DUE_DATE</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
+    <calculation>
+      <field_name>50_PERCENT</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>.50</field_a>
+      <field_b />
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>INVOICE_LINE_COST_PRICE_AMOUNT</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>INVOICE_LINE_LIST_PRICE_AMOUNT</field_a>
+      <field_b>50_PERCENT</field_b>
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1219,7 +907,68 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
+      <xloc>288</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Convert Amt Value to Decimal</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>INVOICE_LINE_DISCOUNT_VALUE</name>
+        <rename>INVOICE_LINE_DISCOUNT_VALUE</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+      <meta>
+        <name>INVOICE_LINE_QUANTITY</name>
+        <rename>INVOICE_LINE_QUANTITY</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1280,8 +1029,8 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Format DATE_TK</name>
-    <type>SelectValues</type>
+    <name>DISCOUNT_TYPE = Amt?</name>
+    <type>FilterRows</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1290,43 +1039,25 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>INVOICE_DATE_TK</name>
-        <rename>INVOICE_DATE_TK</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-      <meta>
-        <name>INVOICE_DUE_DATE_TK</name>
-        <rename>INVOICE_DUE_DATE_TK</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-    </fields>
+    <send_true_to>Calculate Amt Discount</send_true_to>
+    <send_false_to>Is Discount >0</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>INVOICE_LINE_DISCOUNT_TYPE</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Amt</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1335,7 +1066,7 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1354,75 +1085,57 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     <fields>
       <field>
         <name>INVOICE_LINE_ID</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_QUANTITY</name>
-        <rename />
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
-        <rename />
       </field>
       <field>
         <name>BILLING_ACCOUNT_TK</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_VALUE</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_TYPE</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_VAT_VALUE</name>
-        <rename />
       </field>
       <field>
         <name>PRODUCT_TK</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_COST_PRICE_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_LIST_PRICE_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_UNIT_PRICE_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_VAT_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_TK</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_DATE_TK</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_DUE_DATE_TK</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1725,6 +1438,120 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </GUI>
   </step>
   <step>
+    <name>Format DATE_TK</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>INVOICE_DATE_TK</name>
+        <rename>INVOICE_DATE_TK</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+      <meta>
+        <name>INVOICE_DUE_DATE_TK</name>
+        <rename>INVOICE_DUE_DATE_TK</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>INVOICE_DATE_TK</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>D_INVOICES</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>INVOICE_TK</name>
+        <field>INVOICE_TK</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>INVOICE_DATE</name>
+        <rename>INVOICE_DATE</rename>
+        <default />
+        <type>None</type>
+      </value>
+      <value>
+        <name>INVOICE_DUE_DATE</name>
+        <rename>INVOICE_DUE_DATE</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Is Discount >0</name>
     <type>FilterRows</type>
     <description />
@@ -1768,8 +1595,8 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>Calculate Pct Discount 2</name>
-    <type>Calculator</type>
+    <name>populateInvoiceManagement</name>
+    <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1778,51 +1605,221 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <calculation>
-      <field_name>DIVIDED_100</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>100.00</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask>#</conversion_mask>
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>INVOICE_LINE_DISCOUNT_AMOUNT</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>0</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>INVOICE_LINE_UNIT_PRICE_AMOUNT</field_name>
-      <calc_type>COPY_FIELD</calc_type>
-      <field_a>INVOICE_LINE_LIST_PRICE_AMOUNT</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field />
+    <accept_stepname />
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar />
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field />
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field />
+    <format>mixed</format>
+    <encoding />
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_INVOICE_MANAGEMENT/populateInvoiceManagement.csv</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>INVOICE_LINE_ID</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_LINE_QUANTITY</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>BILLING_ACCOUNT_TK</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_LINE_DISCOUNT_VALUE</name>
+        <type>Integer</type>
+        <format>0.#####</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_LINE_DISCOUNT_TYPE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>PRODUCT_TK</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_LINE_LIST_PRICE_AMOUNT</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_TK</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_LINE_VAT_VALUE</name>
+        <type>Number</type>
+        <format>0.#####</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field />
+    <file_error_message_field />
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field />
+    <error_fields_field />
+    <error_text_field />
+    <bad_line_files_destination_directory />
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory />
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory />
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_GB</date_format_locale>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1831,8 +1828,8 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>448</yloc>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
