@@ -395,7 +395,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1024</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -431,7 +431,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1248</xloc>
+      <xloc>1472</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -467,7 +467,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1472</xloc>
+      <xloc>1696</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -503,7 +503,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1696</xloc>
+      <xloc>1920</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -520,7 +520,7 @@ Populating Demo Data Failed!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1248</xloc>
+      <xloc>1472</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -538,7 +538,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>128</xloc>
-      <yloc>448</yloc>
+      <yloc>608</yloc>
     </entry>
     <entry>
       <name>populateCampaignsDimension</name>
@@ -573,7 +573,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1920</xloc>
+      <xloc>2144</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -584,8 +584,8 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
-      <yloc>448</yloc>
+      <xloc>800</xloc>
+      <yloc>352</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -595,7 +595,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>352</xloc>
-      <yloc>448</yloc>
+      <yloc>288</yloc>
     </entry>
     <entry>
       <name>populateDateDimension</name>
@@ -686,7 +686,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1472</xloc>
+      <xloc>1696</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -722,7 +722,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1920</xloc>
+      <xloc>2144</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -748,7 +748,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>352</xloc>
+      <xloc>128</xloc>
       <yloc>288</yloc>
     </entry>
     <entry>
@@ -761,7 +761,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>800</xloc>
+      <xloc>1024</xloc>
       <yloc>352</yloc>
     </entry>
     <entry>
@@ -769,13 +769,13 @@ Populating Demo Data Success!
       <description />
       <type>CREATE_FILE</type>
       <filename>${ETL_ROOT_DIR}/../setup/suitecrm-db-demo-passed</filename>
-      <fail_if_file_exists>N</fail_if_file_exists>
+      <fail_if_file_exists>Y</fail_if_file_exists>
       <add_filename_result>N</add_filename_result>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>128</xloc>
-      <yloc>288</yloc>
+      <yloc>448</yloc>
     </entry>
     <entry>
       <name>populateLeadManagementFact</name>
@@ -810,7 +810,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1024</xloc>
+      <xloc>1248</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -846,7 +846,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>800</xloc>
+      <xloc>1024</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -882,7 +882,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
+      <xloc>800</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -918,7 +918,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>352</xloc>
+      <xloc>576</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -954,7 +954,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>128</xloc>
+      <xloc>352</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -990,7 +990,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1920</xloc>
+      <xloc>2144</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -1026,7 +1026,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1248</xloc>
+      <xloc>1472</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -1062,7 +1062,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1920</xloc>
+      <xloc>2144</xloc>
       <yloc>448</yloc>
     </entry>
     <entry>
@@ -1098,7 +1098,7 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1696</xloc>
+      <xloc>1920</xloc>
       <yloc>608</yloc>
     </entry>
     <entry>
@@ -1134,8 +1134,106 @@ Populating Demo Data Success!
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
+      <xloc>1024</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>Truncate tables</name>
+      <description />
+      <type>TRUNCATE_TABLES</type>
+      <connection>SuiteCRMAnalytics</connection>
+      <arg_from_previous>N</arg_from_previous>
+      <fields>
+        <field>
+          <name>D_ACCOUNTS</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>D_CAMPAIGNS</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>D_CASES</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>D_INVOICES</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>D_LEADS</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>D_OPPORTUNITIES</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>D_PRODUCTS</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>D_USERS</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_CASE_MANAGEMENT</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_INVOICE_MANAGEMENT</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_LEAD_MANAGEMENT</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_LEAD_TRACKING</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_OPPORTUNITY_MANAGEMENT</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_OPPORTUNITY_TRACKING</name>
+          <schemaname />
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
       <xloc>800</xloc>
       <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>Truncating Failed!</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>----------------------------------
+
+Truncating Failed!
+
+----------------------------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1024</xloc>
+      <yloc>32</yloc>
+    </entry>
+    <entry>
+      <name>Abort</name>
+      <description />
+      <type>ABORT</type>
+      <message />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1248</xloc>
+      <yloc>32</yloc>
     </entry>
   </entries>
   <hops>
@@ -1527,7 +1625,7 @@ Populating Demo Data Success!
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>D_DATE Populated</from>
+      <from>populateDateDimension</from>
       <to>primeDimension</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1536,8 +1634,35 @@ Populating Demo Data Success!
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>populateDateDimension</from>
+      <from>D_DATE Populated</from>
+      <to>Truncate tables</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Truncate tables</from>
       <to>primeDimension</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Truncate tables</from>
+      <to>Truncating Failed!</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Truncating Failed!</from>
+      <to>Abort</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -1549,8 +1674,8 @@ Populating Demo Data Success!
     <notepad>
       <note>Dont forget to ADD/REMOVE 
 'fail if file exists'</note>
-      <xloc>160</xloc>
-      <yloc>224</yloc>
+      <xloc>192</xloc>
+      <yloc>512</yloc>
       <width>172</width>
       <heigth>44</heigth>
       <fontname>Noto Sans</fontname>

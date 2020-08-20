@@ -493,6 +493,11 @@
   <order>
     <hop>
       <from>productsDimension</from>
+      <to>PRODUCT_TYPE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PRODUCT_TYPE</from>
       <to>D_PRODUCTS</to>
       <enabled>Y</enabled>
     </hop>
@@ -558,6 +563,11 @@
         <lookup>PRODUCT_CATEGORY_NAME</lookup>
         <update>Insert</update>
       </field>
+      <field>
+        <name>PRODUCT_TYPE</name>
+        <lookup>PRODUCT_TYPE</lookup>
+        <update>Insert</update>
+      </field>
       <return>
         <name>PRODUCT_TK</name>
         <rename />
@@ -583,7 +593,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -793,6 +803,44 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PRODUCT_TYPE</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>PRODUCT_TYPE</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>Not Set</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
