@@ -1,21 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>populateOpportunityManagementFact</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
-    <directory>/public/SuiteCRM Analytics/System/ETL/DWH/FACTS</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -40,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -124,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -206,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -272,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -348,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -400,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -413,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -429,11 +430,121 @@
     <created_date>2018/01/04 17:27:29.131</created_date>
     <modified_user>admin</modified_user>
     <modified_date>2018/08/20 17:16:50.228</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>SuiteCRM</name>
+    <server />
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>SuiteCRM</database>
+    <port>1521</port>
+    <username />
+    <password>Encrypted </password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>SuiteCRMAnalytics</name>
+    <server />
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>SuiteCRMAnalytics</database>
+    <port>1521</port>
+    <username />
+    <password>Encrypted </password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>Lookup Account ID</from>
@@ -489,15 +600,15 @@
   <step>
     <name>ACCOUNT_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_ACCOUNTS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -508,28 +619,28 @@
         <lookup>ACCOUNT_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
       <return>
         <name>ACCOUNT_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -543,73 +654,17 @@
     </GUI>
   </step>
   <step>
-    <name>CAMPAIGN_TK</name>
-    <type>DimensionLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <schema/>
-    <table>D_CAMPAIGNS</table>
-    <connection>SuiteCRMAnalytics</connection>
-    <commit>100</commit>
-    <update>N</update>
-    <fields>
-      <key>
-        <name>OPPORTUNITY_CAMPAIGN_ID</name>
-        <lookup>CAMPAIGN_ID</lookup>
-      </key>
-      <date>
-        <name/>
-        <from>DATE_FROM</from>
-        <to>DATE_TO</to>
-      </date>
-      <return>
-        <name>CAMPAIGN_TK</name>
-        <rename/>
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
-        <version>version</version>
-      </return>
-    </fields>
-    <sequence/>
-    <min_year>1900</min_year>
-    <max_year>2199</max_year>
-    <cache_size>5000</cache_size>
-    <preload_cache>N</preload_cache>
-    <use_start_date_alternative>N</use_start_date_alternative>
-    <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
-    <useBatch>N</useBatch>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>ASSIGNED_USER_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_USERS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -620,7 +675,7 @@
         <lookup>USER_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
@@ -632,16 +687,16 @@
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -655,183 +710,49 @@
     </GUI>
   </step>
   <step>
-    <name>F_OPPORTUNITIES Update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>F_OPPORTUNITIES</table>
-      <key>
-        <name>OPPORTUNITY_ID</name>
-        <field>OPPORTUNITY_ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>OPPORTUNITY_ID</name>
-        <rename>OPPORTUNITY_ID</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OPPORTUNITY_AMOUNT</name>
-        <rename>OPPORTUNITY_AMOUNT</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OPPORTUNITY_PROBABILITY</name>
-        <rename>OPPORTUNITY_PROBABILITY</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ACCOUNT_TK</name>
-        <rename>ACCOUNT_TK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OPPORTUNITY_TK</name>
-        <rename>OPPORTUNITY_TK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OPPORTUNITY_CREATED_TK</name>
-        <rename>OPPORTUNITY_CREATED_TK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OPPORTUNITY_CLOSED_TK</name>
-        <rename>OPPORTUNITY_CLOSED_TK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>OPPORTUNITY_PROBABILITY_PERCENT</name>
-        <rename>OPPORTUNITY_PROBABILITY_PERCENT</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>CAMPAIGN_TK</name>
-        <rename>CAMPAIGN_TK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ASSIGNED_USER_TK</name>
-        <rename>ASSIGNED_USER_TK</rename>
-        <update>N</update>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1568</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup Account ID</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRM</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>accounts_opportunities</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>OPPORTUNITY_ID</name>
-        <field>opportunity_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>account_id</name>
-        <rename>ACCOUNT_ID</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>OPPORTUNITY_TK</name>
+    <name>CAMPAIGN_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
-    <table>D_OPPORTUNITIES</table>
+    <schema />
+    <table>D_CAMPAIGNS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
     <update>N</update>
     <fields>
       <key>
-        <name>OPPORTUNITY_ID</name>
-        <lookup>OPPORTUNITY_ID</lookup>
+        <name>OPPORTUNITY_CAMPAIGN_ID</name>
+        <lookup>CAMPAIGN_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
       <return>
-        <name>OPPORTUNITY_TK</name>
-        <rename/>
+        <name>CAMPAIGN_TK</name>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -839,184 +760,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>S_OPPORTUNITIES</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  id
-, name
-, date_entered
-, date_modified
-, modified_user_id
-, created_by
-, description
-, deleted
-, assigned_user_id
-, opportunity_type
-, campaign_id
-, lead_source
-, amount
-, amount_usdollar
-, currency_id
-, date_closed
-, next_step
-, sales_stage
-, probability
-FROM S_OPPORTUNITIES
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Probability Calculation</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <calculation>
-      <field_name>PERCENT</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>100</field_a>
-      <field_b/>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>Y</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <calculation>
-      <field_name>OPPORTUNITY_PROBABILITY_PERCENT</field_name>
-      <calc_type>DIVIDE</calc_type>
-      <field_a>OPPORTUNITY_PROBABILITY</field_a>
-      <field_b>PERCENT</field_b>
-      <field_c/>
-      <value_type>Integer</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
-    </calculation>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1408</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Prepare Fields</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id</name>
-        <rename>OPPORTUNITY_ID</rename>
-      </field>
-      <field>
-        <name>date_entered</name>
-        <rename>DATE_CREATED</rename>
-      </field>
-      <field>
-        <name>date_modified</name>
-        <rename>DATE_MODIFIED</rename>
-      </field>
-      <field>
-        <name>modified_user_id</name>
-        <rename>MODIFIED_USER_IK</rename>
-      </field>
-      <field>
-        <name>deleted</name>
-        <rename>OPPORTUNITY_DELETED</rename>
-      </field>
-      <field>
-        <name>assigned_user_id</name>
-        <rename>ASSIGNED_USER_ID</rename>
-      </field>
-      <field>
-        <name>campaign_id</name>
-        <rename>OPPORTUNITY_CAMPAIGN_ID</rename>
-      </field>
-      <field>
-        <name>amount</name>
-        <rename>OPPORTUNITY_AMOUNT</rename>
-      </field>
-      <field>
-        <name>currency_id</name>
-        <rename>OPPORTUNITY_CURRENCY_ID</rename>
-      </field>
-      <field>
-        <name>date_closed</name>
-        <rename>DATE_CLOSED</rename>
-      </field>
-      <field>
-        <name>probability</name>
-        <rename>OPPORTUNITY_PROBABILITY</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1024,13 +768,13 @@ FROM S_OPPORTUNITIES
   <step>
     <name>Date TKs</name>
     <type>ScriptValueMod</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -1138,7 +882,7 @@ Alert((str2num(str2)));</jsScript_script>
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1152,27 +896,27 @@ Alert((str2num(str2)));</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>F_OPPORTUNITY_MANAGEMENT</name>
+    <name>F_OPPORTUNITIES Update</name>
     <type>InsertUpdate</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema/>
-      <table>F_OPPORTUNITY_MANAGEMENT</table>
+      <schema />
+      <table>F_OPPORTUNITIES</table>
       <key>
         <name>OPPORTUNITY_ID</name>
         <field>OPPORTUNITY_ID</field>
         <condition>=</condition>
-        <name2/>
+        <name2 />
       </key>
       <value>
         <name>OPPORTUNITY_ID</name>
@@ -1225,7 +969,94 @@ Alert((str2num(str2)));</jsScript_script>
         <update>N</update>
       </value>
     </lookup>
-    <cluster_schema/>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1568</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>F_OPPORTUNITY_MANAGEMENT</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>F_OPPORTUNITY_MANAGEMENT</table>
+      <key>
+        <name>OPPORTUNITY_ID</name>
+        <field>OPPORTUNITY_ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>OPPORTUNITY_ID</name>
+        <rename>OPPORTUNITY_ID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OPPORTUNITY_AMOUNT</name>
+        <rename>OPPORTUNITY_AMOUNT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OPPORTUNITY_PROBABILITY</name>
+        <rename>OPPORTUNITY_PROBABILITY</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ACCOUNT_TK</name>
+        <rename>ACCOUNT_TK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OPPORTUNITY_TK</name>
+        <rename>OPPORTUNITY_TK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OPPORTUNITY_CREATED_TK</name>
+        <rename>OPPORTUNITY_CREATED_TK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OPPORTUNITY_CLOSED_TK</name>
+        <rename>OPPORTUNITY_CLOSED_TK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>OPPORTUNITY_PROBABILITY_PERCENT</name>
+        <rename>OPPORTUNITY_PROBABILITY_PERCENT</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>CAMPAIGN_TK</name>
+        <rename>CAMPAIGN_TK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ASSIGNED_USER_TK</name>
+        <rename>ASSIGNED_USER_TK</rename>
+        <update>N</update>
+      </value>
+    </lookup>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1235,6 +1066,286 @@ Alert((str2num(str2)));</jsScript_script>
     <GUI>
       <xloc>1568</xloc>
       <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Account ID</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRM</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>accounts_opportunities</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>OPPORTUNITY_ID</name>
+        <field>opportunity_id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>account_id</name>
+        <rename>ACCOUNT_ID</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>OPPORTUNITY_TK</name>
+    <type>DimensionLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <schema />
+    <table>D_OPPORTUNITIES</table>
+    <connection>SuiteCRMAnalytics</connection>
+    <commit>100</commit>
+    <update>N</update>
+    <fields>
+      <key>
+        <name>OPPORTUNITY_ID</name>
+        <lookup>OPPORTUNITY_ID</lookup>
+      </key>
+      <date>
+        <name />
+        <from>DATE_FROM</from>
+        <to>DATE_TO</to>
+      </date>
+      <return>
+        <name>OPPORTUNITY_TK</name>
+        <rename />
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
+        <version>version</version>
+      </return>
+    </fields>
+    <sequence />
+    <min_year>1900</min_year>
+    <max_year>2199</max_year>
+    <cache_size>5000</cache_size>
+    <preload_cache>N</preload_cache>
+    <use_start_date_alternative>N</use_start_date_alternative>
+    <start_date_alternative>none</start_date_alternative>
+    <start_date_field_name />
+    <useBatch>N</useBatch>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prepare Fields</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>id</name>
+        <rename>OPPORTUNITY_ID</rename>
+      </field>
+      <field>
+        <name>date_entered</name>
+        <rename>DATE_CREATED</rename>
+      </field>
+      <field>
+        <name>date_modified</name>
+        <rename>DATE_MODIFIED</rename>
+      </field>
+      <field>
+        <name>modified_user_id</name>
+        <rename>MODIFIED_USER_IK</rename>
+      </field>
+      <field>
+        <name>deleted</name>
+        <rename>OPPORTUNITY_DELETED</rename>
+      </field>
+      <field>
+        <name>assigned_user_id</name>
+        <rename>ASSIGNED_USER_ID</rename>
+      </field>
+      <field>
+        <name>campaign_id</name>
+        <rename>OPPORTUNITY_CAMPAIGN_ID</rename>
+      </field>
+      <field>
+        <name>amount</name>
+        <rename>OPPORTUNITY_AMOUNT</rename>
+      </field>
+      <field>
+        <name>currency_id</name>
+        <rename>OPPORTUNITY_CURRENCY_ID</rename>
+      </field>
+      <field>
+        <name>date_closed</name>
+        <rename>DATE_CLOSED</rename>
+      </field>
+      <field>
+        <name>probability</name>
+        <rename>OPPORTUNITY_PROBABILITY</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Probability Calculation</name>
+    <type>Calculator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <calculation>
+      <field_name>PERCENT</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>100</field_a>
+      <field_b />
+      <field_c />
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>Y</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>OPPORTUNITY_PROBABILITY_PERCENT</field_name>
+      <calc_type>DIVIDE</calc_type>
+      <field_a>OPPORTUNITY_PROBABILITY</field_a>
+      <field_b>PERCENT</field_b>
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>S_OPPORTUNITIES</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  id
+, name
+, date_entered
+, date_modified
+, modified_user_id
+, created_by
+, description
+, deleted
+, assigned_user_id
+, opportunity_type
+, campaign_id
+, lead_source
+, amount
+, amount_usdollar
+, currency_id
+, date_closed
+, next_step
+, sales_stage
+, probability
+FROM S_OPPORTUNITIES
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
