@@ -493,7 +493,7 @@
   </connection>
   <order>
     <hop>
-      <from>casesDimension</from>
+      <from>generateCaseDimension</from>
       <to>Add NULL Constants</to>
       <enabled>Y</enabled>
     </hop>
@@ -796,7 +796,7 @@
     </GUI>
   </step>
   <step>
-    <name>casesDimension</name>
+    <name>generateCaseDimension</name>
     <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
@@ -834,7 +834,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_CASES/casesDimension.csv</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_CASES/generateCaseDimension.csv</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>

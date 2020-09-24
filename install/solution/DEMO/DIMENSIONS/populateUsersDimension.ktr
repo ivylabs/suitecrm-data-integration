@@ -550,7 +550,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>User Generated Data</from>
+      <from>generateUsers</from>
       <to>Lookup COUNTRY &amp; STATE</to>
       <enabled>Y</enabled>
     </hop>
@@ -1228,7 +1228,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>${ETL_ROOT_DIR}/DEMO/DATA/D_LEADS/stateRegion.csv</filename>
+    <filename>${ETL_ROOT_DIR}/DEMO/DATA/D_LEADS/generateStateRegion.csv</filename>
     <filename_field />
     <rownum_field />
     <include_filename>N</include_filename>
@@ -1279,7 +1279,7 @@
     </GUI>
   </step>
   <step>
-    <name>User Generated Data</name>
+    <name>generateUsers</name>
     <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1317,7 +1317,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_USERS/generateUSERS.csv</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_USERS/generateUsers.csv</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>

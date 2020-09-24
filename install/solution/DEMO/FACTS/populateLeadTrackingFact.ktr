@@ -558,7 +558,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>F_LEAD_TRACKING_RANDOM_NUM</from>
+      <from>generateLeadTracking</from>
       <to>STATUS DATES</to>
       <enabled>Y</enabled>
     </hop>
@@ -1634,7 +1634,7 @@ FROM F_LEAD_MANAGEMENT
     </GUI>
   </step>
   <step>
-    <name>F_LEAD_TRACKING_RANDOM_NUM</name>
+    <name>generateLeadTracking</name>
     <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1672,7 +1672,7 @@ FROM F_LEAD_MANAGEMENT
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_LEAD_TRACKING/F_LEAD_TRACKING_RANDOM_NUM.csv</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_LEAD_TRACKING/generateLeadTracking.csv</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
@@ -2171,7 +2171,7 @@ FROM F_LEAD_MANAGEMENT
       <method>none</method>
       <schema_name />
     </partitioning>
-    <from>F_LEAD_TRACKING_RANDOM_NUM</from>
+    <from>generateLeadTracking</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>

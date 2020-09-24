@@ -522,7 +522,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>opportunityFACT</from>
+      <from>generateOpportunityManagement</from>
       <to>TODAYS_DATE</to>
       <enabled>Y</enabled>
     </hop>
@@ -1356,7 +1356,7 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
-    <name>opportunityFACT</name>
+    <name>generateOpportunityManagement</name>
     <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1394,7 +1394,7 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_OPPORTUNITY_MANAGEMENT/generateF_OPPORTUNITY_MANAGEMENT.csv</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_OPPORTUNITY_MANAGEMENT/generateOpportunityManagement.csv</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>

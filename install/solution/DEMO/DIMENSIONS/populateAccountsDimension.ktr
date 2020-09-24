@@ -493,7 +493,7 @@
   </connection>
   <order>
     <hop>
-      <from>GenerateACCOUNTS</from>
+      <from>generateAccounts</from>
       <to>Convert Date String</to>
       <enabled>Y</enabled>
     </hop>
@@ -889,7 +889,7 @@
     </GUI>
   </step>
   <step>
-    <name>GenerateACCOUNTS</name>
+    <name>generateAccounts</name>
     <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
@@ -927,7 +927,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_ACCOUNTS/generate100ACCOUNTnames.csv</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_ACCOUNTS/generateAccounts.csv</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>

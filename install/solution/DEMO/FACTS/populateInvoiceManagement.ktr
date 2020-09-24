@@ -492,7 +492,7 @@
   </connection>
   <order>
     <hop>
-      <from>populateInvoiceManagement</from>
+      <from>generateInvoiceManagement</from>
       <to>Calculate amounts</to>
       <enabled>Y</enabled>
     </hop>
@@ -1595,7 +1595,7 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>populateInvoiceManagement</name>
+    <name>generateInvoiceManagement</name>
     <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
@@ -1633,7 +1633,7 @@ var INVOICE_DUE_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_INVOICE_MANAGEMENT/populateInvoiceManagement.csv</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_INVOICE_MANAGEMENT/generateInvoiceManagement.csv</name>
       <filemask />
       <exclude_filemask />
       <file_required>N</file_required>
