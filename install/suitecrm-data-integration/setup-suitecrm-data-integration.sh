@@ -161,6 +161,7 @@ then
 
 					echo ""
 					echo " Populate Control table with additional properties"
+					echo ""
 
 					./populate-control.sh
 
@@ -169,27 +170,68 @@ then
 
 					#./populate-custom-fields-mapping.sh
 
-					echo ""
-		                        echo "---------------------------------------------"
-        		                echo ""
-                		        echo " The Setup has Completed Successfully!"
-                		        echo ""
-                		        echo "---------------------------------------------"
 
+					 # Install Demo Data
 
+        	                        read -r -p  " Would you like to install Demo Data? [y/N] " response
+	                                if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+					then
+						echo ""
+						echo " Installing Demo Data..."
+       						
+						./populate-demo-data.sh
+
+						if [ ! -f suitecrm-db-demo-passed ]; then
+        	                              		echo ""
+							echo " We could not create all the Demo Date in the SuiteCRM DWH!"
+							echo " Please make sure write privilege enabled in the SuiteCRM Analytics DWH"
+							echo ""
+							echo "-----------------------------------------------------------------------------------------------------"
+							echo ""
+							echo " DEMO DATA has FAILED! - Please check for any errors in the log files inside the logs directory!"
+							echo ""
+							echo ""
+
+							START_LINE=$(grep -n "ETL LOG START" ../logs/populate-demo-data.log | cut -f1 -d:)
+							END_LINE=$(grep -n "ETL LOG END" ../logs/populate-demo-data.log | cut -f1 -d:)
+
+							echo " BEGIN ERROR MESSAGE"
+							echo " ----------------------------------------------------------------------------------------------------"
+							echo ""
+
+							awk 'NR > '${START_LINE}' && NR < '${END_LINE} ../logs/populate-demo-data.log
+							echo ""
+							echo " ----------------------------------------------------------------------------------------------------"
+
+						else
+							echo ""
+							echo " Demo data install successfull!"
+
+							rm -Rf suitecrm-db-demo-passed
+       
+							echo ""
+							echo "---------------------------------------------"
+							echo ""
+							echo " The Setup has Completed Successfully!"
+							echo ""
+							echo "---------------------------------------------"
+						   	
+						fi
+						
+					fi
 				fi
-                	fi
-		fi
+			fi
 
+		fi
+		
 		if [ "$SMTP_ENABLED" -eq "1" ]; then
 			echo ""
 			echo " We will configure your email properties and send you a test email"
                         echo " If you do not get this email then please check the log in logs/"
 			./send-test-email.sh
 
-                fi
+ 		fi
 
-		
 
 	else
 		echo "$file not found."
@@ -202,6 +244,4 @@ else
 	exit
 
 fi
-
-
 
