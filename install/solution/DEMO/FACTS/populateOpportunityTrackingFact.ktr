@@ -1,0 +1,2294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>populateOpportunityTrackingFact</name>
+    <description />
+    <extended_description />
+    <trans_version />
+    <trans_type>Normal</trans_type>
+    <directory>/</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject />
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection />
+      <table />
+      <field />
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file />
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2020/07/30 22:06:10.341</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2020/07/30 22:06:10.341</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>SuiteCRMAnalytics</name>
+    <server />
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>SuiteCRMAnalytics</database>
+    <port>1521</port>
+    <username />
+    <password>Encrypted </password>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>1521</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <order>
+    <hop>
+      <from>Assign Status</from>
+      <to>Clone rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate</from>
+      <to>OPPORTUNITY = END(STATUS)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT AGE = 0</from>
+      <to>Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT_COUNT = -1?</from>
+      <to>EVENT AGE = 0</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT_COUNT = -1?</from>
+      <to>Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT_CREATED_DATE</from>
+      <to>STATUS (Sale Stage)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT_STATUS = 1</from>
+      <to>Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>generateOppotunityTracking</from>
+      <to>STATUS DATES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>OPPORTUNITY = END(STATUS)</from>
+      <to>EVENT_STATUS = 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>STATUS (Sale Stage)</from>
+      <to>STATUS DATES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>F_OPPORTUNITY_MANAGEMENT</from>
+      <to>EVENT_CREATED_DATE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>D_OPPORTUNITY</from>
+      <to>STATUS (Sale Stage)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>STATUS DATES</from>
+      <to>Prospecting?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Clone rows</from>
+      <to>Map Converted</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Map Converted</from>
+      <to>Calculate</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT_TK to EVENT_DATE</from>
+      <to>EVENT_CREATED_TK</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prospecting?</from>
+      <to>Add EVENT Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add EVENT Fields</from>
+      <to>Drop &amp; Rename 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop &amp; Rename</from>
+      <to>F_OPPORTUNITY_TRACKING</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop &amp; Rename 2</from>
+      <to>F_OPPORTUNITY_TRACKING</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT_CREATED_TK</from>
+      <to>Drop &amp; Rename</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate Days</from>
+      <to>EVENT_COUNT = -1?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join 3</from>
+      <to>EVENT_TK to EVENT_DATE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>EVENT_STATUS = 0</from>
+      <to>Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>OPPORTUNITY = END(STATUS)</from>
+      <to>EVENT_STATUS = 0</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Prospecting?</from>
+      <to>WON/LOST = CLOSED</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>WON/LOST = CLOSED</from>
+      <to>Assign Status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join 2</from>
+      <to>SET Closed Won/Lost</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SET Closed Won/Lost</from>
+      <to>Calculate Days</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Add EVENT Fields</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>EVENT_STATUS</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>EVENT_AGE</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2528</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Assign Status</name>
+    <type>ValueMapper</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <field_to_use>TEMP_STATUS</field_to_use>
+    <target_field>CLONE_ROWS</target_field>
+    <non_match_default />
+    <fields>
+      <field>
+        <source_value>Qualification</source_value>
+        <target_value>2</target_value>
+      </field>
+      <field>
+        <source_value>Needs Analysis</source_value>
+        <target_value>4</target_value>
+      </field>
+      <field>
+        <source_value>Value Proposition</source_value>
+        <target_value>6</target_value>
+      </field>
+      <field>
+        <source_value>Identifying Decision Makers</source_value>
+        <target_value>8</target_value>
+      </field>
+      <field>
+        <source_value>Perception Analysis</source_value>
+        <target_value>10</target_value>
+      </field>
+      <field>
+        <source_value>Proposal/Price Quote</source_value>
+        <target_value>12</target_value>
+      </field>
+      <field>
+        <source_value>Negotiation/Review</source_value>
+        <target_value>14</target_value>
+      </field>
+      <field>
+        <source_value>Closed</source_value>
+        <target_value>16</target_value>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var DAYS = 0;
+var STATE = "CLOSED";
+var EVENT_COUNT = -1;
+
+if(CLONE_SEQUENCE % 2 ==0){
+	STATE = "OPEN";
+	EVENT_COUNT = 1
+}
+
+if(NEW_STATUS == "Prospecting" &amp;&amp; STATE == "CLOSED"){
+	DAYS = QUALIFICATION;
+} else if(NEW_STATUS == "Qualification" &amp;&amp; STATE == "OPEN"){
+	DAYS = QUALIFICATION;
+} else if(NEW_STATUS == "Qualification" &amp;&amp; STATE == "CLOSED"){
+	DAYS = NEEDS_ANALYSIS;
+} else if(NEW_STATUS == "Needs Analysis" &amp;&amp; STATE == "OPEN"){
+	DAYS = NEEDS_ANALYSIS;
+} else if(NEW_STATUS == "Needs Analysis" &amp;&amp; STATE == "CLOSED"){
+	DAYS = VALUE_PROPOSITION;
+} else if(NEW_STATUS == "Value Proposition" &amp;&amp; STATE == "OPEN"){
+	DAYS = VALUE_PROPOSITION;
+} else if(NEW_STATUS == "Value Proposition" &amp;&amp; STATE == "CLOSED"){
+	DAYS = IDENTIFY_DECISION_MAKERS;
+} else if(NEW_STATUS == "Identifying Decision Makers" &amp;&amp; STATE == "OPEN"){
+	DAYS = IDENTIFY_DECISION_MAKERS;
+} else if(NEW_STATUS == "Identifying Decision Makers" &amp;&amp; STATE == "CLOSED"){
+	DAYS = PERCEPTION_ANALYSIS;
+} else if(NEW_STATUS == "Perception Analysis" &amp;&amp; STATE == "OPEN"){
+	DAYS = PERCEPTION_ANALYSIS;
+} else if(NEW_STATUS == "Perception Analysis" &amp;&amp; STATE == "CLOSED"){
+	DAYS = PROPOSAL_PRICE_QUOTE;
+} else if(NEW_STATUS == "Proposal/Price Quote" &amp;&amp; STATE == "OPEN"){
+	DAYS = PROPOSAL_PRICE_QUOTE;
+} else if(NEW_STATUS == "Proposal/Price Quotes" &amp;&amp; STATE == "CLOSED"){
+	DAYS = NEGOTIATION_REVIEW;
+} else if(NEW_STATUS == "Negotiation/Review" &amp;&amp; STATE == "OPEN"){
+	DAYS = NEGOTIATION_REVIEW;
+} else if(NEW_STATUS == "Negotiation/Review" &amp;&amp; STATE == "CLOSED"){
+	DAYS = CLOSED;
+} else if(NEW_STATUS == "Closed" &amp;&amp; STATE == "OPEN"){
+	DAYS = CLOSED;
+} 
+
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>DAYS</name>
+        <rename>DAYS</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>STATE</name>
+        <rename>STATE</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
+        <rename>EVENT_COUNT</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Days</name>
+    <type>Calculator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <calculation>
+      <field_name>EVENT_DATE</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>OPPORTUNITY_CREATED_DATE</field_a>
+      <field_b>DAYS</field_b>
+      <field_c />
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>EVENT_AGE</field_name>
+      <calc_type>DATE_DIFF_SEC</calc_type>
+      <field_a>EVENT_DATE</field_a>
+      <field_b>OPPORTUNITY_CREATED_DATE</field_b>
+      <field_c />
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2048</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Clone rows</name>
+    <type>CloneRow</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <nrclones>0</nrclones>
+    <addcloneflag>Y</addcloneflag>
+    <cloneflagfield>CLONE</cloneflagfield>
+    <nrcloneinfield>Y</nrcloneinfield>
+    <nrclonefield>CLONE_ROWS</nrclonefield>
+    <addclonenum>Y</addclonenum>
+    <clonenumfield>CLONE_SEQUENCE</clonenumfield>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>D_OPPORTUNITY</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  OPPORTUNITY_TK
+, OPPORTUNITY_ID
+, OPPORTUNITY_SALES_STAGE
+FROM D_OPPORTUNITIES
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Drop &amp; Rename</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_ID</name>
+      </field>
+      <field>
+        <name>STATUS</name>
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
+      </field>
+      <field>
+        <name>EVENT_STATUS</name>
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+      </field>
+      <field>
+        <name>ACCOUNT_TK</name>
+      </field>
+      <field>
+        <name>EVENT_CREATED_TK</name>
+      </field>
+      <field>
+        <name>EVENT_AGE</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>EVENT_CREATED_TK</name>
+        <rename>EVENT_CREATED_TK</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>#</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2848</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Drop &amp; Rename 2</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_ID</name>
+      </field>
+      <field>
+        <name>END_STATUS</name>
+        <rename>STATUS</rename>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_DATE</name>
+        <rename>STATUS_DATE</rename>
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
+      </field>
+      <field>
+        <name>EVENT_STATUS</name>
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+      </field>
+      <field>
+        <name>ACCOUNT_TK</name>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_TK</name>
+        <rename>EVENT_CREATED_TK</rename>
+      </field>
+      <field>
+        <name>EVENT_AGE</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2688</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EVENT AGE = 0</name>
+    <type>SetValueConstant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <usevar>N</usevar>
+    <fields>
+      <field>
+        <name>EVENT_AGE</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2208</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EVENT_COUNT = -1?</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Join 3</send_true_to>
+    <send_false_to>EVENT AGE = 0</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>EVENT_COUNT</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>-1</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2208</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EVENT_CREATED_DATE</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Item_1</jsScript_name>
+        <jsScript_script>//Script here
+
+var OPPORTUNITY_CREATED_YEAR = substr(num2str(OPPORTUNITY_CREATED_TK,'#'),0,4);
+var OPPORTUNITY_CREATED_MONTH = substr(num2str(OPPORTUNITY_CREATED_TK,'#'),4,2);
+var OPPORTUNITY_CREATED_DAY = substr(num2str(OPPORTUNITY_CREATED_TK,'#'),6,2);
+
+var OPPORTUNITY_CREATED_DATE = new Date(OPPORTUNITY_CREATED_YEAR, OPPORTUNITY_CREATED_MONTH-1, OPPORTUNITY_CREATED_DAY);
+
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_CREATED_YEAR</name>
+        <rename>OPPORTUNITY_CREATED_YEAR</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_MONTH</name>
+        <rename>OPPORTUNITY_CREATED_MONTH</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_DAY</name>
+        <rename>OPPORTUNITY_CREATED_DAY</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_DATE</name>
+        <rename>OPPORTUNITY_CREATED_DATE</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EVENT_CREATED_TK</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>EVENT_CREATED_TK</name>
+        <rename>EVENT_CREATED_TK</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+      <meta>
+        <name>NEW_STATUS</name>
+        <rename>STATUS</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask />
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+      <meta>
+        <name>EVENT_DATE</name>
+        <rename>STATUS_DATE</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask />
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2688</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EVENT_STATUS = 0</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>EVENT_STATUS</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EVENT_STATUS = 1</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>EVENT_STATUS</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1600</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>EVENT_TK to EVENT_DATE</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+
+var EVENT_CREATED_TK = EVENT_DATE</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>EVENT_CREATED_TK</name>
+        <rename>EVENT_CREATED_TK</rename>
+        <type>Date</type>
+        <length>8</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2528</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>F_OPPORTUNITY_MANAGEMENT</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  ACCOUNT_TK
+, OPPORTUNITY_TK
+, OPPORTUNITY_CREATED_TK
+, CAMPAIGN_TK
+, ASSIGNED_USER_TK
+, OPPORTUNITY_ID
+FROM F_OPPORTUNITY_MANAGEMENT
+</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>F_OPPORTUNITY_TRACKING</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <schema />
+    <table>F_OPPORTUNITY_TRACKING</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>OPPORTUNITY_ID</column_name>
+        <stream_name>OPPORTUNITY_ID</stream_name>
+      </field>
+      <field>
+        <column_name>STATUS</column_name>
+        <stream_name>STATUS</stream_name>
+      </field>
+      <field>
+        <column_name>STATUS_DATE</column_name>
+        <stream_name>STATUS_DATE</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_COUNT</column_name>
+        <stream_name>EVENT_COUNT</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_STATUS</column_name>
+        <stream_name>EVENT_STATUS</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_TK</column_name>
+        <stream_name>OPPORTUNITY_TK</stream_name>
+      </field>
+      <field>
+        <column_name>ASSIGNED_USER_TK</column_name>
+        <stream_name>ASSIGNED_USER_TK</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_TK</column_name>
+        <stream_name>CAMPAIGN_TK</stream_name>
+      </field>
+      <field>
+        <column_name>ACCOUNT_TK</column_name>
+        <stream_name>ACCOUNT_TK</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_CREATED_TK</column_name>
+        <stream_name>EVENT_CREATED_TK</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_AGE</column_name>
+        <stream_name>EVENT_AGE</stream_name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2848</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>generateOppotunityTracking</name>
+    <type>TextFileInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field />
+    <accept_stepname />
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar />
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field />
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field />
+    <format>mixed</format>
+    <encoding />
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_OPPORTUNITY_TRACKING/generateOppotunityTracking.csv</name>
+      <filemask />
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>QUALIFICATION</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NEEDS_ANALYSIS</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>VALUE_PROPOSITION</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>IDENTIFY_DECISION_MAKERS</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>PERCEPTION_ANALYSIS</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>PROPOSAL_PRICE_QUOTE</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>NEGOTIATION_REVIEW</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CLOSED</name>
+        <type>Integer</type>
+        <format>0</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull />
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field />
+    <file_error_message_field />
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field />
+    <error_fields_field />
+    <error_text_field />
+    <bad_line_files_destination_directory />
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory />
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory />
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_GB</date_format_locale>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join 2</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1760</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join 3</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2368</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Map Converted</name>
+    <type>ValueMapper</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <field_to_use>CLONE_SEQUENCE</field_to_use>
+    <target_field>NEW_STATUS</target_field>
+    <non_match_default />
+    <fields>
+      <field>
+        <source_value>0</source_value>
+        <target_value>Prospecting</target_value>
+      </field>
+      <field>
+        <source_value>1</source_value>
+        <target_value>Prospecting</target_value>
+      </field>
+      <field>
+        <source_value>2</source_value>
+        <target_value>Qualification</target_value>
+      </field>
+      <field>
+        <source_value>3</source_value>
+        <target_value>Qualification</target_value>
+      </field>
+      <field>
+        <source_value>4</source_value>
+        <target_value>Needs Analysis</target_value>
+      </field>
+      <field>
+        <source_value>5</source_value>
+        <target_value>Needs Analysis</target_value>
+      </field>
+      <field>
+        <source_value>6</source_value>
+        <target_value>Value Proposition</target_value>
+      </field>
+      <field>
+        <source_value>7</source_value>
+        <target_value>Value Proposition</target_value>
+      </field>
+      <field>
+        <source_value>8</source_value>
+        <target_value>Identifying Decision Makers</target_value>
+      </field>
+      <field>
+        <source_value>9</source_value>
+        <target_value>Identifying Decision Makers</target_value>
+      </field>
+      <field>
+        <source_value>10</source_value>
+        <target_value>Perception Analysis</target_value>
+      </field>
+      <field>
+        <source_value>11</source_value>
+        <target_value>Perception Analysis</target_value>
+      </field>
+      <field>
+        <source_value>12</source_value>
+        <target_value>Proposal/Price Quote</target_value>
+      </field>
+      <field>
+        <source_value>13</source_value>
+        <target_value>Proposal/Price Quote</target_value>
+      </field>
+      <field>
+        <source_value>14</source_value>
+        <target_value>Negotiation/Review</target_value>
+      </field>
+      <field>
+        <source_value>15</source_value>
+        <target_value>Negotiation/Review</target_value>
+      </field>
+      <field>
+        <source_value>16</source_value>
+        <target_value>Closed</target_value>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>OPPORTUNITY = END(STATUS)</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>EVENT_STATUS = 1</send_true_to>
+    <send_false_to>EVENT_STATUS = 0</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>TEMP_STATUS</leftvalue>
+        <function>=</function>
+        <rightvalue>NEW_STATUS</rightvalue>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Prospecting?</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Add EVENT Fields</send_true_to>
+    <send_false_to>WON/LOST = CLOSED</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>END_STATUS</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Prospecting</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SET Closed Won/Lost</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>
+if (TEMP_STATUS == "Closed" &amp;&amp; NEW_STATUS == "Closed"){
+ NEW_STATUS = END_STATUS
+}
+ </jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>NEW_STATUS</name>
+        <rename>NEW_STATUS</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1888</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>STATUS (Sale Stage)</name>
+    <type>StreamLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <from>D_OPPORTUNITY</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>OPPORTUNITY_TK</name>
+        <field>OPPORTUNITY_TK</field>
+      </key>
+      <value>
+        <name>OPPORTUNITY_SALES_STAGE</name>
+        <rename>END_STATUS</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>STATUS DATES</name>
+    <type>StreamLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <from>generateOppotunityTracking</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>OPPORTUNITY_TK</name>
+        <field>OPPORTUNITY_TK</field>
+      </key>
+      <value>
+        <name>QUALIFICATION</name>
+        <rename>QUALIFICATION</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>NEEDS_ANALYSIS</name>
+        <rename>NEEDS_ANALYSIS</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>VALUE_PROPOSITION</name>
+        <rename>VALUE_PROPOSITION</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>IDENTIFY_DECISION_MAKERS</name>
+        <rename>IDENTIFY_DECISION_MAKERS</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>PERCEPTION_ANALYSIS</name>
+        <rename>PERCEPTION_ANALYSIS</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>PROPOSAL_PRICE_QUOTE</name>
+        <rename>PROPOSAL_PRICE_QUOTE</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>NEGOTIATION_REVIEW</name>
+        <rename>NEGOTIATION_REVIEW</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+      <value>
+        <name>CLOSED</name>
+        <rename>CLOSED</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>WON/LOST = CLOSED</name>
+    <type>ValueMapper</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <field_to_use>END_STATUS</field_to_use>
+    <target_field>TEMP_STATUS</target_field>
+    <non_match_default />
+    <fields>
+      <field>
+        <source_value>Qualification</source_value>
+        <target_value>Qualification</target_value>
+      </field>
+      <field>
+        <source_value>Needs Analysis</source_value>
+        <target_value>Needs Analysis</target_value>
+      </field>
+      <field>
+        <source_value>Value Proposition</source_value>
+        <target_value>Value Proposition</target_value>
+      </field>
+      <field>
+        <source_value>Identifying Decision Makers</source_value>
+        <target_value>Identifying Decision Makers</target_value>
+      </field>
+      <field>
+        <source_value>Perception Analysis</source_value>
+        <target_value>Perception Analysis</target_value>
+      </field>
+      <field>
+        <source_value>Proposal/Price Quote</source_value>
+        <target_value>Proposal/Price Quote</target_value>
+      </field>
+      <field>
+        <source_value>Negotiation/Review</source_value>
+        <target_value>Negotiation/Review</target_value>
+      </field>
+      <field>
+        <source_value>Closed Won</source_value>
+        <target_value>Closed</target_value>
+      </field>
+      <field>
+        <source_value>Closed Lost</source_value>
+        <target_value>Closed</target_value>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+</transformation>
