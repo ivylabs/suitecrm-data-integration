@@ -27,6 +27,23 @@ then
 			eval ${key}=\${value}
 		done < "$file"
 
+
+		cd client/
+
+                ./encr.sh -kettle ${SUITECRM_PASSWORD} > ../encrypted-pass
+                SUITECRM_ENCRYPTED_PASSWORD=`tail -n 1 ../encrypted-pass`
+
+                echo ${SUITECRM_ENCRYPTED_PASSWORD}
+
+		./encr.sh -kettle ${SUITECRM_ANALYTICS_PASSWORD} > ../encrypted-pass
+                SUITECRM_ANALYTICS_ENCRYPTED_PASSWORD=`tail -n 1 ../encrypted-pass`
+
+                echo ${SUITECRM_ANALYTICS_ENCRYPTED_PASSWORD}
+
+		rm -Rf ../encrypted-pass
+
+		cd ${WORKING_DIR}/
+
 		cp -Rf setup/configuration/{.[!.],}* configuration
 
 		sed -i 's|@@SOLUTION_ROOT_DIR@@|'${WORKING_DIR}'|' configuration/config
@@ -38,13 +55,13 @@ then
 		sed -i 's|@@SUITECRM_DATABASE@@|'${SUITECRM_DATABASE}'|'  configuration/simple-jndi/jdbc.properties
 		sed -i 's|@@SUITECRM_PORT@@|'${SUITECRM_PORT}'|'  configuration/simple-jndi/jdbc.properties
 		sed -i 's|@@SUITECRM_USERNAME@@|'${SUITECRM_USERNAME}'|'  configuration/simple-jndi/jdbc.properties
-		sed -i 's|@@SUITECRM_PASSWORD@@|'${SUITECRM_PASSWORD}'|'  configuration/simple-jndi/jdbc.properties
+		sed -i 's|@@SUITECRM_PASSWORD@@|'"${SUITECRM_ENCRYPTED_PASSWORD}"'|'  configuration/simple-jndi/jdbc.properties
 
 		sed -i 's|@@SUITECRM_ANALYTICS_HOST@@|'${SUITECRM_ANALYTICS_HOST}'|'  configuration/simple-jndi/jdbc.properties
 		sed -i 's|@@SUITECRM_ANALYTICS_PORT@@|'${SUITECRM_ANALYTICS_PORT}'|'  configuration/simple-jndi/jdbc.properties
 		sed -i 's|@@SUITECRM_ANALYTICS_DATABASE@@|'${SUITECRM_ANALYTICS_DATABASE}'|'  configuration/simple-jndi/jdbc.properties
 		sed -i 's|@@SUITECRM_ANALYTICS_USERNAME@@|'${SUITECRM_ANALYTICS_USERNAME}'|'  configuration/simple-jndi/jdbc.properties
-		sed -i 's|@@SUITECRM_ANALYTICS_PASSWORD@@|'${SUITECRM_ANALYTICS_PASSWORD}'|'  configuration/simple-jndi/jdbc.properties
+		sed -i 's|@@SUITECRM_ANALYTICS_PASSWORD@@|'"${SUITECRM_ANALYTICS_ENCRYPTED_PASSWORD}"'|'  configuration/simple-jndi/jdbc.properties
 
 		sed -i 's|@@ETL_ROOT_DIR@@|'${WORKING_DIR}/solution'|'  configuration/.kettle/kettle.properties
 		

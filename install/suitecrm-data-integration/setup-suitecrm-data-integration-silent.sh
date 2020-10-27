@@ -13,6 +13,23 @@ WORKING_DIR=$(pwd);
 			eval ${key}=\${value}
 		done < "$file"
 
+		cd client/
+
+                ./encr.sh -kettle ${SUITECRM_PASSWORD} > ../encrypted-pass
+                SUITECRM_ENCRYPTED_PASSWORD=`tail -n 1 ../encrypted-pass`
+
+                echo ${SUITECRM_ENCRYPTED_PASSWORD}
+
+                ./encr.sh -kettle ${SUITECRM_ANALYTICS_PASSWORD} > ../encrypted-pass
+                SUITECRM_ANALYTICS_ENCRYPTED_PASSWORD=`tail -n 1 ../encrypted-pass`
+
+                echo ${SUITECRM_ANALYTICS_ENCRYPTED_PASSWORD}
+
+                rm -Rf ../encrypted-pass
+
+                cd ${WORKING_DIR}/
+
+
 		cp -Rf setup/configuration/{.[!.],}* configuration
 
 		sed -i 's|@@SOLUTION_ROOT_DIR@@|'${WORKING_DIR}'|' configuration/config
