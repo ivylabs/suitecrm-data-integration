@@ -720,6 +720,14 @@
         <column_name>YYYY-QQQQ-MMMM</column_name>
         <stream_name>YYYY-QQQQ-MMMM</stream_name>
       </field>
+      <field>
+        <column_name>YYYY-MMMM</column_name>
+        <stream_name>YYYY-MMMM</stream_name>
+      </field>
+      <field>
+        <column_name>YYYY-MMM</column_name>
+        <stream_name>YYYY-MMM</stream_name>
+      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -870,6 +878,14 @@
         <name>YYYYQQQQMMMM</name>
         <rename>YYYY-QQQQ-MMMM</rename>
       </field>
+      <field>
+        <name>YYYYMMMM</name>
+        <rename>YYYY-MMMM</rename>
+      </field>
+      <field>
+        <name>YYYYMMM</name>
+        <rename>YYYY-MMM</rename>
+      </field>
       <select_unspecified>N</select_unspecified>
       <meta>
         <name>YYYYMM</name>
@@ -1001,6 +1017,9 @@ var YYYYQQQQMMM = YYYYQQQQ + " " + MONTH_SHORT_DESC;
 
 var YYYYQQQQMMMM = YYYYQQQQ + " " + MONTH_LONG_DESC;
 
+var YYYYMMM = YEAR4 + " " + MONTH_SHORT_DESC;
+
+var YYYYMMMM = YEAR4 + " " + MONTH_LONG_DESC;
 
 </jsScript_script>
       </jsScript>
@@ -1169,6 +1188,22 @@ var YYYYQQQQMMMM = YYYYQQQQ + " " + MONTH_LONG_DESC;
       <field>
         <name>YYYYQQQQMMMM</name>
         <rename>YYYYQQQQMMMM</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYMMM</name>
+        <rename>YYYYMMM</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>YYYYMMMM</name>
+        <rename>YYYYMMMM</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
