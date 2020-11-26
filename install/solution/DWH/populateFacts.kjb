@@ -612,12 +612,12 @@ Populating Facts
       <yloc>128</yloc>
     </entry>
     <entry>
-      <name>checkModifiedSalesFact</name>
+      <name>removeSalesFact</name>
       <description />
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id />
-      <filename>${ETL_ROOT_DIR}/DWH/FACTS/checkModifiedSalesFact.ktr</filename>
+      <filename>${ETL_ROOT_DIR}/DWH/FACTS/removeSalesFact.ktr</filename>
       <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -795,7 +795,7 @@ Populating Facts
     </hop>
     <hop>
       <from>populateSalesFact</from>
-      <to>checkModifiedSalesFact</to>
+      <to>removeSalesFact</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -803,7 +803,7 @@ Populating Facts
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>checkModifiedSalesFact</from>
+      <from>removeSalesFact</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -812,7 +812,7 @@ Populating Facts
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>checkModifiedSalesFact</from>
+      <from>removeSalesFact</from>
       <to>Write To Log</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
