@@ -528,11 +528,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ASSIGNED_USER_TK</from>
-      <to>Drop Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Lookup Invoice</from>
       <to>Lookup Paid</to>
       <enabled>Y</enabled>
@@ -548,12 +543,17 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drop Fields</from>
+      <from>ASSIGNED_USER_TK</from>
       <to>DATE_TK</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>DATE_TK</from>
+      <to>Drop Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop Fields</from>
       <to>F_SALES</to>
       <enabled>Y</enabled>
     </hop>
@@ -609,8 +609,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>128</yloc>
+      <xloc>768</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -665,8 +665,53 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>608</xloc>
       <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DATE_TK</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>SALE_PAID_DATE_TK</name>
+        <rename>SALE_PAID_DATE_TK</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -849,27 +894,10 @@
         <rename />
       </field>
       <field>
-        <name>SALE_DATE_PAID_TK</name>
+        <name>SALE_PAID_DATE_TK</name>
         <rename />
       </field>
       <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>SALE_DATE_PAID_TK</name>
-        <rename>SALE_DATE_PAID_TK</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -879,8 +907,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>288</yloc>
+      <xloc>768</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1001,8 +1029,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>128</yloc>
+      <xloc>928</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1036,358 +1064,6 @@
         </value>
       </condition>
     </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>INVOICE_TK</name>
-    <type>DimensionLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <schema />
-    <table>D_INVOICES</table>
-    <connection>SuiteCRMAnalytics</connection>
-    <commit>100</commit>
-    <update>N</update>
-    <fields>
-      <key>
-        <name>INVOICE_ID</name>
-        <lookup>INVOICE_ID</lookup>
-      </key>
-      <date>
-        <name />
-        <from>DATE_FROM</from>
-        <to>DATE_TO</to>
-      </date>
-      <return>
-        <name>INVOICE_TK</name>
-        <rename />
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
-        <version>version</version>
-      </return>
-    </fields>
-    <sequence />
-    <min_year>1900</min_year>
-    <max_year>2199</max_year>
-    <cache_size>5000</cache_size>
-    <preload_cache>N</preload_cache>
-    <use_start_date_alternative>N</use_start_date_alternative>
-    <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name />
-    <useBatch>N</useBatch>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup Invoice</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>S_INVOICES</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>PARENT_ID</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>id</name>
-        <rename>INVOICE_ID</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>assigned_user_id</name>
-        <rename>ASSIGNED_USER_ID</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>billing_account_id</name>
-        <rename>BILLING_ACCOUNT_ID</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>billing_contact_id</name>
-        <rename>BILLING_CONTACT_ID</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PRODUCT_TK</name>
-    <type>DimensionLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <schema />
-    <table>D_PRODUCTS</table>
-    <connection>SuiteCRMAnalytics</connection>
-    <commit>100</commit>
-    <update>N</update>
-    <fields>
-      <key>
-        <name>PRODUCT_ID</name>
-        <lookup>PRODUCT_ID</lookup>
-      </key>
-      <date>
-        <name />
-        <from>DATE_FROM</from>
-        <to>DATE_TO</to>
-      </date>
-      <return>
-        <name>PRODUCT_TK</name>
-        <rename />
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
-        <version>version</version>
-      </return>
-    </fields>
-    <sequence />
-    <min_year>1900</min_year>
-    <max_year>2199</max_year>
-    <cache_size>5000</cache_size>
-    <preload_cache>N</preload_cache>
-    <use_start_date_alternative>N</use_start_date_alternative>
-    <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name />
-    <useBatch>N</useBatch>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>SALE_TOTAL_DISCOUNT_AMOUNT</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>SALE_TOTAL_DISCOUNT_AMOUNT</field_name>
-      <calc_type>MULTIPLY</calc_type>
-      <field_a>SALE_DISCOUNT_AMOUNT</field_a>
-      <field_b>SALE_QUANTITY</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>DIVISION</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>100</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>SALE_VAT_VALUE</field_name>
-      <calc_type>DIVIDE</calc_type>
-      <field_a>vat</field_a>
-      <field_b>DIVISION</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>S_PRODUCT_QUOTES</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  id
-, product_qty
-, product_cost_price
-, product_list_price
-, product_discount
-, product_discount_amount
-, discount
-, product_unit_price
-, vat_amt
-, product_total_price
-, vat
-, parent_type
-, parent_id
-, product_id
-, group_id
-FROM S_PRODUCT_QUOTES</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup Paid</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_INVOICES</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>PARENT_ID</name>
-        <field>INVOICE_ID</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>INVOICE_DATE_MODIFIED</name>
-        <rename>SALE_DATE_PAID_TK</rename>
-        <default />
-        <type>Date</type>
-      </value>
-      <value>
-        <name>INVOICE_DELETED</name>
-        <rename>INVOICE_DELETED</rename>
-        <default />
-        <type>Boolean</type>
-      </value>
-      <value>
-        <name>INVOICE_STATUS</name>
-        <rename>INVOICE_STATUS</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1460,14 +1136,14 @@ FROM S_PRODUCT_QUOTES</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>288</yloc>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>DATE_TK</name>
-    <type>ScriptValueMod</type>
+    <name>INVOICE_TK</name>
+    <type>DimensionLookup</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1476,27 +1152,38 @@ FROM S_PRODUCT_QUOTES</sql>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScript_script>
-      </jsScript>
-    </jsScripts>
+    <schema />
+    <table>D_INVOICES</table>
+    <connection>SuiteCRMAnalytics</connection>
+    <commit>100</commit>
+    <update>N</update>
     <fields>
-      <field>
-        <name>SALE_PAID_DATE_TK</name>
-        <rename>SALE_PAID_DATE_TK</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
+      <key>
+        <name>INVOICE_ID</name>
+        <lookup>INVOICE_ID</lookup>
+      </key>
+      <date>
+        <name />
+        <from>DATE_FROM</from>
+        <to>DATE_TO</to>
+      </date>
+      <return>
+        <name>INVOICE_TK</name>
+        <rename />
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
+        <version>version</version>
+      </return>
     </fields>
+    <sequence />
+    <min_year>1900</min_year>
+    <max_year>2199</max_year>
+    <cache_size>5000</cache_size>
+    <preload_cache>N</preload_cache>
+    <use_start_date_alternative>N</use_start_date_alternative>
+    <start_date_alternative>none</start_date_alternative>
+    <start_date_field_name />
+    <useBatch>N</useBatch>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1506,6 +1193,302 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
     </remotesteps>
     <GUI>
       <xloc>1088</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Invoice</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>S_INVOICES</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>PARENT_ID</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>id</name>
+        <rename>INVOICE_ID</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>assigned_user_id</name>
+        <rename>ASSIGNED_USER_ID</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>billing_account_id</name>
+        <rename>BILLING_ACCOUNT_ID</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>billing_contact_id</name>
+        <rename>BILLING_CONTACT_ID</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Paid</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>D_INVOICES</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>PARENT_ID</name>
+        <field>INVOICE_ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>INVOICE_DATE_MODIFIED</name>
+        <rename>SALE_DATE_PAID_TK</rename>
+        <default />
+        <type>Date</type>
+      </value>
+      <value>
+        <name>INVOICE_DELETED</name>
+        <rename>INVOICE_DELETED</rename>
+        <default />
+        <type>Boolean</type>
+      </value>
+      <value>
+        <name>INVOICE_STATUS</name>
+        <rename>INVOICE_STATUS</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PRODUCT_TK</name>
+    <type>DimensionLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <schema />
+    <table>D_PRODUCTS</table>
+    <connection>SuiteCRMAnalytics</connection>
+    <commit>100</commit>
+    <update>N</update>
+    <fields>
+      <key>
+        <name>PRODUCT_ID</name>
+        <lookup>PRODUCT_ID</lookup>
+      </key>
+      <date>
+        <name />
+        <from>DATE_FROM</from>
+        <to>DATE_TO</to>
+      </date>
+      <return>
+        <name>PRODUCT_TK</name>
+        <rename />
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
+        <version>version</version>
+      </return>
+    </fields>
+    <sequence />
+    <min_year>1900</min_year>
+    <max_year>2199</max_year>
+    <cache_size>5000</cache_size>
+    <preload_cache>N</preload_cache>
+    <use_start_date_alternative>N</use_start_date_alternative>
+    <start_date_alternative>none</start_date_alternative>
+    <start_date_field_name />
+    <useBatch>N</useBatch>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SALE_TOTAL_DISCOUNT_AMOUNT</name>
+    <type>Calculator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <calculation>
+      <field_name>SALE_TOTAL_DISCOUNT_AMOUNT</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>SALE_DISCOUNT_AMOUNT</field_a>
+      <field_b>SALE_QUANTITY</field_b>
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>DIVISION</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>100</field_a>
+      <field_b />
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <calculation>
+      <field_name>SALE_VAT_VALUE</field_name>
+      <calc_type>DIVIDE</calc_type>
+      <field_a>vat</field_a>
+      <field_b>DIVISION</field_b>
+      <field_c />
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>S_PRODUCT_QUOTES</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <sql>SELECT
+  id
+, product_qty
+, product_cost_price
+, product_list_price
+, product_discount
+, product_discount_amount
+, discount
+, product_unit_price
+, vat_amt
+, product_total_price
+, vat
+, parent_type
+, parent_id
+, product_id
+, group_id
+FROM S_PRODUCT_QUOTES</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
