@@ -744,16 +744,8 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
         <rename>SALE_LIST_PRICE_AMOUNT</rename>
       </field>
       <field>
-        <name>product_discount</name>
-        <rename>SALE_DISCOUNT_VALUE</rename>
-      </field>
-      <field>
         <name>product_discount_amount</name>
         <rename>SALE_DISCOUNT_AMOUNT</rename>
-      </field>
-      <field>
-        <name>discount</name>
-        <rename>SALE_DISCOUNT_TYPE</rename>
       </field>
       <field>
         <name>product_unit_price</name>
@@ -769,6 +761,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </field>
       <field>
         <name>vat</name>
+        <rename />
       </field>
       <field>
         <name>parent_type</name>
@@ -784,6 +777,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </field>
       <field>
         <name>group_id</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -846,15 +840,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
         <rename />
       </field>
       <field>
-        <name>SALE_DISCOUNT_VALUE</name>
-        <rename />
-      </field>
-      <field>
         <name>SALE_DISCOUNT_AMOUNT</name>
-        <rename />
-      </field>
-      <field>
-        <name>SALE_DISCOUNT_TYPE</name>
         <rename />
       </field>
       <field>
@@ -978,16 +964,6 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       <value>
         <name>SALE_LIST_PRICE_AMOUNT</name>
         <rename>SALE_LIST_PRICE_AMOUNT</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SALE_DISCOUNT_TYPE</name>
-        <rename>SALE_DISCOUNT_TYPE</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SALE_DISCOUNT_VALUE</name>
-        <rename>SALE_DISCOUNT_VALUE</rename>
         <update>Y</update>
       </value>
       <value>
