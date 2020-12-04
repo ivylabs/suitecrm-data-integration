@@ -8,6 +8,7 @@ INSERT INTO D_USERS
 	,USER_NAME
 	,USER_FIRST_NAME
 	,USER_LAST_NAME
+	,USER_FULL_NAME
 	,USER_DESCRIPTION
 	,USER_TITLE
 	,USER_DEPARTMENT
@@ -36,6 +37,7 @@ VALUES (
         ,'Not Set'
         ,'Not Set'
         ,'Not Set'
+	,'Not Set'
         ,'Not Set'
         ,'Not Set'
         ,'Not Set'

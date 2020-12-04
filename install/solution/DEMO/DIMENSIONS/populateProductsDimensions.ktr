@@ -497,8 +497,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>PRODUCT_TYPE</from>
+      <from>Replace NULLS</from>
       <to>D_PRODUCTS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PRODUCT_TYPE</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Replace NULLS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -531,42 +541,77 @@
       <field>
         <name>PRODUCT_NAME</name>
         <lookup>PRODUCT_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_MAINCODE</name>
         <lookup>PRODUCT_MAINCODE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_PART_NUMBER</name>
         <lookup>PRODUCT_PART_NUMBER</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_UNIT_PRICE</name>
         <lookup>PRODUCT_UNIT_PRICE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_UNIT_COST</name>
         <lookup>PRODUCT_UNIT_COST</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_CATEGORY_ID</name>
         <lookup>PRODUCT_CATEGORY_ID</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_CATEGORY_NAME</name>
         <lookup>PRODUCT_CATEGORY_NAME</lookup>
-        <update>Insert</update>
+        <update>Update</update>
       </field>
       <field>
         <name>PRODUCT_TYPE</name>
         <lookup>PRODUCT_TYPE</lookup>
-        <update>Insert</update>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>PRODUCT_DESCRIPTION</name>
+        <lookup>PRODUCT_DESCRIPTION</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>PRODUCT_DELETED</name>
+        <lookup>PRODUCT_DELETED</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>PRODUCT_URL</name>
+        <lookup>PRODUCT_URL</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>PRODUCT_IMAGE</name>
+        <lookup>PRODUCT_IMAGE</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY_DESCRIPTION</name>
+        <lookup>PRODUCT_CATEGORY_DESCRIPTION</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY_DELETED</name>
+        <lookup>PRODUCT_CATEGORY_DELETED</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>PRODUCT_CURRENCY_ID</name>
+        <lookup>PRODUCT_CURRENCY_ID</lookup>
+        <update>Update</update>
       </field>
       <return>
         <name>PRODUCT_TK</name>
@@ -593,7 +638,45 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PRODUCT_TYPE</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>PRODUCT_TYPE</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>Not Set</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -808,7 +891,118 @@
     </GUI>
   </step>
   <step>
-    <name>PRODUCT_TYPE</name>
+    <name>Replace NULLS</name>
+    <type>IfNull</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>PRODUCT_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_DELETED</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_MAINCODE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_PART_NUMBER</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_TYPE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_UNIT_COST</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_UNIT_PRICE</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_URL</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_IMAGE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY_DELETED</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants</name>
     <type>Constant</type>
     <description />
     <distribute>Y</distribute>
@@ -820,13 +1014,85 @@
     </partitioning>
     <fields>
       <field>
-        <name>PRODUCT_TYPE</name>
+        <name>PRODUCT_DESCRIPTION</name>
         <type>String</type>
         <format />
         <currency />
         <decimal />
         <group />
         <nullif>Not Set</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_DELETED</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_URL</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>Not Set</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_IMAGE</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>Not Set</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY_DESCRIPTION</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>Not Set</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_CATEGORY_DELETED</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>PRODUCT_CURRENCY_ID</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>N/A</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -840,7 +1106,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

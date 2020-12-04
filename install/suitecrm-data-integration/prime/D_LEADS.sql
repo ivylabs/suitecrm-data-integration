@@ -42,7 +42,7 @@ VALUES (
 	,'Not Set'
 	,'Not Set'
 	,'Not Set'
-	,'N/A'
+	,'Not Set'
 	,'Not Set'
 	,'Not Set'
 	,'Not Set'

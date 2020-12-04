@@ -493,22 +493,22 @@
   </connection>
   <order>
     <hop>
-      <from>Drop / Rename</from>
-      <to>If field value is null</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>S_USERS</from>
       <to>Drop / Rename</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>If field value is null</from>
+      <from>Drop / Rename</from>
       <to>USER_FULL_NAME</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>USER_FULL_NAME</from>
+      <to>If field value is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null</from>
       <to>D_USERS</to>
       <enabled>Y</enabled>
     </hop>
@@ -787,6 +787,12 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
+        <name>USER_FULL_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
         <name>USER_DESCRIPTION</name>
         <value>Not Set</value>
         <mask />
@@ -873,7 +879,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1031,7 +1037,7 @@ FROM S_USERS
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

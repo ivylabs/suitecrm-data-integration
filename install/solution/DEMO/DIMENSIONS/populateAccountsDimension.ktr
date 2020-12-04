@@ -508,11 +508,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drop / Rename</from>
-      <to>D_ACCOUNTS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Retrieve Addresses</from>
       <to>ACCOUNT_CREATED_BY_NAME</to>
       <enabled>Y</enabled>
@@ -520,6 +515,16 @@
     <hop>
       <from>ACCOUNT_CREATED_BY_NAME</from>
       <to>Replace User Names with IDs</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop / Rename</from>
+      <to>Replace NULLS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NULLS</from>
+      <to>D_ACCOUNTS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -802,7 +807,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
+      <xloc>1280</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -884,6 +889,154 @@
     </remotesteps>
     <GUI>
       <xloc>960</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace User Names with IDs</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>D_USERS</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>ACCOUNT_CREATED_BY_NAME</name>
+        <field>USER_NAME</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>USER_ID</name>
+        <rename>ACCOUNT_CREATED_BY</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Retrieve Addresses</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>D_LEADS</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>ACCOUNT_NAME</name>
+        <field>LEAD_ACCOUNT_NAME</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_CITY</name>
+        <rename>ACCOUNT_BILLING_ADDRESS_CITY</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_COUNTRY</name>
+        <rename>ACCOUNT_BILLING_ADDRESS_COUNTRY</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_STATE</name>
+        <rename>ACCOUNT_BILLING_ADDRESS_STATE</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_POSTCODE</name>
+        <rename>ACCOUNT_BILLING_ADDRESS_POSTCODE</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_STREET</name>
+        <rename>ACCOUNT_BILLING_ADDRESS_STREET</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_CITY</name>
+        <rename>ACCOUNT_SHIPPING_ADDRESS_CITY</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_COUNTRY</name>
+        <rename>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_STATE</name>
+        <rename>ACCOUNT_SHIPPING_ADDRESS_STATE</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_POSTCODE</name>
+        <rename>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>LEAD_PRIMARY_ADDRESS_STREET</name>
+        <rename>ACCOUNT_SHIPPING_ADDRESS_STREET</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1098,8 +1251,8 @@
     </GUI>
   </step>
   <step>
-    <name>Replace User Names with IDs</name>
-    <type>DBLookup</type>
+    <name>Replace NULLS</name>
+    <type>IfNull</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1108,130 +1261,99 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_USERS</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>ACCOUNT_CREATED_BY_NAME</name>
-        <field>USER_NAME</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>USER_ID</name>
-        <rename>ACCOUNT_CREATED_BY</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>800</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Retrieve Addresses</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_LEADS</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
         <name>ACCOUNT_NAME</name>
-        <field>LEAD_ACCOUNT_NAME</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_CITY</name>
-        <rename>ACCOUNT_BILLING_ADDRESS_CITY</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_COUNTRY</name>
-        <rename>ACCOUNT_BILLING_ADDRESS_COUNTRY</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_STATE</name>
-        <rename>ACCOUNT_BILLING_ADDRESS_STATE</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_POSTCODE</name>
-        <rename>ACCOUNT_BILLING_ADDRESS_POSTCODE</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_STREET</name>
-        <rename>ACCOUNT_BILLING_ADDRESS_STREET</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_CITY</name>
-        <rename>ACCOUNT_SHIPPING_ADDRESS_CITY</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_COUNTRY</name>
-        <rename>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_STATE</name>
-        <rename>ACCOUNT_SHIPPING_ADDRESS_STATE</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_POSTCODE</name>
-        <rename>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>LEAD_PRIMARY_ADDRESS_STREET</name>
-        <rename>ACCOUNT_SHIPPING_ADDRESS_STREET</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_TYPE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_INDUSTRY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_CITY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_COUNTRY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_POSTCODE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_STATE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_STREET</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_CITY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_STATE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_STREET</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1240,7 +1362,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>1120</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

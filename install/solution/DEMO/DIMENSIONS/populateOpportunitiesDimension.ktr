@@ -492,16 +492,6 @@
   </connection>
   <order>
     <hop>
-      <from>Concat ACCOUNT / OPPORTUNITY</from>
-      <to>Drop / Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Drop / Rename</from>
-      <to>D_OPPORTUNITIES</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Database lookup</from>
       <to>Concat ACCOUNT / OPPORTUNITY</to>
       <enabled>Y</enabled>
@@ -509,6 +499,26 @@
     <hop>
       <from>GenerateOPPORTUNITIES</from>
       <to>Database lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop / Rename</from>
+      <to>Replace NULLS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NULLS</from>
+      <to>D_OPPORTUNITIES</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat ACCOUNT / OPPORTUNITY</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Drop / Rename</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -644,6 +654,21 @@
         <lookup>OPPORTUNITY_NAME</lookup>
         <update>Update</update>
       </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_BY</name>
+        <lookup>OPPORTUNITY_CREATED_BY</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>OPPORTUNITY_DESCRIPTION</name>
+        <lookup>OPPORTUNITY_DESCRIPTION</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>OPPORTUNITY_NEXT_STEPS</name>
+        <lookup>OPPORTUNITY_NEXT_STEPS</lookup>
+        <update>Update</update>
+      </field>
       <return>
         <name>OPPORTUNITY_TK</name>
         <rename />
@@ -669,7 +694,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -739,15 +764,31 @@
       </field>
       <field>
         <name>OPPORTUNITY_TYPE</name>
+        <rename />
       </field>
       <field>
         <name>OPPORTUNITY_LEAD_SOURCE</name>
+        <rename />
       </field>
       <field>
         <name>OPPORTUNITY_SALES_STAGE</name>
+        <rename />
       </field>
       <field>
         <name>OPPORTUNITY_NAME</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_BY</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_DESCRIPTION</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_NEXT_STEPS</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -759,7 +800,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -939,6 +980,143 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace NULLS</name>
+    <type>IfNull</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_BY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_TYPE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_LEAD_SOURCE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_NEXT_STEPS</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_SALES_STAGE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_CREATED_BY</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_DESCRIPTION</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_NEXT_STEPS</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
