@@ -1112,14 +1112,6 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <rename />
       </field>
       <field>
-        <name>SALE_DISCOUNT_TYPE</name>
-        <rename />
-      </field>
-      <field>
-        <name>SALE_DISCOUNT_VALUE</name>
-        <rename />
-      </field>
-      <field>
         <name>SALE_DISCOUNT_AMOUNT</name>
         <rename />
       </field>
@@ -1168,23 +1160,6 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <length>2</length>
         <precision>2</precision>
         <conversion_mask>#</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-      <meta>
-        <name>SALE_DISCOUNT_VALUE</name>
-        <rename>SALE_DISCOUNT_VALUE</rename>
-        <type>None</type>
-        <length>2</length>
-        <precision>2</precision>
-        <conversion_mask />
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale />
         <date_format_timezone />
@@ -1375,14 +1350,6 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
       <field>
         <column_name>SALE_LIST_PRICE_AMOUNT</column_name>
         <stream_name>SALE_LIST_PRICE_AMOUNT</stream_name>
-      </field>
-      <field>
-        <column_name>SALE_DISCOUNT_TYPE</column_name>
-        <stream_name>SALE_DISCOUNT_TYPE</stream_name>
-      </field>
-      <field>
-        <column_name>SALE_DISCOUNT_VALUE</column_name>
-        <stream_name>SALE_DISCOUNT_VALUE</stream_name>
       </field>
       <field>
         <column_name>SALE_DISCOUNT_AMOUNT</column_name>
