@@ -493,11 +493,6 @@
   </connection>
   <order>
     <hop>
-      <from>Replace NULLS</from>
-      <to>D_CAMPAIGNS</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Drop / Rename</from>
       <to>Replace Boolean</to>
       <enabled>Y</enabled>
@@ -562,8 +557,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>288</yloc>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -599,11 +594,6 @@
         <update>Update</update>
       </field>
       <field>
-        <name>CAMPAIGN_CREATED_BY</name>
-        <lookup>CAMPAIGN_CREATED_BY</lookup>
-        <update>Update</update>
-      </field>
-      <field>
         <name>CAMPAIGN_DELETED</name>
         <lookup>CAMPAIGN_DELETED</lookup>
         <update>Update</update>
@@ -629,43 +619,8 @@
         <update>Update</update>
       </field>
       <field>
-        <name>CAMPAIGN_START_DATE</name>
-        <lookup>CAMPAIGN_START_DATE</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CAMPAIGN_END_DATE</name>
-        <lookup>CAMPAIGN_END_DATE</lookup>
-        <update>Update</update>
-      </field>
-      <field>
         <name>CAMPAIGN_STATUS</name>
         <lookup>CAMPAIGN_STATUS</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CAMPAIGN_IMPRESSIONS</name>
-        <lookup>CAMPAIGN_IMPRESSIONS</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CAMPAIGN_BUDGET</name>
-        <lookup>CAMPAIGN_BUDGET</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CAMPAIGN_EXPECTED_COST</name>
-        <lookup>CAMPAIGN_EXPECTED_COST</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CAMPAIGN_ACTUAL_COST</name>
-        <lookup>CAMPAIGN_ACTUAL_COST</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CAMPAIGN_EXPECTED_REVENUE</name>
-        <lookup>CAMPAIGN_EXPECTED_REVENUE</lookup>
         <update>Update</update>
       </field>
       <field>
@@ -713,7 +668,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -739,10 +694,6 @@
         <rename>CAMPAIGN_NAME</rename>
       </field>
       <field>
-        <name>created_by</name>
-        <rename>CAMPAIGN_CREATED_BY</rename>
-      </field>
-      <field>
         <name>deleted</name>
         <rename>CAMPAIGN_DELETED</rename>
       </field>
@@ -763,36 +714,8 @@
         <rename>CAMPAIGN_TRACKER_TEXT</rename>
       </field>
       <field>
-        <name>start_date</name>
-        <rename>CAMPAIGN_START_DATE</rename>
-      </field>
-      <field>
-        <name>end_date</name>
-        <rename>CAMPAIGN_END_DATE</rename>
-      </field>
-      <field>
         <name>status</name>
         <rename>CAMPAIGN_STATUS</rename>
-      </field>
-      <field>
-        <name>impressions</name>
-        <rename>CAMPAIGN_IMPRESSIONS</rename>
-      </field>
-      <field>
-        <name>budget</name>
-        <rename>CAMPAIGN_BUDGET</rename>
-      </field>
-      <field>
-        <name>expected_cost</name>
-        <rename>CAMPAIGN_EXPECTED_COST</rename>
-      </field>
-      <field>
-        <name>actual_cost</name>
-        <rename>CAMPAIGN_ACTUAL_COST</rename>
-      </field>
-      <field>
-        <name>expected_revenue</name>
-        <rename>CAMPAIGN_EXPECTED_REVENUE</rename>
       </field>
       <field>
         <name>campaign_type</name>
@@ -890,30 +813,6 @@
       <field>
         <name>CAMPAIGN_STATUS</name>
         <value>Not Set</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CAMPAIGN_BUDGET</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CAMPAIGN_EXPECTED_COST</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CAMPAIGN_ACTUAL_COST</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CAMPAIGN_EXPECTED_REVENUE</name>
-        <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
       </field>
