@@ -2,9 +2,9 @@
 <transformation>
   <info>
     <name>populateSalesFact</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,7 +415,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -438,16 +438,16 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server />
+    <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username />
+    <username/>
     <password>Encrypted </password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -523,16 +523,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calculate UNIT_PRICE</from>
-      <to>INVOICE_DATE_TK</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>INVOICE_DATE_TK</from>
-      <to>DATE_TKs</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>DATE_TKs</from>
       <to>Format DATE_TK</to>
       <enabled>Y</enabled>
@@ -567,148 +557,94 @@
       <to>Calculate UNIT_PRICE</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>DATE</from>
+      <to>Calculate Dates</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>TODAYS_DATE</from>
+      <to>DATE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate UNIT_PRICE</from>
+      <to>Lookup Due Date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>generateInvoices</from>
+      <to>TODAYS_DATE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculate Dates</from>
+      <to>Lookup Due Date</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup Due Date</from>
+      <to>DATE_TKs</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Calculate Amt Discount</name>
     <type>Calculator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <calculation>
       <field_name>DIVIDED_100</field_name>
       <calc_type>CONSTANT</calc_type>
       <field_a>100.00</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>#</conversion_mask>
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>SALE_DISCOUNT_AMOUNT</field_name>
       <calc_type>DIVIDE</calc_type>
       <field_a>SALE_DISCOUNT_VALUE</field_a>
       <field_b>DIVIDED_100</field_b>
-      <field_c />
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>SALE_UNIT_PRICE_AMOUNT</field_name>
       <calc_type>SUBTRACT</calc_type>
       <field_a>SALE_LIST_PRICE_AMOUNT</field_a>
       <field_b>SALE_DISCOUNT_AMOUNT</field_b>
-      <field_c />
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculate Pct Discount</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>DIVIDED_100</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>100.00</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask>#</conversion_mask>
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>SALE_DISCOUNT_AMOUNT_TEMP</field_name>
-      <calc_type>DIVIDE</calc_type>
-      <field_a>SALE_LIST_PRICE_AMOUNT</field_a>
-      <field_b>DIVIDED_100</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>3</value_length>
-      <value_precision>2</value_precision>
-      <remove>Y</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>SALE_DISCOUNT_AMOUNT</field_name>
-      <calc_type>MULTIPLY</calc_type>
-      <field_a>SALE_DISCOUNT_AMOUNT_TEMP</field_a>
-      <field_b>SALE_DISCOUNT_VALUE</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>3</value_length>
-      <value_precision>2</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>SALE_UNIT_PRICE_AMOUNT</field_name>
-      <calc_type>SUBTRACT</calc_type>
-      <field_a>SALE_LIST_PRICE_AMOUNT</field_a>
-      <field_b>SALE_DISCOUNT_AMOUNT</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>3</value_length>
-      <value_precision>2</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -722,62 +658,146 @@
     </GUI>
   </step>
   <step>
-    <name>Calculate Pct Discount 2</name>
+    <name>Calculate Pct Discount</name>
     <type>Calculator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <calculation>
       <field_name>DIVIDED_100</field_name>
       <calc_type>CONSTANT</calc_type>
       <field_a>100.00</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
       <conversion_mask>#</conversion_mask>
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>SALE_DISCOUNT_AMOUNT_TEMP</field_name>
+      <calc_type>DIVIDE</calc_type>
+      <field_a>SALE_LIST_PRICE_AMOUNT</field_a>
+      <field_b>DIVIDED_100</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>3</value_length>
+      <value_precision>2</value_precision>
+      <remove>Y</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>SALE_DISCOUNT_AMOUNT</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>SALE_DISCOUNT_AMOUNT_TEMP</field_a>
+      <field_b>SALE_DISCOUNT_VALUE</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>3</value_length>
+      <value_precision>2</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>SALE_UNIT_PRICE_AMOUNT</field_name>
+      <calc_type>SUBTRACT</calc_type>
+      <field_a>SALE_LIST_PRICE_AMOUNT</field_a>
+      <field_b>SALE_DISCOUNT_AMOUNT</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>3</value_length>
+      <value_precision>2</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Pct Discount 2</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <field_name>DIVIDED_100</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>100.00</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask>#</conversion_mask>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>SALE_DISCOUNT_AMOUNT</field_name>
       <calc_type>CONSTANT</calc_type>
       <field_a>0</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>SALE_UNIT_PRICE_AMOUNT</field_name>
       <calc_type>COPY_FIELD</calc_type>
       <field_a>SALE_LIST_PRICE_AMOUNT</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -786,67 +806,67 @@
     </remotesteps>
     <GUI>
       <xloc>928</xloc>
-      <yloc>448</yloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Calculate UNIT_PRICE</name>
     <type>Calculator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <calculation>
       <field_name>SALE_TOTAL_AMOUNT</field_name>
       <calc_type>MULTIPLY</calc_type>
       <field_a>SALE_QUANTITY</field_a>
       <field_b>SALE_UNIT_PRICE_AMOUNT</field_b>
-      <field_c />
+      <field_c/>
       <value_type>None</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>SALE_TOTAL_VAT_AMOUNT</field_name>
       <calc_type>MULTIPLY</calc_type>
       <field_a>SALE_TOTAL_AMOUNT</field_a>
       <field_b>SALE_VAT_VALUE</field_b>
-      <field_c />
+      <field_c/>
       <value_type>None</value_type>
       <value_length>-1</value_length>
       <value_precision>2</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>SALE_TOTAL_DISCOUNT_AMOUNT</field_name>
       <calc_type>MULTIPLY</calc_type>
       <field_a>SALE_DISCOUNT_AMOUNT</field_a>
       <field_b>SALE_QUANTITY</field_b>
-      <field_c />
+      <field_c/>
       <value_type>None</value_type>
       <value_length>-1</value_length>
       <value_precision>2</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -855,52 +875,52 @@
     </remotesteps>
     <GUI>
       <xloc>928</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Calculate amounts</name>
     <type>Calculator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <calculation>
       <field_name>50_PERCENT</field_name>
       <calc_type>CONSTANT</calc_type>
       <field_a>.50</field_a>
-      <field_b />
-      <field_c />
+      <field_b/>
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
     <calculation>
       <field_name>SALE_COST_PRICE_AMOUNT</field_name>
       <calc_type>MULTIPLY</calc_type>
       <field_a>SALE_LIST_PRICE_AMOUNT</field_a>
       <field_b>50_PERCENT</field_b>
-      <field_c />
+      <field_c/>
       <value_type>Number</value_type>
       <value_length>1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -909,20 +929,20 @@
     </remotesteps>
     <GUI>
       <xloc>288</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Convert Amt Value to Decimal</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -934,14 +954,14 @@
         <precision>-2</precision>
         <conversion_mask>0.00</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_QUANTITY</name>
@@ -951,17 +971,17 @@
         <precision>-2</precision>
         <conversion_mask>0.00</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -970,20 +990,20 @@
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>DATE_TKs</name>
     <type>ScriptValueMod</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -1007,7 +1027,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1016,20 +1036,20 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1248</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>DISCOUNT_TYPE = Amt?</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Calculate Amt Discount</send_true_to>
     <send_false_to>Is Discount >0</send_false_to>
@@ -1038,7 +1058,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <negated>N</negated>
         <leftvalue>SALE_DISCOUNT_TYPE</leftvalue>
         <function>=</function>
-        <rightvalue />
+        <rightvalue/>
         <value>
           <name>constant</name>
           <type>String</type>
@@ -1046,11 +1066,11 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask />
+          <mask/>
         </value>
       </condition>
     </compare>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1059,81 +1079,66 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Drop &amp; Rename</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>SALE_ID</name>
-        <rename />
       </field>
       <field>
         <name>INVOICE_TK</name>
-        <rename />
       </field>
       <field>
         <name>PRODUCT_TK</name>
-        <rename />
       </field>
       <field>
         <name>BILLING_ACCOUNT_TK</name>
-        <rename />
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
-        <rename />
       </field>
       <field>
         <name>SALE_PAID_DATE_TK</name>
-        <rename />
       </field>
       <field>
         <name>SALE_QUANTITY</name>
-        <rename />
       </field>
       <field>
         <name>SALE_COST_PRICE_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>SALE_LIST_PRICE_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>SALE_DISCOUNT_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>SALE_UNIT_PRICE_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>SALE_VAT_VALUE</name>
-        <rename />
       </field>
       <field>
         <name>SALE_TOTAL_VAT_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>SALE_TOTAL_DISCOUNT_AMOUNT</name>
-        <rename />
       </field>
       <field>
         <name>SALE_TOTAL_AMOUNT</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1144,14 +1149,14 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <precision>-2</precision>
         <conversion_mask>#</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_QUANTITY</name>
@@ -1161,14 +1166,14 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <precision>2</precision>
         <conversion_mask>#</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_DISCOUNT_AMOUNT</name>
@@ -1176,16 +1181,16 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <type>None</type>
         <length>2</length>
         <precision>2</precision>
-        <conversion_mask />
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_COST_PRICE_AMOUNT</name>
@@ -1193,16 +1198,16 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <type>None</type>
         <length>2</length>
         <precision>2</precision>
-        <conversion_mask />
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_LIST_PRICE_AMOUNT</name>
@@ -1210,16 +1215,16 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <type>None</type>
         <length>2</length>
         <precision>2</precision>
-        <conversion_mask />
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_UNIT_PRICE_AMOUNT</name>
@@ -1227,16 +1232,16 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <type>None</type>
         <length>2</length>
         <precision>2</precision>
-        <conversion_mask />
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_TOTAL_VAT_AMOUNT</name>
@@ -1244,16 +1249,16 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <type>None</type>
         <length>2</length>
         <precision>2</precision>
-        <conversion_mask />
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
       <meta>
         <name>SALE_TOTAL_AMOUNT</name>
@@ -1261,19 +1266,19 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <type>None</type>
         <length>2</length>
         <precision>2</precision>
-        <conversion_mask />
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1282,23 +1287,23 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1568</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>F_SALES</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
-    <schema />
+    <schema/>
     <table>F_SALES</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1306,14 +1311,14 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
+    <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
       <field>
         <column_name>SALE_ID</column_name>
@@ -1376,7 +1381,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <stream_name>SALE_TOTAL_AMOUNT</stream_name>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1385,20 +1390,20 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1728</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Format DATE_TK</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -1410,17 +1415,17 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <precision>-2</precision>
         <conversion_mask>yyyyMMdd</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
+        <date_format_locale/>
+        <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
       </meta>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1429,67 +1434,20 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>1408</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>INVOICE_DATE_TK</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_INVOICES</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>INVOICE_TK</name>
-        <field>INVOICE_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>INVOICE_DUE_DATE</name>
-        <rename>INVOICE_DUE_DATE</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>128</yloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Is Discount >0</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>Calculate Pct Discount</send_true_to>
     <send_false_to>Calculate Pct Discount 2</send_false_to>
@@ -1498,7 +1456,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <negated>N</negated>
         <leftvalue>SALE_DISCOUNT_VALUE</leftvalue>
         <function>&gt;</function>
-        <rightvalue />
+        <rightvalue/>
         <value>
           <name>constant</name>
           <type>Number</type>
@@ -1510,7 +1468,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         </value>
       </condition>
     </compare>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1519,29 +1477,29 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>288</yloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>generateSalesFact</name>
     <type>TextFileInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <accept_filenames>N</accept_filenames>
     <passing_through_fields>N</passing_through_fields>
-    <accept_field />
-    <accept_stepname />
+    <accept_field/>
+    <accept_stepname/>
     <separator>,</separator>
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
+    <escapechar/>
     <header>Y</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
@@ -1553,18 +1511,18 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     <nr_lines_doc_header>0</nr_lines_doc_header>
     <noempty>Y</noempty>
     <include>N</include>
-    <include_field />
+    <include_field/>
     <rownum>N</rownum>
     <rownumByFile>N</rownumByFile>
-    <rownum_field />
+    <rownum_field/>
     <format>mixed</format>
-    <encoding />
+    <encoding/>
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>${ETL_ROOT_DIR}/DEMO/DATA/F_SALES/generateSalesFact.csv</name>
-      <filemask />
-      <exclude_filemask />
+      <filemask/>
+      <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
       <type>CSV</type>
@@ -1576,12 +1534,12 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
       <field>
         <name>SALE_ID</name>
         <type>String</type>
-        <format />
+        <format/>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1596,7 +1554,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1611,7 +1569,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1626,7 +1584,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1641,7 +1599,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1656,7 +1614,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1671,7 +1629,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1681,12 +1639,12 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
       <field>
         <name>SALE_DISCOUNT_TYPE</name>
         <type>String</type>
-        <format />
+        <format/>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1701,7 +1659,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1716,7 +1674,7 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull />
+        <ifnull/>
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
@@ -1727,29 +1685,29 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     <limit>0</limit>
     <error_ignored>N</error_ignored>
     <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
+    <file_error_field/>
+    <file_error_message_field/>
     <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
     <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
+    <error_line_files_destination_directory/>
     <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
+    <line_number_files_destination_directory/>
     <line_number_files_extension>line</line_number_files_extension>
     <date_format_lenient>Y</date_format_lenient>
     <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1758,7 +1716,419 @@ var SALE_PAID_DATE_TK = INVOICE_DUE_DATE</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calculate Dates</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <calculation>
+      <field_name>INVOICE_DATE_ENTERED</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>DATE</field_a>
+      <field_b>INVOICE_DATE_ENTERED_RAND</field_b>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>INVOICE_DATE</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>INVOICE_DATE_ENTERED</field_a>
+      <field_b>INVOICE_DATE_RAND</field_b>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>DAYS</field_name>
+      <calc_type>CONSTANT</calc_type>
+      <field_a>30</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Integer</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>Y</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>INVOICE_DUE_DATE</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>INVOICE_DATE</field_a>
+      <field_b>DAYS</field_b>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DATE</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+
+var DATE = new Date();
+
+DATE.setDate(DATE.getDate()-760);</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>DATE</name>
+        <rename>DATE</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>TODAYS_DATE</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>TODAYS_DATE</name>
+        <type>system date (fixed)</type>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>generateInvoices</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>mixed</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_INVOICES/generateInvoices.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>INVOICE_ID</name>
+        <type>String</type>
+        <format/>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_NAME_PRODUCT_ID</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_NUMBER</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_STATUS</name>
+        <type>String</type>
+        <format/>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_DATE_ENTERED_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_DATE_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_DATE_MODIFIED_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>INVOICE_NAME_NUMBER_RAND</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_GB</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Due Date</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Calculate Dates</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>INVOICE_TK</name>
+        <field>INVOICE_NUMBER</field>
+      </key>
+      <value>
+        <name>INVOICE_DUE_DATE</name>
+        <rename>INVOICE_DUE_DATE</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
