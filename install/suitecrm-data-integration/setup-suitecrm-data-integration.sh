@@ -205,7 +205,7 @@ then
 
 						else
 							echo ""
-							echo " Demo data install successfull!"
+							echo " Demo data install successful!"
 
 							rm -Rf suitecrm-db-demo-passed
        
