@@ -564,6 +564,14 @@ Pre Execution
           <schemaname />
         </field>
         <field>
+          <name>F_SALES</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_CAMPAIGN_MANAGEMENT</name>
+          <schemaname />
+        </field>
+        <field>
           <name>CUSTOM_FIELDS</name>
           <schemaname />
         </field>
