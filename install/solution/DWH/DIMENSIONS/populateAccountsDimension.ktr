@@ -493,11 +493,6 @@
   </connection>
   <order>
     <hop>
-      <from>Replace NULLS</from>
-      <to>D_ACCOUNTS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>S_ACCOUNTS</from>
       <to>Drop / Rename</to>
       <enabled>Y</enabled>
@@ -505,6 +500,16 @@
     <hop>
       <from>Drop / Rename</from>
       <to>Replace NULLS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace NULLS</from>
+      <to>Remap Deleted Column</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remap Deleted Column</from>
+      <to>D_ACCOUNTS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -557,6 +562,11 @@
       <field>
         <name>ACCOUNT_DESCRIPTION</name>
         <lookup>ACCOUNT_DESCRIPTION</lookup>
+        <update>Update</update>
+      </field>
+      <field>
+        <name>ACCOUNT_DELETED</name>
+        <lookup>ACCOUNT_DELETED</lookup>
         <update>Update</update>
       </field>
       <field>
@@ -644,7 +654,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -680,6 +690,10 @@
       <field>
         <name>created_by</name>
         <rename>ACCOUNT_CREATED_BY</rename>
+      </field>
+      <field>
+        <name>deleted</name>
+        <rename>ACCOUNT_DELETED</rename>
       </field>
       <field>
         <name>description</name>
@@ -926,6 +940,43 @@ FROM S_ACCOUNTS</sql>
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remap Deleted Column</name>
+    <type>ValueMapper</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <field_to_use>ACCOUNT_DELETED</field_to_use>
+    <target_field />
+    <non_match_default />
+    <fields>
+      <field>
+        <source_value>0</source_value>
+        <target_value>No</target_value>
+      </field>
+      <field>
+        <source_value>1</source_value>
+        <target_value>Yes</target_value>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

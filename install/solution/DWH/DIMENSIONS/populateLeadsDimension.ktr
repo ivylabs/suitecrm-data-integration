@@ -561,11 +561,6 @@ from the Accounts Table</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Remap Converted</from>
-      <to>LEAD_FULL_NAME</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Replace NULLS</from>
       <to>Country Codes</to>
       <enabled>Y</enabled>
@@ -573,6 +568,16 @@ from the Accounts Table</note>
     <hop>
       <from>Country Codes</from>
       <to>Drop</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remap Converted</from>
+      <to>Remap Deleted Column</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remap Deleted Column</from>
+      <to>LEAD_FULL_NAME</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -605,7 +610,7 @@ from the Accounts Table</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -652,7 +657,7 @@ from the Accounts Table</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -683,6 +688,11 @@ from the Accounts Table</note>
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
+      <field>
+        <name>LEAD_DELETED</name>
+        <lookup>LEAD_DELETED</lookup>
+        <update>Update</update>
+      </field>
       <field>
         <name>LEAD_DESCRIPTION</name>
         <lookup>LEAD_DESCRIPTION</lookup>
@@ -808,7 +818,7 @@ from the Accounts Table</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
+      <xloc>1568</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -827,6 +837,9 @@ from the Accounts Table</note>
     <fields>
       <field>
         <name>LEAD_ID</name>
+      </field>
+      <field>
+        <name>LEAD_DELETED</name>
       </field>
       <field>
         <name>LEAD_DESCRIPTION</name>
@@ -904,216 +917,7 @@ from the Accounts Table</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Drop Account Fields</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>LEAD_ACCOUNT_NAME</name>
-      </remove>
-      <remove>
-        <name>LEAD_ACCOUNT_DESCRIPTION</name>
-      </remove>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>LEAD_FULL_NAME</name>
-    <type>ConcatFields</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <separator> </separator>
-    <enclosure />
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding />
-    <endedLine />
-    <fileNameInField>N</fileNameInField>
-    <fileNameField />
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>file</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format />
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>LEAD_FIRST_NAME</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>LEAD_LAST_NAME</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <trim_type>both</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-      <targetFieldName>LEAD_FULL_NAME</targetFieldName>
-      <targetFieldLength>0</targetFieldLength>
-      <removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup Account Fields</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>S_ACCOUNTS</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>ACCOUNT_ID</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>name</name>
-        <rename>LEAD_ACCOUNT_NAME</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>description</name>
-        <rename>LEAD_ACCOUNT_DESCRIPTION</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remap Converted</name>
-    <type>ValueMapper</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <field_to_use>LEAD_CONVERTED</field_to_use>
-    <target_field />
-    <non_match_default />
-    <fields>
-      <field>
-        <source_value>1</source_value>
-        <target_value>Converted</target_value>
-      </field>
-      <field>
-        <source_value>0</source_value>
-        <target_value>Not Converted</target_value>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
+      <xloc>1408</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1137,6 +941,10 @@ from the Accounts Table</note>
       <field>
         <name>account_id</name>
         <rename>ACCOUNT_ID</rename>
+      </field>
+      <field>
+        <name>deleted</name>
+        <rename>LEAD_DELETED</rename>
       </field>
       <field>
         <name>description</name>
@@ -1234,6 +1042,252 @@ from the Accounts Table</note>
     </GUI>
   </step>
   <step>
+    <name>Drop Account Fields</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>LEAD_ACCOUNT_NAME</name>
+      </remove>
+      <remove>
+        <name>LEAD_ACCOUNT_DESCRIPTION</name>
+      </remove>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LEAD_FULL_NAME</name>
+    <type>ConcatFields</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <separator> </separator>
+    <enclosure />
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding />
+    <endedLine />
+    <fileNameInField>N</fileNameInField>
+    <fileNameField />
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>LEAD_FIRST_NAME</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>LEAD_LAST_NAME</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <trim_type>both</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>LEAD_FULL_NAME</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Account Fields</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>S_ACCOUNTS</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>ACCOUNT_ID</name>
+        <field>id</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>name</name>
+        <rename>LEAD_ACCOUNT_NAME</rename>
+        <default />
+        <type>String</type>
+      </value>
+      <value>
+        <name>description</name>
+        <rename>LEAD_ACCOUNT_DESCRIPTION</rename>
+        <default />
+        <type>String</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remap Converted</name>
+    <type>ValueMapper</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <field_to_use>LEAD_CONVERTED</field_to_use>
+    <target_field />
+    <non_match_default />
+    <fields>
+      <field>
+        <source_value>1</source_value>
+        <target_value>Converted</target_value>
+      </field>
+      <field>
+        <source_value>0</source_value>
+        <target_value>Not Converted</target_value>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remap Deleted Column</name>
+    <type>ValueMapper</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <field_to_use>LEAD_DELETED</field_to_use>
+    <target_field />
+    <non_match_default />
+    <fields>
+      <field>
+        <source_value>0</source_value>
+        <target_value>No</target_value>
+      </field>
+      <field>
+        <source_value>1</source_value>
+        <target_value>Yes</target_value>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Reorder &amp; Drop</name>
     <type>SelectValues</type>
     <description />
@@ -1324,7 +1378,7 @@ from the Accounts Table</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>1088</xloc>
       <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1483,7 +1537,7 @@ from the Accounts Table</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

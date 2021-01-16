@@ -498,11 +498,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drop / Rename</from>
-      <to>USER_FULL_NAME</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>USER_FULL_NAME</from>
       <to>If field value is null</to>
       <enabled>Y</enabled>
@@ -510,6 +505,16 @@
     <hop>
       <from>If field value is null</from>
       <to>D_USERS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop / Rename</from>
+      <to>Remap Deleted Column</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remap Deleted Column</from>
+      <to>USER_FULL_NAME</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -539,6 +544,11 @@
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
+      <field>
+        <name>USER_DELETED</name>
+        <lookup>USER_DELETED</lookup>
+        <update>Update</update>
+      </field>
       <field>
         <name>USER_NAME</name>
         <lookup>USER_NAME</lookup>
@@ -649,7 +659,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -669,6 +679,10 @@
       <field>
         <name>id</name>
         <rename>USER_ID</rename>
+      </field>
+      <field>
+        <name>deleted</name>
+        <rename>USER_DELETED</rename>
       </field>
       <field>
         <name>user_name</name>
@@ -879,7 +893,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1029,6 +1043,43 @@ FROM S_USERS
       <targetFieldLength>0</targetFieldLength>
       <removeSelectedFields>N</removeSelectedFields>
     </ConcatFields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remap Deleted Column</name>
+    <type>ValueMapper</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <field_to_use>USER_DELETED</field_to_use>
+    <target_field />
+    <non_match_default />
+    <fields>
+      <field>
+        <source_value>0</source_value>
+        <target_value>No</target_value>
+      </field>
+      <field>
+        <source_value>1</source_value>
+        <target_value>Yes</target_value>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
