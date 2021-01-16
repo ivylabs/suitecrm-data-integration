@@ -930,6 +930,11 @@ Alert((str2num(str2)));</jsScript_script>
         <rename>CASE_CLOSED_TK</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>CASE_DELETED</name>
+        <rename>CASE_DELETED</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <cluster_schema/>
     <remotesteps>
@@ -1148,7 +1153,28 @@ Alert((str2num(str2)));</jsScript_script>
         <name>status</name>
         <rename>CASE_STATUS</rename>
       </field>
+      <field>
+        <name>deleted</name>
+        <rename/>
+      </field>
       <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>deleted</name>
+        <rename>CASE_DELETED</rename>
+        <type>Integer</type>
+        <length>1</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
     </fields>
     <cluster_schema/>
     <remotesteps>
