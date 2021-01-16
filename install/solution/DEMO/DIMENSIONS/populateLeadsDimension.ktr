@@ -548,13 +548,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Trim Strings</from>
-      <to>Replace NULLS</to>
+      <from>Replace NULLS</from>
+      <to>D_LEADS</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace NULLS</from>
-      <to>D_LEADS</to>
+      <from>Trim Strings</from>
+      <to>LEAD_DELETED Constant</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LEAD_DELETED Constant</from>
+      <to>Replace NULLS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -792,6 +797,11 @@
         <to>DATE_TO</to>
       </date>
       <field>
+        <name>LEAD_DELETED</name>
+        <lookup>LEAD_DELETED</lookup>
+        <update>Update</update>
+      </field>
+      <field>
         <name>LEAD_DESCRIPTION</name>
         <lookup>LEAD_DESCRIPTION</lookup>
         <update>Update</update>
@@ -916,7 +926,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1760</xloc>
+      <xloc>1920</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1456,6 +1466,153 @@
     </GUI>
   </step>
   <step>
+    <name>Replace NULLS</name>
+    <type>IfNull</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>LEAD_ID</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_SALUTATION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_TITLE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_SOURCE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_SOURCE_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_STATUS</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_STATUS_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_ACCOUNT_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_ACCOUNT_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_OPPORTUNITY_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_OPPORTUNITY_AMOUNT</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_WEBSITE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_PRIMARY_ADDRESS_CITY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_PRIMARY_ADDRESS_COUNTRY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_PRIMARY_ADDRESS_STATE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_FULL_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_PRIMARY_ADDRESS_STREET</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>LEAD_PRIMARY_ADDRESS_POSTCODE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1760</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Set Converted Status</name>
     <type>ValueMapper</type>
     <description />
@@ -1898,8 +2055,8 @@
     </GUI>
   </step>
   <step>
-    <name>Replace NULLS</name>
-    <type>IfNull</type>
+    <name>LEAD_DELETED Constant</name>
+    <type>Constant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1908,126 +2065,17 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <replaceAllByValue />
-    <replaceAllMask />
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
     <fields>
       <field>
-        <name>LEAD_ID</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_DESCRIPTION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_SALUTATION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_TITLE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_SOURCE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_SOURCE_DESCRIPTION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_STATUS</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_STATUS_DESCRIPTION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_ACCOUNT_NAME</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_ACCOUNT_DESCRIPTION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_OPPORTUNITY_NAME</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_OPPORTUNITY_AMOUNT</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_WEBSITE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_PRIMARY_ADDRESS_CITY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_PRIMARY_ADDRESS_COUNTRY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_PRIMARY_ADDRESS_STATE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_FULL_NAME</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_PRIMARY_ADDRESS_STREET</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_PRIMARY_ADDRESS_POSTCODE</name>
-        <value>Not Set</value>
-        <mask />
+        <name>LEAD_DELETED</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>No</nullif>
+        <length>3</length>
+        <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
