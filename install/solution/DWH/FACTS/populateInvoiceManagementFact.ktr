@@ -789,7 +789,6 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
       </field>
       <field>
         <name>vat</name>
-        <rename/>
       </field>
       <field>
         <name>parent_type</name>
@@ -805,7 +804,6 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
       </field>
       <field>
         <name>group_id</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -853,59 +851,98 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
     <fields>
       <field>
         <name>INVOICE_LINE_ID</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_QUANTITY</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_COST_PRICE_AMOUNT</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_LIST_PRICE_AMOUNT</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_VALUE</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_AMOUNT</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_TYPE</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_UNIT_PRICE_AMOUNT</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_VAT_AMOUNT</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_AMOUNT</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_VAT_VALUE</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</name>
+        <rename/>
       </field>
       <field>
         <name>PRODUCT_TK</name>
+        <rename/>
       </field>
       <field>
         <name>BILLING_ACCOUNT_TK</name>
+        <rename/>
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_TK</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_DATE_TK</name>
+        <rename/>
       </field>
       <field>
         <name>INVOICE_DUE_DATE_TK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>INVOICE_DELETED</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>INVOICE_DELETED</name>
+        <rename>INVOICE_DELETED</rename>
+        <type>Integer</type>
+        <length>1</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -1032,6 +1069,11 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <name>INVOICE_DUE_DATE_TK</name>
         <rename>INVOICE_DUE_DATE_TK</rename>
         <update>Y</update>
+      </value>
+      <value>
+        <name>INVOICE_DELETED</name>
+        <rename>INVOICE_DELETED</rename>
+        <update>N</update>
       </value>
     </lookup>
     <cluster_schema/>
@@ -1277,6 +1319,12 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <rename>INVOICE_DUE_DATE</rename>
         <default/>
         <type>Date</type>
+      </value>
+      <value>
+        <name>deleted</name>
+        <rename>INVOICE_DELETED</rename>
+        <default/>
+        <type>Integer</type>
       </value>
     </lookup>
     <cluster_schema/>
