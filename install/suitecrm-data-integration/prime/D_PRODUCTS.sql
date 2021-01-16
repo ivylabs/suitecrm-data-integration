@@ -29,7 +29,7 @@ VALUES (
         ,'N/A'
         ,'Not Set'
         ,'Not Set'
-        ,0
+        ,'No'
         ,'Not Set'
         ,'Not Set'
         ,'Not Set'

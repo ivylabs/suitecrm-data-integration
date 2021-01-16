@@ -5,6 +5,7 @@ INSERT INTO D_OPPORTUNITIES
 	,DATE_FROM
 	,DATE_TO
 	,OPPORTUNITY_ID
+	,OPPORTUNITY_DELETED
 	,OPPORTUNITY_NAME
 	,OPPORTUNITY_CREATED_BY
 	,OPPORTUNITY_DESCRIPTION
@@ -19,6 +20,7 @@ VALUES (
         ,{ts '1900-01-01 00:00:00.'}
         ,{ts '2200-01-01 00:00:00.'}
         ,'N/A'
+	,'No'
         ,'Not Set'
         ,'Not Set'
         ,'Not Set'

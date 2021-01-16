@@ -5,6 +5,7 @@ INSERT INTO D_LEADS
 	,DATE_FROM
 	,DATE_TO
 	,LEAD_ID
+	,LEAD_DELETED
 	,LEAD_DESCRIPTION
 	,LEAD_SALUTATION
 	,LEAD_TITLE
@@ -31,6 +32,7 @@ VALUES (
 	{ts '1900-01-01 00:00:00.'}
 	,{ts '2200-01-01 00:00:00.'}
 	,'N/A'
+	,'No'
 	,'Not Set'
 	,'Not Set'
 	,'Not Set'
