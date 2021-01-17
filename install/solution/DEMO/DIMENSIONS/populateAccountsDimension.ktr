@@ -503,11 +503,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace User Names with IDs</from>
-      <to>Drop / Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Retrieve Addresses</from>
       <to>ACCOUNT_CREATED_BY_NAME</to>
       <enabled>Y</enabled>
@@ -525,6 +520,16 @@
     <hop>
       <from>Replace NULLS</from>
       <to>D_ACCOUNTS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace User Names with IDs</from>
+      <to>ACCOUNT_DELETED Constant</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ACCOUNT_DELETED Constant</from>
+      <to>Drop / Rename</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -698,6 +703,11 @@
         <to>DATE_TO</to>
       </date>
       <field>
+        <name>ACCOUNT_DELETED</name>
+        <lookup>ACCOUNT_DELETED</lookup>
+        <update>Update</update>
+      </field>
+      <field>
         <name>ACCOUNT_NAME</name>
         <lookup>ACCOUNT_NAME</lookup>
         <update>Update</update>
@@ -807,7 +817,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
+      <xloc>1472</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -825,58 +835,80 @@
     </partitioning>
     <fields>
       <field>
+        <name>ACCOUNT_DELETED</name>
+        <rename />
+      </field>
+      <field>
         <name>ACCOUNT_ID</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_NAME</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_DATE_CREATED</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_MODIFIED</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_CREATED_BY</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_DESCRIPTION</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_TYPE</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_INDUSTRY</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_CITY</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_COUNTRY</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_STATE</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_POSTCODE</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_BILLING_ADDRESS_STREET</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_CITY</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_STATE</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_SHIPPING_ADDRESS_STREET</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -888,7 +920,124 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
+      <xloc>1152</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace NULLS</name>
+    <type>IfNull</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>ACCOUNT_NAME</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_DESCRIPTION</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_TYPE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_INDUSTRY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_CITY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_COUNTRY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_POSTCODE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_STATE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_BILLING_ADDRESS_STREET</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_CITY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_STATE</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ACCOUNT_SHIPPING_ADDRESS_STREET</name>
+        <value>Not Set</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1312</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1251,8 +1400,8 @@
     </GUI>
   </step>
   <step>
-    <name>Replace NULLS</name>
-    <type>IfNull</type>
+    <name>ACCOUNT_DELETED Constant</name>
+    <type>Constant</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1261,96 +1410,17 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <replaceAllByValue />
-    <replaceAllMask />
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
     <fields>
       <field>
-        <name>ACCOUNT_NAME</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_DESCRIPTION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_TYPE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_INDUSTRY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_BILLING_ADDRESS_CITY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_BILLING_ADDRESS_COUNTRY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_BILLING_ADDRESS_POSTCODE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_BILLING_ADDRESS_STATE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_BILLING_ADDRESS_STREET</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_SHIPPING_ADDRESS_CITY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_SHIPPING_ADDRESS_COUNTRY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_SHIPPING_ADDRESS_POSTCODE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_SHIPPING_ADDRESS_STATE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ACCOUNT_SHIPPING_ADDRESS_STREET</name>
-        <value>Not Set</value>
-        <mask />
+        <name>ACCOUNT_DELETED</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>No</nullif>
+        <length>3</length>
+        <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
@@ -1362,7 +1432,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
+      <xloc>992</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

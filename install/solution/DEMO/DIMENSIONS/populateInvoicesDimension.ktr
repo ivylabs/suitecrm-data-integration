@@ -2,21 +2,21 @@
 <transformation>
   <info>
     <name>populateInvoicesDimension</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -41,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -125,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -207,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -349,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -401,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -414,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -437,16 +437,16 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server/>
+    <server />
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username/>
+    <username />
     <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -575,29 +575,29 @@
   <step>
     <name>Add MODIFIED_DATE</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>INVOICE_DATE_MODIFIED</name>
         <type>Date</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -613,29 +613,29 @@
   <step>
     <name>Add constants</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>INVOICE_NAME</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>INVOICE </nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -651,75 +651,75 @@
   <step>
     <name>Calculate Dates</name>
     <type>Calculator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <calculation>
       <field_name>INVOICE_DATE_ENTERED</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>DATE</field_a>
       <field_b>INVOICE_DATE_ENTERED_RAND</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>INVOICE_DATE</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>INVOICE_DATE_ENTERED</field_a>
       <field_b>INVOICE_DATE_RAND</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>DAYS</field_name>
       <calc_type>CONSTANT</calc_type>
       <field_a>30</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>Y</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>INVOICE_DUE_DATE</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>INVOICE_DATE</field_a>
       <field_b>DAYS</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -735,30 +735,30 @@
   <step>
     <name>Calculator</name>
     <type>Calculator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <calculation>
       <field_name>INVOICE_DATE_MODIFIED</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>INVOICE_DATE</field_a>
       <field_b>INVOICE_DATE_MODIFIED_RAND</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -774,13 +774,13 @@
   <step>
     <name>Concat Invoice Name</name>
     <type>ConcatFields</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <separator>-</separator>
     <enclosure>"</enclosure>
@@ -790,10 +790,10 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
-    <endedLine/>
+    <encoding />
+    <endedLine />
     <fileNameInField>N</fileNameInField>
-    <fileNameField/>
+    <fileNameField />
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
@@ -807,7 +807,7 @@
       <add_date>N</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
+      <date_time_format />
       <add_to_result_filenames>Y</add_to_result_filenames>
       <pad>N</pad>
       <fast_dump>N</fast_dump>
@@ -817,11 +817,11 @@
       <field>
         <name>INVOICE_NAME</name>
         <type>None</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
         <trim_type>both</trim_type>
         <length>-1</length>
         <precision>-1</precision>
@@ -829,11 +829,11 @@
       <field>
         <name>INVOICE_NAME_NUMBER_RAND</name>
         <type>None</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
         <trim_type>both</trim_type>
         <length>-1</length>
         <precision>-1</precision>
@@ -844,7 +844,7 @@
       <targetFieldLength>0</targetFieldLength>
       <removeSelectedFields>Y</removeSelectedFields>
     </ConcatFields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -860,13 +860,13 @@
   <step>
     <name>DATE</name>
     <type>ScriptValueMod</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -892,7 +892,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -908,15 +908,15 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>D_INVOICES</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_INVOICES</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -927,7 +927,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <lookup>INVOICE_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
@@ -958,22 +958,22 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </field>
       <return>
         <name>INVOICE_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>VERSION</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -989,13 +989,13 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>Drop / Rename</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1032,7 +1032,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1048,29 +1048,29 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>Invoice Deleted</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>INVOICE_DELETED</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Y</nullif>
-        <length>-1</length>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>Yes</nullif>
+        <length>3</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1086,29 +1086,29 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>Invoice Not Deleted</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>INVOICE_DELETED</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>N</nullif>
-        <length>-1</length>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>No</nullif>
+        <length>3</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1124,13 +1124,13 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>Invoice Paid?</name>
     <type>FilterRows</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <send_true_to>Calculator</send_true_to>
     <send_false_to>Add MODIFIED_DATE</send_false_to>
@@ -1139,7 +1139,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <negated>N</negated>
         <leftvalue>INVOICE_STATUS</leftvalue>
         <function>=</function>
-        <rightvalue/>
+        <rightvalue />
         <value>
           <name>constant</name>
           <type>String</type>
@@ -1147,11 +1147,11 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask/>
+          <mask />
         </value>
       </condition>
     </compare>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1167,13 +1167,13 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>Set MODIFIED_DATE</name>
     <type>SetValueField</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1181,7 +1181,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <replaceby>INVOICE_DATE</replaceby>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1197,13 +1197,13 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>TODAYS_DATE</name>
     <type>SystemInfo</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1211,7 +1211,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <type>system date (fixed)</type>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1227,22 +1227,22 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>generateInvoices</name>
     <type>TextFileInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <accept_filenames>N</accept_filenames>
     <passing_through_fields>N</passing_through_fields>
-    <accept_field/>
-    <accept_stepname/>
+    <accept_field />
+    <accept_stepname />
     <separator>,</separator>
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
+    <escapechar />
     <header>Y</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
@@ -1254,18 +1254,18 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     <nr_lines_doc_header>0</nr_lines_doc_header>
     <noempty>Y</noempty>
     <include>N</include>
-    <include_field/>
+    <include_field />
     <rownum>N</rownum>
     <rownumByFile>N</rownumByFile>
-    <rownum_field/>
+    <rownum_field />
     <format>mixed</format>
-    <encoding/>
+    <encoding />
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>${ETL_ROOT_DIR}/DEMO/DATA/D_INVOICES/generateInvoices.csv</name>
-      <filemask/>
-      <exclude_filemask/>
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
       <type>CSV</type>
@@ -1277,12 +1277,12 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       <field>
         <name>INVOICE_ID</name>
         <type>String</type>
-        <format/>
+        <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>36</length>
         <precision>-1</precision>
@@ -1297,7 +1297,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1312,7 +1312,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1322,12 +1322,12 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
       <field>
         <name>INVOICE_STATUS</name>
         <type>String</type>
-        <format/>
+        <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>9</length>
         <precision>-1</precision>
@@ -1342,7 +1342,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1357,7 +1357,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1372,7 +1372,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1387,7 +1387,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1398,29 +1398,29 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     <limit>0</limit>
     <error_ignored>N</error_ignored>
     <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
+    <file_error_field />
+    <file_error_message_field />
     <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
+    <error_count_field />
+    <error_fields_field />
+    <error_text_field />
+    <bad_line_files_destination_directory />
     <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
+    <error_line_files_destination_directory />
     <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
+    <line_number_files_destination_directory />
     <line_number_files_extension>line</line_number_files_extension>
     <date_format_lenient>Y</date_format_lenient>
     <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <cluster_schema/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1436,13 +1436,13 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
   <step>
     <name>is Status = Cancelled</name>
     <type>FilterRows</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <send_true_to>Invoice Deleted</send_true_to>
     <send_false_to>Invoice Not Deleted</send_false_to>
@@ -1451,7 +1451,7 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
         <negated>N</negated>
         <leftvalue>INVOICE_STATUS</leftvalue>
         <function>=</function>
-        <rightvalue/>
+        <rightvalue />
         <value>
           <name>constant</name>
           <type>String</type>
@@ -1459,11 +1459,11 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask/>
+          <mask />
         </value>
       </condition>
     </compare>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>

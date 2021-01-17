@@ -518,10 +518,77 @@
     </hop>
     <hop>
       <from>Add constants</from>
+      <to>OPPORTUNITY_DELETED Constant</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>OPPORTUNITY_DELETED Constant</from>
       <to>Drop / Rename</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_CREATED_BY</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_DESCRIPTION</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>OPPORTUNITY_NEXT_STEPS</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Concat ACCOUNT / OPPORTUNITY</name>
     <type>ConcatFields</type>
@@ -635,6 +702,11 @@
         <to>DATE_TO</to>
       </date>
       <field>
+        <name>OPPORTUNITY_DELETED</name>
+        <lookup>OPPORTUNITY_DELETED</lookup>
+        <update>Update</update>
+      </field>
+      <field>
         <name>OPPORTUNITY_TYPE</name>
         <lookup>OPPORTUNITY_TYPE</lookup>
         <update>Update</update>
@@ -694,7 +766,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -759,6 +831,10 @@
     </partitioning>
     <fields>
       <field>
+        <name>OPPORTUNITY_DELETED</name>
+        <rename />
+      </field>
+      <field>
         <name>ID</name>
         <rename>OPPORTUNITY_ID</rename>
       </field>
@@ -800,7 +876,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1054,13 +1130,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>1088</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add constants</name>
+    <name>OPPORTUNITY_DELETED Constant</name>
     <type>Constant</type>
     <description />
     <distribute>Y</distribute>
@@ -1072,38 +1148,14 @@
     </partitioning>
     <fields>
       <field>
-        <name>OPPORTUNITY_CREATED_BY</name>
+        <name>OPPORTUNITY_DELETED</name>
         <type>String</type>
         <format />
         <currency />
         <decimal />
         <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>OPPORTUNITY_DESCRIPTION</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>OPPORTUNITY_NEXT_STEPS</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
+        <nullif>No</nullif>
+        <length>3</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
@@ -1116,7 +1168,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>768</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
