@@ -2,21 +2,21 @@
 <transformation>
   <info>
     <name>populateCampaignManagementFact</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -41,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -125,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -207,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -349,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -401,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -414,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -437,16 +437,16 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server/>
+    <server />
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username/>
+    <username />
     <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -499,11 +499,6 @@
     <hop>
       <from>Drop / Rename</from>
       <to>Set Default Value</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Set Default Value</from>
-      <to>F_CAMPAIGN_MANAGEMENT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -566,26 +561,36 @@
       <to>Stream lookup</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Set Default Value</from>
+      <to>CAMPAIGN_DELETED Constant</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CAMPAIGN_DELETED Constant</from>
+      <to>F_CAMPAIGN_MANAGEMENT</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add constants</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>CAMPAIGN_CREATED_BY</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>Not Set</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -594,10 +599,10 @@
       <field>
         <name>CAMPAIGN_DELETED</name>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -606,10 +611,10 @@
       <field>
         <name>CAMPAIGN_TRACKER_KEY</name>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -618,10 +623,10 @@
       <field>
         <name>CAMPAIGN_TRACKER_COUNT</name>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -630,10 +635,10 @@
       <field>
         <name>CAMPAIGN_REFER_URL</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>Not Set</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -642,10 +647,10 @@
       <field>
         <name>CAMPAIGN_TRACKER_TEXT</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>Not Set</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -654,10 +659,10 @@
       <field>
         <name>CAMPAIGN_OBJECTIVE</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>Not Set</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -666,10 +671,10 @@
       <field>
         <name>CAMPAIGN_CONTENT</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>Not Set</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -678,17 +683,17 @@
       <field>
         <name>CAMPAIGN_FREQUENCY</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>Not Set</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -704,13 +709,13 @@
   <step>
     <name>Assign ASSIGNED_USER_TK</name>
     <type>ScriptValueMod</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -739,7 +744,7 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -755,15 +760,15 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
   <step>
     <name>CAMPAIGN_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_CAMPAIGNS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -774,28 +779,28 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
         <lookup>CAMPAIGN_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
       <return>
         <name>CAMPAIGN_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -811,30 +816,30 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
   <step>
     <name>Calculate Dates</name>
     <type>Calculator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <calculation>
       <field_name>DATE_CREATED</field_name>
       <calc_type>ADD_DAYS</calc_type>
       <field_a>DATE</field_a>
       <field_b>LEAD_CREATED_TK_RAND</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -850,22 +855,22 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
   <step>
     <name>Campaign Rows</name>
     <type>DataGrid</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>CAMPAIGN_ID</name>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -873,10 +878,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_NAME</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -885,9 +890,9 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
         <name>CAMPAIGN_START_DATE</name>
         <type>Date</type>
         <format>yyyy/MM/dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -896,9 +901,9 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
         <name>CAMPAIGN_END_DATE</name>
         <type>Date</type>
         <format>yyyy/MM/dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -906,10 +911,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_STATUS</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -917,10 +922,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_TYPE</name>
         <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -928,10 +933,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_IMPRESSIONS</name>
         <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -939,10 +944,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_BUDGET</name>
         <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -950,10 +955,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_EXPECTED_COST</name>
         <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -961,10 +966,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_ACTUAL_COST</name>
         <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -972,10 +977,10 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
       <field>
         <name>CAMPAIGN_EXPECTED_REVENUE</name>
         <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -1048,7 +1053,7 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
         <item>5000</item>
       </line>
     </data>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1064,13 +1069,13 @@ var ASSIGNED_USER_TK = generator.nextInt(20);</jsScript_script>
   <step>
     <name>DATE</name>
     <type>ScriptValueMod</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -1096,7 +1101,7 @@ DATE.setDate(DATE.getDate()-700);</jsScript_script>
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1112,13 +1117,13 @@ DATE.setDate(DATE.getDate()-700);</jsScript_script>
   <step>
     <name>DATE TKs</name>
     <type>ScriptValueMod</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -1142,7 +1147,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1158,13 +1163,13 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>Drop / Rename</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1196,7 +1201,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1212,16 +1217,16 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>F_CAMPAIGN_MANAGEMENT</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
-    <schema/>
+    <schema />
     <table>F_CAMPAIGN_MANAGEMENT</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
@@ -1229,14 +1234,14 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>CAMPAIGN_ID</column_name>
@@ -1274,8 +1279,12 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <column_name>CAMPAIGN_EXPECTED_REVENUE</column_name>
         <stream_name>CAMPAIGN_EXPECTED_REVENUE</stream_name>
       </field>
+      <field>
+        <column_name>CAMPAIGN_DELETED</column_name>
+        <stream_name>CAMPAIGN_DELETED</stream_name>
+      </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1283,7 +1292,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
+      <xloc>1760</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1291,24 +1300,24 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>Fix ASSIGNED_USER_TK</name>
     <type>ValueMapper</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <field_to_use>ASSIGNED_USER_TK</field_to_use>
-    <target_field/>
-    <non_match_default/>
+    <target_field />
+    <non_match_default />
     <fields>
       <field>
         <source_value>0</source_value>
         <target_value>1</target_value>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1324,21 +1333,21 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>Min / Max Campaign Date TKs</name>
     <type>GroupBy</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <all_rows>N</all_rows>
     <ignore_aggregate>N</ignore_aggregate>
-    <field_ignore/>
+    <field_ignore />
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>grp</prefix>
     <add_linenr>N</add_linenr>
-    <linenr_fieldname/>
+    <linenr_fieldname />
     <give_back_row>N</give_back_row>
     <group>
       <field>
@@ -1350,16 +1359,16 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <aggregate>CAMPAIGN_START_DATE_TK</aggregate>
         <subject>LEAD_CREATED_TK</subject>
         <type>MIN</type>
-        <valuefield/>
+        <valuefield />
       </field>
       <field>
         <aggregate>CAMPAIGN_END_DATE_TK</aggregate>
         <subject>LEAD_CREATED_TK</subject>
         <type>MAX</type>
-        <valuefield/>
+        <valuefield />
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1375,16 +1384,16 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>Set Default Value</name>
     <type>IfNull</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <replaceAllByValue/>
-    <replaceAllMask/>
+    <replaceAllByValue />
+    <replaceAllMask />
     <selectFields>Y</selectFields>
     <selectValuesType>N</selectValuesType>
     <setEmptyStringAll>N</setEmptyStringAll>
@@ -1394,41 +1403,41 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
       <field>
         <name>CAMPAIGN_START_DATE_TK</name>
         <value>22000101</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>CAMPAIGN_END_DATE_TK</name>
         <value>22000101</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>CAMPAIGN_BUDGET</name>
         <value>0.0</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>CAMPAIGN_ACTUAL_COST</name>
         <value>0.0</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>CAMPAIGN_EXPECTED_COST</name>
         <value>0.0</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>CAMPAIGN_EXPECTED_REVENUE</name>
         <value>0.0</value>
-        <mask/>
+        <mask />
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1444,20 +1453,20 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>Sort rows</name>
     <type>SortRows</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
     <sort_size>1000000</sort_size>
-    <free_memory/>
+    <free_memory />
     <compress>N</compress>
-    <compress_variable/>
+    <compress_variable />
     <unique_rows>N</unique_rows>
     <fields>
       <field>
@@ -1469,7 +1478,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <presorted>N</presorted>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1485,13 +1494,13 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>Stream lookup</name>
     <type>StreamLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <from>Min / Max Campaign Date TKs</from>
     <input_sorted>N</input_sorted>
@@ -1506,17 +1515,17 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
       <value>
         <name>CAMPAIGN_START_DATE_TK</name>
         <rename>CAMPAIGN_START_DATE_TK</rename>
-        <default/>
+        <default />
         <type>Integer</type>
       </value>
       <value>
         <name>CAMPAIGN_END_DATE_TK</name>
         <rename>CAMPAIGN_END_DATE_TK</rename>
-        <default/>
+        <default />
         <type>Integer</type>
       </value>
     </lookup>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1532,13 +1541,13 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>TODAYS_DATE</name>
     <type>SystemInfo</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1546,7 +1555,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <type>system date (fixed)</type>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1562,22 +1571,22 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
   <step>
     <name>generateLeadManagement</name>
     <type>TextFileInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <accept_filenames>N</accept_filenames>
     <passing_through_fields>N</passing_through_fields>
-    <accept_field/>
-    <accept_stepname/>
+    <accept_field />
+    <accept_stepname />
     <separator>,</separator>
     <enclosure>"</enclosure>
     <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
+    <escapechar />
     <header>Y</header>
     <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
@@ -1589,18 +1598,18 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
     <nr_lines_doc_header>0</nr_lines_doc_header>
     <noempty>Y</noempty>
     <include>N</include>
-    <include_field/>
+    <include_field />
     <rownum>N</rownum>
     <rownumByFile>N</rownumByFile>
-    <rownum_field/>
+    <rownum_field />
     <format>mixed</format>
-    <encoding/>
+    <encoding />
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>${ETL_ROOT_DIR}/DEMO/DATA/F_LEAD_MANAGEMENT/generateLeadManagement.csv</name>
-      <filemask/>
-      <exclude_filemask/>
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
       <type>CSV</type>
@@ -1612,12 +1621,12 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
       <field>
         <name>LEAD_ID</name>
         <type>String</type>
-        <format/>
+        <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>36</length>
         <precision>-1</precision>
@@ -1632,7 +1641,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1647,7 +1656,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1662,7 +1671,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1677,7 +1686,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
         <decimal>.</decimal>
         <group>,</group>
         <nullif>-</nullif>
-        <ifnull/>
+        <ifnull />
         <position>-1</position>
         <length>15</length>
         <precision>0</precision>
@@ -1688,29 +1697,29 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
     <limit>0</limit>
     <error_ignored>N</error_ignored>
     <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
+    <file_error_field />
+    <file_error_message_field />
     <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
+    <error_count_field />
+    <error_fields_field />
+    <error_text_field />
+    <bad_line_files_destination_directory />
     <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
+    <error_line_files_destination_directory />
     <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
+    <line_number_files_destination_directory />
     <line_number_files_extension>line</line_number_files_extension>
     <date_format_lenient>Y</date_format_lenient>
     <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <cluster_schema/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1720,6 +1729,44 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
     <GUI>
       <xloc>128</xloc>
       <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CAMPAIGN_DELETED Constant</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>CAMPAIGN_DELETED</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1568</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
