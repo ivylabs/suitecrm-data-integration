@@ -23,7 +23,7 @@ VALUES (
         ,'Not Set'
         ,0
         ,'Not Set'
-        ,0
+        ,'No'
         ,'Not Set'
         ,0
 );
