@@ -2,21 +2,21 @@
 <transformation>
   <info>
     <name>populateCaseManagementFact</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -41,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -125,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -207,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -349,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -401,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -414,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -458,16 +458,16 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server/>
+    <server />
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username/>
+    <username />
     <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -581,13 +581,13 @@
   <step>
     <name>Case Closed?</name>
     <type>FilterRows</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <send_true_to>Set DATE_TO</send_true_to>
     <send_false_to>Todays Date</send_false_to>
@@ -596,7 +596,7 @@
         <negated>N</negated>
         <leftvalue>CASE_STATUS</leftvalue>
         <function>=</function>
-        <rightvalue/>
+        <rightvalue />
         <value>
           <name>constant</name>
           <type>String</type>
@@ -604,11 +604,11 @@
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask/>
+          <mask />
         </value>
       </condition>
     </compare>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -624,30 +624,30 @@
   <step>
     <name>Case Duration</name>
     <type>Calculator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <calculation>
       <field_name>CASE_DURATION</field_name>
       <calc_type>DATE_DIFF</calc_type>
       <field_a>DATE_TO</field_a>
       <field_b>DATE_CREATED</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -663,13 +663,13 @@
   <step>
     <name>Convert to Timestamp</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -679,19 +679,19 @@
         <type>Timestamp</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask />
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
+        <date_format_locale />
+        <date_format_timezone />
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
       </meta>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -707,29 +707,29 @@
   <step>
     <name>DATE_CLOSED</name>
     <type>Constant</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>DATE_CLOSED</name>
         <type>Timestamp</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
         <nullif>2099-01-01 00:00:00</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -745,13 +745,13 @@
   <step>
     <name>Date TKs</name>
     <type>ScriptValueMod</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -859,7 +859,7 @@ Alert((str2num(str2)));</jsScript_script>
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -875,25 +875,25 @@ Alert((str2num(str2)));</jsScript_script>
   <step>
     <name>F_CASE_MANAGEMENT</name>
     <type>InsertUpdate</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema/>
+      <schema />
       <table>F_CASE_MANAGEMENT</table>
       <key>
         <name>CASE_ID</name>
         <field>CASE_ID</field>
         <condition>=</condition>
-        <name2/>
+        <name2 />
       </key>
       <value>
         <name>CASE_ID</name>
@@ -936,7 +936,7 @@ Alert((str2num(str2)));</jsScript_script>
         <update>Y</update>
       </value>
     </lookup>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -952,15 +952,15 @@ Alert((str2num(str2)));</jsScript_script>
   <step>
     <name>Lookup ACCOUNT_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_ACCOUNTS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -971,28 +971,28 @@ Alert((str2num(str2)));</jsScript_script>
         <lookup>ACCOUNT_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>date_from</from>
         <to>date_to</to>
       </date>
       <return>
         <name>ACCOUNT_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1008,15 +1008,15 @@ Alert((str2num(str2)));</jsScript_script>
   <step>
     <name>Lookup ASSIGNED_USER_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_USERS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -1027,7 +1027,7 @@ Alert((str2num(str2)));</jsScript_script>
         <lookup>USER_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>date_from</from>
         <to>date_to</to>
       </date>
@@ -1039,16 +1039,16 @@ Alert((str2num(str2)));</jsScript_script>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1064,15 +1064,15 @@ Alert((str2num(str2)));</jsScript_script>
   <step>
     <name>Lookup CASE_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>N</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_CASES</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -1083,28 +1083,28 @@ Alert((str2num(str2)));</jsScript_script>
         <lookup>CASE_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>date_from</from>
         <to>date_to</to>
       </date>
       <return>
         <name>CASE_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1120,13 +1120,13 @@ Alert((str2num(str2)));</jsScript_script>
   <step>
     <name>Prepare Fields</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1155,7 +1155,6 @@ Alert((str2num(str2)));</jsScript_script>
       </field>
       <field>
         <name>deleted</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1164,19 +1163,19 @@ Alert((str2num(str2)));</jsScript_script>
         <type>Integer</type>
         <length>1</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask />
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
+        <date_format_locale />
+        <date_format_timezone />
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
       </meta>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1192,13 +1191,13 @@ Alert((str2num(str2)));</jsScript_script>
   <step>
     <name>S_CASES</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <sql>SELECT
@@ -1222,11 +1221,11 @@ Alert((str2num(str2)));</jsScript_script>
 FROM S_CASES
 </sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1242,32 +1241,42 @@ FROM S_CASES
   <step>
     <name>Set DATE_TO</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
         <name>CASE_ID</name>
+        <rename />
       </field>
       <field>
         <name>DATE_CREATED</name>
+        <rename />
       </field>
       <field>
         <name>DATE_MODIFIED</name>
+        <rename />
       </field>
       <field>
         <name>ASSIGNED_USER_ID</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_ID</name>
+        <rename />
       </field>
       <field>
         <name>CASE_STATUS</name>
+        <rename />
+      </field>
+      <field>
+        <name>CASE_DELETED</name>
+        <rename />
       </field>
       <field>
         <name>DATE_MODIFIED</name>
@@ -1279,7 +1288,7 @@ FROM S_CASES
       </field>
       <select_unspecified>Y</select_unspecified>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1295,13 +1304,13 @@ FROM S_CASES
   <step>
     <name>Todays Date</name>
     <type>SystemInfo</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -1309,7 +1318,7 @@ FROM S_CASES
         <type>system date (fixed)</type>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
