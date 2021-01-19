@@ -851,79 +851,60 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
     <fields>
       <field>
         <name>INVOICE_LINE_ID</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_QUANTITY</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_COST_PRICE_AMOUNT</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_LIST_PRICE_AMOUNT</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_VALUE</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_AMOUNT</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_DISCOUNT_TYPE</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_UNIT_PRICE_AMOUNT</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_VAT_AMOUNT</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_AMOUNT</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_VAT_VALUE</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</name>
-        <rename/>
       </field>
       <field>
         <name>PRODUCT_TK</name>
-        <rename/>
       </field>
       <field>
         <name>BILLING_ACCOUNT_TK</name>
-        <rename/>
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_TK</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_DATE_TK</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_DUE_DATE_TK</name>
-        <rename/>
       </field>
       <field>
         <name>INVOICE_DELETED</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1073,7 +1054,7 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
       <value>
         <name>INVOICE_DELETED</name>
         <rename>INVOICE_DELETED</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
     </lookup>
     <cluster_schema/>
