@@ -552,16 +552,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set MODIFIED_DATE</from>
-      <to>D_INVOICES</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Calculator</from>
-      <to>D_INVOICES</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>generateInvoices</from>
       <to>Add constants</to>
       <enabled>Y</enabled>
@@ -569,6 +559,21 @@
     <hop>
       <from>Add constants</from>
       <to>Concat Invoice Name</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Calculator</from>
+      <to>Trim Strings</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set MODIFIED_DATE</from>
+      <to>Trim Strings</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Trim Strings</from>
+      <to>D_INVOICES</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1473,6 +1478,84 @@ DATE.setDate(DATE.getDate()-760);</jsScript_script>
     <GUI>
       <xloc>1248</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Trim Strings</name>
+    <type>StringOperations</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>INVOICE_ID</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>INVOICE_NAME</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>INVOICE_STATUS</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>INVOICE_DELETED</in_stream_name>
+        <out_stream_name />
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char />
+        <pad_len />
+        <init_cap>no</init_cap>
+        <mask_xml>none</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1728</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
