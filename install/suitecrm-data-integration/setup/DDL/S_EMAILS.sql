@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS S_EMAILS;
+CREATE TABLE S_EMAILS (
+    id VARCHAR(36) DEFAULT NULL,
+    name VARCHAR(255) DEFAULT NULL,
+    date_entered DATETIME DEFAULT NULL,
+    date_modified DATETIME DEFAULT NULL,
+    modified_user_id VARCHAR(36) DEFAULT NULL,
+    created_by VARCHAR(36) DEFAULT NULL,
+    deleted CHAR(1) DEFAULT NULL,
+    assigned_user_id VARCHAR(36) DEFAULT NULL,
+    orphaned CHAR(1) DEFAULT NULL,
+    last_synced DATETIME DEFAULT NULL,
+    date_sent_received DATETIME DEFAULT NULL,
+    message_id VARCHAR(255) DEFAULT NULL,
+    type VARCHAR(100) DEFAULT NULL,
+    status VARCHAR(100) DEFAULT NULL,
+    flagged CHAR(1) DEFAULT NULL,
+    reply_to_status CHAR(1) DEFAULT NULL,
+    intent VARCHAR(100) DEFAULT NULL,
+    mailbox_id VARCHAR(36) DEFAULT NULL,
+    parent_type VARCHAR(100) DEFAULT NULL,
+    parent_id VARCHAR(36) DEFAULT NULL,
+    uid VARCHAR(255) DEFAULT NULL,
+    category_id VARCHAR(100) DEFAULT NULL
+);
