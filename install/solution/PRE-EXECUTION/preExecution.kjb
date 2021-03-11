@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>preExecution</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2017/11/01 22:05:15.148</created_date>
@@ -13,16 +13,16 @@
     </parameters>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server />
+    <server/>
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username />
+    <username/>
     <password>Encrypted </password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -69,12 +69,12 @@
   <slaveservers>
     </slaveservers>
   <job-log-table>
-    <connection />
-    <schema />
-    <table />
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -182,10 +182,10 @@
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -273,10 +273,10 @@
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -339,11 +339,11 @@
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>START</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
       <start>Y</start>
       <dummy>N</dummy>
@@ -363,7 +363,7 @@
     </entry>
     <entry>
       <name>Success</name>
-      <description />
+      <description/>
       <type>SUCCESS</type>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -373,9 +373,9 @@
     </entry>
     <entry>
       <name>Abort job</name>
-      <description />
+      <description/>
       <type>ABORT</type>
-      <message />
+      <message/>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -384,11 +384,11 @@
     </entry>
     <entry>
       <name>sendEmail systemCheckError</name>
-      <description />
+      <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>sendEmail</transname>
       <directory>${Internal.Entry.Current.Directory}/../UTILITY</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -397,13 +397,13 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -414,7 +414,7 @@
         <pass_all_parameters>Y</pass_all_parameters>
         <parameter>
           <name>emailID</name>
-          <stream_name />
+          <stream_name/>
           <value>systemCheckError</value>
         </parameter>
       </parameters>
@@ -426,11 +426,11 @@
     </entry>
     <entry>
       <name>setSystemVariables</name>
-      <description />
+      <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>setSystemVariables</transname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -439,13 +439,13 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -463,13 +463,13 @@
     </entry>
     <entry>
       <name>Pre Execution</name>
-      <description />
+      <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>-------------------------------------------------
 Pre Execution
 -------------------------------------------------</logmessage>
       <loglevel>Basic</loglevel>
-      <logsubject />
+      <logsubject/>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -478,10 +478,10 @@ Pre Execution
     </entry>
     <entry>
       <name>Historical Load?</name>
-      <description />
+      <description/>
       <type>EVAL_TABLE_CONTENT</type>
       <connection>SuiteCRMAnalytics</connection>
-      <schemaname />
+      <schemaname/>
       <tablename>CONTROL</tablename>
       <success_condition>rows_count_greater</success_condition>
       <limit>0</limit>
@@ -498,82 +498,102 @@ Pre Execution
     </entry>
     <entry>
       <name>Truncate DWH</name>
-      <description />
+      <description/>
       <type>TRUNCATE_TABLES</type>
       <connection>SuiteCRMAnalytics</connection>
       <arg_from_previous>N</arg_from_previous>
       <fields>
         <field>
           <name>D_DATE</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_LEADS</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_CAMPAIGNS</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_OPPORTUNITIES</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_ACCOUNTS</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_USERS</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_CASES</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_INVOICES</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>D_PRODUCTS</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_CASE_MANAGEMENT</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_INVOICE_MANAGEMENT</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_OPPORTUNITY_MANAGEMENT</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_LEAD_MANAGEMENT</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_LEAD_TRACKING</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_OPPORTUNITY_TRACKING</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_SALES</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>F_CAMPAIGN_MANAGEMENT</name>
-          <schemaname />
+          <schemaname/>
         </field>
         <field>
           <name>CUSTOM_FIELDS</name>
-          <schemaname />
+          <schemaname/>
+        </field>
+        <field>
+          <name>S_CALLS</name>
+          <schemaname/>
+        </field>
+        <field>
+          <name>S_MEETINGS</name>
+          <schemaname/>
+        </field>
+        <field>
+          <name>S_EMAILS</name>
+          <schemaname/>
+        </field>
+        <field>
+          <name>D_ACTIVITIES</name>
+          <schemaname/>
+        </field>
+        <field>
+          <name>F_ACTIVITIES</name>
+          <schemaname/>
         </field>
       </fields>
       <parallel>N</parallel>
@@ -584,7 +604,7 @@ Pre Execution
     </entry>
     <entry>
       <name>Reloading Data Warehouse</name>
-      <description />
+      <description/>
       <type>WRITE_TO_LOG</type>
       <logmessage>----------------------------------------------------------------
 
@@ -592,7 +612,7 @@ Reloading Date Warehouse!
 
 ----------------------------------------------------------------</logmessage>
       <loglevel>Basic</loglevel>
-      <logsubject />
+      <logsubject/>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -601,14 +621,14 @@ Reloading Date Warehouse!
     </entry>
     <entry>
       <name>Reset Control Variables</name>
-      <description />
+      <description/>
       <type>SQL</type>
       <sql>UPDATE CONTROL SET PROPERTY_VALUE = '1970-01-01 00:00:00.000' WHERE PROPERTY_NAME = 'ETL_EXTRACT_DATA_FROM';
 UPDATE CONTROL SET PROPERTY_VALUE = '' WHERE PROPERTY_NAME = 'ETL_EXTRACT_DATA_TO';
 UPDATE CONTROL SET PROPERTY_VALUE = '0' WHERE PROPERTY_NAME = 'HISTORICAL_LOAD';</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
-      <sqlfilename />
+      <sqlfilename/>
       <sendOneStatement>F</sendOneStatement>
       <connection>SuiteCRMAnalytics</connection>
       <parallel>N</parallel>
@@ -619,25 +639,25 @@ UPDATE CONTROL SET PROPERTY_VALUE = '0' WHERE PROPERTY_NAME = 'HISTORICAL_LOAD';
     </entry>
     <entry>
       <name>primeDimensions</name>
-      <description />
+      <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
-      <trans_object_id />
+      <trans_object_id/>
       <filename>${Internal.Entry.Current.Directory}/primeDimensions.ktr</filename>
-      <transname />
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
