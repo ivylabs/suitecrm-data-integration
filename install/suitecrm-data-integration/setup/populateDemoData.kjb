@@ -538,7 +538,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>128</xloc>
-      <yloc>608</yloc>
+      <yloc>576</yloc>
     </entry>
     <entry>
       <name>populateCampaignsDimension</name>
@@ -585,7 +585,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>800</xloc>
-      <yloc>352</yloc>
+      <yloc>416</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -595,7 +595,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>352</xloc>
-      <yloc>608</yloc>
+      <yloc>576</yloc>
     </entry>
     <entry>
       <name>populateDateDimension</name>
@@ -687,7 +687,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1920</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>populateProductsDimension</name>
@@ -749,7 +749,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>352</xloc>
-      <yloc>448</yloc>
+      <yloc>416</yloc>
     </entry>
     <entry>
       <name>LOG END ABORT</name>
@@ -762,7 +762,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1024</xloc>
-      <yloc>352</yloc>
+      <yloc>416</yloc>
     </entry>
     <entry>
       <name>SuiteCRM ETL Sucess </name>
@@ -775,7 +775,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>128</xloc>
-      <yloc>448</yloc>
+      <yloc>416</yloc>
     </entry>
     <entry>
       <name>populateLeadManagementFact</name>
@@ -811,7 +811,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1472</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>populateLeadTrackingFact</name>
@@ -847,7 +847,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1248</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>updateLeadManagementFact</name>
@@ -883,7 +883,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1024</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>populateOpportunityTrackingFact</name>
@@ -919,7 +919,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>800</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>updateOpportunityManagementFact</name>
@@ -955,7 +955,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>576</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>populateOpportunitiesDimension.</name>
@@ -1027,7 +1027,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>1696</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>populateInvoicesDimension</name>
@@ -1099,7 +1099,7 @@ Populating Demo Data Success!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>2144</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>primeDimension</name>
@@ -1177,6 +1177,10 @@ Populating Demo Data Success!
           <schemaname />
         </field>
         <field>
+          <name>D_ACTIVITIES</name>
+          <schemaname />
+        </field>
+        <field>
           <name>F_CASE_MANAGEMENT</name>
           <schemaname />
         </field>
@@ -1198,6 +1202,10 @@ Populating Demo Data Success!
         </field>
         <field>
           <name>F_OPPORTUNITY_TRACKING</name>
+          <schemaname />
+        </field>
+        <field>
+          <name>F_ACTIVITIES</name>
           <schemaname />
         </field>
       </fields>
@@ -1269,7 +1277,7 @@ Truncating Failed!
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>352</xloc>
-      <yloc>768</yloc>
+      <yloc>928</yloc>
     </entry>
     <entry>
       <name>populateCampaignManagementFact</name>
@@ -1278,6 +1286,78 @@ Truncating Failed!
       <specification_method>filename</specification_method>
       <trans_object_id />
       <filename>${ETL_ROOT_DIR}/DEMO/FACTS/populateCampaignManagementFact.ktr</filename>
+      <transname />
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name />
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>128</xloc>
+      <yloc>928</yloc>
+    </entry>
+    <entry>
+      <name>populateActivitiesDimension</name>
+      <description />
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id />
+      <filename>${ETL_ROOT_DIR}/DEMO/DIMENSIONS/populateActivitiesDimension.ktr</filename>
+      <transname />
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile />
+      <logext />
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name />
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>2144</xloc>
+      <yloc>768</yloc>
+    </entry>
+    <entry>
+      <name>populateActivitiesFact</name>
+      <description />
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id />
+      <filename>${ETL_ROOT_DIR}/DEMO/FACTS/populateActivitiesFact.ktr</filename>
       <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -1634,15 +1714,6 @@ Truncating Failed!
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>populateOpportunitiesDimension.</from>
-      <to>populateInvoiceManagement</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>populateInvoiceManagement</from>
       <to>populateCaseManagementFact</to>
       <from_nr>0</from_nr>
@@ -1760,7 +1831,34 @@ Truncating Failed!
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>populateOpportunitiesDimension.</from>
+      <to>populateActivitiesDimension</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>populateActivitiesDimension</from>
+      <to>populateInvoiceManagement</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>populateCampaignManagementFact</from>
+      <to>populateActivitiesFact</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>populateActivitiesFact</from>
       <to>Populating demo data success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1774,7 +1872,7 @@ Truncating Failed!
       <note>Dont forget to ADD/REMOVE 
 'fail if file exists'</note>
       <xloc>64</xloc>
-      <yloc>352</yloc>
+      <yloc>320</yloc>
       <width>172</width>
       <heigth>44</heigth>
       <fontname>Noto Sans</fontname>
