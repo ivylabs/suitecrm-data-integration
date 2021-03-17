@@ -606,6 +606,40 @@
     </GUI>
   </step>
   <step>
+    <name>ACTIVITY_TK</name>
+    <type>Sequence</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <valuename>ACTIVITY_TK</valuename>
+    <use_database>N</use_database>
+    <connection />
+    <schema />
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name />
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Binary to Normal</name>
     <type>SelectValues</type>
     <description />
@@ -619,23 +653,18 @@
     <fields>
       <field>
         <name>ACTIVITY_DURATION</name>
-        <rename />
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
-        <rename />
       </field>
       <field>
         <name>ACTIVITY_PARENT</name>
-        <rename />
       </field>
       <field>
         <name>ACTIVITY_PARENT_OPS</name>
-        <rename />
       </field>
       <field>
         <name>ACTIVITY_DATE_TK_RAND</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1180,7 +1209,7 @@ Alert((str2num(str2)));</jsScript_script>
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>ACTIVITY_DATE_TK_RAND</name>
+        <name>ACTIVITY_TK</name>
         <field>ACTIVITY_TK</field>
       </key>
       <value>
@@ -1406,40 +1435,6 @@ Alert((str2num(str2)));</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>160</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ACTIVITY_TK</name>
-    <type>Sequence</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <valuename>ACTIVITY_TK</valuename>
-    <use_database>N</use_database>
-    <connection />
-    <schema />
-    <seqname>SEQ_</seqname>
-    <use_counter>Y</use_counter>
-    <counter_name />
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
