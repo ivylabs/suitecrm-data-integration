@@ -551,11 +551,6 @@ from the Accounts Table</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Reorder &amp; Drop</from>
-      <to>Replace NULLS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Drop / Rename</from>
       <to>Remap Converted</to>
       <enabled>Y</enabled>
@@ -578,6 +573,11 @@ from the Accounts Table</note>
     <hop>
       <from>Remap Deleted Column</from>
       <to>LEAD_FULL_NAME</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Reorder &amp; Drop</from>
+      <to>Replace NULLS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1301,72 +1301,99 @@ from the Accounts Table</note>
     <fields>
       <field>
         <name>LEAD_ID</name>
+        <rename />
       </field>
       <field>
         <name>ACCOUNT_ID</name>
+        <rename />
+      </field>
+      <field>
+        <name>LEAD_DELETED</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_DESCRIPTION</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_SALUTATION</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_TITLE</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_SOURCE</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_SOURCE_DESCRIPTION</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_STATUS</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_STATUS_DESCRIPTION</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_ACCOUNT_NAME</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_ACCOUNT_DESCRIPTION</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_OPPORTUNITY_NAME</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_OPPORTUNITY_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_WEBSITE</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_PRIMARY_ADDRESS_CITY</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_PRIMARY_ADDRESS_COUNTRY</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_PRIMARY_ADDRESS_STATE</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_FIRST_NAME</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_LAST_NAME</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_PRIMARY_ADDRESS_STREET</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_PRIMARY_ADDRESS_POSTCODE</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_CONVERTED</name>
+        <rename />
       </field>
       <field>
         <name>LEAD_FULL_NAME</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
