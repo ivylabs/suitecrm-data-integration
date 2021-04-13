@@ -2,21 +2,21 @@
 <transformation>
   <info>
     <name>populateInvoiceManagementFact</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -41,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -125,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -207,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -273,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -349,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -401,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -414,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -458,16 +458,16 @@
   </notepads>
   <connection>
     <name>SuiteCRMAnalytics</name>
-    <server/>
+    <server />
     <type>MYSQL</type>
     <access>JNDI</access>
     <database>SuiteCRMAnalytics</database>
     <port>1521</port>
-    <username/>
+    <username />
     <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -553,11 +553,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ASSIGNED_USER_TK</from>
-      <to>Date TKs - NONE DEFINED</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Date TKs - NONE DEFINED</from>
       <to>Drop Fields</to>
       <enabled>Y</enabled>
@@ -567,19 +562,29 @@
       <to>INVOICE_TK</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>ASSIGNED_USER_TK</from>
+      <to>If field value is null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null</from>
+      <to>Date TKs - NONE DEFINED</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>ACCOUNT_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_ACCOUNTS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -590,7 +595,7 @@
         <lookup>ACCOUNT_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
@@ -602,16 +607,16 @@
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -627,15 +632,15 @@
   <step>
     <name>ASSIGNED_USER_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_USERS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -646,7 +651,7 @@
         <lookup>USER_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
@@ -658,16 +663,16 @@
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -683,13 +688,13 @@
   <step>
     <name>Date TKs - NONE DEFINED</name>
     <type>ScriptValueMod</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
@@ -722,7 +727,7 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <replace>N</replace>
       </field>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -730,7 +735,7 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
+      <xloc>1568</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -738,13 +743,13 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>Drop / Rename</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -812,19 +817,19 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <type>Number</type>
         <length>-2</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask />
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
+        <date_format_locale />
+        <date_format_timezone />
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
       </meta>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -840,13 +845,13 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>Drop Fields</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -913,19 +918,19 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <type>Integer</type>
         <length>1</length>
         <precision>-2</precision>
-        <conversion_mask/>
+        <conversion_mask />
         <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
+        <date_format_locale />
+        <date_format_timezone />
         <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
       </meta>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -933,7 +938,7 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
+      <xloc>1728</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -941,25 +946,25 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>F_INVOICE_MANAGEMENT</name>
     <type>InsertUpdate</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema/>
+      <schema />
       <table>F_INVOICE_MANAGEMENT</table>
       <key>
         <name>INVOICE_LINE_ID</name>
         <field>INVOICE_LINE_ID</field>
         <condition>=</condition>
-        <name2/>
+        <name2 />
       </key>
       <value>
         <name>INVOICE_LINE_ID</name>
@@ -1057,7 +1062,7 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <update>Y</update>
       </value>
     </lookup>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1065,7 +1070,7 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1728</xloc>
+      <xloc>1888</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1073,22 +1078,22 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>Filter Invoice Items</name>
     <type>FilterRows</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <send_true_to>Lookup Invoice</send_true_to>
-    <send_false_to/>
+    <send_false_to />
     <compare>
       <condition>
         <negated>N</negated>
         <leftvalue>PARENT_TYPE</leftvalue>
         <function>=</function>
-        <rightvalue/>
+        <rightvalue />
         <value>
           <name>constant</name>
           <type>String</type>
@@ -1096,11 +1101,11 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask/>
+          <mask />
         </value>
       </condition>
     </compare>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1116,60 +1121,60 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</name>
     <type>Calculator</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <calculation>
       <field_name>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</field_name>
       <calc_type>MULTIPLY</calc_type>
       <field_a>INVOICE_LINE_DISCOUNT_AMOUNT</field_a>
       <field_b>INVOICE_LINE_QUANTITY</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>DIVISION</field_name>
       <calc_type>CONSTANT</calc_type>
       <field_a>100</field_a>
-      <field_b/>
-      <field_c/>
+      <field_b />
+      <field_c />
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
     <calculation>
       <field_name>INVOICE_LINE_VAT_VALUE</field_name>
       <calc_type>DIVIDE</calc_type>
       <field_a>vat</field_a>
       <field_b>DIVISION</field_b>
-      <field_c/>
+      <field_c />
       <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <currency_symbol/>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
     </calculation>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1185,15 +1190,15 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>INVOICE_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_INVOICES</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -1204,28 +1209,28 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <lookup>INVOICE_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
       <return>
         <name>INVOICE_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1241,74 +1246,74 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>Lookup Invoice</name>
     <type>DBLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema/>
+      <schema />
       <table>S_INVOICES</table>
-      <orderby/>
+      <orderby />
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
         <name>PARENT_ID</name>
         <field>id</field>
         <condition>=</condition>
-        <name2/>
+        <name2 />
       </key>
       <value>
         <name>id</name>
         <rename>INVOICE_ID</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>assigned_user_id</name>
         <rename>ASSIGNED_USER_ID</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>billing_account_id</name>
         <rename>BILLING_ACCOUNT_ID</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>billing_contact_id</name>
         <rename>BILLING_CONTACT_ID</rename>
-        <default/>
+        <default />
         <type>String</type>
       </value>
       <value>
         <name>invoice_date</name>
         <rename>INVOICE_DATE</rename>
-        <default/>
+        <default />
         <type>Date</type>
       </value>
       <value>
         <name>due_date</name>
         <rename>INVOICE_DUE_DATE</rename>
-        <default/>
+        <default />
         <type>Date</type>
       </value>
       <value>
         <name>deleted</name>
         <rename>INVOICE_DELETED</rename>
-        <default/>
+        <default />
         <type>Integer</type>
       </value>
     </lookup>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1324,15 +1329,15 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>PRODUCT_TK</name>
     <type>DimensionLookup</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
-    <schema/>
+    <schema />
     <table>D_PRODUCTS</table>
     <connection>SuiteCRMAnalytics</connection>
     <commit>100</commit>
@@ -1343,28 +1348,28 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
         <lookup>PRODUCT_ID</lookup>
       </key>
       <date>
-        <name/>
+        <name />
         <from>DATE_FROM</from>
         <to>DATE_TO</to>
       </date>
       <return>
         <name>PRODUCT_TK</name>
-        <rename/>
+        <rename />
         <creation_method>tablemax</creation_method>
         <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
-    <sequence/>
+    <sequence />
     <min_year>1900</min_year>
     <max_year>2199</max_year>
     <cache_size>5000</cache_size>
     <preload_cache>N</preload_cache>
     <use_start_date_alternative>N</use_start_date_alternative>
     <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name/>
+    <start_date_field_name />
     <useBatch>N</useBatch>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1380,13 +1385,13 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
   <step>
     <name>S_PRODUCT_QUOTES</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <sql>SELECT
@@ -1407,11 +1412,11 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
 , group_id
 FROM S_PRODUCT_QUOTES</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1420,6 +1425,51 @@ FROM S_PRODUCT_QUOTES</sql>
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null</name>
+    <type>IfNull</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>INVOICE_DATE</name>
+        <value>2999/12/31 00:00:00.000000000</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>INVOICE_DUE_DATE</name>
+        <value>2999/12/31 00:00:00.000000000</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
