@@ -1,7 +1,7 @@
 #/bin/sh
 
 echo ""
-echo " We are about to setup SuiteCRM Analytics Data Integration"
+echo " We are about to setup SuiteCRM Analytics Data Integration version @@VERSION@@"
 echo " Make sure you have configured the install.properties correctly"
 echo ""
 echo " *** IMPORTANT! *** Running this setup will discard any previous installations!"
