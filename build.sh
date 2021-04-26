@@ -2,7 +2,8 @@
 
 echo ""
 echo " We are about to build SuiteCRM Analytics Data Integration"
-echo ""
+
+rm -Rf suitecrm-data-integration-server/
 
 WORKING_DIR=$(pwd);
 
@@ -23,6 +24,7 @@ else
         echo "$file not found."
 fi
 
+echo " VERSION: ${VERSION}"
 
 echo ""
 echo " Installing..."
@@ -52,6 +54,7 @@ mkdir suitecrm-data-integration-server
 
 mv install/installation-files/data-integration/ suitecrm-data-integration-server/client/
 
+
 #cp -Rf install/suitecrm-data-integration/{.[!.],}* suitecrm-data-integration/configuration
 
 
@@ -72,9 +75,10 @@ fi
 cp -Rf install/suitecrm-data-integration/{.[!.],}* suitecrm-data-integration-server/
 cp -Rf install/solution/ suitecrm-data-integration-server/
 
+sed -i 's|@@VERSION@@|'${VERSION}'|'  suitecrm-data-integration-server/setup-suitecrm-data-integration.sh
+sed -i 's|@@VERSION@@|'${VERSION}'|'  suitecrm-data-integration-server/run-suitecrm-data-integration.sh
 
-
-
+echo ""
 echo ""
 read -r -p " Would you like to package the installation? This will create a zip file and remove the ready to use application server. [y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
