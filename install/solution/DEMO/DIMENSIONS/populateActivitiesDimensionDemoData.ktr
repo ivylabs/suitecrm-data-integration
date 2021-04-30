@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>updateLeadManagementFact</name>
+    <name>populateActivitiesDimensionDemoData</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,10 +428,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2020/07/29 17:30:53.900</created_date>
+    <created_date>2021/04/28 13:13:53.265</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/07/29 17:30:53.900</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2021/04/28 13:13:53.265</modified_date>
+    <key_for_session_key />
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -492,14 +493,14 @@
   </connection>
   <order>
     <hop>
-      <from>F_LEAD_TRACKING</from>
-      <to>F_LEAD_MANAGEMENT update</to>
+      <from>populateActivitiesDimensionDemoData</from>
+      <to>D_ACTIVITIES</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>F_LEAD_MANAGEMENT update</name>
-    <type>Update</type>
+    <name>populateActivitiesDimensionDemoData</name>
+    <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -508,62 +509,131 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <skip_lookup>N</skip_lookup>
-    <commit>100</commit>
-    <use_batch>N</use_batch>
-    <error_ignored>N</error_ignored>
-    <ignore_flag_field />
-    <lookup>
-      <schema />
-      <table>F_LEAD_MANAGEMENT</table>
-      <key>
-        <name>LEAD_TK</name>
-        <field>LEAD_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>LEAD_CONVERTED_TK</name>
-        <rename>EVENT_CREATED_TK</rename>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>F_LEAD_TRACKING</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <sql>SELECT
-  LEAD_TK
- ,EVENT_CREATED_TK
-FROM F_LEAD_TRACKING
-WHERE STATUS IN("Converted","Dead")
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <filename>${ETL_ROOT_DIR}/DEMO/DATA/D_ACTIVITIES/populateActivitiesDimensionDemoData.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>ACTIVITY_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERSION</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DATE_FROM</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>29</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DATE_TO</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>29</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ACTIVITY_ID</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ACTIVITY_NAME</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>35</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ACTIVITY_DESCRIPTION</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ACTIVITY_PARENT_TYPE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ACTIVITY_TYPE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ACTIVITY_DELETED</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -573,6 +643,89 @@ WHERE STATUS IN("Converted","Dead")
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>D_ACTIVITIES</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <schema />
+    <table>D_ACTIVITIES</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>ACTIVITY_TK</column_name>
+        <stream_name>ACTIVITY_TK</stream_name>
+      </field>
+      <field>
+        <column_name>VERSION</column_name>
+        <stream_name>VERSION</stream_name>
+      </field>
+      <field>
+        <column_name>DATE_FROM</column_name>
+        <stream_name>DATE_FROM</stream_name>
+      </field>
+      <field>
+        <column_name>DATE_TO</column_name>
+        <stream_name>DATE_TO</stream_name>
+      </field>
+      <field>
+        <column_name>ACTIVITY_ID</column_name>
+        <stream_name>ACTIVITY_ID</stream_name>
+      </field>
+      <field>
+        <column_name>ACTIVITY_NAME</column_name>
+        <stream_name>ACTIVITY_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>ACTIVITY_DESCRIPTION</column_name>
+        <stream_name>ACTIVITY_DESCRIPTION</stream_name>
+      </field>
+      <field>
+        <column_name>ACTIVITY_PARENT_TYPE</column_name>
+        <stream_name>ACTIVITY_PARENT_TYPE</stream_name>
+      </field>
+      <field>
+        <column_name>ACTIVITY_TYPE</column_name>
+        <stream_name>ACTIVITY_TYPE</stream_name>
+      </field>
+      <field>
+        <column_name>ACTIVITY_DELETED</column_name>
+        <stream_name>ACTIVITY_DELETED</stream_name>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>populateLeadManagementFact</name>
+    <name>populateCampaignManagementFactDemoData</name>
     <description />
     <extended_description />
     <trans_version />
@@ -428,10 +428,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2020/07/21 19:43:36.779</created_date>
+    <created_date>2021/04/28 13:13:53.265</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/07/21 19:43:36.779</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2021/04/28 13:13:53.265</modified_date>
+    <key_for_session_key />
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -493,59 +493,14 @@
   </connection>
   <order>
     <hop>
-      <from>generateLeadManagement</from>
-      <to>TODAYS_DATE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>TODAYS_DATE</from>
-      <to>DATE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add OPPORTUNITY_TK</from>
-      <to>LEAD_CONVERTED null </to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DATE</from>
-      <to>Calculate Dates</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Calculate Dates</from>
-      <to>DATE TKs</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DATE TKs</from>
-      <to>Drop / Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Drop / Rename</from>
-      <to>Lookup D_LEAD_STATUS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Lookup D_LEAD_STATUS</from>
-      <to>Add OPPORTUNITY_TK</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>LEAD_CONVERTED null </from>
-      <to>LEAD_DELETED Constant</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>LEAD_DELETED Constant</from>
-      <to>F_LEAD_MANAGMENT</to>
+      <from>populateCampaignManagementFactDemoData</from>
+      <to>F_CAMPAIGN_MANAGEMENT</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add OPPORTUNITY_TK</name>
-    <type>Constant</type>
+    <name>populateCampaignManagementFactDemoData</name>
+    <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -554,565 +509,131 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <fields>
-      <field>
-        <name>OPPORTUNITY_TK</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LEAD_CONVERTED_TK</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculate Dates</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>DATE_CREATED</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>LEAD_CREATED_TK_RAND</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DATE</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-
-var DATE = new Date();
-
-DATE.setDate(DATE.getDate()-700);</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>DATE</name>
-        <rename>DATE</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DATE TKs</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
-</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>LEAD_CREATED_TK</name>
-        <rename>LEAD_CREATED_TK</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Drop / Rename</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>LEAD_ID</name>
-      </field>
-      <field>
-        <name>LEAD_TK_RAND</name>
-        <rename>LEAD_TK</rename>
-      </field>
-      <field>
-        <name>LEAD_CREATED_TK</name>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK_RAND</name>
-        <rename>CAMPAIGN_TK</rename>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK_RAND</name>
-        <rename>ASSIGNED_USER_TK</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>F_LEAD_MANAGMENT</name>
-    <type>TableOutput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <schema />
-    <table>F_LEAD_MANAGEMENT</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field />
-    <fields>
-      <field>
-        <column_name>LEAD_ID</column_name>
-        <stream_name>LEAD_ID</stream_name>
-      </field>
-      <field>
-        <column_name>LEAD_TK</column_name>
-        <stream_name>LEAD_TK</stream_name>
-      </field>
-      <field>
-        <column_name>OPPORTUNITY_TK</column_name>
-        <stream_name>OPPORTUNITY_TK</stream_name>
-      </field>
-      <field>
-        <column_name>LEAD_CREATED_TK</column_name>
-        <stream_name>LEAD_CREATED_TK</stream_name>
-      </field>
-      <field>
-        <column_name>CAMPAIGN_TK</column_name>
-        <stream_name>CAMPAIGN_TK</stream_name>
-      </field>
-      <field>
-        <column_name>ASSIGNED_USER_TK</column_name>
-        <stream_name>ASSIGNED_USER_TK</stream_name>
-      </field>
-      <field>
-        <column_name>LEAD_CONVERTED_TK</column_name>
-        <stream_name>LEAD_CONVERTED_TK</stream_name>
-      </field>
-      <field>
-        <column_name>LEAD_DELETED</column_name>
-        <stream_name>LEAD_DELETED</stream_name>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1728</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>LEAD_CONVERTED null </name>
-    <type>IfNull</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <replaceAllByValue />
-    <replaceAllMask />
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>LEAD_CONVERTED_TK</name>
-        <value>29991231</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1408</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup D_LEAD_STATUS</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_LEADS</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>LEAD_TK</name>
-        <field>LEAD_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>LEAD_STATUS</name>
-        <rename>LEAD_STATUS</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>TODAYS_DATE</name>
-    <type>SystemInfo</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>TODAYS_DATE</name>
-        <type>system date (fixed)</type>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>generateLeadManagement</name>
-    <type>TextFileInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field />
-    <accept_stepname />
+    <filename>${ETL_ROOT_DIR}/DEMO/DATA/F_CAMPAIGN_MANAGEMENT/populateCampaignManagementFactDemoData.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
     <separator>,</separator>
     <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
     <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field />
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>mixed</format>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
     <encoding />
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_LEAD_MANAGEMENT/generateLeadManagement.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
     <fields>
       <field>
-        <name>LEAD_ID</name>
-        <type>String</type>
+        <name>CAMPAIGN_ID</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>both</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_START_DATE_TK</name>
+        <type>Integer</type>
         <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>36</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
-        <repeat>N</repeat>
       </field>
       <field>
-        <name>LEAD_TK_RAND</name>
+        <name>CAMPAIGN_END_DATE_TK</name>
+        <type>Integer</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
         <type>Integer</type>
         <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
         <length>15</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
-        <repeat>N</repeat>
       </field>
       <field>
-        <name>LEAD_CREATED_TK_RAND</name>
+        <name>CAMPAIGN_BUDGET</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_ACTUAL_COST</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_EXPECTED_COST</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_EXPECTED_REVENUE</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_DELETED</name>
         <type>Integer</type>
         <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
         <length>15</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK_RAND</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK_RAND</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
       </field>
     </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1127,8 +648,8 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
-    <name>LEAD_DELETED Constant</name>
-    <type>Constant</type>
+    <name>F_CAMPAIGN_MANAGEMENT</name>
+    <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1137,18 +658,63 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
       <method>none</method>
       <schema_name />
     </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <schema />
+    <table>F_CAMPAIGN_MANAGEMENT</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
     <fields>
       <field>
-        <name>LEAD_DELETED</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>0</nullif>
-        <length>1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <column_name>CAMPAIGN_ID</column_name>
+        <stream_name>CAMPAIGN_ID</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_TK</column_name>
+        <stream_name>CAMPAIGN_TK</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_START_DATE_TK</column_name>
+        <stream_name>CAMPAIGN_START_DATE_TK</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_END_DATE_TK</column_name>
+        <stream_name>CAMPAIGN_END_DATE_TK</stream_name>
+      </field>
+      <field>
+        <column_name>ASSIGNED_USER_TK</column_name>
+        <stream_name>ASSIGNED_USER_TK</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_BUDGET</column_name>
+        <stream_name>CAMPAIGN_BUDGET</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_ACTUAL_COST</column_name>
+        <stream_name>CAMPAIGN_ACTUAL_COST</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_EXPECTED_COST</column_name>
+        <stream_name>CAMPAIGN_EXPECTED_COST</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_EXPECTED_REVENUE</column_name>
+        <stream_name>CAMPAIGN_EXPECTED_REVENUE</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_DELETED</column_name>
+        <stream_name>CAMPAIGN_DELETED</stream_name>
       </field>
     </fields>
     <cluster_schema />
@@ -1159,7 +725,7 @@ var LEAD_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1568</xloc>
+      <xloc>384</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

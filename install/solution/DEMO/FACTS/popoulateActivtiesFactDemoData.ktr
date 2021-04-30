@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>populateCaseManagementFact</name>
+    <name>popoulateActivtiesFactDemoData</name>
     <description />
     <extended_description />
     <trans_version />
@@ -428,9 +428,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/07/12 18:34:41.779</created_date>
-    <modified_user>admin</modified_user>
-    <modified_date>2018/07/15 15:43:24.647</modified_date>
+    <created_date>2021/04/26 13:41:13.042</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2021/04/26 13:41:13.042</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -493,73 +493,33 @@
   </connection>
   <order>
     <hop>
-      <from>Calculate Dates</from>
-      <to>Date TKs</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Date TKs</from>
-      <to>Drop / Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>generateCaseManagement</from>
+      <from>populateActivitiesFactDemoData</from>
       <to>TODAYS_DATE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>TODAYS_DATE</from>
-      <to>DATE</to>
+      <to>Calculator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Create Null Converted</from>
-      <to>Reorder Fields</to>
+      <from>Calculator</from>
+      <to>Date TKs</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter Closed</from>
-      <to>Combine Datasets</to>
+      <from>Date TKs</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter Closed</from>
-      <to>Create Null Converted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Lookup D_CASE_STATUS</from>
-      <to>Filter Closed</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Reorder Fields</from>
-      <to>Combine Datasets</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Drop / Rename</from>
-      <to>Lookup D_CASE_STATUS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DATE</from>
-      <to>Calculate Dates</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>INVOICE_DELETED Constant</from>
-      <to>F_CASE_MANAGEMENT</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Combine Datasets</from>
-      <to>INVOICE_DELETED Constant</to>
+      <from>Select values</from>
+      <to>F_ACTIVITIES</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Calculate Dates</name>
+    <name>Calculator</name>
     <type>Calculator</type>
     <description />
     <distribute>Y</distribute>
@@ -570,10 +530,10 @@
       <schema_name />
     </partitioning>
     <calculation>
-      <field_name>DATE_CREATED</field_name>
+      <field_name>DATE_TK</field_name>
       <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>CASE_CREATED_TK_RAND</field_b>
+      <field_a>TODAYS_DATE</field_a>
+      <field_b>ACTIVITY_DATE_TK</field_b>
       <field_c />
       <value_type>Date</value_type>
       <value_length>-1</value_length>
@@ -584,130 +544,6 @@
       <grouping_symbol />
       <currency_symbol />
     </calculation>
-    <calculation>
-      <field_name>DATE_CLOSED</field_name>
-      <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE_CREATED</field_a>
-      <field_b>CASE_CLOSED_TK_RAND</field_b>
-      <field_c />
-      <value_type>Date</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Combine Datasets</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1408</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Create Null Converted</name>
-    <type>Constant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>CASE_CLOSED_TK_NEW</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DATE</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var DATE = new Date();
-
-DATE.setDate(DATE.getDate()-700);</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>DATE</name>
-        <rename>DATE</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -740,8 +576,7 @@ DATE.setDate(DATE.getDate()-700);</jsScript_script>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
-var CASE_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
-var CASE_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
+var ACTIVITY_DATE = str2num(date2str(DATE_TK,"yyyyMMdd"));
 </jsScript_script>
       </jsScript>
       <jsScript>
@@ -813,19 +648,11 @@ Alert((str2num(str2)));</jsScript_script>
     </jsScripts>
     <fields>
       <field>
-        <name>CASE_CREATED_TK</name>
-        <rename>CASE_CREATED_TK</rename>
+        <name>ACTIVITY_DATE</name>
+        <rename>ACTIVITY_DATE</rename>
         <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-      <field>
-        <name>CASE_CLOSED_TK</name>
-        <rename>CASE_CLOSED_TK</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <length>16</length>
+        <precision>2</precision>
         <replace>N</replace>
       </field>
     </fields>
@@ -837,68 +664,13 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Drop / Rename</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>CASE_ID</name>
-        <rename />
-      </field>
-      <field>
-        <name>CASE_TK_RAND</name>
-        <rename>CASE_TK</rename>
-      </field>
-      <field>
-        <name>ACCOUNT_TK_RAND</name>
-        <rename>ACCOUNT_TK</rename>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_RAND</name>
-        <rename>ASSIGNED_USER_TK</rename>
-      </field>
-      <field>
-        <name>CASE_CREATED_TK</name>
-        <rename />
-      </field>
-      <field>
-        <name>CASE_CLOSED_TK</name>
-        <rename />
-      </field>
-      <field>
-        <name>CASE_CREATED_TK</name>
-        <rename>CASE_MODIFIED_DATE</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>F_CASE_MANAGEMENT</name>
+    <name>F_ACTIVITIES</name>
     <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
@@ -910,7 +682,7 @@ Alert((str2num(str2)));</jsScript_script>
     </partitioning>
     <connection>SuiteCRMAnalytics</connection>
     <schema />
-    <table>F_CASE_MANAGEMENT</table>
+    <table>F_ACTIVITIES</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -927,32 +699,32 @@ Alert((str2num(str2)));</jsScript_script>
     <return_field />
     <fields>
       <field>
-        <column_name>CASE_ID</column_name>
-        <stream_name>CASE_ID</stream_name>
+        <column_name>ACTIVITY_ID</column_name>
+        <stream_name>ACTIVITY_ID</stream_name>
       </field>
       <field>
-        <column_name>CASE_CREATED_TK</column_name>
-        <stream_name>CASE_CREATED_TK</stream_name>
+        <column_name>ACTIVITY_TK</column_name>
+        <stream_name>ACTIVITY_TK</stream_name>
       </field>
       <field>
-        <column_name>ACCOUNT_TK</column_name>
-        <stream_name>ACCOUNT_TK</stream_name>
+        <column_name>ACTIVITY_DELETED</column_name>
+        <stream_name>ACTIVITY_DELETED</stream_name>
       </field>
       <field>
-        <column_name>CASE_TK</column_name>
-        <stream_name>CASE_TK</stream_name>
+        <column_name>ACTIVITY_DURATION</column_name>
+        <stream_name>ACTIVITY_DURATION</stream_name>
       </field>
       <field>
         <column_name>ASSIGNED_USER_TK</column_name>
         <stream_name>ASSIGNED_USER_TK</stream_name>
       </field>
       <field>
-        <column_name>CASE_CLOSED_TK</column_name>
-        <stream_name>CASE_CLOSED_TK</stream_name>
+        <column_name>ACTIVITY_DATE_TK</column_name>
+        <stream_name>ACTIVITY_DATE_TK</stream_name>
       </field>
       <field>
-        <column_name>CASE_DELETED</column_name>
-        <stream_name>CASE_DELETED</stream_name>
+        <column_name>ACTIVITY_PARENT_TK</column_name>
+        <stream_name>ACTIVITY_PARENT_TK</stream_name>
       </field>
     </fields>
     <cluster_schema />
@@ -963,103 +735,13 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1728</xloc>
+      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter Closed</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Combine Datasets</send_true_to>
-    <send_false_to>Create Null Converted</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>CASE_STATE</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>Closed</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup D_CASE_STATUS</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_CASES</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>CASE_TK</name>
-        <field>CASE_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>CASE_STATE</name>
-        <rename>CASE_STATE</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Reorder Fields</name>
+    <name>Select values</name>
     <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
@@ -1071,36 +753,26 @@ Alert((str2num(str2)));</jsScript_script>
     </partitioning>
     <fields>
       <field>
-        <name>CASE_ID</name>
-        <rename />
+        <name>ACTIVITY_ID</name>
       </field>
       <field>
-        <name>CASE_TK</name>
-        <rename />
+        <name>ACTIVITY_TK</name>
       </field>
       <field>
-        <name>ACCOUNT_TK</name>
-        <rename />
+        <name>ACTIVITY_DELETED</name>
+      </field>
+      <field>
+        <name>ACTIVITY_DURATION</name>
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
-        <rename />
       </field>
       <field>
-        <name>CASE_CREATED_TK</name>
-        <rename />
+        <name>ACTIVITY_PARENT_TK</name>
       </field>
       <field>
-        <name>CASE_CLOSED_TK_NEW</name>
-        <rename>CASE_CLOSED_TK</rename>
-      </field>
-      <field>
-        <name>CASE_STATE</name>
-        <rename />
-      </field>
-      <field>
-        <name>CASE_MODIFIED_DATE</name>
-        <rename />
+        <name>ACTIVITY_DATE</name>
+        <rename>ACTIVITY_DATE_TK</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1112,8 +784,8 @@ Alert((str2num(str2)));</jsScript_script>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
-      <yloc>288</yloc>
+      <xloc>768</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1148,8 +820,8 @@ Alert((str2num(str2)));</jsScript_script>
     </GUI>
   </step>
   <step>
-    <name>generateCaseManagement</name>
-    <type>TextFileInput</type>
+    <name>populateActivitiesFactDemoData</name>
+    <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1158,176 +830,98 @@ Alert((str2num(str2)));</jsScript_script>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field />
-    <accept_stepname />
+    <filename>${ETL_ROOT_DIR}/DEMO/DATA/F_ACTIVITIES/populateActivitiesFactDemoData.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
     <separator>,</separator>
     <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
     <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field />
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>mixed</format>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
     <encoding />
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_CASE_MANAGEMENT/generateCaseManagement.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
     <fields>
       <field>
-        <name>CASE_ID</name>
+        <name>ACTIVITY_ID</name>
         <type>String</type>
         <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
+        <length>36</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_TK_RAND</name>
+        <name>ACTIVITY_TK</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_CREATED_TK_RAND</name>
-        <type>Integer</type>
-        <format>0</format>
+        <name>ACTIVITY_DELETED</name>
+        <type>String</type>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_MODIFIED_TK_RAND</name>
+        <name>ACTIVITY_DURATION</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_CLOSED_TK_RAND</name>
+        <name>ASSIGNED_USER_TK</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>ACCOUNT_TK_RAND</name>
+        <name>ACTIVITY_PARENT_TK</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>ASSIGNED_USER_RAND</name>
+        <name>ACTIVITY_DATE_TK</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
     </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1337,44 +931,6 @@ Alert((str2num(str2)));</jsScript_script>
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>INVOICE_DELETED Constant</name>
-    <type>Constant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>CASE_DELETED</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>0</nullif>
-        <length>1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1568</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

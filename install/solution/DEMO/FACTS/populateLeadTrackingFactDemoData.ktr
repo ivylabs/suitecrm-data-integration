@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>populateCasesDimension</name>
+    <name>populateLeadTrackingFactDemoData</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/07/15 10:16:24.039</created_date>
-    <modified_user>admin</modified_user>
-    <modified_date>2018/07/15 10:24:27.789</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <created_date>2021/04/26 23:05:34.292</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2021/04/26 23:05:34.292</modified_date>
+    <key_for_session_key />
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -493,39 +492,34 @@
   </connection>
   <order>
     <hop>
-      <from>generateCaseDimension</from>
-      <to>Add NULL Constants</to>
+      <from>Calc Dates</from>
+      <to>Drop and Rename</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add NULL Constants</from>
-      <to>Map CASE_STATE</to>
+      <from>Date TKs</from>
+      <to>F_LEAD_TRACKING</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Map CASE_STATE</from>
-      <to>Drop / Rename</to>
+      <from>Drop and Rename</from>
+      <to>Date TKs</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drop / Rename</from>
-      <to>Replace NULLS</to>
+      <from>TODAYS_DATE</from>
+      <to>Calc Dates</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace NULLS</from>
-      <to>Trim Strings</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Trim Strings</from>
-      <to>D_CASES</to>
+      <from>populateLeadtrackingFactDemoData</from>
+      <to>TODAYS_DATE</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add NULL Constants</name>
-    <type>Constant</type>
+    <name>Calc Dates</name>
+    <type>Calculator</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -534,54 +528,132 @@
       <method>none</method>
       <schema_name />
     </partitioning>
+    <calculation>
+      <field_name>CREATED</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>TODAYS_DATE</field_a>
+      <field_b>EVENT_CREATED_TK</field_b>
+      <field_c />
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Date TKs</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var EVENT_CREATED_TK = str2num(date2str(EVENT_CREATED_TK,"yyyyMMdd"));
+
+</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>date2str_Sample</jsScript_name>
+        <jsScript_script>// Converts the given Date to a string Value.
+//
+// Usage:
+// date2str(var);
+// 1: Date - The Variable with the Date to convert.
+// This call uses your localized format.
+//
+// date2str(var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+//        yy / yyyy - 06 / 2006
+//        MM / MMM / MMMMM - 11 / Nov / November
+//        d / dd  - 1 / 01
+//        E / EEEE - Tue / Tuesday
+//        hh / HH - 11 / 23
+//        m / mm - 5 / 05
+//        s / ss - 8 / 08
+//
+// date2str(var, var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+// 3: String - The Locale Parameter
+//    A valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+//
+// date2str(var, var, var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+// 3: String - The Locale Parameter
+//    A valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+// 4: String - The Timezone Parameter.
+//    A valid timezone: EST, GMT, ... (if invalid GMT will be selected as default)
+// 
+// 2006-11-15
+//
+var dValue = new Date();
+Alert(date2str(dValue));
+Alert(date2str(dValue,"dd.MM.yyyy"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss"));
+Alert(date2str(dValue,"E.MMM.yyyy","DE"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss","EN"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss","EN", "EST"));
+     </jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>str2num_Sample</jsScript_name>
+        <jsScript_script>// Converts the given String to a numeric Value.
+//
+// Usage:
+// str2num(var);
+// 1: String - The Variable with the String to convert.
+//
+// str2num(var, var);
+// 1: String - The Variable with the String to convert.
+// 2: String - The Format:
+// 
+// 2006-11-15
+//
+var str1 = "1.234,56";
+var str2 = "12";
+Alert((str2num(str1,"#,##0.00")));
+Alert((str2num(str2)));</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <name>CASE_DESCRIPTION</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>Y</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_DELETED</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>No</nullif>
-        <length>3</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_RESOLUTION</name>
-        <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif />
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>Y</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_NUMBER</name>
+        <name>EVENT_CREATED_TK</name>
+        <rename>EVENT_CREATED_TK</rename>
         <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <replace>Y</replace>
       </field>
     </fields>
     <cluster_schema />
@@ -592,14 +664,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>896</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>D_CASES</name>
-    <type>DimensionLookup</type>
+    <name>Drop and Rename</name>
+    <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -608,83 +680,144 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <schema />
-    <table>D_CASES</table>
-    <connection>SuiteCRMAnalytics</connection>
-    <commit>100</commit>
-    <update>Y</update>
     <fields>
-      <key>
-        <name>CASE_ID</name>
-        <lookup>CASE_ID</lookup>
-      </key>
-      <date>
-        <name />
-        <from>DATE_FROM</from>
-        <to>DATE_TO</to>
-      </date>
       <field>
-        <name>CASE_NAME</name>
-        <lookup>CASE_NAME</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_DESCRIPTION</name>
-        <lookup>CASE_DESCRIPTION</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_DELETED</name>
-        <lookup>CASE_DELETED</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_NUMBER</name>
-        <lookup>CASE_NUMBER</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_TYPE</name>
-        <lookup>CASE_TYPE</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_STATUS</name>
-        <lookup>CASE_STATUS</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_PRIORITY</name>
-        <lookup>CASE_PRIORITY</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_RESOLUTION</name>
-        <lookup>CASE_RESOLUTION</lookup>
-        <update>Update</update>
-      </field>
-      <field>
-        <name>CASE_STATE</name>
-        <lookup>CASE_STATE</lookup>
-        <update>Update</update>
-      </field>
-      <return>
-        <name>CASE_TK</name>
+        <name>LEAD_ID</name>
         <rename />
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
-        <version>VERSION</version>
-      </return>
+      </field>
+      <field>
+        <name>STATUS</name>
+        <rename />
+      </field>
+      <field>
+        <name>STATUS_DATE</name>
+        <rename />
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
+        <rename />
+      </field>
+      <field>
+        <name>EVENT_STATUS</name>
+        <rename />
+      </field>
+      <field>
+        <name>LEAD_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>EVENT_AGE</name>
+        <rename />
+      </field>
+      <field>
+        <name>TODAYS_DATE</name>
+        <rename />
+      </field>
+      <field>
+        <name>CREATED</name>
+        <rename>EVENT_CREATED_TK</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
-    <sequence />
-    <min_year>1900</min_year>
-    <max_year>2199</max_year>
-    <cache_size>5000</cache_size>
-    <preload_cache>N</preload_cache>
-    <use_start_date_alternative>N</use_start_date_alternative>
-    <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name />
-    <useBatch>N</useBatch>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>F_LEAD_TRACKING</name>
+    <type>TableOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <schema />
+    <table>F_LEAD_TRACKING</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>LEAD_ID</column_name>
+        <stream_name>LEAD_ID</stream_name>
+      </field>
+      <field>
+        <column_name>STATUS</column_name>
+        <stream_name>STATUS</stream_name>
+      </field>
+      <field>
+        <column_name>STATUS_DATE</column_name>
+        <stream_name>STATUS_DATE</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_COUNT</column_name>
+        <stream_name>EVENT_COUNT</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_STATUS</column_name>
+        <stream_name>EVENT_STATUS</stream_name>
+      </field>
+      <field>
+        <column_name>LEAD_TK</column_name>
+        <stream_name>LEAD_TK</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_TK</column_name>
+        <stream_name>OPPORTUNITY_TK</stream_name>
+      </field>
+      <field>
+        <column_name>ASSIGNED_USER_TK</column_name>
+        <stream_name>ASSIGNED_USER_TK</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_TK</column_name>
+        <stream_name>CAMPAIGN_TK</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_AGE</column_name>
+        <stream_name>EVENT_AGE</stream_name>
+      </field>
+      <field>
+        <column_name>EVENT_CREATED_TK</column_name>
+        <stream_name>EVENT_CREATED_TK</stream_name>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -699,8 +832,8 @@
     </GUI>
   </step>
   <step>
-    <name>Drop / Rename</name>
-    <type>SelectValues</type>
+    <name>TODAYS_DATE</name>
+    <type>SystemInfo</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -711,85 +844,8 @@
     </partitioning>
     <fields>
       <field>
-        <name>CASE_ID</name>
-      </field>
-      <field>
-        <name>CASE_NAME</name>
-      </field>
-      <field>
-        <name>CASE_TYPE</name>
-      </field>
-      <field>
-        <name>CASE_STATUS</name>
-      </field>
-      <field>
-        <name>CASE_PRIORITY</name>
-      </field>
-      <field>
-        <name>CASE_DESCRIPTION</name>
-      </field>
-      <field>
-        <name>CASE_DELETED</name>
-      </field>
-      <field>
-        <name>CASE_RESOLUTION</name>
-      </field>
-      <field>
-        <name>CASE_NUMBER_1</name>
-        <rename>CASE_NUMBER</rename>
-      </field>
-      <field>
-        <name>CASE_STATE</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Map CASE_STATE</name>
-    <type>ValueMapper</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <field_to_use>CASE_STATUS</field_to_use>
-    <target_field>CASE_STATE</target_field>
-    <non_match_default />
-    <fields>
-      <field>
-        <source_value>New</source_value>
-        <target_value>Open</target_value>
-      </field>
-      <field>
-        <source_value>Assigned</source_value>
-        <target_value>Open</target_value>
-      </field>
-      <field>
-        <source_value>Pending Input</source_value>
-        <target_value>Open</target_value>
-      </field>
-      <field>
-        <source_value>Closed</source_value>
-        <target_value>Closed</target_value>
-      </field>
-      <field>
-        <source_value>Rejected</source_value>
-        <target_value>Closed</target_value>
+        <name>TODAYS_DATE</name>
+        <type>system date (fixed)</type>
       </field>
     </fields>
     <cluster_schema />
@@ -800,14 +856,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>320</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Replace NULLS</name>
-    <type>IfNull</type>
+    <name>populateLeadtrackingFactDemoData</name>
+    <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -816,236 +872,142 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <replaceAllByValue />
-    <replaceAllMask />
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>CASE_NAME</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_DESCRIPTION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_TYPE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_STATUS</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_PRIORITY</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_RESOLUTION</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CASE_STATE</name>
-        <value>Not Set</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>generateCaseDimension</name>
-    <type>TextFileInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field />
-    <accept_stepname />
+    <filename>/home/fraser/gitprojects/suitecrm-data-integration/suitecrm-data-integration-server/solution/DEMO/DATA/F_LEAD_TRACKING/populateLeadTrackingFactDemoData.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
     <separator>,</separator>
     <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
     <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field />
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>mixed</format>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
     <encoding />
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/D_CASES/generateCaseDimension.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
     <fields>
       <field>
-        <name>CASE_ID</name>
+        <name>LEAD_ID</name>
         <type>String</type>
         <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
+        <length>36</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_NAME</name>
+        <name>STATUS</name>
         <type>String</type>
         <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
+        <length>255</length>
         <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_NUMBER</name>
+        <name>STATUS_DATE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>29</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EVENT_COUNT</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_TYPE</name>
-        <type>String</type>
-        <format />
+        <name>EVENT_STATUS</name>
+        <type>Integer</type>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_STATUS</name>
-        <type>String</type>
-        <format />
+        <name>LEAD_TK</name>
+        <type>Integer</type>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CASE_PRIORITY</name>
-        <type>String</type>
-        <format />
+        <name>OPPORTUNITY_TK</name>
+        <type>Integer</type>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EVENT_AGE</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>3</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EVENT_CREATED_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
     </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1055,149 +1017,6 @@
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Trim Strings</name>
-    <type>StringOperations</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>CASE_ID</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_NAME</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_TYPE</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_STATUS</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_PRIORITY</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_DESCRIPTION</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_DELETED</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_RESOLUTION</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>CASE_STATE</in_stream_name>
-        <out_stream_name />
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char />
-        <pad_len />
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

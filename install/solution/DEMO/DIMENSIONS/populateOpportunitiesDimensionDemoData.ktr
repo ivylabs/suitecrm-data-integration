@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>populateActivitiesDimension</name>
+    <name>populateOpportunitiesDimensionDemoData</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,10 +428,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2021/03/11 12:49:34.396</created_date>
+    <created_date>2021/04/28 13:13:53.265</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/03/11 12:49:34.396</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2021/04/28 13:13:53.265</modified_date>
+    <key_for_session_key />
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -492,13 +493,13 @@
   </connection>
   <order>
     <hop>
-      <from>generateActivitiesDimension</from>
-      <to>D_ACTIVITIES</to>
+      <from>populateOpportunitiesDimensionDemoData</from>
+      <to>D_OPPORTUNITIES</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>generateActivitiesDimension</name>
+    <name>populateOpportunitiesDimensionDemoData</name>
     <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
@@ -508,7 +509,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>${ETL_ROOT_DIR}/DEMO/DATA/D_ACTIVITIES/generateActivitiesDimension.csv</filename>
+    <filename>${ETL_ROOT_DIR}/DEMO/DATA/D_OPPORTUNITY/populateOpportunitiesDimensionDemoData.csv</filename>
     <filename_field />
     <rownum_field />
     <include_filename>N</include_filename>
@@ -523,18 +524,29 @@
     <encoding />
     <fields>
       <field>
-        <name>ACTIVITY_ID</name>
-        <type>String</type>
-        <format />
+        <name>OPPORTUNITY_TK</name>
+        <type>Integer</type>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>36</length>
-        <precision>-1</precision>
+        <length>15</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>ACTIVITY_NAME</name>
+        <name>VERSION</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DATE_FROM</name>
         <type>String</type>
         <format />
         <currency>£</currency>
@@ -545,7 +557,40 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>ACTIVITY_DESCRIPTION</name>
+        <name>DATE_TO</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>29</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_ID</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_NAME</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>44</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_BY</name>
         <type>String</type>
         <format />
         <currency>£</currency>
@@ -556,18 +601,18 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>ACTIVITY_PARENT_TYPE</name>
+        <name>OPPORTUNITY_DELETED</name>
         <type>String</type>
         <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>13</length>
+        <length>2</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>ACTIVITY_TYPE</name>
+        <name>OPPORTUNITY_DESCRIPTION</name>
         <type>String</type>
         <format />
         <currency>£</currency>
@@ -578,14 +623,47 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>ACTIVITY_DELETED</name>
+        <name>OPPORTUNITY_TYPE</name>
         <type>String</type>
-        <format>#</format>
+        <format />
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>1</length>
-        <precision>0</precision>
+        <length>17</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_LEAD_SOURCE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>17</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_NEXT_STEPS</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_SALES_STAGE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>27</length>
+        <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
@@ -603,8 +681,8 @@
     </GUI>
   </step>
   <step>
-    <name>D_ACTIVITIES</name>
-    <type>DimensionLookup</type>
+    <name>D_OPPORTUNITIES</name>
+    <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -613,63 +691,77 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <schema />
-    <table>D_ACTIVITIES</table>
     <connection>SuiteCRMAnalytics</connection>
-    <commit>100</commit>
-    <update>Y</update>
+    <schema />
+    <table>D_OPPORTUNITIES</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
     <fields>
-      <key>
-        <name>ACTIVITY_ID</name>
-        <lookup>ACTIVITY_ID</lookup>
-      </key>
-      <date>
-        <name />
-        <from>DATE_FROM</from>
-        <to>DATE_TO</to>
-      </date>
       <field>
-        <name>ACTIVITY_NAME</name>
-        <lookup>ACTIVITY_NAME</lookup>
-        <update>Insert</update>
+        <column_name>OPPORTUNITY_TK</column_name>
+        <stream_name>OPPORTUNITY_TK</stream_name>
       </field>
       <field>
-        <name>ACTIVITY_DESCRIPTION</name>
-        <lookup>ACTIVITY_DESCRIPTION</lookup>
-        <update>Insert</update>
+        <column_name>VERSION</column_name>
+        <stream_name>VERSION</stream_name>
       </field>
       <field>
-        <name>ACTIVITY_PARENT_TYPE</name>
-        <lookup>ACTIVITY_PARENT_TYPE</lookup>
-        <update>Insert</update>
+        <column_name>DATE_FROM</column_name>
+        <stream_name>DATE_FROM</stream_name>
       </field>
       <field>
-        <name>ACTIVITY_TYPE</name>
-        <lookup>ACTIVITY_TYPE</lookup>
-        <update>Insert</update>
+        <column_name>DATE_TO</column_name>
+        <stream_name>DATE_TO</stream_name>
       </field>
       <field>
-        <name>ACTIVITY_DELETED</name>
-        <lookup>ACTIVITY_DELETED</lookup>
-        <update>Insert</update>
+        <column_name>OPPORTUNITY_ID</column_name>
+        <stream_name>OPPORTUNITY_ID</stream_name>
       </field>
-      <return>
-        <name>ACTIVITY_TK</name>
-        <rename />
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
-        <version>VERSION</version>
-      </return>
+      <field>
+        <column_name>OPPORTUNITY_NAME</column_name>
+        <stream_name>OPPORTUNITY_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_CREATED_BY</column_name>
+        <stream_name>OPPORTUNITY_CREATED_BY</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_DELETED</column_name>
+        <stream_name>OPPORTUNITY_DELETED</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_DESCRIPTION</column_name>
+        <stream_name>OPPORTUNITY_DESCRIPTION</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_TYPE</column_name>
+        <stream_name>OPPORTUNITY_TYPE</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_LEAD_SOURCE</column_name>
+        <stream_name>OPPORTUNITY_LEAD_SOURCE</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_NEXT_STEPS</column_name>
+        <stream_name>OPPORTUNITY_NEXT_STEPS</stream_name>
+      </field>
+      <field>
+        <column_name>OPPORTUNITY_SALES_STAGE</column_name>
+        <stream_name>OPPORTUNITY_SALES_STAGE</stream_name>
+      </field>
     </fields>
-    <sequence />
-    <min_year>1900</min_year>
-    <max_year>2199</max_year>
-    <cache_size>5000</cache_size>
-    <preload_cache>N</preload_cache>
-    <use_start_date_alternative>N</use_start_date_alternative>
-    <start_date_alternative>none</start_date_alternative>
-    <start_date_field_name />
-    <useBatch>N</useBatch>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -678,7 +770,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>352</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>

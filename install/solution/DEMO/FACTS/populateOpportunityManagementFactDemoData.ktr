@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>populateOpportunityManagementFact</name>
+    <name>populateOpportunityManagementFactDemoData</name>
     <description />
     <extended_description />
     <trans_version />
@@ -427,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2020/07/30 16:07:14.290</created_date>
+    <created_date>2021/04/27 11:48:40.895</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/07/30 16:07:14.290</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2021/04/27 11:48:40.895</modified_date>
+    <key_for_session_key />
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -492,189 +492,58 @@
   </connection>
   <order>
     <hop>
-      <from>Calculate Dates</from>
-      <to>DATE TKs</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DATE</from>
-      <to>Filter Date Converted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>DATE TKs</from>
-      <to>Drop / Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Drop / Rename</from>
-      <to>Lookup D_OPPORTUNITY Probability &amp; ID</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Filter Date Converted</from>
-      <to>Remap Date Converted</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>TODAYS_DATE</from>
-      <to>DATE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>generateOpportunityManagement</from>
+      <from>populateOpportunityManagementFactDemoData</from>
       <to>TODAYS_DATE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter Date Converted</from>
-      <to>Calculate Dates</to>
+      <from>TODAYS_DATE</from>
+      <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drop / Rename</from>
-      <to>Lookup D_OPPORTUNITY Probability &amp; ID</to>
+      <from>Filter rows</from>
+      <to>Calc Dates</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Lookup D_OPPORTUNITY Probability &amp; ID</from>
-      <to>SALES_STAGE = PROBABILITY</to>
+      <from>Filter rows</from>
+      <to>Calc Dates 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Remap Date Converted</from>
-      <to>Calculate Dates</to>
+      <from>Calc Dates 2</from>
+      <to>Date TKs 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>SALES_STAGE = PROBABILITY</from>
-      <to>PROBABILITY = Interger</to>
+      <from>Date TKs 2</from>
+      <to>Drop and Rename 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>PROBABILITY = Interger</from>
-      <to>Probability Calculation</to>
+      <from>Calc Dates</from>
+      <to>Date TKs</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Probability Calculation</from>
-      <to>Lookup ACCOUNT NAME</to>
+      <from>Date TKs</from>
+      <to>Drop and Rename</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Lookup ACCOUNT NAME</from>
-      <to>ACCOUNT_NAME</to>
+      <from>Drop and Rename</from>
+      <to>F_OPPORTUNITY_MANAGEMENT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ACCOUNT_NAME</from>
-      <to>ACCOUNT_TK</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ACCOUNT_TK</from>
-      <to>OPPORTUNITY_DELETED Constant</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>OPPORTUNITY_DELETED Constant</from>
+      <from>Drop and Rename 2</from>
       <to>F_OPPORTUNITY_MANAGEMENT</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>ACCOUNT_NAME</name>
-    <type>FieldSplitter</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <splitfield>ACC_NAME</splitfield>
-    <delimiter>-</delimiter>
-    <enclosure />
-    <fields>
-      <field>
-        <name>ACCOUNT_NAME</name>
-        <id />
-        <idrem>N</idrem>
-        <type>String</type>
-        <format />
-        <group />
-        <decimal />
-        <currency />
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif />
-        <ifnull />
-        <trimtype>none</trimtype>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1600</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ACCOUNT_TK</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_ACCOUNTS</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>ACCOUNT_NAME</name>
-        <field>ACCOUNT_NAME</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>ACCOUNT_TK</name>
-        <rename>ACCOUNT_TK</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1600</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Calculate Dates</name>
+    <name>Calc Dates</name>
     <type>Calculator</type>
     <description />
     <distribute>Y</distribute>
@@ -685,12 +554,12 @@
       <schema_name />
     </partitioning>
     <calculation>
-      <field_name>DATE_CLOSED</field_name>
+      <field_name>CREATED</field_name>
       <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>OPPORTUNITY_CLOSED_TK_RAND</field_b>
+      <field_a>TODAYS_DATE</field_a>
+      <field_b>OPPORTUNITY_CREATED_TK</field_b>
       <field_c />
-      <value_type>Date</value_type>
+      <value_type>None</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
@@ -700,12 +569,12 @@
       <currency_symbol />
     </calculation>
     <calculation>
-      <field_name>DATE_CREATED</field_name>
+      <field_name>CLOSED</field_name>
       <calc_type>ADD_DAYS</calc_type>
-      <field_a>DATE</field_a>
-      <field_b>OPPORTUNITY_CREATED_TK_RAND</field_b>
+      <field_a>TODAYS_DATE</field_a>
+      <field_b>OPPORTUNITY_CLOSED_TK</field_b>
       <field_c />
-      <value_type>Date</value_type>
+      <value_type>None</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
@@ -722,13 +591,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>736</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>DATE</name>
+    <name>Date TKs</name>
     <type>ScriptValueMod</type>
     <description />
     <distribute>Y</distribute>
@@ -746,74 +615,93 @@
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
 
+var OPPORTUNITY_CREATED = str2num(date2str(CREATED,"yyyyMMdd"));
+var OPPORTUNITY_CLOSED = str2num(date2str(CLOSED,"yyyyMMdd"));
 
-var DATE = new Date();
-
-DATE.setDate(DATE.getDate()-700);</jsScript_script>
-      </jsScript>
-    </jsScripts>
-    <fields>
-      <field>
-        <name>DATE</name>
-        <rename>DATE</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>DATE TKs</name>
-    <type>ScriptValueMod</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>
-      <jsScript>
-        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>//Script here
-
-var OPPORTUNITY_CREATED_TK = str2num(date2str(DATE_CREATED,"yyyyMMdd"));
-var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
 </jsScript_script>
       </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>date2str_Sample</jsScript_name>
+        <jsScript_script>// Converts the given Date to a string Value.
+//
+// Usage:
+// date2str(var);
+// 1: Date - The Variable with the Date to convert.
+// This call uses your localized format.
+//
+// date2str(var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+//        yy / yyyy - 06 / 2006
+//        MM / MMM / MMMMM - 11 / Nov / November
+//        d / dd  - 1 / 01
+//        E / EEEE - Tue / Tuesday
+//        hh / HH - 11 / 23
+//        m / mm - 5 / 05
+//        s / ss - 8 / 08
+//
+// date2str(var, var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+// 3: String - The Locale Parameter
+//    A valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+//
+// date2str(var, var, var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+// 3: String - The Locale Parameter
+//    A valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+// 4: String - The Timezone Parameter.
+//    A valid timezone: EST, GMT, ... (if invalid GMT will be selected as default)
+// 
+// 2006-11-15
+//
+var dValue = new Date();
+Alert(date2str(dValue));
+Alert(date2str(dValue,"dd.MM.yyyy"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss"));
+Alert(date2str(dValue,"E.MMM.yyyy","DE"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss","EN"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss","EN", "EST"));
+     </jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>str2num_Sample</jsScript_name>
+        <jsScript_script>// Converts the given String to a numeric Value.
+//
+// Usage:
+// str2num(var);
+// 1: String - The Variable with the String to convert.
+//
+// str2num(var, var);
+// 1: String - The Variable with the String to convert.
+// 2: String - The Format:
+// 
+// 2006-11-15
+//
+var str1 = "1.234,56";
+var str2 = "12";
+Alert((str2num(str1,"#,##0.00")));
+Alert((str2num(str2)));</jsScript_script>
+      </jsScript>
     </jsScripts>
     <fields>
       <field>
-        <name>OPPORTUNITY_CREATED_TK</name>
-        <rename>OPPORTUNITY_CREATED_TK</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
+        <name>OPPORTUNITY_CREATED</name>
+        <rename>OPPORTUNITY_CREATED</rename>
+        <type>Integer</type>
+        <length>8</length>
+        <precision>0</precision>
         <replace>N</replace>
       </field>
       <field>
-        <name>OPPORTUNITY_CLOSED_TK</name>
-        <rename>OPPORTUNITY_CLOSED_TK</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
+        <name>OPPORTUNITY_CLOSED</name>
+        <rename>OPPORTUNITY_CLOSED</rename>
+        <type>Integer</type>
+        <length>8</length>
+        <precision>0</precision>
         <replace>N</replace>
       </field>
     </fields>
@@ -831,7 +719,7 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
-    <name>Drop / Rename</name>
+    <name>Drop and Rename</name>
     <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
@@ -843,41 +731,50 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
     </partitioning>
     <fields>
       <field>
-        <name>OPPORTUNITY_TK</name>
+        <name>OPPORTUNITY_ID</name>
+        <rename />
       </field>
       <field>
         <name>OPPORTUNITY_AMOUNT</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_PROBABILITY</name>
+        <rename />
+      </field>
+      <field>
+        <name>ACCOUNT_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_PROBABILITY_PERCENT</name>
+        <rename />
       </field>
       <field>
         <name>CAMPAIGN_TK</name>
+        <rename />
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
+        <rename />
       </field>
       <field>
-        <name>OPPORTUNITY_CREATED_TK</name>
+        <name>OPPORTUNITY_DELETED</name>
+        <rename />
       </field>
       <field>
-        <name>OPPORTUNITY_CLOSED_TK</name>
+        <name>OPPORTUNITY_CREATED</name>
+        <rename>OPPORTUNITY_CREATED_TK</rename>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CLOSED</name>
+        <rename>OPPORTUNITY_CLOSED_TK</rename>
       </field>
       <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>OPPORTUNITY_AMOUNT</name>
-        <rename>OPPORTUNITY_AMOUNT</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>0.00</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -887,8 +784,8 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>288</yloc>
+      <xloc>1120</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -942,10 +839,6 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
         <stream_name>OPPORTUNITY_TK</stream_name>
       </field>
       <field>
-        <column_name>OPPORTUNITY_CREATED_TK</column_name>
-        <stream_name>OPPORTUNITY_CREATED_TK</stream_name>
-      </field>
-      <field>
         <column_name>OPPORTUNITY_PROBABILITY_PERCENT</column_name>
         <stream_name>OPPORTUNITY_PROBABILITY_PERCENT</stream_name>
       </field>
@@ -961,364 +854,13 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
         <column_name>OPPORTUNITY_DELETED</column_name>
         <stream_name>OPPORTUNITY_DELETED</stream_name>
       </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1760</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter Date Converted</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Remap Date Converted</send_true_to>
-    <send_false_to>Calculate Dates</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>OPPORTUNITY_CREATED_TK_RAND</leftvalue>
-            <function>&gt;</function>
-            <rightvalue>OPPORTUNITY_CLOSED_TK_RAND</rightvalue>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup ACCOUNT NAME</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_OPPORTUNITIES</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>OPPORTUNITY_TK</name>
-        <field>OPPORTUNITY_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>OPPORTUNITY_NAME</name>
-        <rename>ACC_NAME</rename>
-        <default />
-        <type>String</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1440</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Lookup D_OPPORTUNITY Probability &amp; ID</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>SuiteCRMAnalytics</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema />
-      <table>D_OPPORTUNITIES</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>OPPORTUNITY_TK</name>
-        <field>OPPORTUNITY_TK</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>OPPORTUNITY_SALES_STAGE</name>
-        <rename>OPPORTUNITY_SALES_STAGE</rename>
-        <default />
-        <type>String</type>
-      </value>
-      <value>
-        <name>OPPORTUNITY_ID</name>
-        <rename>OPPORTUNITY_ID</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1120</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PROBABILITY = Interger</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>OPPORTUNITY_PROBABILITY</name>
-        <rename>OPPORTUNITY_PROBABILITY</rename>
-        <type>Number</type>
-        <length>0</length>
-        <precision>-2</precision>
-        <conversion_mask />
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale />
-        <date_format_timezone />
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding />
-        <decimal_symbol />
-        <grouping_symbol />
-        <currency_symbol />
-        <storage_type />
-      </meta>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1280</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Probability Calculation</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>PERCENT</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>100</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>Y</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>OPPORTUNITY_PROBABILITY_PERCENT</field_name>
-      <calc_type>DIVIDE</calc_type>
-      <field_a>OPPORTUNITY_PROBABILITY</field_a>
-      <field_b>PERCENT</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1440</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remap Date Converted</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
       <field>
-        <name>OPPORTUNITY_AMOUNT</name>
+        <column_name>OPPORTUNITY_CREATED_TK</column_name>
+        <stream_name>OPPORTUNITY_CREATED_TK</stream_name>
       </field>
       <field>
-        <name>OPPORTUNITY_CLOSED_TK_RAND</name>
-        <rename>OPPORTUNITY_CREATED_TK_RAND</rename>
-      </field>
-      <field>
-        <name>OPPORTUNITY_CREATED_TK_RAND</name>
-        <rename>OPPORTUNITY_CLOSED_TK_RAND</rename>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK</name>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK</name>
-      </field>
-      <field>
-        <name>OPPORTUNITY_TK</name>
-      </field>
-      <field>
-        <name>TODAYS_DATE</name>
-      </field>
-      <field>
-        <name>DATE</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>SALES_STAGE = PROBABILITY</name>
-    <type>ValueMapper</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <field_to_use>OPPORTUNITY_SALES_STAGE</field_to_use>
-    <target_field>OPPORTUNITY_PROBABILITY</target_field>
-    <non_match_default />
-    <fields>
-      <field>
-        <source_value>Closed Lost</source_value>
-        <target_value>0</target_value>
-      </field>
-      <field>
-        <source_value>Prospecting</source_value>
-        <target_value>10</target_value>
-      </field>
-      <field>
-        <source_value>Qualification</source_value>
-        <target_value>20</target_value>
-      </field>
-      <field>
-        <source_value>Needs Analysis</source_value>
-        <target_value>25</target_value>
-      </field>
-      <field>
-        <source_value>Value Proposition</source_value>
-        <target_value>30</target_value>
-      </field>
-      <field>
-        <source_value>Identifying Decision Makers</source_value>
-        <target_value>40</target_value>
-      </field>
-      <field>
-        <source_value>Perception Analysis</source_value>
-        <target_value>50</target_value>
-      </field>
-      <field>
-        <source_value>Proposal/Price Quote</source_value>
-        <target_value>65</target_value>
-      </field>
-      <field>
-        <source_value>Negotiation/Review</source_value>
-        <target_value>80</target_value>
-      </field>
-      <field>
-        <source_value>Closed Won</source_value>
-        <target_value>100</target_value>
+        <column_name>OPPORTUNITY_CLOSED_TK</column_name>
+        <stream_name>OPPORTUNITY_CLOSED_TK</stream_name>
       </field>
     </fields>
     <cluster_schema />
@@ -1329,7 +871,7 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
+      <xloc>1312</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1359,14 +901,14 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>320</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>generateOpportunityManagement</name>
-    <type>TextFileInput</type>
+    <name>populateOpportunityManagementFactDemoData</name>
+    <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1375,161 +917,142 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
       <method>none</method>
       <schema_name />
     </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field />
-    <accept_stepname />
+    <filename>${ETL_ROOT_DIR}/DEMO/DATA/F_OPPORTUNITY_MANAGEMENT/populateOpportunityManagementFactDemoData.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
     <separator>,</separator>
     <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar />
     <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field />
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field />
-    <format>mixed</format>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
     <encoding />
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${ETL_ROOT_DIR}/DEMO/DATA/F_OPPORTUNITY_MANAGEMENT/generateOpportunityManagement.csv</name>
-      <filemask />
-      <exclude_filemask />
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
     <fields>
       <field>
+        <name>OPPORTUNITY_ID</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
         <name>OPPORTUNITY_AMOUNT</name>
-        <type>Integer</type>
-        <format>0</format>
+        <type>Number</type>
+        <format>#.#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>5</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>OPPORTUNITY_CREATED_TK_RAND</name>
-        <type>Integer</type>
-        <format>0</format>
+        <name>OPPORTUNITY_PROBABILITY</name>
+        <type>Number</type>
+        <format>#.#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>5</length>
+        <precision>1</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>OPPORTUNITY_CLOSED_TK_RAND</name>
+        <name>ACCOUNT_TK</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>CAMPAIGN_TK</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>ASSIGNED_USER_TK</name>
-        <type>Integer</type>
-        <format>0</format>
-        <currency>£</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
         <name>OPPORTUNITY_TK</name>
         <type>Integer</type>
-        <format>0</format>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <nullif>-</nullif>
-        <ifnull />
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-        <repeat>N</repeat>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_PROBABILITY_PERCENT</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_DELETED</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CLOSED_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
     </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field />
-    <file_error_message_field />
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field />
-    <error_fields_field />
-    <error_text_field />
-    <bad_line_files_destination_directory />
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory />
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory />
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_GB</date_format_locale>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
     <cluster_schema />
     <remotesteps>
       <input>
@@ -1544,8 +1067,8 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
-    <name>OPPORTUNITY_DELETED Constant</name>
-    <type>Constant</type>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1554,18 +1077,167 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
       <method>none</method>
       <schema_name />
     </partitioning>
+    <send_true_to>Calc Dates</send_true_to>
+    <send_false_to>Calc Dates 2</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>OPPORTUNITY_CLOSED_TK</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue />
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Calc Dates 2</name>
+    <type>Calculator</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <calculation>
+      <field_name>CREATED</field_name>
+      <calc_type>ADD_DAYS</calc_type>
+      <field_a>TODAYS_DATE</field_a>
+      <field_b>OPPORTUNITY_CREATED_TK</field_b>
+      <field_c />
+      <value_type>None</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask />
+      <decimal_symbol />
+      <grouping_symbol />
+      <currency_symbol />
+    </calculation>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Date TKs 2</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+var OPPORTUNITY_CREATED = str2num(date2str(CREATED,"yyyyMMdd"));
+
+
+</jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>date2str_Sample</jsScript_name>
+        <jsScript_script>// Converts the given Date to a string Value.
+//
+// Usage:
+// date2str(var);
+// 1: Date - The Variable with the Date to convert.
+// This call uses your localized format.
+//
+// date2str(var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+//        yy / yyyy - 06 / 2006
+//        MM / MMM / MMMMM - 11 / Nov / November
+//        d / dd  - 1 / 01
+//        E / EEEE - Tue / Tuesday
+//        hh / HH - 11 / 23
+//        m / mm - 5 / 05
+//        s / ss - 8 / 08
+//
+// date2str(var, var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+// 3: String - The Locale Parameter
+//    A valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+//
+// date2str(var, var, var, var);
+// 1: Date - The Variable with the Date to convert.
+// 2: String - The Format:
+// 3: String - The Locale Parameter
+//    A valid ISO Language Code. (DE = German, EN = English, FR = France, ...)
+// 4: String - The Timezone Parameter.
+//    A valid timezone: EST, GMT, ... (if invalid GMT will be selected as default)
+// 
+// 2006-11-15
+//
+var dValue = new Date();
+Alert(date2str(dValue));
+Alert(date2str(dValue,"dd.MM.yyyy"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss"));
+Alert(date2str(dValue,"E.MMM.yyyy","DE"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss","EN"));
+Alert(date2str(dValue,"dd.MM.yyyy HH:mm:ss","EN", "EST"));
+     </jsScript_script>
+      </jsScript>
+      <jsScript>
+        <jsScript_type>-1</jsScript_type>
+        <jsScript_name>str2num_Sample</jsScript_name>
+        <jsScript_script>// Converts the given String to a numeric Value.
+//
+// Usage:
+// str2num(var);
+// 1: String - The Variable with the String to convert.
+//
+// str2num(var, var);
+// 1: String - The Variable with the String to convert.
+// 2: String - The Format:
+// 
+// 2006-11-15
+//
+var str1 = "1.234,56";
+var str2 = "12";
+Alert((str2num(str1,"#,##0.00")));
+Alert((str2num(str2)));</jsScript_script>
+      </jsScript>
+    </jsScripts>
     <fields>
       <field>
-        <name>OPPORTUNITY_DELETED</name>
+        <name>OPPORTUNITY_CREATED</name>
+        <rename>OPPORTUNITY_CREATED</rename>
         <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>0</nullif>
-        <length>1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <length>8</length>
+        <precision>0</precision>
+        <replace>N</replace>
       </field>
     </fields>
     <cluster_schema />
@@ -1576,8 +1248,96 @@ var OPPORTUNITY_CLOSED_TK = str2num(date2str(DATE_CLOSED,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1760</xloc>
-      <yloc>128</yloc>
+      <xloc>736</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Drop and Rename 2</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>OPPORTUNITY_ID</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_AMOUNT</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_PROBABILITY</name>
+        <rename />
+      </field>
+      <field>
+        <name>ACCOUNT_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_PROBABILITY_PERCENT</name>
+        <rename />
+      </field>
+      <field>
+        <name>CAMPAIGN_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>ASSIGNED_USER_TK</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_DELETED</name>
+        <rename />
+      </field>
+      <field>
+        <name>OPPORTUNITY_CREATED</name>
+        <rename>OPPORTUNITY_CREATED_TK</rename>
+      </field>
+      <field>
+        <name>OPPORTUNITY_CLOSED_TK</name>
+        <rename />
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>OPPORTUNITY_CLOSED_TK</name>
+        <rename>OPPORTUNITY_CLOSED_TK</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask />
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type>normal</storage_type>
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

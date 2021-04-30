@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>extractProductsCSV</name>
+    <name>populateCampaignsDimensionDemoData</name>
     <description />
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,42 +428,21 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2020/07/20 13:23:09.878</created_date>
+    <created_date>2021/04/28 13:13:53.265</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/07/20 13:23:09.878</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2021/04/28 13:13:53.265</modified_date>
+    <key_for_session_key />
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Used to generate products from the foodmart database</note>
-      <xloc>704</xloc>
-      <yloc>192</yloc>
-      <width>320</width>
-      <heigth>27</heigth>
-      <fontname>Noto Sans</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
-    <name>foodmart</name>
-    <server>localhost</server>
+    <name>SuiteCRMAnalytics</name>
+    <server />
     <type>MYSQL</type>
-    <access>Native</access>
-    <database>foodmart</database>
-    <port>3306</port>
+    <access>JNDI</access>
+    <database>SuiteCRMAnalytics</database>
+    <port>1521</port>
     <username />
     <password>Encrypted </password>
     <servername />
@@ -483,7 +463,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>1521</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -513,34 +493,14 @@
   </connection>
   <order>
     <hop>
-      <from>Product Table Input</from>
-      <to>Drop / Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Product_class Table Input</from>
-      <to>CATEGORY Lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Drop / Rename</from>
-      <to>PRODUCT_UNIT_PRICE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>PRODUCT_UNIT_PRICE</from>
-      <to>CATEGORY Lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>CATEGORY Lookup</from>
-      <to>Dummy (do nothing)</to>
+      <from>populateCampaignsDimensionDemoData</from>
+      <to>D_CAMPAIGNS</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>CATEGORY Lookup</name>
-    <type>StreamLookup</type>
+    <name>populateCampaignsDimensionDemoData</name>
+    <type>CsvInput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -549,176 +509,197 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <from>Product_class Table Input</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>PRODUCT_CATEGORY_ID</name>
-        <field>product_class_id</field>
-      </key>
-      <value>
-        <name>product_category</name>
-        <rename>PRODUCT_CATEGORY_NAME</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Drop / Rename</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
+    <filename>${ETL_ROOT_DIR}/DEMO/DATA/D_CAMPAIGNS/populateCampaignDimensionDemoData.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
     <fields>
       <field>
-        <name>product_class_id</name>
-        <rename>PRODUCT_CATEGORY_ID</rename>
+        <name>CAMPAIGN_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>product_id</name>
-        <rename>PRODUCT_ID</rename>
+        <name>VERSION</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>product_name</name>
-        <rename>PRODUCT_NAME</rename>
+        <name>DATE_FROM</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>29</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>SKU</name>
-        <rename>PRODUCT_MAINCODE</rename>
+        <name>DATE_TO</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>29</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>SKU</name>
-        <rename>PRODUCT_PART_NUMBER</rename>
+        <name>CAMPAIGN_ID</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>SRP</name>
-        <rename>PRODUCT_UNIT_PRICE</rename>
+        <name>CAMPAIGN_NAME</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>18</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
       </field>
-      <select_unspecified>N</select_unspecified>
+      <field>
+        <name>CAMPAIGN_DELETED</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>2</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_TRACKER_KEY</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_TRACKER_COUNT</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_REFER_URL</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_TRACKER_TEXT</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_STATUS</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_TYPE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>10</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_OBJECTIVE</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_CONTENT</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CAMPAIGN_FREQUENCY</name>
+        <type>String</type>
+        <format />
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
     </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PRODUCT_UNIT_PRICE</name>
-    <type>Calculator</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <calculation>
-      <field_name>TEN_PERCENT</field_name>
-      <calc_type>CONSTANT</calc_type>
-      <field_a>.90</field_a>
-      <field_b />
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>Y</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <calculation>
-      <field_name>PRODUCT_UNIT_COST</field_name>
-      <calc_type>MULTIPLY</calc_type>
-      <field_a>PRODUCT_UNIT_PRICE</field_a>
-      <field_b>TEN_PERCENT</field_b>
-      <field_c />
-      <value_type>Number</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
-    </calculation>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Product Table Input</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>foodmart</connection>
-    <sql>SELECT
-  product_class_id
-, product_id
-, brand_name
-, product_name
-, SKU
-, SRP
-, gross_weight
-, net_weight
-, recyclable_package
-, low_fat
-, units_per_case
-, cases_per_pallet
-, shelf_width
-, shelf_height
-, shelf_depth
-FROM product
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -733,8 +714,8 @@ FROM product
     </GUI>
   </step>
   <step>
-    <name>Product_class Table Input</name>
-    <type>TableInput</type>
+    <name>D_CAMPAIGNS</name>
+    <type>TableOutput</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -743,17 +724,89 @@ FROM product
       <method>none</method>
       <schema_name />
     </partitioning>
-    <connection>foodmart</connection>
-    <sql>SELECT
-  product_class_id
-, product_category
-FROM product_class
-</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <connection>SuiteCRMAnalytics</connection>
+    <schema />
+    <table>D_CAMPAIGNS</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field />
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field />
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field />
+    <fields>
+      <field>
+        <column_name>CAMPAIGN_TK</column_name>
+        <stream_name>CAMPAIGN_TK</stream_name>
+      </field>
+      <field>
+        <column_name>VERSION</column_name>
+        <stream_name>VERSION</stream_name>
+      </field>
+      <field>
+        <column_name>DATE_FROM</column_name>
+        <stream_name>DATE_FROM</stream_name>
+      </field>
+      <field>
+        <column_name>DATE_TO</column_name>
+        <stream_name>DATE_TO</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_ID</column_name>
+        <stream_name>CAMPAIGN_ID</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_NAME</column_name>
+        <stream_name>CAMPAIGN_NAME</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_DELETED</column_name>
+        <stream_name>CAMPAIGN_DELETED</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_TRACKER_KEY</column_name>
+        <stream_name>CAMPAIGN_TRACKER_KEY</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_TRACKER_COUNT</column_name>
+        <stream_name>CAMPAIGN_TRACKER_COUNT</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_REFER_URL</column_name>
+        <stream_name>CAMPAIGN_REFER_URL</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_TRACKER_TEXT</column_name>
+        <stream_name>CAMPAIGN_TRACKER_TEXT</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_STATUS</column_name>
+        <stream_name>CAMPAIGN_STATUS</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_TYPE</column_name>
+        <stream_name>CAMPAIGN_TYPE</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_OBJECTIVE</column_name>
+        <stream_name>CAMPAIGN_OBJECTIVE</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_CONTENT</column_name>
+        <stream_name>CAMPAIGN_CONTENT</stream_name>
+      </field>
+      <field>
+        <column_name>CAMPAIGN_FREQUENCY</column_name>
+        <stream_name>CAMPAIGN_FREQUENCY</stream_name>
+      </field>
+    </fields>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -762,31 +815,7 @@ FROM product_class
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy (do nothing)</name>
-    <type>Dummy</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
+      <xloc>352</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
