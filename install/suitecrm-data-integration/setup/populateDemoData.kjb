@@ -340,7 +340,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>320</xloc>
+      <xloc>512</xloc>
       <yloc>128</yloc>
     </entry>
     <entry>
@@ -374,14 +374,113 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>512</xloc>
+      <xloc>704</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>LOG START</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG START</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>LOG END</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG END</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1088</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description />
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1280</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>Populating demo data failed</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>----------------------------------
+
+Populating Demo Data Failed!
+
+----------------------------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>704</xloc>
+      <yloc>320</yloc>
+    </entry>
+    <entry>
+      <name>Abort job</name>
+      <description />
+      <type>ABORT</type>
+      <message />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1088</xloc>
+      <yloc>320</yloc>
+    </entry>
+    <entry>
+      <name>LOG END ABORT</name>
+      <description />
+      <type>WRITE_TO_LOG</type>
+      <logmessage>ETL LOG END</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>896</xloc>
+      <yloc>320</yloc>
+    </entry>
+    <entry>
+      <name>SuiteCRM ETL Sucess </name>
+      <description />
+      <type>CREATE_FILE</type>
+      <filename>${ETL_ROOT_DIR}/../setup/suitecrm-db-demo-passed</filename>
+      <fail_if_file_exists>Y</fail_if_file_exists>
+      <add_filename_result>N</add_filename_result>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>896</xloc>
       <yloc>128</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
+      <from>getDemoDataTransformations</from>
+      <to>loopDemoDataTransformations</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>START</from>
-      <to>getDemoDataTransformations</to>
+      <to>LOG START</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -389,8 +488,71 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
+      <from>LOG START</from>
+      <to>getDemoDataTransformations</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>LOG END</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>getDemoDataTransformations</from>
-      <to>loopDemoDataTransformations</to>
+      <to>Populating demo data failed</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>loopDemoDataTransformations</from>
+      <to>Populating demo data failed</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Populating demo data failed</from>
+      <to>LOG END ABORT</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>LOG END ABORT</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>loopDemoDataTransformations</from>
+      <to>SuiteCRM ETL Sucess </to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SuiteCRM ETL Sucess </from>
+      <to>LOG END</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

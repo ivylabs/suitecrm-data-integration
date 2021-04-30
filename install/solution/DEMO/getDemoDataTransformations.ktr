@@ -438,13 +438,18 @@
   </notepads>
   <order>
     <hop>
-      <from>Get File Names</from>
-      <to>Select values</to>
+      <from>Drop / Rename</from>
+      <to>Copy rows to result</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Copy rows to result</to>
+      <from>Get File Names</from>
+      <to>Sort by filename</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort by filename</from>
+      <to>Drop / Rename</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -467,7 +472,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>608</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -497,7 +502,12 @@
     <dynamic_include_subfolders>N</dynamic_include_subfolders>
     <limit>0</limit>
     <file>
-      <name>${ETL_ROOT_DIR}/DEMO/</name>
+      <name>${ETL_ROOT_DIR}/DEMO/DIMENSIONS/</name>
+      <filemask>.*.ktr</filemask>
+      <exclude_filemask />
+      <file_required>N</file_required>
+      <include_subfolders>Y</include_subfolders>
+      <name>${ETL_ROOT_DIR}/DEMO/FACTS/</name>
       <filemask>.*.ktr</filemask>
       <exclude_filemask />
       <file_required>N</file_required>
@@ -517,7 +527,7 @@
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>Drop / Rename</name>
     <type>SelectValues</type>
     <description />
     <distribute>Y</distribute>
@@ -533,6 +543,47 @@
         <rename>DemoDataTransformation</rename>
       </field>
       <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort by filename</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>short_filename</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
