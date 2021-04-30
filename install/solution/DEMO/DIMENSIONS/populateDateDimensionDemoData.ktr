@@ -925,7 +925,7 @@
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>29</length>
+        <length>10</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
