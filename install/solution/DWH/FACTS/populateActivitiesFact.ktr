@@ -593,11 +593,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>S_TASKS</from>
-      <to>Drop / Rename Tasks</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Drop / Rename Tasks</from>
       <to>Duration Tasks</to>
       <enabled>Y</enabled>
@@ -605,6 +600,26 @@
     <hop>
       <from>Duration Tasks</from>
       <to>Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>S_TASKS</from>
+      <to>date_start IS NULL</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>date_start IS NULL</from>
+      <to>Drop / Rename Tasks</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>date_start IS NULL</from>
+      <to>Remap date_start</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Remap date_start</from>
+      <to>Drop / Rename Tasks</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1099,6 +1114,55 @@ var ACTIVITY_DATE_TK = str2num(date2str(ACTIVITY_DATE,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
+    <name>Drop / Rename Tasks</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>id</name>
+        <rename>ACTIVITY_ID</rename>
+      </field>
+      <field>
+        <name>deleted</name>
+        <rename>ACTIVITY_DELETED</rename>
+      </field>
+      <field>
+        <name>parent_type</name>
+        <rename>ACTIVITY_PARENT_TYPE</rename>
+      </field>
+      <field>
+        <name>assigned_user_id</name>
+      </field>
+      <field>
+        <name>date_start</name>
+        <rename>ACTIVITY_DATE</rename>
+      </field>
+      <field>
+        <name>parent_id</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Duration Emails</name>
     <type>Constant</type>
     <description />
@@ -1145,6 +1209,56 @@ var ACTIVITY_DATE_TK = str2num(date2str(ACTIVITY_DATE,"yyyyMMdd"));
     <GUI>
       <xloc>448</xloc>
       <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Duration Tasks</name>
+    <type>Constant</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>duration_hours</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>duration_minutes</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1566,102 +1680,6 @@ FROM S_MEETINGS
     </GUI>
   </step>
   <step>
-    <name>Switch / Case</name>
-    <type>SwitchCase</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fieldname>ACTIVITY_PARENT_TYPE</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>String</case_value_type>
-    <case_value_format />
-    <case_value_decimal />
-    <case_value_group />
-    <default_target_step />
-    <cases>
-      <case>
-        <value>Leads</value>
-        <target_step>LEAD_TK</target_step>
-      </case>
-      <case>
-        <value>Cases</value>
-        <target_step>CASE_TK</target_step>
-      </case>
-      <case>
-        <value>Opportunities</value>
-        <target_step>OPPORTUNITY_TK</target_step>
-      </case>
-    </cases>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Drop / Rename Tasks</name>
-    <type>SelectValues</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>id</name>
-        <rename>ACTIVITY_ID</rename>
-      </field>
-      <field>
-        <name>deleted</name>
-        <rename>ACTIVITY_DELETED</rename>
-      </field>
-      <field>
-        <name>parent_type</name>
-        <rename>ACTIVITY_PARENT_TYPE</rename>
-      </field>
-      <field>
-        <name>assigned_user_id</name>
-        <rename />
-      </field>
-      <field>
-        <name>date_start</name>
-        <rename>ACTIVITY_DATE</rename>
-      </field>
-      <field>
-        <name>parent_id</name>
-        <rename />
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>288</xloc>
-      <yloc>576</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>S_TASKS</name>
     <type>TableInput</type>
     <description />
@@ -1713,8 +1731,87 @@ FROM S_TASKS
     </GUI>
   </step>
   <step>
-    <name>Duration Tasks</name>
-    <type>Constant</type>
+    <name>Switch / Case</name>
+    <type>SwitchCase</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fieldname>ACTIVITY_PARENT_TYPE</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format />
+    <case_value_decimal />
+    <case_value_group />
+    <default_target_step />
+    <cases>
+      <case>
+        <value>Leads</value>
+        <target_step>LEAD_TK</target_step>
+      </case>
+      <case>
+        <value>Cases</value>
+        <target_step>CASE_TK</target_step>
+      </case>
+      <case>
+        <value>Opportunities</value>
+        <target_step>OPPORTUNITY_TK</target_step>
+      </case>
+    </cases>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>date_start IS NULL</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Remap date_start</send_true_to>
+    <send_false_to>Drop / Rename Tasks</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>date_start</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue />
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remap date_start</name>
+    <type>SetValueField</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1725,28 +1822,8 @@ FROM S_TASKS
     </partitioning>
     <fields>
       <field>
-        <name>duration_hours</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>duration_minutes</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
+        <name>date_start</name>
+        <replaceby>date_entered</replaceby>
       </field>
     </fields>
     <cluster_schema />
@@ -1757,8 +1834,8 @@ FROM S_TASKS
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>576</yloc>
+      <xloc>288</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
