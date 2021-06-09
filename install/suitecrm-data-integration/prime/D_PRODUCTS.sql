@@ -22,6 +22,28 @@ INSERT INTO D_PRODUCTS
 	,PRODUCT_CATEGORY_DELETED
 )
 VALUES (
+        -1
+        ,1
+        ,{ts '1900-01-01 00:00:00.'}
+        ,{ts '2200-01-01 00:00:00.'}
+        ,'N/A'
+        ,'Service Line Item'
+        ,'Service Line Item'
+        ,'No'
+        ,'Not Set'
+        ,'Not Set'
+        ,'Not Set'
+        ,0
+        ,'Not Set'
+        ,0
+        ,'Not Set'
+        ,'Not Set'
+        ,'Not Set'
+        ,'Service Line Item'
+        ,'Service Line Item'
+        ,0
+),
+	(
         0
         ,1
         ,{ts '1900-01-01 00:00:00.'}
