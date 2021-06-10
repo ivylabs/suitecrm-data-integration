@@ -6,6 +6,7 @@
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -513,11 +514,6 @@
   </connection>
   <order>
     <hop>
-      <from>S_PRODUCT_QUOTES</from>
-      <to>Drop / Rename</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Filter Invoice Items</from>
       <to>Lookup Invoice</to>
       <enabled>Y</enabled>
@@ -530,11 +526,6 @@
     <hop>
       <from>ACCOUNT_TK</from>
       <to>ASSIGNED_USER_TK</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Drop / Rename</from>
-      <to>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -585,6 +576,51 @@
     <hop>
       <from>Set PRODUCT_TK -1</from>
       <to>ACCOUNT_TK</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>deleted = 1</from>
+      <to>Lookup Existing</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>S_PRODUCT_QUOTES</from>
+      <to>Drop / Rename</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Lookup Existing</from>
+      <to>New Record?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop / Rename</from>
+      <to>deleted = 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>deleted = 1</from>
+      <to>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New Record?</from>
+      <to>Drop INVOICE_TK</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop INVOICE_TK</from>
+      <to>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New Record?</from>
+      <to>Update Record</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Update Record</from>
+      <to>Update</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -697,6 +733,53 @@
     <GUI>
       <xloc>1408</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Lookup Existing</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>F_INVOICE_MANAGEMENT</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>INVOICE_LINE_ID</name>
+        <field>INVOICE_LINE_ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>INVOICE_TK</name>
+        <rename>INVOICE_TK</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -966,6 +1049,81 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
+    <name>Drop INVOICE_TK</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>INVOICE_LINE_ID</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_QUANTITY</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_COST_PRICE_AMOUNT</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_LIST_PRICE_AMOUNT</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_DISCOUNT_VALUE</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_DISCOUNT_AMOUNT</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_DISCOUNT_TYPE</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_UNIT_PRICE_AMOUNT</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_TOTAL_VAT_AMOUNT</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_TOTAL_AMOUNT</name>
+      </field>
+      <field>
+        <name>vat</name>
+      </field>
+      <field>
+        <name>PARENT_TYPE</name>
+      </field>
+      <field>
+        <name>PARENT_ID</name>
+      </field>
+      <field>
+        <name>PRODUCT_ID</name>
+      </field>
+      <field>
+        <name>group_id</name>
+      </field>
+      <field>
+        <name>INVOICE_LINE_DELETED</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>F_INVOICE_MANAGEMENT</name>
     <type>InsertUpdate</type>
     <description />
@@ -1209,7 +1367,7 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
+      <xloc>448</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1417,6 +1575,92 @@ var INVOICE_DUE_DATE_TK = str2num(date2str(INVOICE_DUE_DATE,"yyyyMMdd"));
     </GUI>
   </step>
   <step>
+    <name>New Record?</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Drop INVOICE_TK</send_true_to>
+    <send_false_to>Update Record</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>INVOICE_TK</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PRODUCT_ID = 0</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set PRODUCT_TK -1</send_true_to>
+    <send_false_to>PRODUCT_TK</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>PRODUCT_ID</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>PRODUCT_TK</name>
     <type>DimensionLookup</type>
     <description />
@@ -1521,49 +1765,6 @@ FROM S_PRODUCT_QUOTES</sql>
     </GUI>
   </step>
   <step>
-    <name>PRODUCT_ID = 0</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Set PRODUCT_TK -1</send_true_to>
-    <send_false_to>PRODUCT_TK</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>PRODUCT_ID</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Set PRODUCT_TK -1</name>
     <type>Constant</type>
     <description />
@@ -1597,6 +1798,117 @@ FROM S_PRODUCT_QUOTES</sql>
     </remotesteps>
     <GUI>
       <xloc>1088</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update</name>
+    <type>Update</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field />
+    <lookup>
+      <schema />
+      <table>F_INVOICE_MANAGEMENT</table>
+      <key>
+        <name>INVOICE_LINE_ID</name>
+        <field>INVOICE_LINE_ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>INVOICE_LINE_DELETED</name>
+        <rename>INVOICE_LINE_DELETED</rename>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update Record</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>deleted = 1</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Lookup Existing</send_true_to>
+    <send_false_to>INVOICE_LINE_TOTAL_DISCOUNT_AMOUNT</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>INVOICE_LINE_DELETED</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>

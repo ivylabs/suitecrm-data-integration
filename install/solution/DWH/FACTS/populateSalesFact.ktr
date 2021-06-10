@@ -513,11 +513,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drop / Rename</from>
-      <to>SALE_TOTAL_DISCOUNT_AMOUNT</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>SALE_TOTAL_DISCOUNT_AMOUNT</from>
       <to>Filter Invoice Items</to>
       <enabled>Y</enabled>
@@ -577,6 +572,46 @@
       <to>F_SALES</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Lookup Existing</from>
+      <to>New Record?</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New Record?</from>
+      <to>Drop INVOICE_TK</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>New Record?</from>
+      <to>Update Record</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Update Record</from>
+      <to>Update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>deleted = 1</from>
+      <to>Lookup Existing</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop / Rename</from>
+      <to>deleted = 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>deleted = 1</from>
+      <to>SALE_TOTAL_DISCOUNT_AMOUNT</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Drop INVOICE_TK</from>
+      <to>SALE_TOTAL_DISCOUNT_AMOUNT</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>ACCOUNT_TK</name>
@@ -629,7 +664,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>928</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -685,7 +720,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>768</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -730,7 +765,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>768</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -781,6 +816,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </field>
       <field>
         <name>vat</name>
+        <rename />
       </field>
       <field>
         <name>parent_type</name>
@@ -796,6 +832,11 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </field>
       <field>
         <name>group_id</name>
+        <rename />
+      </field>
+      <field>
+        <name>deleted</name>
+        <rename>SALE_LINE_DELETED</rename>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -843,51 +884,71 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
     <fields>
       <field>
         <name>SALE_ID</name>
+        <rename />
       </field>
       <field>
         <name>SALE_QUANTITY</name>
+        <rename />
       </field>
       <field>
         <name>SALE_COST_PRICE_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>SALE_LIST_PRICE_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>SALE_DISCOUNT_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>SALE_UNIT_PRICE_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>SALE_TOTAL_VAT_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>SALE_TOTAL_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>SALE_VAT_VALUE</name>
+        <rename />
       </field>
       <field>
         <name>SALE_TOTAL_DISCOUNT_AMOUNT</name>
+        <rename />
       </field>
       <field>
         <name>PRODUCT_TK</name>
+        <rename />
       </field>
       <field>
         <name>BILLING_ACCOUNT_TK</name>
+        <rename />
       </field>
       <field>
         <name>ASSIGNED_USER_TK</name>
+        <rename />
       </field>
       <field>
         <name>INVOICE_TK</name>
+        <rename />
       </field>
       <field>
         <name>SALE_PAID_DATE_TK</name>
+        <rename />
       </field>
       <field>
         <name>SALE_DELETED</name>
+        <rename />
+      </field>
+      <field>
+        <name>SALE_LINE_DELETED</name>
+        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -916,7 +977,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </output>
     </remotesteps>
     <GUI>
-      <xloc>608</xloc>
+      <xloc>928</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1024,6 +1085,11 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
         <rename>SALE_DELETED</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>SALE_LINE_DELETED</name>
+        <rename>SALE_LINE_DELETED</rename>
+        <update>N</update>
+      </value>
     </lookup>
     <cluster_schema />
     <remotesteps>
@@ -1033,7 +1099,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>1248</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1180,8 +1246,59 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </output>
     </remotesteps>
     <GUI>
+      <xloc>1248</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null</name>
+    <type>IfNull</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <replaceAllByValue />
+    <replaceAllMask />
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>SALE_QUANTITY</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>SALE_COST_PRICE_AMOUNT</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>SALE_TOTAL_DISCOUNT_AMOUNT</name>
+        <value>0</value>
+        <mask />
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>1088</xloc>
-      <yloc>288</yloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1310,6 +1427,49 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
     </GUI>
   </step>
   <step>
+    <name>PRODUCT_ID = 0</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set PRODUCT_TK -1</send_true_to>
+    <send_false_to>PRODUCT_TK</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>PRODUCT_ID</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>PRODUCT_TK</name>
     <type>DimensionLookup</type>
     <description />
@@ -1360,7 +1520,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>1088</xloc>
       <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1462,6 +1622,7 @@ var SALE_PAID_DATE_TK = str2num(date2str(SALE_DATE_PAID_TK,"yyyyMMdd"));</jsScri
 , parent_id
 , product_id
 , group_id
+, deleted
 FROM S_PRODUCT_QUOTES</sql>
     <limit>0</limit>
     <lookup />
@@ -1478,49 +1639,6 @@ FROM S_PRODUCT_QUOTES</sql>
     <GUI>
       <xloc>128</xloc>
       <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PRODUCT_ID = 0</name>
-    <type>FilterRows</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <send_true_to>Set PRODUCT_TK -1</send_true_to>
-    <send_false_to>PRODUCT_TK</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>PRODUCT_ID</leftvalue>
-        <function>=</function>
-        <rightvalue />
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>0</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask />
-        </value>
-      </condition>
-    </compare>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1557,14 +1675,14 @@ FROM S_PRODUCT_QUOTES</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>1088</xloc>
       <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
+    <name>Lookup Existing</name>
+    <type>DBLookup</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -1573,32 +1691,111 @@ FROM S_PRODUCT_QUOTES</sql>
       <method>none</method>
       <schema_name />
     </partitioning>
-    <replaceAllByValue />
-    <replaceAllMask />
-    <selectFields>Y</selectFields>
-    <selectValuesType>N</selectValuesType>
-    <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
+    <connection>SuiteCRMAnalytics</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema />
+      <table>F_SALES</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>SALE_ID</name>
+        <field>SALE_ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>INVOICE_TK</name>
+        <rename>INVOICE_TK</rename>
+        <default />
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Drop INVOICE_TK</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
     <fields>
       <field>
+        <name>SALE_ID</name>
+        <rename />
+      </field>
+      <field>
         <name>SALE_QUANTITY</name>
-        <value>0</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
+        <rename />
       </field>
       <field>
         <name>SALE_COST_PRICE_AMOUNT</name>
-        <value>0</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
+        <rename />
       </field>
       <field>
-        <name>SALE_TOTAL_DISCOUNT_AMOUNT</name>
-        <value>0</value>
-        <mask />
-        <set_empty_string>N</set_empty_string>
+        <name>SALE_LIST_PRICE_AMOUNT</name>
+        <rename />
       </field>
+      <field>
+        <name>SALE_DISCOUNT_AMOUNT</name>
+        <rename />
+      </field>
+      <field>
+        <name>SALE_UNIT_PRICE_AMOUNT</name>
+        <rename />
+      </field>
+      <field>
+        <name>SALE_TOTAL_VAT_AMOUNT</name>
+        <rename />
+      </field>
+      <field>
+        <name>SALE_TOTAL_AMOUNT</name>
+        <rename />
+      </field>
+      <field>
+        <name>vat</name>
+        <rename />
+      </field>
+      <field>
+        <name>PARENT_TYPE</name>
+        <rename />
+      </field>
+      <field>
+        <name>PARENT_ID</name>
+        <rename />
+      </field>
+      <field>
+        <name>PRODUCT_ID</name>
+        <rename />
+      </field>
+      <field>
+        <name>group_id</name>
+        <rename />
+      </field>
+      <field>
+        <name>SALE_LINE_DELETED</name>
+        <rename />
+      </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -1608,8 +1805,162 @@ FROM S_PRODUCT_QUOTES</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>544</yloc>
+      <xloc>448</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>New Record?</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Drop INVOICE_TK</send_true_to>
+    <send_false_to>Update Record</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>INVOICE_TK</leftvalue>
+        <function>IS NULL</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update</name>
+    <type>Update</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>SuiteCRMAnalytics</connection>
+    <skip_lookup>N</skip_lookup>
+    <commit>100</commit>
+    <use_batch>N</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field />
+    <lookup>
+      <schema />
+      <table>F_SALES</table>
+      <key>
+        <name>SALE_ID</name>
+        <field>SALE_ID</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>SALE_LINE_DELETED</name>
+        <rename>SALE_LINE_DELETED</rename>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Update Record</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>deleted = 1</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Lookup Existing</send_true_to>
+    <send_false_to>SALE_TOTAL_DISCOUNT_AMOUNT</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>SALE_LINE_DELETED</leftvalue>
+        <function>=</function>
+        <rightvalue />
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>1</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask />
+        </value>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
