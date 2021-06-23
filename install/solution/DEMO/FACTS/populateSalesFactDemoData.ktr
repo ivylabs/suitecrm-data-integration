@@ -430,7 +430,7 @@
     <created_date>2021/04/28 11:39:31.922</created_date>
     <modified_user>-</modified_user>
     <modified_date>2021/04/28 11:39:31.922</modified_date>
-    <key_for_session_key />
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -746,6 +746,10 @@ Alert((str2num(str2)));</jsScript_script>
         <name>SALE_PAID</name>
         <rename>SALE_PAID_DATE_TK</rename>
       </field>
+      <field>
+        <name>SALE_LINE_DELETED</name>
+        <rename />
+      </field>
       <select_unspecified>N</select_unspecified>
     </fields>
     <cluster_schema />
@@ -853,6 +857,10 @@ Alert((str2num(str2)));</jsScript_script>
       <field>
         <column_name>SALE_PAID_DATE_TK</column_name>
         <stream_name>SALE_PAID_DATE_TK</stream_name>
+      </field>
+      <field>
+        <column_name>SALE_LINE_DELETED</column_name>
+        <stream_name>SALE_LINE_DELETED</stream_name>
       </field>
     </fields>
     <cluster_schema />
@@ -980,13 +988,13 @@ Alert((str2num(str2)));</jsScript_script>
       </field>
       <field>
         <name>SALE_QUANTITY</name>
-        <type>Number</type>
-        <format>#.#</format>
+        <type>Integer</type>
+        <format>#</format>
         <currency>£</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>5</length>
-        <precision>1</precision>
+        <length>15</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
@@ -1090,6 +1098,17 @@ Alert((str2num(str2)));</jsScript_script>
       </field>
       <field>
         <name>SALE_PAID_DATE_TK</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>£</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SALE_LINE_DELETED</name>
         <type>Integer</type>
         <format>#</format>
         <currency>£</currency>
